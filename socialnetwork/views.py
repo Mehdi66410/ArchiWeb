@@ -1,5 +1,5 @@
 # Importation des bibiliothèques
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -14,20 +14,30 @@ def index(request):
 	if not request.user.is_authenticated:
 		return redirect(connexion)
 	else:
-		return HttpResponse('Bienvenue')
+		return redirect(deconnexion)
 
 def connexion(request):
 	if request.method == 'POST':
-		user = authenticate(username=request.POST['username'],
-			password=request.POST['password'])
-		if user is not None:
-			login(request, user)
-			return redirect(index)
-		else:
-			return HttpResponse('Erreur de login ou de mot de passe')
+		form = loginForm(request.POST)
+		if form.is_valid():
+			user = authenticate(username=request.POST['username'],
+				password=request.POST['password'])
+			if user is not None:
+				login(request, user)
+				return redirect(deconnexion)
 	else:
 		form = loginForm()
 	return render(request, 'socialnetwork/login.html', {'form': form})
+
+def deconnexion(request):
+	if request.method == 'POST':
+		logout(request)
+		return redirect(index)
+	else:
+		if not request.user.is_authenticated:
+			return redirect(connexion)
+		else:
+			return render(request, 'socialnetwork/logout.html')
 
 def inscription(request):
 	if request.method == 'POST':

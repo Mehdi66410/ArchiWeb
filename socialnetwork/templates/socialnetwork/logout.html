@@ -10,12 +10,11 @@
 
 {% block bootstrap3_content %}
     <div class="container">
-        <h2>{% block title %} Connexion {% endblock %}</h2>
-        <form action="connexion" method="post" class="form">
+        <h2>{% block title %} Deconnexion {% endblock %}</h2>
+        <form action="deconnexion" method="post" class="form">
             {% csrf_token %}
-            {% bootstrap_form form layout='inline' %}
             {% buttons %}
-                <button type="submit" class="btn btn-primary"> Connexion </button>
+                <button type="submit" class="btn btn-danger"> Déconnexion </button>
             {% endbuttons %}
         </form>
     </div>

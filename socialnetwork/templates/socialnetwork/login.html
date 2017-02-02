@@ -1,0 +1,24 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block bootstrap3_content %}
+    <div class="container">
+        <h2>{% block title %} Connexion {% endblock %}</h2>
+        <form action="connexion" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form layout='inline' %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% bootstrap_icon "star" %} Submit
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
+{% endblock %}

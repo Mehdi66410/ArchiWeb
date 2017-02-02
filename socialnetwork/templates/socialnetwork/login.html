@@ -1,16 +1,24 @@
 {# Load the tag library #}
 {% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
 {# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
 
 {% block bootstrap3_content %}
     <div class="container">
         <h2>{% block title %} Connexion {% endblock %}</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable"{% endif %}>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <form action="connexion" method="post" class="form">
             {% csrf_token %}
             {% bootstrap_form form layout='inline' %}

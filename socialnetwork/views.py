@@ -1,4 +1,5 @@
 # Importation des bibiliothèques
+from django.contrib	import messages
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -25,6 +26,8 @@ def connexion(request):
 			if user is not None:
 				login(request, user)
 				return redirect(deconnexion)
+			else:
+				messages.add_message(request, messages.WARNING, "Erreur de mot de passe ou de nom d'utilisateur")
 	else:
 		form = loginForm()
 	return render(request, 'socialnetwork/login.html', {'form': form})

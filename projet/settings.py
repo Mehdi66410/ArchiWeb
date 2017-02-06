@@ -62,7 +62,7 @@ ROOT_URLCONF = 'projet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Hactogeek/Documents/L3SPI/ArchiWeb/projet/projet/socialnetwork/templates'],
+        'DIRS': ['../ArchiWeb/socialnetwork/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

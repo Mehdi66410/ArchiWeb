@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 FIXTURE_DIRS = (
-                './fixtures/',
+                './projet/fixtures/',
 )
 
 # Internationalization

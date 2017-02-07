@@ -11,11 +11,11 @@ from django.contrib.auth.models import User
 from .forms import loginForm, registerForm
 
 def accueil(request):
-    return render(request,'socialnetwork/base.html')
+    return render(request,'socialnetwork/index.html')
 
 def index(request):
 	if not request.user.is_authenticated:
-		return redirect(connexion)
+		return render(request,'socialnetwork/index.html')
 	else:
 		return redirect(deconnexion)
 

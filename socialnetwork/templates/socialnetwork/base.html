@@ -1,16 +1,28 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
 {% load staticfiles %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <meta charset="utf-8">
+        <title>Vis Ton Meeting</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
+
     <body>
-        <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+        <header>
+            <div class="page-header">
+                <h1><a href="/index">Vis Ton Meeting</a></h1>
+            </div>
+        </header>
+
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
@@ -19,5 +31,18 @@
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/index">A propos</a></li>
+                </ul>       
+               </div>       
+            <div>
+                <p>© 2017 Vis Ton Meeting. All rights reserved. </p>
+            </div>
+        </footer>
     </body>
+
 </html>

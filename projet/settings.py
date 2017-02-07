@@ -124,8 +124,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = (
+                    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+                    # Always use forward slashes, even on Windows.
+                    # Don't forget to use absolute paths, not relative paths.
+                    '/../socialnetwork/static/',
+                    )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '../socialnetwork/static/'
+STATIC_URL = '/static/'

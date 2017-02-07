@@ -10,9 +10,6 @@ from django.contrib.auth.models import User
 # Importation des formulaires
 from .forms import loginForm, registerForm
 
-def accueil(request):
-    return render(request,'socialnetwork/index.html')
-
 def index(request):
 	if not request.user.is_authenticated:
 		return render(request,'socialnetwork/index.html')

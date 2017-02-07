@@ -9,5 +9,6 @@ urlpatterns = [
 	url(r'^inscription$', views.inscription, name='inscription'),
 	url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),  # <--
 	url(r'^index/$', views.index, name='index'),
+	url(r'^accueil$',views.accueil,name='accueil'),
     url(r'^$', views.index, name='index'),
 ]

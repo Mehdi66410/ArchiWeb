@@ -123,6 +123,8 @@ FIXTURE_DIRS = (
                 './fixtures/',
 )
 
+CITIES_LIGHT_APP_NAME = 'socialnetwork'
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 

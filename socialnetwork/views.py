@@ -11,10 +11,13 @@ from django.contrib.auth.models import User
 from .forms import loginForm, registerForm
 
 def index(request):
-	if not request.user.is_authenticated:
-		return render(request,'socialnetwork/index.html')
-	else:
-		return redirect(deconnexion)
+    if request.method == 'POST':
+        return redirect(inscription)
+    else :
+        if not request.user.is_authenticated:
+            return render(request,'socialnetwork/index.html')
+        else:
+            return redirect(deconnexion)
 
 def connexion(request):
 	if request.method == 'POST':
@@ -46,7 +49,7 @@ def inscription(request):
 		form = registerForm(request.POST)
 		if form.is_valid():
 			user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
-				email=request.POST['email'], first_name=request.POST['first_name'], last_name=request.POST['last_name'])
+				email=request.POST['email'], first_name=request.POST['First Name'], last_name=request.POST['Last Name'])
 			user.save()
 			return redirect(connexion)
 	else:

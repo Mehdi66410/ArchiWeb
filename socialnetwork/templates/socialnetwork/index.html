@@ -2,15 +2,15 @@
 
 {# Load the tag library #}
 {% load bootstrap3 %}
-{% load bootstrap_ui_tags %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-{% csrf_token %}
-
 {# Display django.contrib.messages as Bootstrap alerts #}
-{% load staticfiles %}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
 
+{% csrf_token %}
+{#<link rel="stylesheet" href="{% static 'css/index.css' %}">#}
 {% block content %}
     {% for post in posts %}
         <div class="post">
@@ -21,7 +21,6 @@
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% block bootstrap3_content %}
 
 <body>

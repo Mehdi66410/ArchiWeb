@@ -1,10 +1,12 @@
 {# Load the tag library #}
 {% load bootstrap3 %}
-{% load bootstrap_ui_tags %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+
 {% load staticfiles %}
 <html>
     <head>

@@ -14,14 +14,19 @@
 body {
     background: white url("images/fond_ecran.jpeg") no-repeat right bottom;
 }
+
+h1{
+    font-size: 40px;
+}
 .cote_gauche{
     text-align: center;
     color: white;
-    font-size: 25px;
-    margin-left: -500%;
-    padding-left: 15px;
-
+    margin-left: -250%;
+    width: 455px;
+    position: absolute;
+    margin-top: 170px;
 }
+
 .container {
     width: 400px;
     

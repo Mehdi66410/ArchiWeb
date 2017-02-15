@@ -5,8 +5,8 @@ from . import views
 
 urlpatterns = [
 	url(r'^connexion$', views.connexion, name='connexion'),
+    url(r'^inscription$', views.inscription, name='inscription'),
 	url(r'^deconnexion$', views.deconnexion, name='deconnexion'),
-	url(r'^inscription$', views.inscription, name='inscription'),
 	url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),  # <--
 	url(r'^index/$', views.index, name='index'),
     url(r'^$', views.index, name='index'),

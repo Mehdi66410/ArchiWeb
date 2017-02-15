@@ -2,6 +2,7 @@
 from django.contrib	import messages
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.template import RequestContext
 from django.shortcuts import redirect, render
 
 # Importation des modèles
@@ -10,14 +11,23 @@ from django.contrib.auth.models import User
 # Importation des formulaires
 from .forms import loginForm, registerForm
 
+
 def index(request):
     if request.method == 'POST':
-        return redirect(inscription)
+    	form = registerForm(request.POST)
+    	user = User.objects.create_user(password=request.POST['password'],email=request.POST['email'],username=request.POST.get('email'))
+    	user.save()
+    	form = registerForm()
+    	return render(request, 'socialnetwork/index.html', {'form': form})
     else :
-        if not request.user.is_authenticated:
-            return render(request,'socialnetwork/index.html')
-        else:
-            return redirect(deconnexion)
+    	if not request.user.is_authenticated:
+    		return render(request,'socialnetwork/index.html')
+    	else:
+    		return redirect(deconnexion)
+
+def csrf_failure(request, reason=""):
+	return  HttpResponseForbidden("Access denied")
+
 
 def connexion(request):
 	if request.method == 'POST':
@@ -48,10 +58,12 @@ def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)
 		if form.is_valid():
-			user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
-				email=request.POST['email'], first_name=request.POST['First Name'], last_name=request.POST['Last Name'])
+			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'], first_name=request.POST['first_name'], last_name=request.POST['last_name'])
 			user.save()
 			return redirect(connexion)
-	else:
-		form = registerForm()
-	return render(request, 'socialnetwork/registration.html', {'form': form})
+		else:
+			form = registerForm()
+		return render(request, 'socialnetwork/registration.html', {'form': form})
+
+
+

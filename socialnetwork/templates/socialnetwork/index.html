@@ -11,8 +11,8 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-{% block header %}
-    <form id="signin" class="navbar-form navbar-right" role="form">
+{% block header%}
+    <form id="signin" class="navbar-form navbar-right" role="form" action="inscription" method="post">
         <div class="input-group">
             <span class="input-group-addon success"><i class="glyphicon glyphicon-user"></i></span>
             <input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse email">                    
@@ -21,9 +21,14 @@
             <span class="input-group-addon success"><i class="glyphicon glyphicon-lock"></i></span>
             <input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">                                        
         </div>
-        <button type="submit" class="btn btn-green">Connexion</button>
+        <form action="connexion" method="post" class="form">
+            {% csrf_token %}
+            {% buttons %}
+                <button type="submit" class="btn btn-green">Connexion</button>
+            {% endbuttons %}
+        </form>
     </form>
-{% endblock header %}
+{% endblock header%}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -88,7 +93,12 @@
                         <input  type="password" class="form-control" name="password" placeholder="Mot de passe">
                     </div>
                     <span class="help-block"></span>
-                    <button class="btn btn-lg btn-green btn-block" type="submit">Inscription</button>
+                    <form action="connexion" method="post" class="form">
+                        {% csrf_token %}
+                        {% buttons %}
+                            <button class="btn btn-lg btn-green btn-block" type="submit">Inscription</button>
+                        {% endbuttons %}
+                    </form>
                 </form>
                 <div>
                     <p class="omb_forgotPwd">

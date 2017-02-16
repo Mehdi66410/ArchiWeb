@@ -10,6 +10,7 @@ urlpatterns = [
 	url(r'^listUser$', views.listUser, name='listUser'),
 	url(r'^addFriend$', views.addFriend, name='addFriend'),
 	url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),  # <--
+	url(r'^menu/$', views.menu, name='menu'),
 	url(r'^index/$', views.index, name='index'),
     url(r'^$', views.index, name='index'),
 ]

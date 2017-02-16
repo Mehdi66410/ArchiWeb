@@ -11,7 +11,6 @@ from django.contrib.auth.models import User
 # Importation des formulaires
 from .forms import loginForm, registerForm
 
-
 def index(request):
     if request.method == 'POST':
     	form = registerForm(request.POST)
@@ -28,6 +27,8 @@ def index(request):
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
 
+def menu(request):
+	return render(request, 'socialnetwork/menu.html')
 
 def connexion(request):
 	if request.method == 'POST':

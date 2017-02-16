@@ -25,24 +25,15 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
                 </div>
-                <form id="signin" class="navbar-form navbar-right" role="form">
-                    <div class="input-group">
-                        <span class="input-group-addon success"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse email">                                        
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon success"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">                                        
-                    </div>
-                    <button type="submit" class="btn btn-green">Connexion</button>
-                </form>
+                {% block header %}
+                {% endblock header %}
             </div>
         </nav>
     </header>
 
     <body>
         {% block content %}
-        {% endblock %}
+        {% endblock content %}
 
     </body>
 

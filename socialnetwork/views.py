@@ -22,9 +22,6 @@ def index(request):
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
 
-def menu(request):
-	return render(request, 'socialnetwork/menu.html')
-
 def connexion(request):
 	if request.method == 'POST':
 		formLogin = loginForm(request.POST)
@@ -48,7 +45,7 @@ def deconnexion(request):
 		if not request.user.is_authenticated:
 			return redirect(connexion)
 		else:
-			return render(request, 'socialnetwork/logout.html')
+			return render(request, 'socialnetwork/menu.html')
 
 def inscription(request):
 	if request.method == 'POST':

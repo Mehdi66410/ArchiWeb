@@ -1,8 +1,12 @@
+.body{
+    padding-left:50px;
+}
+
 .cote_gauche{
     text-align: center;
     position: absolute;
     width: 40%;
-    margin-top: 170px;
+    margin-top: 150px;
 }
 
 .cote_gauche h1{
@@ -13,7 +17,7 @@
 
 .line{
     width:3px;
-    height:100%;
+    height:80%;
     background-color: #cdcdcd;
     position: relative;
     margin-left: 45%;

@@ -14,6 +14,7 @@
         <title>Vis Ton Meeting</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
@@ -44,18 +45,16 @@
         {% block content %}
         {% endblock %}
 
-
-        <footer>
-            <div>
-                <ul>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/index">A propos</a></li>
-                </ul>       
-               </div>       
-            <div>
-                <p>© 2017 Vis Ton Meeting. All rights reserved. </p>
-            </div>
-        </footer>
     </body>
+
+    <footer>
+        <div class="footer">
+            <a href="https://facebook.com"/><i class="fa fa-facebook fa-3x fa-fw"></i></a>
+            <a href="https://twitter.com"/><i class="fa fa-twitter fa-3x fa-fw"></i></a>
+            <a href="https://linkedin.com"/><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
+            <a href="https://github.com/"><i class="fa fa-github fa-3x fa-fw"></i></a></li>
+            <p class="text-white">© 2017 Vis Ton Meeting. All rights reserved.</p>
+         </div>
+    </footer>
 
 </html>

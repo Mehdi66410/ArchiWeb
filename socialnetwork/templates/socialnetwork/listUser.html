@@ -1,0 +1,44 @@
+{% extends 'socialnetwork/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <h2>{% block title %} Liste des utilisateurs du site : {% endblock %}</h2>
+        <table class="table table-striped">
+	       <thead>
+              <tr>
+              	<th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+		        {% for user in users %}
+		            <tr>
+		            	<td> {{ user.username }} </td>
+		            	<td> {{ user.first_name }}</td>
+		            	<td> {{ user.last_name }}</td>
+		            	<td>
+		            		<form action="addFriend" method="POST" class="form">
+		            			{% csrf_token %}
+		            			<input type="hidden" name='idFriend' value={{ user.id }} >
+								{% bootstrap_button "Ajouter" button_type="submit" button_class="btn-primary" %}
+		            		</form>
+		            	</td>
+		            </tr>
+		        {% endfor %}
+		    </tbody>
+        </table>
+    </div>
+{% endblock content %}
+

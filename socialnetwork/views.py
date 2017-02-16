@@ -65,5 +65,21 @@ def inscription(request):
 			form = registerForm()
 		return render(request, 'socialnetwork/registration.html', {'form': form})
 
+#Vérifier si l'utilisateur est connecté
+#Exclure l'utilisateur
+#Exclure les utilisateurs avec qui il est déjà amis
+def listUser(request):
+	users  = User.objects.all().exclude(is_staff=True)
+	return render(request, 'socialnetwork/listUser.html', {'users': users})
+
+#Vérifier si l'utilisateur est connecté
+#Ajouter dans la base si tous les champs sont bon
+def addFriend(request):
+	if request.method == 'POST':
+		form = request.POST
+		#if form.is_valid():
+
+	return redirect(listUser)
+
 
 

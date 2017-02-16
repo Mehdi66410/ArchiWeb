@@ -12,17 +12,12 @@ from django.contrib.auth.models import User
 from .forms import loginForm, registerForm
 
 def index(request):
-    if request.method == 'POST':
-    	form = registerForm(request.POST)
-    	user = User.objects.create_user(password=request.POST['password'],email=request.POST['email'],username=request.POST.get('email'))
-    	user.save()
-    	form = registerForm()
-    	return render(request, 'socialnetwork/index.html', {'form': form})
-    else :
-    	if not request.user.is_authenticated:
-    		return render(request,'socialnetwork/index.html')
-    	else:
-    		return redirect(deconnexion)
+	if not request.user.is_authenticated:
+		formRegister = registerForm()
+		formLogin = loginForm()
+		return render(request,'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin})
+	else:
+		return redirect(deconnexion)
 
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
@@ -32,18 +27,18 @@ def menu(request):
 
 def connexion(request):
 	if request.method == 'POST':
-		form = loginForm(request.POST)
-		if form.is_valid():
-			user = authenticate(username=request.POST['username'],
-				password=request.POST['password'])
+		formLogin = loginForm(request.POST)
+		if formLogin.is_valid():
+			user = authenticate(username=request.POST['username'], password=request.POST['password'])
 			if user is not None:
 				login(request, user)
 				return redirect(deconnexion)
 			else:
 				messages.add_message(request, messages.WARNING, "Erreur de mot de passe ou de nom d'utilisateur")
 	else:
-		form = loginForm()
-	return render(request, 'socialnetwork/login.html', {'form': form})
+		formLogin = loginForm()
+	formRegister = registerForm()
+	return render(request, 'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin})
 
 def deconnexion(request):
 	if request.method == 'POST':
@@ -59,12 +54,12 @@ def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)
 		if form.is_valid():
-			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'], first_name=request.POST['first_name'], last_name=request.POST['last_name'])
+			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
 			user.save()
 			return redirect(connexion)
-		else:
-			form = registerForm()
-		return render(request, 'socialnetwork/registration.html', {'form': form})
+	else:
+		form = registerForm()
+	return render(request, 'socialnetwork/registration.html', {'form': form})
 
 #Vérifier si l'utilisateur est connecté
 #Exclure l'utilisateur

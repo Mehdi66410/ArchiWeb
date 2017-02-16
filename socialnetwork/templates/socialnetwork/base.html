@@ -19,29 +19,28 @@
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
 
-    <body>
-        <header>
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
-                    </div>
-                    <form id="signin" class="navbar-form navbar-right" role="form">
-                        <div class="input-group">
-                            <span class="input-group-addon success"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse email">                                        
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon success"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">                                        
-                        </div>
-                        <button type="submit" class="btn btn-green">Connexion</button>
-                    </form>
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
                 </div>
-            </nav>
-        </header>
+                <form id="signin" class="navbar-form navbar-right" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon success"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse email">                                        
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon success"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">                                        
+                    </div>
+                    <button type="submit" class="btn btn-green">Connexion</button>
+                </form>
+            </div>
+        </nav>
+    </header>
 
-        
+    <body>
         {% block content %}
         {% endblock %}
 
@@ -53,7 +52,7 @@
             <a href="https://twitter.com"/><i class="fa fa-twitter fa-3x fa-fw"></i></a>
             <a href="https://linkedin.com"/><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
             <a href="https://github.com/"><i class="fa fa-github fa-3x fa-fw"></i></a></li>
-            <p class="text-white">© 2017 Vis Ton Meeting. All rights reserved.</p>
+            <h3>© 2017 Vis Ton Meeting. All rights reserved.</h3>
          </div>
     </footer>
 

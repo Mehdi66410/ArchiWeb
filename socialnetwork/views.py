@@ -62,10 +62,10 @@ def inscription(request):
 		if form.is_valid():
 			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
 			user.save()
-			return redirect(connexion)
+			return redirect(index)
 	else:
 		form = registerForm()
-	return render(request, 'socialnetwork/registration.html', {'form': form})
+	return render(request, 'socialnetwork/index.html', {'form': form})
 
 #Vérifier si l'utilisateur est connecté
 #Exclure l'utilisateur

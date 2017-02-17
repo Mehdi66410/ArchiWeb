@@ -67,28 +67,12 @@
 
         <div class="row">
             <div class="col-sm-offset-2 col-sm-8">    
-                <form class="omb_loginForm" action="" autocomplete="off" method="POST">
-                    <div class="input-group">
-                        <span class="input-group-addon success"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="email" placeholder="Adresse email">
-                    </div>
-                    <span class="help-block"></span>
-                    <div class="input-group">
-                        <span class="input-group-addon success"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="username" placeholder="Pseudo">
-                    </div>
-                    <span class="help-block"></span>
-                    <div class="input-group">
-                        <span class="input-group-addon success"><i class="fa fa-lock"></i></span>
-                        <input  type="password" class="form-control" name="password" placeholder="Mot de passe">
-                    </div>
-                    <span class="help-block"></span>
-                    <form action="connexion" method="post" class="form">
-                        {% csrf_token %}
-                        {% buttons %}
-                            <button class="btn btn-lg btn-green btn-block" type="submit">Inscription</button>
-                        {% endbuttons %}
-                    </form>
+                <form class="omb_loginForm" action="inscription" autocomplete="off" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_field formRegister.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                    {% bootstrap_field formRegister.email placeholder='Adresse email' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                    {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                    {% bootstrap_button "Inscription" button_type="submit" button_class="btn btn-lg btn-green" %}
                 </form>
                 <div>
                     <p class="omb_forgotPwd">

@@ -1,0 +1,37 @@
+{% extends 'socialnetwork/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+{% csrf_token %}
+
+
+{% block header %}
+    <form action="deconnexion" class="navbar-form navbar-right" method="post">
+        <div class="input-group">
+            <h2>{% block title %} Bonjour {% if user.is_authenticated %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}</h2>                          
+        </div>
+        <div class="input-group">
+                {% csrf_token %}
+                {% buttons %}
+                <button type="submit" class="btn btn-green">Deconnexion</button>
+                {% endbuttons %}
+        </div>
+    </form>
+{% endblock header%}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<div class="body">
+         
+	</div>
+{% endblock content %}
+

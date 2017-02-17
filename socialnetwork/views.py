@@ -47,6 +47,15 @@ def deconnexion(request):
 		else:
 			return render(request, 'socialnetwork/menu.html')
 
+def rencontre(request):
+	return render(request, 'socialnetwork/rencontre.html')
+
+def sortie(request):
+	return render(request, 'socialnetwork/sortie.html')
+
+def forum(request):
+	return render(request, 'socialnetwork/forum.html')
+
 def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)

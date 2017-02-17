@@ -9,6 +9,7 @@
 
 {% load staticfiles %}
 <html>
+<body>
     <head>
         <meta charset="utf-8">
         <title>Vis Ton Meeting</title>
@@ -31,20 +32,17 @@
         </nav>
     </header>
 
-    <body>
-        {% block content %}
-        {% endblock content %}
-
-    </body>
+    {% block content %}
+    {% endblock content %}
 
     <footer>
         <div class="footer">
-            <a href="https://facebook.com"/><i class="fa fa-facebook fa-3x fa-fw"></i></a>
-            <a href="https://twitter.com"/><i class="fa fa-twitter fa-3x fa-fw"></i></a>
-            <a href="https://linkedin.com"/><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
-            <a href="https://github.com/"><i class="fa fa-github fa-3x fa-fw"></i></a></li>
-            <h3>© 2017 Vis Ton Meeting. All rights reserved.</h3>
+            <a>© 2017 Vis Ton Meeting. All rights reserved.</a>
+            <a href="https://facebook.com"/><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+            <a href="https://twitter.com"/><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+            <a href="https://linkedin.com"/><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+            <a href="https://github.com/"><i class="fa fa-github fa-2x fa-fw"></i></a></li>
          </div>
     </footer>
-
+</body>
 </html>

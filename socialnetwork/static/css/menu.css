@@ -1,0 +1,125 @@
+.bs-calltoaction{
+    position: relative;
+    width:auto;
+    padding: 15px 25px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 40px;
+}
+
+.bs-calltoaction > .row{
+    display:table;
+    width: calc(100% + 30px);
+}
+     
+.bs-calltoaction > .row > [class^="col-"],
+.bs-calltoaction > .row > [class*=" col-"]{
+    float:none;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.cta-contents{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cta-title{
+    margin: 0 auto 15px;
+    padding: 0;
+    font-size: 30pt;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+}
+
+.cta-desc{
+    padding: 0;
+    font-size: 15pt;
+    font-family: 'Lobster', cursive;
+}
+
+.cta-desc p:last-child{
+    margin-bottom: 0;
+}
+
+.cta-button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 991px){
+    .bs-calltoaction > .row{
+        display:block;
+        width: auto;
+    }
+    .bs-calltoaction > .row > [class^="col-"],
+    .bs-calltoaction > .row > [class*=" col-"]{
+        float:none;
+        display:block;
+        vertical-align:middle;
+        position: relative;
+    }
+    .cta-contents{
+        text-align: center;
+    }
+}
+
+.bs-calltoaction.bs-calltoaction-r{
+    color: #A569BD ; 
+    background-color: #5B2C6F;
+    border-color: #A569BD;
+}
+.bs-calltoaction.bs-calltoaction-r .cta-title{
+    color: #FFFFFF ;
+}
+.btn-r{
+    color: #FFFFFF;
+    background-color: #A569BD;
+    border-color: #FFFFFF ;
+    opacity: 0.6;
+}
+.btn-r:hover{
+    color: #FFFFFF ;
+    border-color: #FFFFFF;
+    opacity: 1;
+}
+
+.bs-calltoaction.bs-calltoaction-s{
+    color: #0ea5f5  ;
+    background-color: #151ac2 ;
+    border-color: #0ea5f5  ;
+}
+.bs-calltoaction.bs-calltoaction-s .cta-title{
+    color: #FFFFFF ;
+}
+.btn-s{
+    color: #FFFFFF;
+    background-color: #0ea5f5;
+    border-color: #FFFFFF ;
+    opacity: 0.6;
+}
+.btn-s:hover{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    opacity: 1;
+}
+
+.bs-calltoaction.bs-calltoaction-f{
+    color: #ABEBC6;
+    background-color: #239B56 ;
+    border-color: #ABEBC6 ;
+}
+.bs-calltoaction.bs-calltoaction-f .cta-title{
+    color: #FFFFFF;
+}
+.btn-f{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    opacity: 0.6;
+}
+.btn-f:hover{
+    color: #FFFFFF;
+    background-color: #ABEBC6 ;
+    border-color: #FFFFFF;
+    opacity: 1;
+}

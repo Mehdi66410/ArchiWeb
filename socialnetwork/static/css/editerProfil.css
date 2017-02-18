@@ -1,0 +1,40 @@
+.contour_edit{
+	background-color: #2B2A29;
+    border-radius: 40px;
+    margin-top: 0;
+    color:#FFFF00;
+}
+
+.page-header{
+	margin-top: 0;
+	text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+
+.text-center h6{
+	text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size:12px;
+}
+
+.personal-info h3{
+    font-family: 'Lobster', cursive;
+    font-size:30px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.control-label{
+    font-family: 'Lobster', cursive;
+    font-size:15px;
+}
+
+.bouton{
+	margin-top:9px;
+	margin-bottom:9px;
+}
+
+.well{
+	color:#000000;
+}

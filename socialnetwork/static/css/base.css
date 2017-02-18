@@ -91,6 +91,7 @@ body{
 .lien_bar:hover{
     text-decoration: none;
 }
+
 .lien_bar h2{
     color: #FFFFFF;
     font-size: 15pt;
@@ -101,5 +102,5 @@ body{
 
 .lien_bar h2:hover{
     color: #FFFF00;
-    text-decoration: none;
+    text-decoration: underline;
 }

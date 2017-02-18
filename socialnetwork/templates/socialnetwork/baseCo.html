@@ -28,7 +28,7 @@
                 </div>
                     <form action="deconnexion" class="navbar-form navbar-right" method="post">
                         <div class="input-group">
-                            <a href="editerProfil" class="lien_bar"><h2>{% block title %} Bonjour {% if user.is_authenticated %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}</h2></a>                        
+                            <a href="editerProfil" class="lien_bar"><h2>{% block title %}> Bonjour {% if user.is_authenticated %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2></a>                        
                         </div>
                         <div class="input-group">
                             {% csrf_token %}

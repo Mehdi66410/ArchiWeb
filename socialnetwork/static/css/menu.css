@@ -1,10 +1,11 @@
 .bs-calltoaction{
-    position: relative;
     width:auto;
-    padding: 15px 25px;
+    height: auto;
+    padding: 10px;
     border: 1px solid black;
-    margin-bottom: 10px;
     border-radius: 40px;
+    margin-top: 21px;
+    margin-bottom: 21px;
 }
 
 .bs-calltoaction > .row{
@@ -27,15 +28,17 @@
 .cta-title{
     margin: 0 auto 15px;
     padding: 0;
-    font-size: 30pt;
+    font-size: 25pt;
     font-family: 'Lobster', cursive;
     text-decoration: underline;
+    text-align: center;
 }
 
 .cta-desc{
     padding: 0;
     font-size: 15pt;
     font-family: 'Lobster', cursive;
+    text-align: center;
 }
 
 .cta-desc p:last-child{
@@ -76,7 +79,7 @@
     color: #FFFFFF;
     background-color: #A569BD;
     border-color: #FFFFFF ;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .btn-r:hover{
     color: #FFFFFF ;
@@ -87,7 +90,7 @@
 .bs-calltoaction.bs-calltoaction-s{
     color: #0ea5f5  ;
     background-color: #151ac2 ;
-    border-color: #0ea5f5  ;
+    border-color: #0ea5f5;
 }
 .bs-calltoaction.bs-calltoaction-s .cta-title{
     color: #FFFFFF ;
@@ -96,7 +99,7 @@
     color: #FFFFFF;
     background-color: #0ea5f5;
     border-color: #FFFFFF ;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .btn-s:hover{
     color: #FFFFFF;
@@ -114,8 +117,9 @@
 }
 .btn-f{
     color: #FFFFFF;
+    background-color: #ABEBC6 ;
     border-color: #FFFFFF;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .btn-f:hover{
     color: #FFFFFF;

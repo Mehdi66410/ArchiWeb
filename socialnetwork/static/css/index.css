@@ -1,27 +1,22 @@
-.body{
-    padding-left:50px;
-}
-
 .cote_gauche{
     text-align: center;
-    position: relative;
-    width: 40%;
-    margin-top: 70px;
-}
-
-.cote_gauche h1{
     color: #FFFFFF;
     font-family: 'Lobster', cursive;
-    font-size: 40px;
+    font-size: 30px;
+    position: absolute;
+    width: 40%;
+    padding-left: 50px;
+    margin-top: 10%;
 }
 
 .line{
     width:3px;
-    height:60%;
-    background-color: #cdcdcd;
-    position: relative;
-    margin-left: 45%;
-    margin-top: -16%;
+    height:0%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 2%;
 }
 
 .omb_login{
@@ -29,16 +24,20 @@
     border-color: #000000;
     border-radius: 40px;
     position: relative;
-    margin-top: -35%;
-    margin-left: 50%;
-    width: 45%;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-left: 60%;
+    width: 40%;
+    padding:5px;
 }
 
 @media (min-width: 768px) {
     .omb_row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: auto;
+    }
+    .cote_gauche{
+        font-size: 40px;
+    }
+    .line{
+        height:60%;
     }
 }
 

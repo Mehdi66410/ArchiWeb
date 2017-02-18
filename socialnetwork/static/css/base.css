@@ -34,6 +34,7 @@
 header{
     padding: 50px;
     padding-top: 5px;
+    padding-bottom: 0px;
 }
 
 body{
@@ -45,7 +46,7 @@ body{
 
 .footer{
     background-color: #2B2A29;
-    margin-top: 48px;
+    margin-top: 12px;
     position: relative;
     bottom: 0;
     width: 100%;

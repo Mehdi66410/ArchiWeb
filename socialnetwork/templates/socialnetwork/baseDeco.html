@@ -26,8 +26,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
                 </div>
-                {% block header%}
-                {% endblock header%}
+                    <form action="connexion" class="navbar-form navbar-right" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                        {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                        {% bootstrap_button "Connexion" button_type="submit" button_class="btn btn-green" %}
+                    </form>
             </div>
         </nav>
     </header>

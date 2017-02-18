@@ -1,4 +1,4 @@
-{% extends 'socialnetwork/base.html' %}
+{% extends 'socialnetwork/baseDeco.html' %}
 
 {# Load the tag library #}
 {% load bootstrap3 %}
@@ -10,15 +10,6 @@
 {% bootstrap_messages %}
 {% load staticfiles %}
 {% csrf_token %}
-
-{% block header%}
-    <form action="connexion" class="navbar-form navbar-right" method="post">
-        {% csrf_token %}
-        {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
-        {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
-        {% bootstrap_button "Connexion" button_type="submit" button_class="btn btn-green" %}
-    </form>
-{% endblock header%}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">

@@ -88,10 +88,18 @@ body{
     opacity: 1;
 }
 
-h2{
+.lien_bar:hover{
+    text-decoration: none;
+}
+.lien_bar h2{
     color: #FFFFFF;
     font-size: 15pt;
     font-family: 'Lobster', cursive;
     margin:0;
     padding-right: 15px;
+}
+
+.lien_bar h2:hover{
+    color: #FFFF00;
+    text-decoration: none;
 }

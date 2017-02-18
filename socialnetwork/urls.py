@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^index/connexion$', views.connexion, name='connexion'),
     url(r'^index/inscription$', views.inscription, name='inscription'),
 	url(r'^index/deconnexion$', views.deconnexion, name='deconnexion'),
+	url(r'^index/editerProfil$', views.editerProfil, name='editerProfil'),
 	url(r'^index/rencontre$', views.rencontre, name='rencontre'),
 	url(r'^index/sortie$', views.sortie, name='sortie'),
 	url(r'^index/forum$', views.forum, name='forum'),

@@ -56,6 +56,9 @@ def sortie(request):
 def forum(request):
 	return render(request, 'socialnetwork/forum.html')
 
+def editerProfil(request):
+	return render(request, 'socialnetwork/editerProfil.html')
+
 def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)

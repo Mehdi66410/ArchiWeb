@@ -11,21 +11,6 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-
-{% block header %}
-    <form action="deconnexion" class="navbar-form navbar-right" method="post">
-        <div class="input-group">
-            <h2>{% block title %} Bonjour {% if user.is_authenticated %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}</h2>                          
-        </div>
-        <div class="input-group">
-                {% csrf_token %}
-                {% buttons %}
-                <button type="submit" class="btn btn-green">Deconnexion</button>
-                {% endbuttons %}
-        </div>
-    </form>
-{% endblock header%}
-
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/editerProfil.css' %}">
    

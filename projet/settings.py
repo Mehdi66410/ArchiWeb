@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -76,8 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.apps.django_app.context_processors.backends',  # <--
-                'social.apps.django_app.context_processors.login_redirect', # <--
+                'social.apps.django_app.context_processors.backends',  
+                'social.apps.django_app.context_processors.login_redirect', 
             ],
         },
     },
@@ -100,6 +102,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social.backends.twitter.TwitterOAuth',
     'social.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+
 )
 
 WSGI_APPLICATION = 'projet.wsgi.application'
@@ -169,6 +173,13 @@ LOGIN_URL = 'connexion'
 LOGOUT_URL = 'deconnexion'
 LOGIN_REDIRECT_URL = 'menu'
 
-SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #ID
-SOCIAL_AUTH_FACEBOOK_KEY = '767114453451041' #Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '767114453451041' #ID
 
+SOCIAL_AUTH_TWITTER_KEY = 'lelNMdVqaHQaR70kjcK7y3JDU' #ID
+SOCIAL_AUTH_TWITTER_SECRET = 'G46HKEJT31FojqnerpbM1OzHbXOOiOFFJojh8fzf30sVc4Rr6X' #Secret
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '235234381442-l7d8tf1icitr76hcotuerj59k88oc2ro.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =  '9Y7Oc8rrZVhubaGhx0MWjXZx' 
+SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
+SOCIAL_AUTH_GOOGLE_PLUS_USE_DEPRECATED_API = True

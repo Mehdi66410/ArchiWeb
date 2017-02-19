@@ -30,15 +30,17 @@ SECRET_KEY = '8nbv@js+_(n^^(a#jw2-7bs-q7sr6p3!qcjyhy=_rjcx@anwkj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'socialnetwork.apps.SocialnetworkConfig',
+    'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -56,8 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware', # <--
 ]
+
 
 ROOT_URLCONF = 'projet.urls'
 
@@ -78,13 +82,24 @@ TEMPLATES = [
         },
     },
 ]
+SITE_ID = 3
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'VERIFIED_EMAIL': False
+    }
+}
+
+
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
     'social.backends.twitter.TwitterOAuth',
     'social.backends.facebook.FacebookOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
 )
 
 WSGI_APPLICATION = 'projet.wsgi.application'
@@ -128,7 +143,7 @@ CITIES_LIGHT_APP_NAME = 'socialnetwork'
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-US'
 
 TIME_ZONE = 'UTC'
 
@@ -152,7 +167,8 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'connexion'
 LOGOUT_URL = 'deconnexion'
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'menu'
 
-SOCIAL_AUTH_GITHUB_KEY = '6fb11464d884033384fd'
-SOCIAL_AUTH_GITHUB_SECRET = 'ce95bad3c9a2e6934d8867a83beb7665afe513fb'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #ID
+SOCIAL_AUTH_FACEBOOK_KEY = '767114453451041' #Secret
+

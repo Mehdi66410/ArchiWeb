@@ -20,6 +20,7 @@
                 </div>
                     <form action="deconnexion" class="navbar-form navbar-right" method="post">
                         <div class="input-group">
+<<<<<<< HEAD
                            <h2 class="text-barre">{% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.get_full_name|default:user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2>
                         </div>
                         <div class="input-group">
@@ -27,6 +28,9 @@
                         </div> 
                         <div class="input-group">
                              <a href="editerProfil" class="btn btn-warning">Editer le profil</a>
+=======
+                            <a href="editerProfil" class="lien_bar"><h2>{% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2></a>                        
+>>>>>>> 85bcfae76ba2c83715c548573f485145d16f0a23
                         </div>
                         <div class="input-group">
                             {% csrf_token %}

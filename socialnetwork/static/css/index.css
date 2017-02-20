@@ -26,8 +26,8 @@
     position: relative;
     margin-left: 60%;
     width: 40%;
-    padding:15px;
-    margin-bottom: 3px;
+    padding:10px;
+    padding-top: 8px;
 }
 
 @media (min-width: 768px) {

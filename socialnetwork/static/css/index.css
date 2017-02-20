@@ -26,7 +26,8 @@
     position: relative;
     margin-left: 60%;
     width: 40%;
-    padding:5px;
+    padding:15px;
+    margin-bottom: 3px;
 }
 
 @media (min-width: 768px) {
@@ -61,32 +62,12 @@
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
 
-.omb_login .omb_loginOr {
-    font-size: 1.5em;
-    color: #aaa;
-    margin-top: 5px;
-    margin-bottom: 3px;
-    padding-top: 0.5em;
+.btn-green-inscription {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+    margin-top:5px;
+    margin-bottom:5px;
 }
-.omb_login .omb_loginOr .omb_hrOr {
-    background-color: #2B2A29;
-    height: 1px;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
-.omb_login .omb_loginOr .omb_spanOr {
-    position: absolute;
-    left: 50%;
-    top: -0.6em;
-    margin-left: -1.5em;
-    background-color: #2B2A29;
-    width: 3em;
-    text-align: center;
-}           
-
-.omb_login .omb_loginForm .input-group.i {
-    width: 2em;
-}
-.omb_login .omb_loginForm  .help-block {
-    color: red;
-}
+.btn-green-inscription:hover{
+    color: #FFFF00;

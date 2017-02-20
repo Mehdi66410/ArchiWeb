@@ -22,13 +22,34 @@
     border-color: #449d47;
 }
 
-.btn-green {
+.btn-green-barre {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
 }
-.btn-green:hover{
+.btn-green-barre:hover{
     color: #FFFF00;
+}
+
+.lien_bar:hover{
+    text-decoration: none;
+}
+
+.lien_bar h2{
+    color: #FFFFFF;
+    font-size: 15pt;
+    font-family: 'Lobster', cursive;
+    margin:0;
+    padding-right: 15px;
+}
+
+.lien_bar h2:hover{
+    color: #FFFF00;
+    text-decoration: underline;
+}
+
+.mdp_oublie{
+    margin-left: 42%;
 }
 
 header{
@@ -86,21 +107,4 @@ body{
 
 .footer .fa:hover{
     opacity: 1;
-}
-
-.lien_bar:hover{
-    text-decoration: none;
-}
-
-.lien_bar h2{
-    color: #FFFFFF;
-    font-size: 15pt;
-    font-family: 'Lobster', cursive;
-    margin:0;
-    padding-right: 15px;
-}
-
-.lien_bar h2:hover{
-    color: #FFFF00;
-    text-decoration: underline;
 }

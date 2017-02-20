@@ -22,7 +22,7 @@
             	<div class="text-center">
                 	<img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
                 	<h6>Charger une photo différente...</h6>
-                    <form action="editerProfil" class="form-horizontal" role="form" enctype="multipart/form-data">
+                    <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                     	{% csrf_token %}
                         {% bootstrap_field formUploadPicture.picture field_class='text-center center-block well well-sm' show_label=False  %}
                         {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-green" %}

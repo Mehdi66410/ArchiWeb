@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import redirect, render
-
 # Importation des modèles
 from django.contrib.auth.models import User
 from .models import PictureUser
@@ -60,15 +59,14 @@ def forum(request):
 def editerProfil(request):
 	if request.method == 'POST':
 		formUploadPicture = uploadPictureForm(request.POST,request.FILES)
-		if formUploadPicture.is_valid():
-			test = PictureUser(user=User.objects.get(pk=request.user.id), picture=request.FILES['picture'])
-			test.save()
+		if form.is_valid():
+			PictureUser(user=request.user.id, picture=request.FILES['picture']).save
 	else:
 		formUploadPicture = uploadPictureForm()
 	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture})
 
 def menu(request):
-	return render(request,'socialnetwork/menu.html')
+	return render(request, 'socialnetwork/menu.html', {'form': form})
 
 def inscription(request):
 	if request.method == 'POST':
@@ -76,7 +74,10 @@ def inscription(request):
 		if form.is_valid():
 			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
 			user.save()
-			return redirect(index)
+			user = authenticate(username=request.POST['username'], password=request.POST['password'])
+			login(request, user)
+			return redirect(deconnexion)
+			#return redirect(index)
 	else:
 		form = registerForm()
 	return render(request, 'socialnetwork/index.html', {'form': form})

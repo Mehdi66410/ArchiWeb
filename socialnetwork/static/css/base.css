@@ -22,7 +22,16 @@
     border-color: #449d47;
 }
 
-.text-barre{
+.btn-green-barre {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+}
+.btn-green-barre:hover{
+    color: #FFFF00;
+}
+
+.text-barre {
     color: #FFFFFF;
     font-size: 15pt;
     font-family: 'Lobster', cursive;

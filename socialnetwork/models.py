@@ -10,3 +10,8 @@ class Friend(models.Model):
 	ajoute = models.OneToOneField(User, related_name='ajoute')
 	confirme = models.BooleanField(default=False)
 	add_date = models.DateField()
+
+class PictureUser(models.Model):
+	user = models.ForeignKey(User)
+	picture = models.FileField(upload_to='upload')
+	add_date = models.DateField()

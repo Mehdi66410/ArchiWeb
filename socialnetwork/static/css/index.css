@@ -44,7 +44,7 @@
 .omb_login .omb_authTitle {
     text-align: center;
     color: #FFFF00;
-    font-size: 30pt;
+    font-size: 20pt;
     font-family: 'Lobster', cursive;
 }
     
@@ -64,10 +64,9 @@
 .omb_login .omb_loginOr {
     font-size: 1.5em;
     color: #aaa;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 5px;
+    margin-bottom: 3px;
     padding-top: 0.5em;
-    padding-bottom: 0.5em;
 }
 .omb_login .omb_loginOr .omb_hrOr {
     background-color: #2B2A29;

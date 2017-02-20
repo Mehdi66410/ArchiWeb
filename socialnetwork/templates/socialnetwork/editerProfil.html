@@ -18,59 +18,66 @@
    	<div class="contour_edit">
         <h1 class="page-header">Editer le profil</h1>
         <div class="row">
-        	<form class="form-horizontal" role="form">
-            	<div class="col-md-4 col-sm-6 col-xs-12">
-                	<div class="text-center">
-                    	<img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-                    	<h6>Charger une photo différente...</h6>
-                    	<input type="file" class="text-center center-block well well-sm">
-                        <div class="col-md-12 bouton">
-                            <input class="btn btn-danger" value="Quitter" type="reset">
-                            <span></span>
-                            <input class="btn btn-success" value="Sauvegarder les changements" type="button" >
-                        </div>
+        	<div class="col-md-4 col-sm-6 col-xs-12">
+            	<div class="text-center">
+                	<img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+                	<h6>Charger une photo différente...</h6>
+                    <form action="editerProfil" class="form-horizontal" role="form" enctype="multipart/form-data">
+                    	{% csrf_token %}
+                        {% bootstrap_field formUploadPicture.picture field_class='text-center center-block well well-sm' show_label=False  %}
+                        {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-green" %}
+
+                        <input type="file" class="text-center center-block well well-sm">
+                    </form>
+                </div>
+                </div>
+        	</div>
+        	<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            	<h3>Informations personnelles</h3>
+                <form class="form-horizontal" role="form">
+                <div class="form-group">
+                   	<label class="col-lg-3 control-label">Prénom</label>
+                   	<div class="col-lg-8">
+                    	<input class="form-control" placeholder='Prénom' type="text">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nom</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" placeholder="Nom" type="text">
                     </div>
-            	</div>
-            	<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-                	<h3>Informations personnelles</h3>
-                    <div class="form-group">
-                       	<label class="col-lg-3 control-label">Prénom</label>
-                       	<div class="col-lg-8">
-                        	<input class="form-control" placeholder='Prénom' type="text">
-                       </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Pseudo</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" placeholder="Pseudo" type="text">
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Nom</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" placeholder="Nom" type="text">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Adresse email</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" placeholder="exemple@gmail.com" type="text">
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Pseudo</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" placeholder="Pseudo" type="text">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Mot de passe</label>
+                    <div class="col-md-8">
+                        <input class="form-control" placeholder="Mot de passe" type="password">
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Adresse email</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" placeholder="exemple@gmail.com" type="text">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirmation</label>
+                    <div class="col-md-8">
+                        <input class="form-control" placeholder="Mot de passe" type="password">
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Mot de passe</label>
-                        <div class="col-md-8">
-                            <input class="form-control" placeholder="Mot de passe" type="password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Confirmation</label>
-                        <div class="col-md-8">
-                            <input class="form-control" placeholder="Mot de passe" type="password">
-                        </div>
-                    </div>
-            	</div>
-            </form>
+                </div>
+                <div class="col-md-12 bouton">
+                    <input class="btn btn-danger" value="Quitter" type="reset">
+                    <span></span>
+                    <input class="btn btn-success" value="Sauvegarder les changements" type="button" >
+                </div>
+                </form>
+        	</div>
         </div>
     </div>
 </div>

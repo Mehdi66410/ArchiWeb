@@ -14,4 +14,4 @@ class Friend(models.Model):
 class PictureUser(models.Model):
 	user = models.ForeignKey(User)
 	picture = models.FileField(upload_to='upload')
-	add_date = models.DateField()
+	add_date = models.DateField(auto_now_add=True)

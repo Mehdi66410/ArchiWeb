@@ -7,9 +7,10 @@ from django.shortcuts import redirect, render
 
 # Importation des modèles
 from django.contrib.auth.models import User
+from .models import PictureUser
 
 # Importation des formulaires
-from .forms import loginForm, registerForm
+from .forms import loginForm, registerForm, uploadPictureForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -57,7 +58,13 @@ def forum(request):
 	return render(request, 'socialnetwork/forum.html')
 
 def editerProfil(request):
-	return render(request, 'socialnetwork/editerProfil.html')
+	if request.method == 'POST':
+		formUploadPicture = uploadPictureForm(request.POST,request.FILES)
+		if form.is_valid():
+			PictureUser(user=request.user.id, picture=request.FILES['picture']).save
+	else:
+		formUploadPicture = uploadPictureForm()
+	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture})
 
 def menu(request):
 	return render(request,'socialnetwork/menu.html')

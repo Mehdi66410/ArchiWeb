@@ -1,0 +1,39 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+
+{% load staticfiles %}
+<html>
+<body>
+    <head>
+        <meta charset="utf-8">
+        <title>Vis Ton Meeting</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+
+    {% block header %}
+    {% endblock header %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer>
+        <div class="footer">
+            <a>© 2017 Vis Ton Meeting. All rights reserved.</a>
+            <a href="https://facebook.com"/><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+            <a href="https://twitter.com"/><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+            <a href="https://linkedin.com"/><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+            <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a></li>
+         </div>
+    </footer>
+</body>
+</html>

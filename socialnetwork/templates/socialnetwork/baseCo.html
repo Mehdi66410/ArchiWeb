@@ -20,12 +20,18 @@
                 </div>
                     <form action="deconnexion" class="navbar-form navbar-right" method="post">
                         <div class="input-group">
-                            <a href="editerProfil" class="lien_bar"><h2>{% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.get_full_name|default:user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2></a>                        
+                           <h2 class="text-barre">{% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.get_full_name|default:user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2>
+                        </div>
+                        <div class="input-group">
+                            <a href="editerProfil" class="btn btn-info">Voir affinités</a>
+                        </div> 
+                        <div class="input-group">
+                             <a href="editerProfil" class="btn btn-warning">Editer le profil</a>
                         </div>
                         <div class="input-group">
                             {% csrf_token %}
                             {% buttons %}
-                            <button type="submit" class="btn btn-green-barre">Deconnexion</button>
+                            <button type="submit" class="btn btn-danger">Deconnexion</button>
                             {% endbuttons %}
                         </div>
                     </form>

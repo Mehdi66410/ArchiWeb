@@ -25,57 +25,21 @@
                     <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                     	{% csrf_token %}
                         {% bootstrap_field formUploadPicture.picture field_class='text-center center-block well well-sm' show_label=False  %}
-                        {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-green" %}
-
-                        <input type="file" class="text-center center-block well well-sm">
+                        {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-success" %}
                     </form>
-                </div>
                 </div>
         	</div>
         	<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
             	<h3>Informations personnelles</h3>
-                <form class="form-horizontal" role="form">
-                <div class="form-group">
-                   	<label class="col-lg-3 control-label">Prénom</label>
-                   	<div class="col-lg-8">
-                    	<input class="form-control" placeholder='Prénom' type="text">
-                   </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Nom</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" placeholder="Nom" type="text">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Pseudo</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" placeholder="Pseudo" type="text">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Adresse email</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" placeholder="exemple@gmail.com" type="text">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Mot de passe</label>
-                    <div class="col-md-8">
-                        <input class="form-control" placeholder="Mot de passe" type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Confirmation</label>
-                    <div class="col-md-8">
-                        <input class="form-control" placeholder="Mot de passe" type="password">
-                    </div>
-                </div>
-                <div class="col-md-12 bouton">
-                    <input class="btn btn-danger" value="Quitter" type="reset">
-                    <span></span>
-                    <input class="btn btn-success" value="Sauvegarder les changements" type="button" >
-                </div>
+                <form class="form-horizontal" role="form" method="post" action="">
+                    {% csrf_token %}
+                    {% bootstrap_field formEditProfil.firstname field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='Prénom' %}
+                    {% bootstrap_field formEditProfil.lastname field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='Nom' %}
+                    {% bootstrap_field formEditProfil.username field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='Pseudo' %}
+                    {% bootstrap_field formEditProfil.email field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='exemple@gmail.com' %}
+                    {% bootstrap_field formEditProfil.password field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='Mot de passe' %}
+                    {% bootstrap_field formEditProfil.passwordConfirm field_class='col-lg-8' label_class='col-lg-3 control-label' placeholder='Mot de passe' %}
+                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn-success" %}
                 </form>
         	</div>
         </div>

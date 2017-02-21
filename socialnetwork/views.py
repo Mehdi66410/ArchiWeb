@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from .models import PictureUser
 
 # Importation des formulaires
-from .forms import loginForm, registerForm, uploadPictureForm
+from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -70,7 +70,8 @@ def editerProfil(request):
 			test.save()
 	else:
 		formUploadPicture = uploadPictureForm()
-	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture})
+		formEditProfil = updateProfilForm()
+	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formEditProfil})
 
 def menu(request):
 	return render(request, 'socialnetwork/menu.html', {'form': form})

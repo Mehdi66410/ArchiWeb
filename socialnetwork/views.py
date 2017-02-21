@@ -65,8 +65,9 @@ def forum(request):
 def editerProfil(request):
 	if request.method == 'POST':
 		formUploadPicture = uploadPictureForm(request.POST,request.FILES)
-		if form.is_valid():
-			PictureUser(user=request.user.id, picture=request.FILES['picture']).save
+		if formUploadPicture.is_valid():
+			test = PictureUser(user=User.objects.get(pk=request.user.id), picture=request.FILES['picture'])
+			test.save()
 	else:
 		formUploadPicture = uploadPictureForm()
 	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture})

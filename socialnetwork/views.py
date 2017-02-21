@@ -70,8 +70,9 @@ def editerProfil(request):
 			test.save()
 	else:
 		formUploadPicture = uploadPictureForm()
-		formEditProfil = updateProfilForm()
-	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formEditProfil})
+	formEditProfil = updateProfilForm()#{'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
+	lienPicture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
+	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formEditProfil, 'lienPicture': lienPicture.picture})
 
 def menu(request):
 	return render(request, 'socialnetwork/menu.html', {'form': form})

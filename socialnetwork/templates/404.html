@@ -1,0 +1,51 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+{% csrf_token %}
+
+<html>
+<body>
+    <head>
+        <meta charset="utf-8">
+        <title>Vis Ton Meeting</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <body>
+    	<h1>Page introuvable.. 404 error</h1>
+    </body>
+
+    <footer>
+        <div class="footer">
+            <a href="https://facebook.com/vistonmeeting"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+            <a href="https://twitter.com"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+            <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
+            <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a></li>
+            <div class="footer-text">
+                <a>© 2017 Vis Ton Meeting. All rights reserved VTM. Valentin & Tony & Mehdi</a>
+            </div>
+         </div>
+    </footer>
+</body>
+</html>
+

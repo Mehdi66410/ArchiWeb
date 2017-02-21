@@ -3,6 +3,8 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
+handler404 = 'views.page_not_found'
+
 urlpatterns = [
 	url(r'^index/connexion$', views.connexion, name='connexion'),
     url(r'^index/inscription$', views.inscription, name='inscription'),

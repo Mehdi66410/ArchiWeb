@@ -22,6 +22,12 @@ def index(request):
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
 
+def page_not_found(request):
+    response = render_to_response('404.html',context_instance=RequestContext(request))
+    response.status_code = 404
+
+    return response
+
 def connexion(request):
 	if request.method == 'POST':
 		formLogin = loginForm(request.POST)

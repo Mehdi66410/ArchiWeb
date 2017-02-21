@@ -56,6 +56,9 @@ def deconnexion(request):
 def rencontre(request):
 	return render(request, 'socialnetwork/rencontre.html')
 
+def montemple(request):
+	return render(request, 'socialnetwork/montemple.html')
+
 def sortie(request):
 	return render(request, 'socialnetwork/sortie.html')
 

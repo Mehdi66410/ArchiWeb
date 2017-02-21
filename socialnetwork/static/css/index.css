@@ -3,29 +3,15 @@
     color: #FFFFFF;
     font-family: 'Lobster', cursive;
     font-size: 30px;
-    position: absolute;
-    width: 40%;
-    padding-left: 50px;
+    padding-left: 5%;
     margin-top: 10%;
-}
-
-.line{
-    width:3px;
-    height:0%;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    position: absolute;
-    margin-left: 50%;
-    margin-top: 2%;
 }
 
 .omb_login{
     background-color: #2B2A29;
     border-color: #000000;
     border-radius: 40px;
-    position: relative;
-    margin-left: 60%;
-    width: 40%;
+    width: 100%;
     padding:10px;
     padding-top: 8px;
 }
@@ -36,9 +22,6 @@
     }
     .cote_gauche{
         font-size: 40px;
-    }
-    .line{
-        height:60%;
     }
 }
 
@@ -69,5 +52,9 @@
     margin-top:5px;
     margin-bottom:5px;
 }
+
 .btn-green-inscription:hover{
     color: #FFFF00;
+}
+
+

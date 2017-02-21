@@ -6,7 +6,6 @@
   font-size: 12pt;
   font-family: 'Lobster', cursive;
   padding-right: 5px;
-  min-height:30px;
 }
 .navbar-inverse .navbar-brand {
   color: #ffff00;
@@ -98,56 +97,51 @@
 }
 
 /*BODY*/
-.section_corps{
-  width: 100%;
+html, body {
   height: 100%;
-  background:url('./images/background-3.jpeg') no-repeat;
-  margin-top:50px;
+  margin: 0; padding: 0;
+}
+body {
+  display : table;
+  width: 100%;
+  background:url('./images/background-3.jpeg');
+}
+footer {
+  display : table-row;
 }
 
 /*FOOTER*/
-.footer, .footer a{
-    color: #FFFFFF;
-    text-decoration: none;
-    text-align: center;
-    font-size: 12pt;
-    font-family: 'Lobster', cursive;
-    margin:0;
-}
-
-.navbar-fixed-bottom {
-  background-color: #2b2a29;
-  border-top-color: #FFFF00;
+.navbar-bottom{
+  text-align: center;
   font-size: 12pt;
   font-family: 'Lobster', cursive;
   padding-right: 5px;
-  text-align: center;
-  margin:0;
+  margin-top: 10px;
+  color:#FFFFFF;
 }
-
-.footer .fa-twitter {
+.navbar-bottom .fa-twitter {
     color: #00aced;
 }
 
-.footer .fa-facebook {
+.navbar-bottom .fa-facebook {
     color: #3b5998;
 }
 
-.footer .fa-google-plus {
+.navbar-bottom .fa-google-plus {
     color: #c32f10;
 }
 
-.footer .fa-github {
+.navbar-bottom .fa-github {
     color: #000000;
 }
 
-.footer .fa {
+.navbar-bottom .fa {
     opacity: 0.6;
     padding-top: 15px;
     padding-bottom: 5px;
 }
 
-.footer .fa:hover{
+.navbar-bottom .fa:hover{
     opacity: 1;
 }
 

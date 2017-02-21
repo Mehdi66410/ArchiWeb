@@ -11,23 +11,45 @@
 
 {% load staticfiles %}
 {% block header %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
     <header>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
                 </div>
-                <form action="connexion" class="navbar-form navbar-right" method="post">
-                    {% csrf_token %}
-                    {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
-                    {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
-                    {% bootstrap_button "Connexion" button_type="submit" button_class="btn btn-green-barre" %}
-                    <div class="mdp_oublie">
-                        <a href="#">Mot de passe oublié?</a>
-                    </div>
-                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Avez vous déjà un compte?</span>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Connexion</b> <span class="caret"></span></a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    <form class="form" role="form" method="post" action="connexion" accept-charset="UTF-8" id="login-nav">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                             {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                                        </div>
+                                        <div class="form-group">
+                                             {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                                             <div class="help-block text-right"><a href="#">Mot de passe oublié ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                             {% bootstrap_button "Connexion" button_type="submit" button_class="btn btn-green-barre col-sm-offset-3 col-md-6" %}
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
 {% endblock header %}
-

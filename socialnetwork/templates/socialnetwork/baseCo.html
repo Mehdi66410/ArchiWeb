@@ -13,28 +13,34 @@
 
 {% block header %}
     <header>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
                 </div>
-                    <form action="deconnexion" class="navbar-form navbar-right" method="post">
-                        <div class="input-group">
-                           <h2 class="text-barre">{% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}< </h2>
-                        </div>
-                        <div class="input-group">
-                            <a href="editerProfil" class="btn btn-info">Voir affinités</a>
-                        </div> 
-                        <div class="input-group">
-                             <a href="editerProfil" class="btn btn-warning">Editer le profil</a>
-                        </div>
-                        <div class="input-group">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/index"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="/index/rencontre">Rencontres</a></li>
+                    <li><a href="/index/sortie">Sorties</a></li>
+                    <li><a href="/index/forum">Forum</a></li>
+                </ul>
+                <form action="deconnexion" method="post">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <span class="navbar-text"><span class="glyphicon glyphicon-user"></span> {% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}</span>
+                        </li>
+                        <li>
+                            <a href="editerProfil"><span class="glyphicon glyphicon-fire"></span> Voir affinités</a>
+                        </li>
+                        <li>
+                            <a href="editerProfil"><span class="glyphicon glyphicon-wrench"></span> Editer le profil</a>
+                        </li>
+                        <li>
                             {% csrf_token %}
-                            {% buttons %}
-                            <button type="submit" class="btn btn-danger">Deconnexion</button>
-                            {% endbuttons %}
-                        </div>
-                    </form>
+                            <button type="submit" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Deconnexion</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </nav>
     </header>

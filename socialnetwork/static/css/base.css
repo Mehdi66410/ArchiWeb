@@ -6,7 +6,7 @@
   font-size: 12pt;
   font-family: 'Lobster', cursive;
   padding-right: 5px;
-  margin-bottom: 0;
+  min-height:30px;
 }
 .navbar-inverse .navbar-brand {
   color: #ffff00;
@@ -99,12 +99,11 @@
 
 /*BODY*/
 .section_corps{
-    background:url('./images/background-3.jpeg');
-    padding:0;
-    margin: 0;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  background:url('./images/background-3.jpeg') no-repeat;
+  margin-top:50px;
 }
-
 
 /*FOOTER*/
 .footer, .footer a{
@@ -116,7 +115,7 @@
     margin:0;
 }
 
-.navbar-bottom {
+.navbar-fixed-bottom {
   background-color: #2b2a29;
   border-top-color: #FFFF00;
   font-size: 12pt;
@@ -161,9 +160,7 @@
     font-family: 'Lobster', cursive;
     padding:10px;
     color:#FFFF00;
-    margin-top:15%;
-    margin-bottom: 15%;
-    margin-left:5%;
-    margin-right: 5%;
     border-radius: 20px;
+    position: relative;
+    margin-top:20%;
 }

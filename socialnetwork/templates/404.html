@@ -11,10 +11,9 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-
 {% block header %}
     <header>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
@@ -22,10 +21,10 @@
             </div>
         </nav>
     </header>
- {% endblock header %}
+{% endblock header %}
 
 {% block content %}
-    <body>
+    <div class="container">
     	<h1 class='text_404'>Page introuvable.. Vous avez cassé l'internet woooooooow (404)</h1>
-    </body>
+    </div>
 {% endblock content %}

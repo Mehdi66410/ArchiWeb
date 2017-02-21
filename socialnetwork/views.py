@@ -98,4 +98,3 @@ def addFriend(request):
 	return redirect(listUser)
 
 
-

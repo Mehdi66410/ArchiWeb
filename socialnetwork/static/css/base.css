@@ -59,13 +59,26 @@
   color: #ffff00;
 }
 
+.navbar-inverse .glyphicon {
+  color: #ffff00;
+}
+
+.navbar-inverse .navbar-btn .glyphicon {
+  color: #FFFFFF;
+}
+.navbar-inverse .navbar-btn {
+  margin-right: 10px;
+}
+
 /*CONNEXION*/
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    background-color:#ffff00;
-    opacity: 0.9;
+    background-color:#2b2a29;
+    border-color: #ffff00;
+    margin-top: 3px;
+    opacity: 0.8;
 }
 #login-dp .help-block{
     font-size:12px    

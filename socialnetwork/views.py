@@ -8,6 +8,9 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from .models import PictureUser
 
+import os
+from django.conf import settings
+
 # Importation des formulaires
 from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm
 
@@ -70,21 +73,28 @@ def editerProfil(request):
 		if "uploadPicture" in request.POST:
 			formUploadPicture = uploadPictureForm(request.POST,request.FILES)
 			if formUploadPicture.is_valid():
-				picture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
-				if picture is not None:
+				
+				try : 
+					picture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
+					picture.picture.delete()
 					picture.picture=request.FILES['picture']
 					picture.save()
-					# !!! Supprimer l'ancienne photo !
-				else:
+				except PictureUser.DoesNotExist:
 					picture = PictureUser(user=User.objects.get(pk=request.user.id), picture=request.FILES['picture'])
 					picture.save()
+
 		#if modifProfil in request.POST:
 			#formUpdateProfil = updateProfilForm(request.POST)
 			#if formUpdateProfil.is_valid():
 				#Modification de l'utilisateur !
 	formUploadPicture = uploadPictureForm()
 	formEditProfil = updateProfilForm()#{'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
-	lienPicture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
+	
+	try:
+		lienPicture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
+	except PictureUser.DoesNotExist:
+		lienPicture = PictureUser(picture="/upload/profilePictureOriginal.jpg")
+		
 	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formEditProfil, 'lienPicture': lienPicture.picture})
 
 def menu(request):

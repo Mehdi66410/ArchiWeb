@@ -176,7 +176,10 @@ footer {
 
 
 /*404*/
-.text_404{
+.container_404{
+  margin-top: 20%;
+}
+.container_404 .text_404{
     text-align: center;
     background-color: #2B2A29;
     font-size: 30pt;

@@ -1,4 +1,4 @@
-.container_menu .contour_edit{
+.container_editerProfil .contour_edit{
 	background-color: #2B2A29;
     border-radius: 40px;
     margin-top: 0;
@@ -8,49 +8,49 @@
     margin-right: 50px;
 }
 
-.container_menu .page-header{
+.container_editerProfil .page-header{
 	margin-top: 0;
 	text-align: center;
     font-family: 'Lobster', cursive;
     font-size: 40px;
 }
 
-.container_menu .text-center h6{
+.container_editerProfil .text-center h6{
 	text-align: center;
     font-family: 'Lobster', cursive;
     font-size:12px;
 }
 
-.container_menu .personal-info h3{
+.container_editerProfil .personal-info h3{
     font-family: 'Lobster', cursive;
     font-size:30px;
     text-align: center;
     margin-top: 0;
 }
 
-.container_menu .control-label{
+.container_editerProfil .control-label{
     font-family: 'Lobster', cursive;
     font-size:15px;
 }
 
-.container_menu .well{
+.container_editerProfil .well{
     background-color: #2B2A29;
     border-color: #FFFF00;
     color:#000;
     margin:0;
 }
 
-.container_menu .btn_green_save {
+.container_editerProfil .btn_green_save {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
     margin-bottom:5px;
 }
-.container_menu .btn_green_save:hover{
+.container_editerProfil .btn_green_save:hover{
     color: #FFFF00;
 }
 
-.container_menu .btn_green_add {
+.container_editerProfil .btn_green_add {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
@@ -58,6 +58,6 @@
     margin-top: 20px;
 }
 
-.container_menu .btn_green_add:hover{
+.container_editerProfil .btn_green_add:hover{
     color: #FFFF00;
 }

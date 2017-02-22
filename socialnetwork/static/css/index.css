@@ -1,4 +1,4 @@
-.cote_gauche{
+.container_index .cote_gauche{
     text-align: center;
     color: #FFFFFF;
     font-family: 'Lobster', cursive;
@@ -7,7 +7,7 @@
     padding-top: 10%;
 }
 
-.omb_login{
+.container_index .omb_login{
     background-color: #2B2A29;
     border-color: #000000;
     border-radius: 40px;
@@ -18,35 +18,35 @@
 }
 
 @media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+    .container_index .omb_row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: auto;
     }
-    .cote_gauche{
+    .container_index .cote_gauche{
         font-size: 40px;
     }
 }
 
-.omb_login .omb_authTitle {
+.container_index .omb_login .omb_authTitle {
     text-align: center;
     color: #FFFF00;
     font-size: 20pt;
     font-family: 'Lobster', cursive;
 }
     
-.omb_login .omb_socialButtons a {
+.container_index .omb_login .omb_socialButtons a {
     color: white;
     opacity:0.7;
 }
-.omb_login .omb_socialButtons a:hover {
+.container_index .omb_login .omb_socialButtons a:hover {
     color: white;
     opacity:1;      
 }
-.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+.container_index .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+.container_index .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+.container_index .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
 
-.btn-green-inscription {
+.container_index .btn-green-inscription {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
@@ -54,7 +54,7 @@
     margin-bottom:5px;
 }
 
-.btn-green-inscription:hover{
+.container_index .btn-green-inscription:hover{
     color: #FFFF00;
 }
 

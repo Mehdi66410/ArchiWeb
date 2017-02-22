@@ -4,7 +4,7 @@
     font-family: 'Lobster', cursive;
     font-size: 30px;
     padding-left: 5%;
-    margin-top: 10%;
+    padding-top: 10%;
 }
 
 .omb_login{
@@ -13,7 +13,7 @@
     border-radius: 40px;
     width: 100%;
     padding:10px;
-    padding-top: 8px;
+    margin-bottom: 5px;
     opacity: 0.9;
 }
 

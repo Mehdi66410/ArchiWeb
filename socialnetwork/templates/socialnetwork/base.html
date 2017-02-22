@@ -9,6 +9,7 @@
 
 {% load staticfiles %}
 <html>
+    <body>
     <head>
         <meta charset="utf-8">
         <title>Vis Ton Meeting</title>
@@ -19,23 +20,26 @@
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
 
-    <body>
     {% block header %}
     {% endblock header %}
 
+    <div class="container_principal">
     {% block content %}
     {% endblock content %}
-    </body>
+    </div>
+
     <footer>
-        <nav class="navbar navbar-inverse navbar-bottom">
-            <a href="https://facebook.com/vistonmeeting"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
-            <a href="https://twitter.com/VisTonMeeting"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-            <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
-            <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a>
-            <div>
-                <p>© 2017 Vis Ton Meeting. All rights reserved VTM. Valentin & Tony & Mehdi</p>
-            <div>
-        </nav>
+        <div class="row footer">
+            <div class="col-md-8 footer_text">
+                © 2017 Vis Ton Meeting. All rights reserved VTM. Valentin & Tony & Mehdi
+            </div>
+            <div class="col-sm-offset-1 col-md-3">
+                <a href="https://facebook.com/vistonmeeting"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+                <a href="https://twitter.com/VisTonMeeting"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+                <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
+                <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a>
+            </div>
+        </div>
     </footer>
    
 
@@ -44,4 +48,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </body>
 </html>

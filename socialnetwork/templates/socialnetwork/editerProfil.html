@@ -25,7 +25,7 @@
                     <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                     	{% csrf_token %}
                         {% bootstrap_field formUploadPicture.picture field_class='text-center center-block well well-sm' show_label=False  %}
-                        {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-success" %}
+                        {% bootstrap_button "Ajouter" button_type="submit" button_class="btn btn-success" name='uploadPicture' %}
                     </form>
                 </div>
         	</div>
@@ -39,7 +39,7 @@
                     {% bootstrap_field formEditProfil.email field_class='col-lg-8' label_class='col-lg-3 control-label' %}
                     {% bootstrap_field formEditProfil.password field_class='col-lg-8' label_class='col-lg-3 control-label' %}
                     {% bootstrap_field formEditProfil.passwordConfirm field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn-success" %}
+                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn-success" name='modifInfo' %}
                 </form>
         	</div>
         </div>

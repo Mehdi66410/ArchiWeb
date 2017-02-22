@@ -82,20 +82,38 @@ def editerProfil(request):
 				except PictureUser.DoesNotExist:
 					picture = PictureUser(user=User.objects.get(pk=request.user.id), picture=request.FILES['picture'])
 					picture.save()
+		else:
+			formUploadPicture = uploadPictureForm()
 
-		#if modifProfil in request.POST:
-			#formUpdateProfil = updateProfilForm(request.POST)
-			#if formUpdateProfil.is_valid():
-				#Modification de l'utilisateur !
-	formUploadPicture = uploadPictureForm()
-	formEditProfil = updateProfilForm()#{'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
+		if "modifInfo" in request.POST:
+			formUpdateProfil = updateProfilForm(request.POST)
+			user = User.objects.get(pk=request.user.id)
+				
+			if request.POST['firstname']:
+				user.first_name = request.POST['firstname']
+				
+			if request.POST['lastname']:
+				user.last_name = request.POST['lastname']
+				
+			if request.POST['password']:
+				user.set_password(request.POST['password'])
+
+			user.email = request.POST['email']
+			user.pseudo = request.POST['username']
+			user.save()
+		else:
+			formUpdateProfil = updateProfilForm({'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
+	
+	else:
+		formUploadPicture = uploadPictureForm()
+		formUpdateProfil = updateProfilForm({'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
 	
 	try:
 		lienPicture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
 	except PictureUser.DoesNotExist:
 		lienPicture = PictureUser(picture="/upload/profilePictureOriginal.jpg")
-		
-	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formEditProfil, 'lienPicture': lienPicture.picture})
+
+	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formUpdateProfil, 'lienPicture': lienPicture.picture})
 
 def menu(request):
 	return render(request, 'socialnetwork/menu.html', {'form': form})

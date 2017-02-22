@@ -71,6 +71,7 @@
     color: #A569BD ; 
     background-color: #5B2C6F;
     border-color: #A569BD;
+    opacity: 0.9;
 }
 .bs-calltoaction.bs-calltoaction-r .cta-title{
     color: #FFFFFF ;
@@ -91,9 +92,11 @@
     color: #0ea5f5  ;
     background-color: #151ac2 ;
     border-color: #0ea5f5;
+    opacity: 0.9;
 }
 .bs-calltoaction.bs-calltoaction-s .cta-title{
     color: #FFFFFF ;
+    opacity: 1;
 }
 .btn-s{
     color: #FFFFFF;
@@ -111,6 +114,7 @@
     color: #ABEBC6;
     background-color: #239B56 ;
     border-color: #ABEBC6 ;
+    opacity: 0.9;
 }
 .bs-calltoaction.bs-calltoaction-f .cta-title{
     color: #FFFFFF;

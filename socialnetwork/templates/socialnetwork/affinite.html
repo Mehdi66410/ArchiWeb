@@ -1,0 +1,20 @@
+{% extends 'socialnetwork/baseCo.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/affinite.css' %}">
+
+	<div class="container_affinite">
+         
+	</div>
+{% endblock content %}

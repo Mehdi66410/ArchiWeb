@@ -56,6 +56,9 @@ def deconnexion(request):
 		else:
 			return render(request, 'socialnetwork/menu.html')
 
+def affinite(request):
+	return render(request, 'socialnetwork/affinite.html')
+
 def rencontre(request):
 	return render(request, 'socialnetwork/rencontre.html')
 

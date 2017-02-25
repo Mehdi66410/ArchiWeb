@@ -13,7 +13,8 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/menusortie.css' %}">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	
+
+<div class="container_header">
 	<div class="container_menusortie">
 		<nav class="navbar navbar-inverse sidebar" role="navigation">
 	    	<div class="container-fluid">
@@ -25,7 +26,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand  toggle-btn" href="#">Options<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-star-empty"></span></a>
+					<div class="navbar-brand">Options
+                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-star-empty"></span>
+                    </div>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
@@ -48,4 +51,5 @@
 		{% block menu_main %}
 		{% endblock menu_main %}
 	</div>
+</div>
 {% endblock content %}

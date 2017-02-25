@@ -1,77 +1,80 @@
 
 /*HEADER*/
-.navbar-inverse {
+.container_header .navbar-inverse {
   background-color: #2b2a29;
   border-color: #ffff00;
   font-size: 12pt;
   font-family: 'Lobster', cursive;
   padding-right: 5px;
 }
-.navbar-inverse .navbar-brand {
+.container_header .navbar-inverse .navbar-brand {
   color: #ffff00;
   font-size: 20pt;
   font-family: 'Lobster', cursive;
+  /*background: url(./images/favicon.png) center / contain no-repeat;*/
+  width: 200px;
 }
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
+.container_header .navbar-inverse .navbar-brand:hover,
+.container_header .navbar-inverse .navbar-brand:focus {
   color: #ffff00;
 }
-.navbar-inverse .navbar-text {
+.container_header .navbar-inverse .navbar-text {
+  color: #FFFFFF;
+  margin-left: 15px;
+}
+.container_header .navbar-inverse .navbar-nav > li > a{
   color: #FFFFFF;
 }
-.navbar-inverse .navbar-nav > li > a{
-  color: #FFFFFF;
-}
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.container_header .navbar-inverse .navbar-nav > li > a:hover,
+.container_header .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffff00;
   text-decoration: underline;
 }
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
+.container_header .navbar-inverse .navbar-nav > .active > a,
+.container_header .navbar-inverse .navbar-nav > .active > a:hover,
+.container_header .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffff00;
   background-color: #ffff00;
 }
-.navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:hover,
-.navbar-inverse .navbar-nav > .open > a:focus {
+.container_header .navbar-inverse .navbar-nav > .open > a,
+.container_header .navbar-inverse .navbar-nav > .open > a:hover,
+.container_header .navbar-inverse .navbar-nav > .open > a:focus {
   color: #ffff00;
 }
-.navbar-inverse .navbar-toggle {
+.container_header .navbar-inverse .navbar-toggle {
   border-color: #ffff00;
 }
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
+.container_header .navbar-inverse .navbar-toggle:hover,
+.container_header .navbar-inverse .navbar-toggle:focus {
   background-color: #ffff00;
 }
-.navbar-inverse .navbar-toggle .icon-bar {
+.container_header .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffff00;
 }
-.navbar-inverse .navbar-collapse,
-.navbar-inverse .navbar-form {
+.container_header .navbar-inverse .navbar-collapse,
+.container_header .navbar-inverse .navbar-form {
   border-color: #ffff00;
 }
-.navbar-inverse .navbar-link {
+.container_header .navbar-inverse .navbar-link {
   color: #ffff00;
 }
-.navbar-inverse .navbar-link:hover {
+.container_header .navbar-inverse .navbar-link:hover {
   color: #ffff00;
 }
 
-.navbar-inverse .glyphicon {
+.container_header .navbar-inverse .glyphicon {
   color: #ffff00;
 }
 
-.navbar-inverse .navbar-btn .glyphicon {
+.container_header .navbar-inverse .navbar-btn .glyphicon {
   color: #FFFFFF;
 }
-.navbar-inverse .navbar-btn {
-  margin-right: 10px;
+.container_header .navbar-inverse .navbar-btn {
+  margin-left: 15px;
 }
 
 /*CONNEXION*/
-#login-dp{
+.container_header #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
@@ -80,19 +83,21 @@
     margin-top: 3px;
     opacity: 0.8;
 }
-#login-dp .help-block{
+.container_header #login-dp .help-block{
     font-size:12px    
 }
 
-#login-dp .form-group {
+.container_header #login-dp .form-group {
     margin-bottom: 10px;
 }
 @media(max-width:768px){
-    #login-dp{
+    .container_header #login-dp{
         background-color: inherit;
         color: #fff;
     }
 }
+
+/*bouton vert et jaune grace au addon*/
 .input-group-addon.success {
     color: #FFFF00;
     background-color: #4BAE4F;
@@ -129,7 +134,8 @@ footer {
     padding-top: 40px;
 }
 
-.footer{
+/*FOOTER*/
+.container_footer{
   border: 1px solid #FFFF00;
   border-radius: 3px;
   background-color: #2b2a29;
@@ -139,52 +145,105 @@ footer {
   margin: 0; padding: 0;
 }
 
-.footer .footer_text{
+.container_footer .footer_text{
   text-align: center;
   font-size: 12pt;
   font-family: 'Lobster', cursive;
   color:#FFFFFF;
   margin-top: 10px;
 }
-/*FOOTER*/
-.footer .fa-twitter {
+
+.container_footer .fa-twitter {
     color: #00aced;
 }
 
-.footer .fa-facebook {
+.container_footer .fa-facebook {
     color: #3b5998;
 }
 
-.footer .fa-google-plus {
+.container_footer .fa-google-plus {
     color: #c32f10;
 }
 
-.footer .fa-github {
+.container_footer .fa-github {
     color: #000000;
 }
 
-.footer .fa {
+.container_footer .fa {
     opacity: 0.6;
     padding-top: 10px;
     padding-left: 25px;
     padding-right: 40px;
 }
 
-.footer .fa:hover{
+.container_footer .fa:hover{
     opacity: 1;
 }
 
 
 /*404*/
-.container_404{
-  margin-top: 20%;
+.container_404 .bs-calltoaction{
+    width:auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 40px;
+    margin-top: 20%;
+    margin-bottom: 15px;
+
+    color: #FFFFFF; 
+    background-color: #2b2a29;
+    border-color: #FFFF00;
+    opacity: 0.9;
 }
-.container_404 .text_404{
-    text-align: center;
-    background-color: #2B2A29;
-    font-size: 30pt;
+
+.container_404 .bs-calltoaction > .row{
+    display:table;
+    width: calc(100% + 30px);
+}
+     
+.container_404 .bs-calltoaction > .row > [class^="col-"],
+.container_404 .bs-calltoaction > .row > [class*=" col-"]{
+    float:none;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.container_404 .cta-contents{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.container_404 .cta-title{
+    margin: 0 auto 15px;
+    padding: 0;
+    font-size: 25pt;
     font-family: 'Lobster', cursive;
-    padding:10px;
-    color:#FFFF00;
-    border-radius: 20px;
+    text-decoration: underline;
+    text-align: center;
+    color: #FFFF00;
+}
+
+.container_404 .cta-desc{
+    padding: 0;
+    font-size: 15pt;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}
+
+@media (max-width: 991px){
+    .container_404 .bs-calltoaction > .row{
+        display:block;
+        width: auto;
+    }
+    .container_404 .bs-calltoaction > .row > [class^="col-"],
+    .container_404 .bs-calltoaction > .row > [class*=" col-"]{
+        float:none;
+        display:block;
+        vertical-align:middle;
+        position: relative;
+    }
+    .container_404 .cta-contents{
+        text-align: center;
+    }
 }

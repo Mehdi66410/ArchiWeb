@@ -12,7 +12,8 @@
 {% csrf_token %}
 
 {% block header %}
-    <header>
+<header>
+    <div class="container_header">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -20,11 +21,23 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </div>
+</header>
 {% endblock header %}
 
 {% block content %}
     <div class="container_404">
-    	<h1 class='text_404'>Page introuvable.. Vous avez cassé l'internet woooooooow (404)</h1>
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="bs-calltoaction">
+                <div class="row">
+                    <div class="col-md-12 cta-contents">
+                        <h1 class="cta-title">ERREUR 404 - Page introuvable</h1>
+                        <div class="cta-desc">
+                            Page introuvable.. Vous avez cassé l'internet woooooooow (404)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

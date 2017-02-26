@@ -15,3 +15,18 @@ class PictureUser(models.Model):
 	user = models.ForeignKey(User)
 	picture = models.FileField(upload_to='upload')
 	add_date = models.DateField(auto_now_add=True)
+
+
+class Bar(models.Model):
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=100)
+	picture = models.FileField(upload_to='upload',default='')
+	speciality = models.CharField(max_length=100, default='')
+	prix = models.IntegerField(default=5)
+
+class Restaurant(models.Model):
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=100)
+	picture = models.FileField(upload_to='upload',default='')
+	speciality = models.CharField(max_length=100, default='')
+	prix = models.IntegerField(default=25)

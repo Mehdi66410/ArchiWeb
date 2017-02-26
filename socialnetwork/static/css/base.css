@@ -63,7 +63,11 @@
 }
 
 .container_header .navbar-inverse .glyphicon {
-  color: #ffff00;
+  color: #FFFF00;
+}
+
+.container_header #mdp_eye{
+  color:#000;
 }
 
 .container_header .navbar-inverse .navbar-btn .glyphicon {
@@ -75,7 +79,7 @@
 
 /*CONNEXION*/
 .container_header #login-dp{
-    min-width: 250px;
+    min-width: 300px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:#2b2a29;
@@ -112,6 +116,37 @@
 }
 .btn-green-barre:hover{
     color: #FFFF00;
+}
+
+.btn-red-barre {
+    color: #f8f8f8;
+    background-color: #FF0000;
+    border-color: #FF0000;
+    margin-bottom:3px;
+}
+.btn-red-barre:hover{
+    color: #FFFF00;
+}
+
+/*MODAL MDP OUBLIE*/
+.container_modal_mdp .panel_header{
+  font-family: 'Lobster', cursive;
+  background-color: #2b2a29;
+  border-color: #ffff00;
+  color:#FFFF00;
+  text-align: center;
+  opacity: 0.9;
+}
+.container_modal_mdp .panel_footer{
+  font-family: 'Lobster', cursive;
+  background-color: #2b2a29;
+  border-color: #ffff00;
+  color:#FFFF00;
+  padding:10px;
+}
+.container_modal_mdp .close{
+  color:#FFFF00;
+  opacity: 0.9;
 }
 
 /*BODY*/

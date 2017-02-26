@@ -41,8 +41,10 @@
                                                     {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
                                                 </div>
                                                 <div class="form-group">
-                                                    {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
-                                                    <div class="help-block text-right"><a href="#">Mot de passe oublié ?</a></div>
+                                                    {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success'                      show_label=False%}
+                                                    <div class="help-block text-right">
+                                                        <a data-toggle="modal" data-target="#mdp_oublie">Mot de passe oublié ?</a>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     {% bootstrap_button "Connexion" button_type="submit" button_class="btn btn-green-barre col-xs-offset-3 col-xs-6" %}
@@ -59,4 +61,40 @@
         </nav>
     </div>
 </header>
+
+<!-- Modal -->
+<div class="container_modal_mdp">
+    <div class="modal fade" id="mdp_oublie" tabindex="-1" role="dialog" aria-labelledby="mdpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="panel panel_header">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Besoin de réinitialiser votre mot de passe?</h4>
+                    <h5>Nous vous enverrons un mail pour connaître votre nouveau mot de passe..</h5>
+                    <hr class="omb_hrOr">
+                </div>
+                <form class="form" role="form" method="post" action="mdp_oublie" accept-charset="UTF-8" id="login-nav">
+                    {% csrf_token %}
+                    <div class="modal_body">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                                {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                                {% bootstrap_field formRegister.email placeholder='Adresse email' addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_footer">
+                        {% bootstrap_button "Effacer" button_type="reset" button_class="btn btn-red-barre" %}
+                        {% bootstrap_button "Valider" button_type="submit" button_class="btn btn-green-barre" %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock header %}
+

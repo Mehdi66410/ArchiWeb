@@ -58,8 +58,23 @@ def deconnexion(request):
 			return render(request, 'socialnetwork/menu.html')
 
 def mdp_oublie(request):
-	return redirect(connexion)
-
+	if request.method == 'POST':
+		formMdp = mdpForm(request.POST)
+		if formMdp.is_valid():
+			user=User.objects.get(username=request.POST['username'])
+			courriel=User.objects.get(email=request.POST['email'])
+			nouveaumotdepasse=''
+			for i in range(10):
+				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789éàèù@µ_-")
+			user.set_password(nouveaumotdepasse)
+			user.save()
+			send_mail(
+    			user+', changement du mot de passe',
+    			'Votre mot de passe a été changé c est désormais '+ nouveaumotdepasse +' À bientôt !',
+    			'from@VTM.com',
+    			[courriel],
+    			fail_silently=False,
+			)
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

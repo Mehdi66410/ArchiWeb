@@ -174,7 +174,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL='zerbanemehdi@gmail.com'
 EMAIL_HOST_USER = 'zerbanemehdi@gmail.com'
-EMAIL_HOST_PASSWORD = 'tuconnaitrapas:*'
+EMAIL_HOST_PASSWORD = 'chhhhhhhhute'
 
 STATIC_URL = '/static/'
 

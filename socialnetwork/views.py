@@ -74,11 +74,11 @@ def mdp_oublie(request):
     			', changement du mot de passe',
     			'Votre mot de passe a été changé c est désormais '+ nouveaumotdepasse +' À bientôt !',
     			'zerbanemehdi@gmail.com',
-    			[courriel], fail_silently=False
+    			[request.POST['email']], fail_silently=False
 			)
 		else:
 			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
-	return render(request, 'socialnetwork/index.html', {'formMdp': formMdp})
+	return redirect(index)
 
 
 def affinite(request):

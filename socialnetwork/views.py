@@ -43,7 +43,8 @@ def connexion(request):
 				login(request, user)
 				return redirect(deconnexion)
 			else:
-				messages.add_message(request, messages.WARNING, "Erreur de mot de passe ou de nom d'utilisateur")
+				messages.add_message(request, messages.ERROR, "Erreur de mot de passe ou de nom d'utilisateur")
+				return redirect(index)
 	else:
 		formLogin = loginForm()
 	formRegister = registerForm()
@@ -64,21 +65,24 @@ def mdp_oublie(request):
 	if request.method == 'POST':
 		formMdp = mdpForm(request.POST)
 		if formMdp.is_valid():
-			user=User.objects.get(username=request.POST['username'])
-			courriel=User.objects.get(email=request.POST['email'])
-			nouveaumotdepasse=''
-			for i in range(10):
-				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-			user.set_password(nouveaumotdepasse)
-			user.save()
-			send_mail(
-    			'Vis Ton Meeting: changement du mot de passe',
-    			'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
-    			settings.EMAIL_HOST_USER,
-    			[request.POST['email']], fail_silently=False
-			)
-		else:
-			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
+			username_u = request.POST['username']
+			email_u = request.POST['email']
+			user = authenticate(username=username_u)
+			if user is not None:
+				nouveaumotdepasse=''
+				for i in range(10):
+					nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+				user.set_password(nouveaumotdepasse)
+				user.save()
+				send_mail(
+    				'Vis Ton Meeting: changement du mot de passe',
+    				'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
+    				settings.EMAIL_HOST_USER,
+    				[email_u], fail_silently=False
+				)
+			else:
+				messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
+				return redirect(index)
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
@@ -159,12 +163,17 @@ def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)
 		if form.is_valid():
-			user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
-			user.save()
 			user = authenticate(username=request.POST['username'], password=request.POST['password'])
-			login(request, user)
-			messages.success(request, "Vous êtes à présent inscrit, profitez et faites des rencontres!")
-			return redirect(deconnexion)
+			if user is None:
+				user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
+				user.save()
+				user = authenticate(username=request.POST['username'], password=request.POST['password'])
+				login(request, user)
+				messages.success(request, "Vous êtes à présent inscrit, profitez et faites des rencontres!")
+				return redirect(deconnexion)
+			else:
+				messages.add_message(request, messages.ERROR, "Erreur ce pseudo correspond déjà à un profil existant!")
+				return redirect(index)
 	else:
 		form = registerForm()
 	return render(request, 'socialnetwork/index.html', {'form': form})

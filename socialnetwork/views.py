@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from .models import PictureUser
 from .models import Bar
-
+from django.core.mail import send_mail
 import os
 import random
 from django.conf import settings
@@ -20,7 +20,8 @@ def index(request):
 	if not request.user.is_authenticated:
 		formRegister = registerForm()
 		formLogin = loginForm()
-		return render(request,'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin})
+		formMdp=mdpForm()
+		return render(request,'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin,'formMdp': formMdp})
 	else:
 		return redirect(deconnexion)
 
@@ -70,15 +71,14 @@ def mdp_oublie(request):
 			user.set_password(nouveaumotdepasse)
 			user.save()
 			send_mail(
-    			user+', changement du mot de passe',
+    			', changement du mot de passe',
     			'Votre mot de passe a été changé c est désormais '+ nouveaumotdepasse +' À bientôt !',
-    			'from@VTM.com',
-    			[courriel],
-    			fail_silently=False,
+    			'zerbanemehdi@gmail.com',
+    			[courriel], fail_silently=False
 			)
 		else:
 			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
-	return redirect(index)
+	return render(request, 'socialnetwork/index.html', {'formMdp': formMdp})
 
 
 def affinite(request):

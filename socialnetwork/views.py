@@ -67,13 +67,13 @@ def mdp_oublie(request):
 			courriel=User.objects.get(email=request.POST['email'])
 			nouveaumotdepasse=''
 			for i in range(10):
-				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789éàèù@µ_-")
+				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 			user.set_password(nouveaumotdepasse)
 			user.save()
 			send_mail(
-    			', changement du mot de passe',
-    			'Votre mot de passe a été changé c est désormais '+ nouveaumotdepasse +' À bientôt !',
-    			'zerbanemehdi@gmail.com',
+    			'Vis Ton Meeting: changement du mot de passe',
+    			'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
+    			settings.EMAIL_HOST_USER,
     			[request.POST['email']], fail_silently=False
 			)
 		else:

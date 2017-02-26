@@ -9,6 +9,7 @@ handler404 = 'views.page_not_found'
 
 urlpatterns = [
 	url(r'^index/connexion$', views.connexion, name='connexion'),
+	url(r'^index/mdp_oublie$', views.mdp_oublie, name='mdp_oublie'),
     url(r'^index/inscription$', views.inscription, name='inscription'),
 	url(r'^index/deconnexion$', views.deconnexion, name='deconnexion'),
 	url(r'^index/editerProfil$', views.editerProfil, name='editerProfil'),

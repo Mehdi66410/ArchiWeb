@@ -57,6 +57,10 @@ def deconnexion(request):
 		else:
 			return render(request, 'socialnetwork/menu.html')
 
+def mdp_oublie(request):
+	return redirect(connexion)
+
+
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 

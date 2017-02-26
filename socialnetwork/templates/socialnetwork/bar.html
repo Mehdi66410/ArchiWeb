@@ -12,27 +12,26 @@
 {% csrf_token %}
 
 {% block menu_main %}
-    <link rel="stylesheet" href="{% static 'css/sortie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	
 	<div class="container_sortie">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <div style="padding-top:25px;"></div> <!-- This line is ONLY for maaking space from the top! -->
-<div class="container">
+<div class="container_bar">
+	{% for n in Bars %}
 
 	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-12">
+		<div class="col-xs-12 col-sm-6 col-md-11">
 			<div class="well well-sm">
 				<div class="row">
 					<div class="col-sm-6 col-md-2">
 						<img src="http://placehold.it/158x158" class="img-rounded img-responsive" draggable="false" />
 					</div>
 					<div class="col-sm-6 col-md-4">
-						{% for n in Bars %}
                 			<h4>{{ n.name }}</h4>
-            				{% endfor %} 
 						<small>
-							<cite>Denmark, Harboøre, Vandværksvej 12  <i class="glyphicon glyphicon-map-marker"></i></cite>
+							<cite>{{n.address}}<i class="glyphicon glyphicon-map-marker"></i></cite>
 						</small>
 						<p>
 							<i class="glyphicon glyphicon-envelope"></i> casperpvp@gmail.com <br />
@@ -61,5 +60,8 @@
 		</div>
 	</div>
 </div>
-	</div>		
+	    {% endfor %} 
+
+	</div>
+
 {% endblock menu_main %}

@@ -10,10 +10,11 @@ from .models import PictureUser
 from .models import Bar
 
 import os
+import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm
+from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -77,7 +78,7 @@ def mdp_oublie(request):
 			)
 		else:
 			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
-	return render(request, 'socialnetwork/index.html')
+	return redirect(index)
 
 
 def affinite(request):

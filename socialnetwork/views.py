@@ -75,6 +75,10 @@ def mdp_oublie(request):
     			[courriel],
     			fail_silently=False,
 			)
+		else:
+			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
+	return render(request, 'socialnetwork/index.html')
+
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

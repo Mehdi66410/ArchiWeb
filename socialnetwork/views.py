@@ -52,6 +52,7 @@ def connexion(request):
 def deconnexion(request):
 	if request.method == 'POST':
 		logout(request)
+		messages.success(request, "Vous avez été correctement deconnecté! A bientôt..")
 		return redirect(index)
 	else:
 		if not request.user.is_authenticated:
@@ -78,6 +79,7 @@ def mdp_oublie(request):
 			)
 		else:
 			messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
+	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
 
@@ -161,6 +163,7 @@ def inscription(request):
 			user.save()
 			user = authenticate(username=request.POST['username'], password=request.POST['password'])
 			login(request, user)
+			messages.success(request, "Vous êtes à présent inscrit, profitez et faites des rencontres!")
 			return redirect(deconnexion)
 	else:
 		form = registerForm()

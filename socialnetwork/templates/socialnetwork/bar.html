@@ -1,0 +1,65 @@
+{% extends 'socialnetwork/menusortie.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap_ui_tags %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block menu_main %}
+    <link rel="stylesheet" href="{% static 'css/sortie.css' %}">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	
+	<div class="container_sortie">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div style="padding-top:25px;"></div> <!-- This line is ONLY for maaking space from the top! -->
+<div class="container">
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-12">
+			<div class="well well-sm">
+				<div class="row">
+					<div class="col-sm-6 col-md-2">
+						<img src="http://placehold.it/158x158" class="img-rounded img-responsive" draggable="false" />
+					</div>
+					<div class="col-sm-6 col-md-4">
+						{% for n in Bars %}
+                			<h4>{{ n.name }}</h4>
+            				{% endfor %} 
+						<small>
+							<cite>Denmark, Harboøre, Vandværksvej 12  <i class="glyphicon glyphicon-map-marker"></i></cite>
+						</small>
+						<p>
+							<i class="glyphicon glyphicon-envelope"></i> casperpvp@gmail.com <br />
+							<i class="glyphicon glyphicon-globe"></i> <a href="http://google.com/">www.google.com</a> <br />
+							<i class="glyphicon glyphicon-gift"></i> 1997-03-12
+						</p>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<span class="label label-info pull-right">Level: 1</span>
+						<h4>Biography</h4>
+						<p>Here goes the biography...</p>
+					</div>
+					<div class="col-sm-6 col-md-12">
+						<div class="row nav">
+							<div class="col-md-12" style="margin: 0px;">
+								<hr>
+								<button class="rate-btn rate-btn-friendly"><i class="fa fa-smile-o fa-lg"></i> 62</button>
+								<button class="rate-btn rate-btn-heart"><i class="fa fa-heart-o fa-lg"></i> 54</button>
+								<button class="rate-btn rate-btn-like"><i class="fa fa-thumbs-o-up fa-lg"></i> 67</button>
+								<span class="pull-right">Report: <button class="rate-btn rate-btn-report"> <i class="fa fa-frown-o fa-lg"></i> 2</button></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>		
+{% endblock menu_main %}

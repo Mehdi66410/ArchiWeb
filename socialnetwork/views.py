@@ -7,6 +7,7 @@ from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
 from .models import PictureUser
+from .models import Bar
 
 import os
 from django.conf import settings
@@ -64,6 +65,13 @@ def rencontre(request):
 
 def montemple(request):
 	return render(request, 'socialnetwork/montemple.html')
+
+def bar(request):
+	Bars = Bar.objects.all()
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars})
+
+def restaurant(request):
+	return render(request, 'socialnetwork/restaurant.html')
 
 def sortie(request):
 	return render(request, 'socialnetwork/sortie.html')

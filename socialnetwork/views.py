@@ -70,7 +70,7 @@ def mdp_oublie(request):
 			try:
 				user = User.objects.get(username=username_u, email=email_u)
 			except User.DoesNotExist:
-				messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
+				messages.add_message(request, messages.ERROR, "Erreur de nom d'utilisateur ou de l'adresse email")
 				return redirect(index)
 			nouveaumotdepasse=''
 			for i in range(10):
@@ -163,17 +163,18 @@ def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)
 		if form.is_valid():
-			user = authenticate(username=request.POST['username'], password=request.POST['password'])
-			if user is None:
+			username_u=request.POST['username']
+			try:
+				user = User.objects.get(username=username_u)
+			except User.DoesNotExist:
 				user = User.objects.create_user(username=request.POST.get('username'), password=request.POST['password'],email=request.POST['email'])
 				user.save()
 				user = authenticate(username=request.POST['username'], password=request.POST['password'])
 				login(request, user)
 				messages.success(request, "Vous êtes à présent inscrit, profitez et faites des rencontres!")
 				return redirect(deconnexion)
-			else:
-				messages.add_message(request, messages.ERROR, "Erreur ce pseudo correspond déjà à un profil existant!")
-				return redirect(index)
+			messages.add_message(request, messages.ERROR, "Erreur ce pseudo correspond déjà à un profil existant!")
+			return redirect(index)
 	else:
 		form = registerForm()
 	return render(request, 'socialnetwork/index.html', {'form': form})

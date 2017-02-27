@@ -67,22 +67,22 @@ def mdp_oublie(request):
 		if formMdp.is_valid():
 			username_u = request.POST['username']
 			email_u = request.POST['email']
-			user = authenticate(username=username_u)
-			if user is not None:
-				nouveaumotdepasse=''
-				for i in range(10):
-					nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-				user.set_password(nouveaumotdepasse)
-				user.save()
-				send_mail(
-    				'Vis Ton Meeting: changement du mot de passe',
-    				'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
-    				settings.EMAIL_HOST_USER,
-    				[email_u], fail_silently=False
-				)
-			else:
+			try:
+				user = User.objects.get(username=username_u, email=email_u)
+			except User.DoesNotExist:
 				messages.add_message(request, messages.WARNING, "Erreur de nom d'utilisateur ou de l'adresse email")
 				return redirect(index)
+			nouveaumotdepasse=''
+			for i in range(10):
+				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+			user.set_password(nouveaumotdepasse)
+			user.save()
+			send_mail(
+    			'Vis Ton Meeting: changement du mot de passe',
+    			'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
+    			settings.EMAIL_HOST_USER,
+    			[email_u], fail_silently=False
+			)			
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 

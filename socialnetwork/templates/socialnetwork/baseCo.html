@@ -23,14 +23,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index">Vis Ton Meeting</a>
+                    <a class="navbar-brand" href="{% url 'index' %}">Vis Ton Meeting</a>
                 </div>
                 <div id="navbarHeader" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/index"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="/index/rencontre">Rencontres</a></li>
-                        <li><a href="/index/sortie">Sorties</a></li>
-                        <li><a href="/index/forum">Forum</a></li>
+                        <li class="active"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="{% url 'rencontre' %}">Rencontres</a></li>
+                        <li><a href="{% url 'sortie' %}">Sorties</a></li>
+                        <li><a href="{% url 'forum' %}">Forum</a></li>
                     </ul>
                     <form action="deconnexion" method="post">
                         <ul class="nav navbar-nav navbar-right">
@@ -40,10 +40,10 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="/index/affinite"><span class="glyphicon glyphicon-fire"></span> Voir affinités</a>
+                                <a href="{% url 'affinite' %}"><span class="glyphicon glyphicon-fire"></span> Voir affinités</a>
                             </li>
                             <li>
-                                <a href="/index/editerProfil"><span class="glyphicon glyphicon-wrench"></span> Editer le profil</a>
+                                <a href="{% url 'editerProfil' %}"><span class="glyphicon glyphicon-wrench"></span> Editer le profil</a>
                             </li>
                             <li>
                                 {% csrf_token %}

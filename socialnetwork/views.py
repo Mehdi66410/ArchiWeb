@@ -159,9 +159,6 @@ def editerProfil(request):
 
 	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formUpdateProfil, 'lienPicture': lienPicture.picture})
 
-def menu(request):
-	return render(request, 'socialnetwork/menu.html', {'form': form})
-
 def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)

@@ -18,27 +18,27 @@
    	<div class="contour_edit">
         <h1 class="page-header">Editer le profil</h1>
         <div class="row">
-        	<div class="col-xs-offset-1 col-md-3 col-sm-3 col-xs-12">
+        	<div class="col-md-6 col-xs-12">
             	<div class="text-center">
                 	<img src="{{ MEDIA_URL }}{{ lienPicture.url }}" class="avatar img-circle img-thumbnail" alt="avatar">
                 	<h6>Charger une photo différente...</h6>
                     <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                     	{% csrf_token %}
-                        {% bootstrap_field formUploadPicture.picture field_class='well well-sm' show_label=False  %}
-                        {% bootstrap_button "Ajouter la photo" button_type="submit" button_class="btn btn_green_add" name='uploadPicture' %}
+                        {% bootstrap_field formUploadPicture.picture field_class='well well-sm' show_label=False%}
+                        {% bootstrap_button "Charger et sauvegarder la photo" button_type="submit" button_class="btn btn_green_add" name='uploadPicture' %}
                     </form>
                 </div>
         	</div>
-        	<div class="col-md-5 col-sm-6 col-xs-offset-2 col-xs-8 personal-info">
+        	<div class="col-xs-offset-1 col-md-4 col-xs-10 personal-info">
             	<h3 class="col-xs-12">Informations personnelles</h3>
                 <form class="form-horizontal" role="form" method="post" action="">
                     {% csrf_token %}
-                    {% bootstrap_field formEditProfil.firstname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_field formEditProfil.lastname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_field formEditProfil.username addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-lg-8' label_class='col-lg-3 control-label' %}
-                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_save col-md-offset-4 col-md-6 col-xs-12" name='modifInfo' %}
+                    {% bootstrap_field formEditProfil.firstname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
+                    {% bootstrap_field formEditProfil.lastname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
+                    {% bootstrap_field formEditProfil.username addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
+                    {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
+                    {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
+                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_save col-md-offset-3 col-md-6 col-xs-offset-2 col-xs-8" name='modifInfo' %}
                 </form>
         	</div>
         </div>

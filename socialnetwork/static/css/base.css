@@ -166,8 +166,9 @@ footer {
 }
 
 .container_principal{
-    padding-top: 40px;
+  padding-top: 10px;
 }
+
 
 /*FOOTER*/
 .container_footer{
@@ -223,7 +224,7 @@ footer {
     padding: 10px;
     border: 1px solid black;
     border-radius: 40px;
-    margin-top: 20%;
+    margin-top: 12px;
     margin-bottom: 15px;
 
     color: #FFFFFF; 

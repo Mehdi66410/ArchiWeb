@@ -1,51 +1,60 @@
 .container_editerProfil .contour_edit{
 	background-color: #2B2A29;
     border-radius: 40px;
-    margin-top: 0;
     color:#FFFF00;
     opacity: 0.9;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
+    margin: 20px;
+
+    font-family: 'Lobster', cursive;
 }
 
 .container_editerProfil .page-header{
 	margin-top: 0;
 	text-align: center;
-    font-family: 'Lobster', cursive;
     font-size: 40px;
+}
+
+.container_editerProfil .img-thumbnail{
+    margin-top: 30px;
+    height:250px;
+    width:250px;
 }
 
 .container_editerProfil .text-center h6{
 	text-align: center;
-    font-family: 'Lobster', cursive;
     font-size:12px;
 }
 
 .container_editerProfil .personal-info h3{
-    font-family: 'Lobster', cursive;
     font-size:30px;
     text-align: center;
     margin-top: 0;
+    text-decoration: underline;
 }
 
 .container_editerProfil .control-label{
-    font-family: 'Lobster', cursive;
     font-size:15px;
+    margin-left: 15px;
+    padding: 0;
+    color:#4BAE4F;
 }
 
 .container_editerProfil .well{
-    background-color: #2B2A29;
-    border-color: #FFFF00;
-    color:#000;
+    color:#2B2A29;
     margin:0;
+    margin-left:50px;
+    margin-right: 50px;
+    background: #FFFFFF;
+    opacity: 0.9;
+    border-color: #4BAE4F;
+    border-radius: 40px;
 }
 
 .container_editerProfil .btn_green_save {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
-    margin-bottom:5px;
+    margin-bottom:20px;
 }
 .container_editerProfil .btn_green_save:hover{
     color: #FFFF00;
@@ -55,8 +64,8 @@
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
-    margin-bottom:3px;
-    margin-top: 20px;
+    margin-bottom:20px;
+    margin-top:10px;
 }
 
 .container_editerProfil .btn_green_add:hover{

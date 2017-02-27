@@ -82,7 +82,10 @@ def mdp_oublie(request):
     			'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
     			settings.EMAIL_HOST_USER,
     			[email_u], fail_silently=False
-			)			
+			)
+		else:
+			messages.add_message(request, messages.ERROR, "Erreur de nom d'utilisateur ou de l'adresse email")
+			return redirect(index)
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
@@ -174,6 +177,9 @@ def inscription(request):
 				messages.success(request, "Vous êtes à présent inscrit, profitez et faites des rencontres!")
 				return redirect(deconnexion)
 			messages.add_message(request, messages.ERROR, "Erreur ce pseudo correspond déjà à un profil existant!")
+			return redirect(index)
+		else:
+			messages.add_message(request, messages.ERROR, "Erreur formulaire!")
 			return redirect(index)
 	else:
 		form = registerForm()

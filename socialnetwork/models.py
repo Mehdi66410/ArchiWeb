@@ -40,3 +40,29 @@ class jaimeBar(models.Model):
 class presentBar(models.Model):
 	name = models.ForeignKey(Bar)
 	personne = models.ForeignKey(User)
+
+class informationUser(models.Model):
+	HOMME = 'H'
+	FEMME = 'F'
+	GENRE_CHOICES = (
+		(HOMME, 'Homme'),
+        (FEMME, 'Femme'),
+	)
+	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
+	user = models.ForeignKey(User)
+	age = models.IntegerField()
+	localisation = models.CharField()
+	description = models.CharField()
+
+class searchInformationUser(models.Model):
+	HOMME = 'H'
+	FEMME = 'F'
+	GENRE_CHOICES = (
+		(HOMME, 'Homme'),
+        (FEMME, 'Femme'),
+	)
+	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
+	user = models.ForeignKey(User)
+	localisation = models.CharField()
+	genre = models.CharField()
+	age = models.IntegerField()

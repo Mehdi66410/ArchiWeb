@@ -14,7 +14,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm
+from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -107,6 +107,14 @@ def bar(request):
 	Bars = Bar.objects.all()
 	Bar_like = jaimeBar.objects.all()
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like})
+
+def ajoutjaime(request):
+	if request.method == 'POST':
+		
+		jaime = jaimeBar(personne=User.objects.get(pk=request.user.id),name=Bar.objects.get(name="Café Crème"))
+		jaime.save()
+		return render(request, 'socialnetwork/sortie.html', {'updateBarLike': updateBarLike})
+
 
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')

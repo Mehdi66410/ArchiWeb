@@ -20,6 +20,13 @@ class PictureUser(models.Model):
 class Bar(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
+	SARTHE = 72
+	MAYENNE = 53
+	DEPT_CHOICES = (
+		(SARTHE, 'Sarthe'),
+		(MAYENNE, 'Mayenne')
+	)
+	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
 	prix = models.IntegerField(default=5)
@@ -28,6 +35,13 @@ class Bar(models.Model):
 class Restaurant(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
+	SARTHE = 72
+	MAYENNE = 53
+	DEPT_CHOICES = (
+		(SARTHE, 'Sarthe'),
+		(MAYENNE, 'Mayenne')
+	)
+	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
 	prix = models.IntegerField(default=25)

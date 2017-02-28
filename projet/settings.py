@@ -172,8 +172,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL='VTM@noreply.com'
-EMAIL_HOST_USER ='VTM@noreply.com'
+DEFAULT_FROM_EMAIL='noreply@VTM.com'
+EMAIL_HOST_USER ='noreply@VTM.com'
 EMAIL_HOST_PASSWORD = '************RevePas************'
 
 STATIC_URL = '/static/'

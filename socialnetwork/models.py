@@ -23,6 +23,7 @@ class Bar(models.Model):
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
 	prix = models.IntegerField(default=5)
+	description = models.CharField(max_length=10000)
 
 class Restaurant(models.Model):
 	name = models.CharField(max_length=100)
@@ -30,3 +31,4 @@ class Restaurant(models.Model):
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
 	prix = models.IntegerField(default=25)
+	description = models.CharField(max_length=10000)

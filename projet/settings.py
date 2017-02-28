@@ -92,7 +92,6 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'SCOPE': ['email'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'METHOD': 'oauth2',
         'VERIFIED_EMAIL': False
     }
@@ -180,7 +179,6 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'connexion'
 LOGOUT_URL = 'deconnexion'
-LOGIN_REDIRECT_URL = 'menu'
 
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #Secret
 SOCIAL_AUTH_FACEBOOK_KEY = '767114453451041' #ID

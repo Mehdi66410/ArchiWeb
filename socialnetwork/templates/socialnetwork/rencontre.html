@@ -15,8 +15,93 @@
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
 
     <div class="container_rencontre">
+         <div class="col-sm-4">
+            
+
+
+
+
+
+
+
+            <div class="contour_edit_gauche">
+                <h1 class="page-header">Vos informations</h1>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                        <form class="form-horizontal" role="form" method="post" action="#">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <span class="input-group-addon success">
+                                    <input type="radio" name="genre" value="Homme" />
+                                </span>
+                                <div class="form-control form-control-static">
+                                    Homme 
+                                </div>
+                                
+                                <span class="input-group-addon success">
+                                    <input type="radio" name="genre" value="Femme" />
+                                </span>
+                                <div class="form-control form-control-static">
+                                    Femme
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                               <input type="range" value="30" max="100" min="18" step="5">
+                            </div>
+                            <div class="input-group">
+                                <select id="ville" name="localisation">
+                                    <option value="53">Mayenne</option>
+                                    <option value="52">Sarthe</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
+                                <input type="text" class="form-control" placeholder="Profession">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
+                                <input type="text" class="form-control" placeholder="Description">
+                            </div>
+                            
+                            <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="contour_edit_gauche">
+                <h1 class="page-header">Votre recherche</h1>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                        <form class="form-horizontal" role="form" method="post" action="#">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
+                                <input type="text" class="form-control" placeholder="Genre">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
+                                <input type="text" class="form-control" placeholder="Age">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
+                                <input type="text" class="form-control" placeholder="Localisation">
+                            </div>
+                            
+                            <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+<!---OK-->
         <div class="col-sm-8">
-            <div class="contour_edit">
+            <div class="contour_edit_swap">
                 <div class="row">
                     <div class='col-md-6 col-xs-12'>
                         <div class="col-xs-8 col-xs-offset-2 slide-row">
@@ -64,6 +149,7 @@
             </div>
         </div>
     </div>
+</div> 
 {% endblock content %}
 
 

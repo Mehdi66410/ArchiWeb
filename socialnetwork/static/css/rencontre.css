@@ -1,3 +1,55 @@
-.container_rencontre{
-	margin-top: 5%;
+.container_rencontre .contour_edit{
+	background-color: #2B2A29;
+    border-radius: 40px;
+    color:#FFFF00;
+    opacity: 0.9;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+}
+
+.container_rencontre .img-thumbnail{
+    height:300px;
+    width:300px;
+    margin-top: 30px;
+}
+
+.container_rencontre .titre{
+	text-decoration: underline;
+	margin:0;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+.container_rencontre .info{
+    color:#C0C0C0;
+    font-size: 15px;
+}
+
+.container_rencontre .info .glyphicon {
+  color: #FFFF00;
+  padding-right: 10px;
+}
+
+.container_rencontre .info .sexeHomme {
+  color: #00BFFF;
+}
+.container_rencontre .info .sexeFemme {
+  color: #FF69B4;
+}
+
+
+.container_rencontre #carousel_rencontre{
+  padding-bottom: 50px;
+}
+
+.container_rencontre #carousel_rencontre .carousel-indicators {
+  bottom: 0px;
+}
+
+.container_rencontre #carousel_rencontre .carousel-indicators li {
+  background: none;
+  border-color: #4BAE4F;
+}
+.container_rencontre #carousel_rencontre .carousel-indicators .active {
+  background: #FFFF00;
 }

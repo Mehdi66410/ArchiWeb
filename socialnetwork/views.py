@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
 from .models import PictureUser
-from .models import Bar
+from .models import Bar,jaimeBar
 from django.core.mail import send_mail
 import os
 import random
@@ -105,7 +105,8 @@ def montemple(request):
 
 def bar(request):
 	Bars = Bar.objects.all()
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars})
+	Bar_like = jaimeBar.objects.all()
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like})
 
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')

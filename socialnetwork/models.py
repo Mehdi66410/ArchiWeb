@@ -42,6 +42,7 @@ class presentBar(models.Model):
 	personne = models.ForeignKey(User)
 
 class informationUser(models.Model):
+	user = models.ForeignKey(User)
 	HOMME = 'H'
 	FEMME = 'F'
 	GENRE_CHOICES = (
@@ -49,12 +50,18 @@ class informationUser(models.Model):
         (FEMME, 'Femme'),
 	)
 	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
-	user = models.ForeignKey(User)
+	SARTHE = 72
+	MAYENNE = 53
+	DEPT_CHOICES = (
+		(SARTHE, 'Sarthe'),
+		(MAYENNE, 'Mayenne')
+	)
+	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	age = models.IntegerField()
-	localisation = models.CharField()
-	description = models.CharField()
+	description = models.CharField(max_length=500)
 
 class searchInformationUser(models.Model):
+	user = models.ForeignKey(User)
 	HOMME = 'H'
 	FEMME = 'F'
 	GENRE_CHOICES = (
@@ -62,7 +69,12 @@ class searchInformationUser(models.Model):
         (FEMME, 'Femme'),
 	)
 	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
-	user = models.ForeignKey(User)
-	localisation = models.CharField()
-	genre = models.CharField()
-	age = models.IntegerField()
+	SARTHE = 72
+	MAYENNE = 53
+	DEPT_CHOICES = (
+		(SARTHE, 'Sarthe'),
+		(MAYENNE, 'Mayenne')
+	)
+	localisation = models.IntegerField(choices=DEPT_CHOICES)
+	ageMin = models.IntegerField()
+	ageMax = models.IntegerField()

@@ -89,6 +89,10 @@ def mdp_oublie(request):
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
+def menu(request):
+	form = registerForm(request.POST)
+	return render(request, 'socialnetwork/menu.html',{'form': form})
+
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

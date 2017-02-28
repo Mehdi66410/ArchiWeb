@@ -92,7 +92,6 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'SCOPE': ['email'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'METHOD': 'oauth2',
         'VERIFIED_EMAIL': False
     }
@@ -102,8 +101,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
 
 )
@@ -180,7 +179,6 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'connexion'
 LOGOUT_URL = 'deconnexion'
-LOGIN_REDIRECT_URL = 'menu'
 
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #Secret
 SOCIAL_AUTH_FACEBOOK_KEY = '767114453451041' #ID

@@ -1,4 +1,6 @@
 ### Django ###
 db.sqlite3
 .DS_Store
-
+*.pyc
+socialnetwork/migrations/*.py
+media/upload/*

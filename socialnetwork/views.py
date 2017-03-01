@@ -8,6 +8,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from .models import PictureUser
 from .models import Bar,jaimeBar
+from .models import informationUser, searchInformationUser
+
 from django.core.mail import send_mail
 import os
 import random
@@ -98,6 +100,16 @@ def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 
 def rencontre(request):
+	utilisateur = User.objects.get(pk=request.user.id)
+
+	# Chargement des informations de l'utilisateur et les informations de recherche
+	try:
+		userInformation = informationUser.objects.get(user=utilisateur)
+		userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
+	except informationUser.DoesNotExist:
+		messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
+		return render(request, 'socialnetwork/rencontre.html')
+
 	return render(request, 'socialnetwork/rencontre.html')
 
 def montemple(request):

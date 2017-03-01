@@ -13,55 +13,64 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <div class="container_rencontre">
          <div class="col-sm-4">
-            
-
-
-
-
-
-
-
             <div class="contour_edit_gauche">
                 <h1 class="page-header">Vos informations</h1>
                 <div class="row">
                     <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                         <form class="form-horizontal" role="form" method="post" action="#">
                             {% csrf_token %}
-                            <div class="input-group">
-                                <span class="input-group-addon success">
-                                    <input type="radio" name="genre" value="Homme" />
-                                </span>
-                                <div class="form-control form-control-static">
-                                    Homme 
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <h3 class="info_titre"> Vous êtes..? </h3>
+                                    <label class="switch_genre">
+                                        <input type="radio" name="genre" value="homme" checked>
+                                        <i></i>
+                                        <span class="switch_homme"> Homme </span>
+                                    </label>
+                                    <label class="switch_genre femme">
+                                        <input type="radio" name="genre" value="femme">
+                                        <i></i>
+                                        <span class="switch_femme"> Femme </span>
+                                    </label>
                                 </div>
-                                
-                                <span class="input-group-addon success">
-                                    <input type="radio" name="genre" value="Femme" />
-                                </span>
-                                <div class="form-control form-control-static">
-                                    Femme
+
+                                <div class="col-md-6 col-xs-6">
+                                    <h3 class="info_titre"> Votre age? </h3>
+                                    <output id="rangevalue" class="text-center">30</output>
+                                    <div id="slider">
+                                        <input class="barre_range" type="range" min="18" max="100" value="30" onchange="rangevalue.value=value" />
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="input-group">
-                               <input type="range" value="30" max="100" min="18" step="5">
-                            </div>
+
+
+
+
+
+
+
+
+
                             <div class="input-group">
                                 <select id="ville" name="localisation">
                                     <option value="53">Mayenne</option>
                                     <option value="52">Sarthe</option>
                                 </select>
                             </div>
+
+
                             <div class="input-group">
                                 <span class="input-group-addon success glyphicon glyphicon-user"></span>    
                                 <input type="text" class="form-control" placeholder="Profession">
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <input type="text" class="form-control" placeholder="Description">
+                                <textarea class="form-control" id="exampleTextarea" maxlength="250" placeholder="Desciption" rows="3"></textarea>
                             </div>
                             
                             <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
@@ -86,8 +95,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon success glyphicon glyphicon-user"></span>    
                                 <input type="text" class="form-control" placeholder="Localisation">
-                            </div>
-                            
+                            </div>   
                             <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
                         </form>
                     </div>
@@ -99,7 +107,16 @@
 
 
 
-<!---OK-->
+
+
+
+
+
+
+
+
+
+
         <div class="col-sm-8">
             <div class="contour_edit_swap">
                 <div class="row">
@@ -149,7 +166,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 {% endblock content %}
 
 

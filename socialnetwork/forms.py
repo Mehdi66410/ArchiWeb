@@ -22,3 +22,8 @@ class updateProfilForm(forms.Form):
 class mdpForm(forms.Form):
 	username = forms.CharField(label='Pseudo',min_length=2, max_length=100)
 	email = forms.EmailField(label='Email',min_length=5, max_length=100)
+
+class updateBarLike(forms.Form):
+	username = forms.CharField(label='Username', min_length=2, max_length=100)
+	barname = forms.CharField(label='BarName', min_length=2, max_length=100)
+

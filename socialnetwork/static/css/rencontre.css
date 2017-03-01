@@ -1,4 +1,32 @@
-.container_rencontre .contour_edit{
+/*GAUCHE*/
+.container_rencontre .contour_edit_gauche{
+	background-color: #2B2A29;
+    border-radius: 40px;
+    color:#FFFF00;
+    opacity: 0.9;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+}
+
+.container_rencontre .page-header{
+	margin-top: 0;
+	text-align: center;
+    font-size: 30px;
+}
+
+.container_rencontre .btn_green_valider {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+    margin-bottom:20px;
+}
+.container_rencontre .btn_green_valider:hover{
+    color: #FFFF00;
+}
+
+/*SWAP*/
+.container_rencontre .contour_edit_swap{
 	background-color: #2B2A29;
     border-radius: 40px;
     color:#FFFF00;
@@ -30,7 +58,7 @@
   padding-right: 10px;
 }
 
-.container_rencontre .info .sexeHomme {
+.container_rencontre .info-sexeHomme {
   color: #00BFFF;
 }
 .container_rencontre .info .sexeFemme {

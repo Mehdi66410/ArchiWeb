@@ -20,7 +20,6 @@ urlpatterns = [
 	url(r'^index/sortie/bar$', views.bar, name='bar'),
 	url(r'^index/sortie/ajoutjaime$', views.ajoutjaime, name='ajoutjaime'),
 	url(r'^index/sortie/restaurant$', views.restaurant, name='restaurant'),
-	url(r'^index/forum$', views.forum, name='forum'),
 	url(r'^index/menu$', views.menu, name='menu'),
 	url(r'^listUser$', views.listUser, name='listUser'),
 	url(r'^addFriend$', views.addFriend, name='addFriend'),

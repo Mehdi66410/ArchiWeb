@@ -1,5 +1,19 @@
 from django import forms
 
+HOMME = 'H'
+FEMME = 'F'
+GENRE_CHOICES = (
+	(HOMME, 'Homme'),
+    (FEMME, 'Femme'),
+)
+
+SARTHE = 72
+MAYENNE = 53
+DEPT_CHOICES = (
+	(SARTHE, 'Sarthe'),
+	(MAYENNE, 'Mayenne')
+)
+
 class loginForm(forms.Form):
 	username = forms.CharField(label='Pseudo',min_length=2, max_length=100)
 	password = forms.CharField(label='Password',min_length=6, max_length=100, widget=forms.PasswordInput)
@@ -28,39 +42,15 @@ class updateBarLike(forms.Form):
 	barname = forms.CharField(label='BarName', min_length=2, max_length=100)
 
 class informationUserForm(forms.Form):
-	HOMME = 'H'
-	FEMME = 'F'
-	GENRE_CHOICES = (
-		(HOMME, 'Homme'),
-        (FEMME, 'Femme'),
-	)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
 	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
 	profession = forms.CharField(label='Profession', min_length=2, max_length=100, required=False)
 	description = forms.CharField(label='Description', widget=forms.Textarea, max_length=250, required=False)
 
 class searchInformationUserForm(forms.Form):
-	HOMME = 'H'
-	FEMME = 'F'
-	GENRE_CHOICES = (
-		(HOMME, 'Homme'),
-        (FEMME, 'Femme'),
-	)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
 	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
-	ageMin = forms.IntegerField(label='Age minimum')
+	ageMin = forms.IntegerField(label='Age minimum', min_value=18)
 	ageMax = forms.IntegerField(label='Age maximum')
 
 

@@ -102,8 +102,26 @@ def affinite(request):
 def rencontre(request):
 	utilisateur = User.objects.get(pk=request.user.id)
 
-	formInformationUser = informationUserForm()
-	formSearchInformationUser = searchInformationUserForm()
+	if request.method == 'POST':
+		if "informationUser" in request.POST:
+			formInformationUser = informationUserForm(request.POST)
+			#if formInformationUser.is_valid():
+				
+
+		else:
+			formInformationUser = informationUserForm()
+
+		if "searchInformationUser" in request.POST:
+			formSearchInformationUser = searchInformationUserForm(request.POST)
+			#if formInformationUser.is_valid():
+				
+
+		else:
+			formSearchInformationUser = searchInformationUserForm()
+
+	else:
+		formInformationUser = informationUserForm()
+		formSearchInformationUser = searchInformationUserForm()
 
 	# Chargement des informations de l'utilisateur et les informations de recherche
 	try:
@@ -137,8 +155,6 @@ def restaurant(request):
 def sortie(request):
 	return render(request, 'socialnetwork/sortie.html')
 
-def forum(request):
-	return render(request, 'socialnetwork/forum.html')
 
 def editerProfil(request):
 	if request.method == 'POST':

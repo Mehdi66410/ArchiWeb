@@ -17,7 +17,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
+from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -140,8 +140,7 @@ def montemple(request):
 def bar(request):
 	Bars = Bar.objects.all()
 	Bar_like = LikeBar.objects.all()
-	ajoutJaime = updateBarLike(request.POST)
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like,'ajoutJaime': ajoutJaime})
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like})
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -151,7 +150,7 @@ def ajoutlike(request):
 		bar_like = Bar.objects.get(name=request.POST['barname'])
 		like = LikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_like)
 		like.save()
-		like_count = LikeBar.objects.filter(person_name=bar_like).count()
+		like_count = LikeBar.objects.filter(bar_name=bar_like).count()
 		return HttpResponse(like_count)
 
 @csrf_exempt

@@ -21,6 +21,15 @@
                 <h1 class="page-header">Vos informations</h1>
                 <div class="row">
                     <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                        <form action="rencontre" class="form-horizontal" role="form" method="post">
+                            {% csrf_token %}
+                            {% bootstrap_field formInformationUser.genre %}
+                            {% bootstrap_field formInformationUser.localisation %}
+                            {% bootstrap_field formInformationUser.profession %}
+                            {% bootstrap_field formInformationUser.description %}
+                        </form>
+                    </form>
+
                         <form class="form-horizontal" role="form" method="post" action="#">
                             {% csrf_token %}
                             <div class="row">
@@ -78,16 +87,41 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+            
             <div class="contour_edit_gauche">
                 <h1 class="page-header">Votre recherche</h1>
                 <div class="row">
                     <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                        <form action="rencontre" class="form-horizontal" role="form" method="post">
+                            {% csrf_token %}
+                            {% bootstrap_field formSearchInformationUser.genre %}
+                            {% bootstrap_field formSearchInformationUser.localisation %}
+                            {% bootstrap_field formSearchInformationUser.ageMin %}
+                            {% bootstrap_field formSearchInformationUser.ageMax %}
+                        </form>
+
                         <form class="form-horizontal" role="form" method="post" action="#">
                             {% csrf_token %}
-                            <div class="input-group">
-                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <input type="text" class="form-control" placeholder="Genre">
-                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                    <h3 class="info_titre"> Vous recherchez..? </h3>
+                                    <label class="switch_genre">
+                                        <input type="checkbox" name="genre" value="homme" checked>
+                                        <i></i>
+                                        <span class="switch_homme"> Homme </span>
+                                    </label>
+                                    <label class="switch_genre femme">
+                                        <input type="checkbox" name="genre" value="femme">
+                                        <i></i>
+                                        <span class="switch_femme"> Femme </span>
+                                    </label>
+                                </div>
                             <div class="input-group">
                                 <span class="input-group-addon success glyphicon glyphicon-user"></span>    
                                 <input type="text" class="form-control" placeholder="Age">

@@ -3,6 +3,22 @@ from django.db import models
 # Importation des modeles
 from django.contrib.auth.models import User
 
+# Constant Models
+
+HOMME = 'H'
+FEMME = 'F'
+GENRE_CHOICES = (
+	(HOMME, 'Homme'),
+    (FEMME, 'Femme'),
+)
+
+SARTHE = 72
+MAYENNE = 53
+DEPT_CHOICES = (
+	(SARTHE, 'Sarthe'),
+	(MAYENNE, 'Mayenne')
+)
+
 # Create your models here.
 
 class Friend(models.Model):
@@ -20,12 +36,6 @@ class PictureUser(models.Model):
 class Bar(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
@@ -35,12 +45,6 @@ class Bar(models.Model):
 class Restaurant(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
 	picture = models.FileField(upload_to='upload',default='')
 	speciality = models.CharField(max_length=100, default='')
@@ -57,38 +61,12 @@ class presentBar(models.Model):
 
 class informationUser(models.Model):
 	user = models.ForeignKey(User)
-	HOMME = 'H'
-	FEMME = 'F'
-	GENRE_CHOICES = (
-		(HOMME, 'Homme'),
-        (FEMME, 'Femme'),
-	)
-	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	age = models.IntegerField()
 	description = models.CharField(max_length=500)
 
 class searchInformationUser(models.Model):
 	user = models.ForeignKey(User)
-	HOMME = 'H'
-	FEMME = 'F'
-	GENRE_CHOICES = (
-		(HOMME, 'Homme'),
-        (FEMME, 'Femme'),
-	)
-	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
-	SARTHE = 72
-	MAYENNE = 53
-	DEPT_CHOICES = (
-		(SARTHE, 'Sarthe'),
-		(MAYENNE, 'Mayenne')
-	)
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	ageMin = models.IntegerField()
 	ageMax = models.IntegerField()

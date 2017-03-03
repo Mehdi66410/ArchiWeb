@@ -16,7 +16,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
+from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -102,13 +102,34 @@ def affinite(request):
 def rencontre(request):
 	utilisateur = User.objects.get(pk=request.user.id)
 
+	if request.method == 'POST':
+		if "informationUser" in request.POST:
+			formInformationUser = informationUserForm(request.POST)
+			#if formInformationUser.is_valid():
+				
+
+		else:
+			formInformationUser = informationUserForm()
+
+		if "searchInformationUser" in request.POST:
+			formSearchInformationUser = searchInformationUserForm(request.POST)
+			#if formInformationUser.is_valid():
+				
+
+		else:
+			formSearchInformationUser = searchInformationUserForm()
+
+	else:
+		formInformationUser = informationUserForm()
+		formSearchInformationUser = searchInformationUserForm()
+
 	# Chargement des informations de l'utilisateur et les informations de recherche
 	try:
 		userInformation = informationUser.objects.get(user=utilisateur)
 		userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
 	except informationUser.DoesNotExist:
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
-		return render(request, 'socialnetwork/rencontre.html')
+		return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
 
 	return render(request, 'socialnetwork/rencontre.html')
 
@@ -134,8 +155,6 @@ def restaurant(request):
 def sortie(request):
 	return render(request, 'socialnetwork/sortie.html')
 
-def forum(request):
-	return render(request, 'socialnetwork/forum.html')
 
 def editerProfil(request):
 	if request.method == 'POST':

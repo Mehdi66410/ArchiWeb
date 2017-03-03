@@ -1,10 +1,8 @@
 .container_menu .bs-calltoaction{
-    width:auto;
-    height: auto;
     padding: 10px;
     border: 1px solid black;
     border-radius: 40px;
-    margin-top: 12px;
+    margin-top: 40px;
     margin-bottom: 15px;
 }
 
@@ -106,28 +104,6 @@
 }
 .container_menu .btn-s:hover{
     color: #FFFFFF;
-    border-color: #FFFFFF;
-    opacity: 1;
-}
-
-.container_menu .bs-calltoaction.bs-calltoaction-f{
-    color: #ABEBC6;
-    background-color: #239B56 ;
-    border-color: #ABEBC6 ;
-    opacity: 0.9;
-}
-.container_menu .bs-calltoaction.bs-calltoaction-f .cta-title{
-    color: #FFFFFF;
-}
-.container_menu .btn-f{
-    color: #FFFFFF;
-    background-color: #ABEBC6 ;
-    border-color: #FFFFFF;
-    opacity: 0.8;
-}
-.container_menu .btn-f:hover{
-    color: #FFFFFF;
-    background-color: #ABEBC6 ;
     border-color: #FFFFFF;
     opacity: 1;
 }

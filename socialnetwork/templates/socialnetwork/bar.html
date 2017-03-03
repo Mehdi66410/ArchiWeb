@@ -45,11 +45,11 @@
 						<div class="row nav">
 							<div class="col-md-12" style="margin: 0px;">
 								<div>
-									<button class="btn rate-btn rate-btn-friendly like"  onclick="like( {{ bar.id }}, '{{bar.name}}' )">J'aime</button>
+									<button class="btn btn1 like"  onclick="like( {{ bar.id }}, '{{bar.name}}' )">J'aime</button>
 									<span id={{bar.id}}></span>
-								</div>
-								<div>
-									<button class="btn rate-btn rate-btn-friendly like"  onclick="dislike( {{ bar.id }}, '{{bar.name}}' )">Je n'aime pas
+									{{ LikeBar | length }}
+									<button class="btn btn2 like"  onclick="dislike( {{ bar.id }}, '{{bar.name}}' )">Je n'aime pas
+									
 									</button>
 									<span id={{bar.id}}></span>
 								</div>

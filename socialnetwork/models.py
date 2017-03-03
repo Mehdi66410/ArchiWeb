@@ -57,9 +57,13 @@ class Restaurant(models.Model):
 	prix = models.IntegerField(default=25)
 	description = models.CharField(max_length=10000,default='')
 
-class jaimeBar(models.Model):
-	name = models.ForeignKey(Bar)
-	personne = models.ForeignKey(User)
+class LikeBar(models.Model):
+	bar_name = models.ForeignKey(Bar)
+	person_name = models.ForeignKey(User)
+
+class DislikeBar(models.Model):
+	bar_name = models.ForeignKey(Bar)
+	person_name = models.ForeignKey(User)
 
 class presentBar(models.Model):
 	name = models.ForeignKey(Bar)

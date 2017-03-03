@@ -6,8 +6,9 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
+from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,jaimeBar
+from .models import Bar,LikeBar,DislikeBar
 from .models import informationUser, searchInformationUser
 
 from django.core.mail import send_mail
@@ -138,17 +139,29 @@ def montemple(request):
 
 def bar(request):
 	Bars = Bar.objects.all()
-	Bar_like = jaimeBar.objects.all()
+	Bar_like = LikeBar.objects.all()
 	ajoutJaime = updateBarLike(request.POST)
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like,'ajoutJaime': ajoutJaime})
 
-def ajoutjaime(request):
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def ajoutlike(request):
 	if request.method == 'POST':
-		ajoutJaime = updateBarLike(request.POST)
-		jaime = jaimeBar(personne=User.objects.get(pk=request.user.id))
-		jaime.name = Bar.objects.get(name=request.POST['barname'])
-		jaime.save()
-		return redirect(bar)
+		bar_like = Bar.objects.get(name=request.POST['barname'])
+		like = LikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_like)
+		like.save()
+		like_count = LikeBar.objects.filter(person_name=bar_like).count()
+		return HttpResponse(like_count)
+
+@csrf_exempt
+def ajoutdislike(request):
+	if request.method == 'POST':
+		bar_dislike = Bar.objects.get(name=request.POST['barname'])
+		dislike = DislikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_dislike)
+		dislike.save()
+		dislike_count = DislikeBar.objects.filter(bar_name=bar_dislike).count()
+		return HttpResponse(dislike_count)
 
 
 def restaurant(request):

@@ -44,14 +44,15 @@
 					<div class="col-sm-6 col-md-12" >
 						<div class="row nav">
 							<div class="col-md-12" style="margin: 0px;">
-								<hr>
 								<div>
-									<button class="btn rate-btn rate-btn-friendly like"  onclick=" coucou( {{ bar.id }}, '{{bar.name}}' )">J'aime</button>
-									<span id={{bar.id}}>
-										
-									</span>
+									<button class="btn rate-btn rate-btn-friendly like"  onclick="like( {{ bar.id }}, '{{bar.name}}' )">J'aime</button>
+									<span id={{bar.id}}></span>
 								</div>
-								<button class="rate-btn rate-btn-heart"><i class="fa fa-frown-o fa-lg"></i> Je n'aime pas </button>
+								<div>
+									<button class="btn rate-btn rate-btn-friendly like"  onclick="dislike( {{ bar.id }}, '{{bar.name}}' )">Je n'aime pas
+									</button>
+									<span id={{bar.id}}></span>
+								</div>
 								<span class="pull-right"><button class="rate-btn rate-btn-report"> <i class="fa fa-car fa-lg" ></i> J'y vais aujourd'hui !</button></span>
 							</div>
 						</div>

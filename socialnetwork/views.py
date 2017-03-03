@@ -139,14 +139,16 @@ def montemple(request):
 def bar(request):
 	Bars = Bar.objects.all()
 	Bar_like = jaimeBar.objects.all()
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like})
+	ajoutJaime = updateBarLike(request.POST)
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like,'ajoutJaime': ajoutJaime})
 
 def ajoutjaime(request):
 	if request.method == 'POST':
-		
-		jaime = jaimeBar(personne=User.objects.get(pk=request.user.id),name=Bar.objects.get(name="Café Crème"))
+		ajoutJaime = updateBarLike(request.POST)
+		jaime = jaimeBar(personne=User.objects.get(pk=request.user.id))
+		jaime.name = Bar.objects.get(name=request.POST['barname'])
 		jaime.save()
-		return render(request, 'socialnetwork/sortie.html', {'updateBarLike': updateBarLike})
+		return redirect(bar)
 
 
 def restaurant(request):

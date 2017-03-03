@@ -27,3 +27,33 @@ class updateBarLike(forms.Form):
 	username = forms.CharField(label='Username', min_length=2, max_length=100)
 	barname = forms.CharField(label='BarName', min_length=2, max_length=100)
 
+class informationUserForm(forms.Form):
+	HOMME = 'H'
+	FEMME = 'F'
+	GENRE_CHOICES = (
+		(HOMME, 'Homme'),
+        (FEMME, 'Femme'),
+	)
+	SARTHE = 72
+	MAYENNE = 53
+	DEPT_CHOICES = (
+		(SARTHE, 'Sarthe'),
+		(MAYENNE, 'Mayenne')
+	)
+	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
+	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
+	profession = forms.CharField(label='Profession', min_length=2, max_length=100, required=False)
+	description = forms.CharField(label='Description', widget=forms.Textarea, max_length=250, required=False)
+
+
+
+
+
+
+
+
+
+
+
+
+

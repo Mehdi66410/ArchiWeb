@@ -16,7 +16,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
+from .forms import informationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -102,13 +102,15 @@ def affinite(request):
 def rencontre(request):
 	utilisateur = User.objects.get(pk=request.user.id)
 
+	formUserInformation = informationUserForm()
+
 	# Chargement des informations de l'utilisateur et les informations de recherche
 	try:
 		userInformation = informationUser.objects.get(user=utilisateur)
 		userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
 	except informationUser.DoesNotExist:
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
-		return render(request, 'socialnetwork/rencontre.html')
+		return render(request, 'socialnetwork/rencontre.html', {'formUserInformation': formUserInformation})
 
 	return render(request, 'socialnetwork/rencontre.html')
 

@@ -19,7 +19,7 @@
 <div class="container_bar">
 	{% for n in Bars %}
 
-	<div class="row">
+	<div class="row" id="{{ n.id }}">
 		<div class="col-xs-12 col-sm-6 col-md-9">
 			<div class="well well-sm">
 				<div class="row">
@@ -46,6 +46,7 @@
 								<hr>
 								<form class="form" role="form" method="post" action="ajoutjaime" accept-charset="UTF-8" id="ajoutjaime">
 								{% csrf_token %}
+								<input name="barname" value="{{n.name}}" type="hidden">
 								{% bootstrap_button "J'aime" button_type="submit" button_class="rate-btn rate-btn-friendly"  %}
 								</form>
 								<button class="rate-btn rate-btn-heart"><i class="fa fa-frown-o fa-lg"></i> Je n'aime pas </button>

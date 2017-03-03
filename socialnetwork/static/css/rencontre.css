@@ -87,12 +87,16 @@
 }
 
 .container_rencontre input[type="radio"]:checked + i + .switch_homme,
-.container_rencontre input[type="radio"]:checked + i:before {
+.container_rencontre input[type="radio"]:checked + i:before,
+.container_rencontre input[type="checkbox"]:checked + i + .switch_homme,
+.container_rencontre input[type="checkbox"]:checked + i:before {
   color: #00BFFF; 
 }
 
 .container_rencontre input[type="radio"]:checked + i + .switch_femme,
-.container_rencontre input[type="radio"]:checked + i:before {
+.container_rencontre input[type="radio"]:checked + i:before,
+.container_rencontre input[type="checkbox"]:checked + i + .switch_femme,
+.container_rencontre input[type="checkbox"]:checked + i:before {
   color: #FF69B4 
 }
 

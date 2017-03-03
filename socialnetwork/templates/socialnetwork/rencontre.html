@@ -22,11 +22,12 @@
                 <div class="row">
                     <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                         <form action="rencontre" class="form-horizontal" role="form" method="post">
-                        {% csrf_token %}
-                        {% bootstrap_field formUserInformation.genre %}
-                        {% bootstrap_field formUserInformation.localisation %}
-                        {% bootstrap_field formUserInformation.profession %}
-                        {% bootstrap_field formUserInformation.description %}
+                            {% csrf_token %}
+                            {% bootstrap_field formInformationUser.genre %}
+                            {% bootstrap_field formInformationUser.localisation %}
+                            {% bootstrap_field formInformationUser.profession %}
+                            {% bootstrap_field formInformationUser.description %}
+                        </form>
                     </form>
 
                         <form class="form-horizontal" role="form" method="post" action="#">
@@ -98,6 +99,14 @@
                 <h1 class="page-header">Votre recherche</h1>
                 <div class="row">
                     <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                        <form action="rencontre" class="form-horizontal" role="form" method="post">
+                            {% csrf_token %}
+                            {% bootstrap_field formSearchInformationUser.genre %}
+                            {% bootstrap_field formSearchInformationUser.localisation %}
+                            {% bootstrap_field formSearchInformationUser.ageMin %}
+                            {% bootstrap_field formSearchInformationUser.ageMax %}
+                        </form>
+
                         <form class="form-horizontal" role="form" method="post" action="#">
                             {% csrf_token %}
                             <div class="col-md-12 col-xs-12">

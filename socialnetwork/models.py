@@ -14,9 +14,15 @@ GENRE_CHOICES = (
 
 SARTHE = 72
 MAYENNE = 53
+LOIRE_ATLANTIQUE = 44
+MAINE_ET_LOIRE = 49
+VENDEE = 85
 DEPT_CHOICES = (
 	(SARTHE, 'Sarthe'),
-	(MAYENNE, 'Mayenne')
+	(MAYENNE, 'Mayenne'),
+	(MAINE_ET_LOIRE, 'Maine et Loire'),
+	(LOIRE_ATLANTIQUE, 'Loire Atlantique'),
+	(VENDEE,'Vendee')
 )
 
 # Create your models here.

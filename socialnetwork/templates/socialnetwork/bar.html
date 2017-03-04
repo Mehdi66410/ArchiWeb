@@ -13,9 +13,10 @@
 
 {% block menu_main %}
     <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<div class="container_sortie">
-<div style="padding-top:25px;"></div> 
-<div class="container_bar">
+	<div style="padding-top:25px;"></div> 
+	<div class="container_bar">
 	{% for bar in Bars %}
 
 	<div class="row" >
@@ -61,9 +62,7 @@
 		</div>
 	</div>
 	{% endfor %} 
-
 </div>
-
-	</div>
+</div>
 
 {% endblock menu_main %}

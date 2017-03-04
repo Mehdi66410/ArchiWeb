@@ -15,143 +15,96 @@
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <div class="container_rencontre">
-         <div class="col-sm-4">
-            <div class="contour_edit_gauche">
-                <h1 class="page-header">Vos informations</h1>
-                <div class="row">
-                    <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
-                        <form action="rencontre" class="form-horizontal" role="form" method="post">
-                            {% csrf_token %}
-                            {% bootstrap_field formInformationUser.genre %}
-                            {% bootstrap_field formInformationUser.localisation %}
-                            {% bootstrap_field formInformationUser.profession %}
-                            {% bootstrap_field formInformationUser.description %}
-                        </form>
-                    </form>
+<div class="container_rencontre">
+     <div class="col-sm-4">
+        <div class="panel-group" id="accordion_rencontre">
+            <div class="panel contour_edit_gauche">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseInfo">
+                            <span class="glyphicon glyphicon-th-list"></span> Vos informations
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseInfo" class="collapse in">
+                    <div class="panel-body row">
+                        <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                            <form action="rencontre" class="form-horizontal" role="form" method="post">
+                                {% csrf_token %}
+                                <!-- {% bootstrap_field formInformationUser.genre %} -->
+                                <h3 class="info_titre"> Vous êtes.. ? </h3>
+                                <label class="switch_genre">
+                                    <input type="radio" name="genre" value="homme" checked>
+                                    <i></i>
+                                    <span class="switch_homme"> Homme </span>
+                                </label>
+                                <label class="switch_genre femme">
+                                    <input type="radio" name="genre" value="femme">
+                                    <i></i>
+                                    <span class="switch_femme"> Femme </span>
+                                </label>
 
-                        <form class="form-horizontal" role="form" method="post" action="#">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-md-6 col-xs-6">
-                                    <h3 class="info_titre"> Vous êtes..? </h3>
-                                    <label class="switch_genre">
-                                        <input type="radio" name="genre" value="homme" checked>
-                                        <i></i>
-                                        <span class="switch_homme"> Homme </span>
-                                    </label>
-                                    <label class="switch_genre femme">
-                                        <input type="radio" name="genre" value="femme">
-                                        <i></i>
-                                        <span class="switch_femme"> Femme </span>
-                                    </label>
-                                </div>
+                                <h3 class="info_titre"> Votre age.. ? </h3>
+                                {% bootstrap_field formInformationUser.age addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-                                <div class="col-md-6 col-xs-6">
-                                    <h3 class="info_titre"> Votre age? </h3>
-                                    <output id="rangevalue" class="text-center">30</output>
-                                    <div id="slider">
-                                        <input class="barre_range" type="range" min="18" max="100" value="30" onchange="rangevalue.value=value" />
-                                    </div>
-                                </div>
-                            </div>
+                                <h3 class="info_titre"> Votre localisation.. ? </h3>
+                                {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                
+                                <h3 class="info_titre"> Votre profession.. ? </h3>
+                                {% bootstrap_field formInformationUser.profession addon_before='<span class="glyphicon glyphicon-briefcase"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                
+                                {% bootstrap_field formInformationUser.description show_label=False%}
 
-
-
-
-
-
-
-
-
-
-                            <div class="input-group">
-                                <select id="ville" name="localisation">
-                                    <option value="53">Mayenne</option>
-                                    <option value="52">Sarthe</option>
-                                </select>
-                            </div>
-
-
-                            <div class="input-group">
-                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <input type="text" class="form-control" placeholder="Profession">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <textarea class="form-control" id="exampleTextarea" maxlength="250" placeholder="Desciption" rows="3"></textarea>
-                            </div>
-                            
-                            <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
-                        </form>
+                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" %}
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="panel contour_edit_gauche">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseRecherche">
+                            <span class="glyphicon glyphicon-th-list"></span> Votre recherche
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseRecherche" class="collapse">
+                    <div class="panel-body row">
+                        <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                            <form action="rencontre" class="form-horizontal" role="form" method="post">
+                                {% csrf_token %}
+                                <!--{% bootstrap_field formSearchInformationUser.genre %}-->
+                                <h3 class="info_titre"> Vous recherchez..? </h3>
+                                <label class="switch_genre">
+                                    <input type="checkbox" name="genre" value="homme" checked>
+                                    <i></i>
+                                    <span class="switch_homme"> Homme </span>
+                                </label>
+                                <label class="switch_genre femme">
+                                    <input type="checkbox" name="genre" value="femme">
+                                    <i></i>
+                                    <span class="switch_femme"> Femme </span>
+                                </label>
+                                
+                                <h3 class="info_titre"> Sa localisation..? </h3>
+                                {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                
+                                <h3 class="info_titre"> Son age min..? </h3>
+                                {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                   
+                                <h3 class="info_titre"> Son age max..? </h3>
+                                {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-
-
-
-
-
-
-            
-            <div class="contour_edit_gauche">
-                <h1 class="page-header">Votre recherche</h1>
-                <div class="row">
-                    <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
-                        <form action="rencontre" class="form-horizontal" role="form" method="post">
-                            {% csrf_token %}
-                            {% bootstrap_field formSearchInformationUser.genre %}
-                            {% bootstrap_field formSearchInformationUser.localisation %}
-                            {% bootstrap_field formSearchInformationUser.ageMin %}
-                            {% bootstrap_field formSearchInformationUser.ageMax %}
-                        </form>
-
-                        <form class="form-horizontal" role="form" method="post" action="#">
-                            {% csrf_token %}
-                            <div class="col-md-12 col-xs-12">
-                                    <h3 class="info_titre"> Vous recherchez..? </h3>
-                                    <label class="switch_genre">
-                                        <input type="checkbox" name="genre" value="homme" checked>
-                                        <i></i>
-                                        <span class="switch_homme"> Homme </span>
-                                    </label>
-                                    <label class="switch_genre femme">
-                                        <input type="checkbox" name="genre" value="femme">
-                                        <i></i>
-                                        <span class="switch_femme"> Femme </span>
-                                    </label>
-                                </div>
-                            <div class="input-group">
-                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <input type="text" class="form-control" placeholder="Age">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon success glyphicon glyphicon-user"></span>    
-                                <input type="text" class="form-control" placeholder="Localisation">
-                            </div>   
-                            <input type="submit" value="Sauvegarder les changements" class="btn btn_green_valider">
-                        </form>
+                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" %}
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="col-sm-8">
+    </div>
+     <div class="col-sm-8">
             <div class="contour_edit_swap">
                 <div class="row">
                     <div class='col-md-6 col-xs-12'>
@@ -201,6 +154,7 @@
         </div>
     </div>
 </div>
+
 {% endblock content %}
 
 

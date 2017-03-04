@@ -13,12 +13,11 @@ $(document).ready(function(){   // le document est chargé
     });
 });
 
-function localisation(loc){
-    alert(loc)
+function local(id_localisation,loc){
     $.post('http://localhost:8000/index/sortie/changementloc',
     {
         loc: loc,
     }, function(data) {
-        $("#"+loc).html(data);
+        $("#"+id_localisation).html(data);
     });
 }

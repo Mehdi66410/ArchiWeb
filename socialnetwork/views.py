@@ -172,7 +172,12 @@ def sortie(request):
 
 @csrf_exempt
 def changementloc(request):
-	return redirect(menu)
+	if request.method == 'POST':
+		forme = sortieForm(request.POST)
+		bar_dislike = request.POST.get('id')
+		if forme.is_valid():
+			print (bar_dislike)
+		return HttpResponse("ff")
 
 def editerProfil(request):
 	if request.method == 'POST':

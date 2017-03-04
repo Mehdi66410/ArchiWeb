@@ -57,7 +57,7 @@ class searchInformationUserForm(forms.Form):
 
 
 class sortieForm(forms.Form):
-	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
+	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.SelectMultiple, choices=DEPT_CHOICES, required=False)
 
 
 

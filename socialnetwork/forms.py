@@ -56,6 +56,8 @@ class searchInformationUserForm(forms.Form):
 	ageMax = forms.IntegerField(label='Age maximum')
 
 
+class sortieForm(forms.Form):
+	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
 
 
 

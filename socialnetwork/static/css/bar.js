@@ -1,4 +1,4 @@
-function like(id_like, barname){
+function like(id_like,barname){
     $.post('http://localhost:8000/index/sortie/ajoutlike',
     {
         barname: barname,

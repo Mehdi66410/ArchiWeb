@@ -10,6 +10,7 @@ from django.db.models import Count
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar
 from .models import informationUser, searchInformationUser
+from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
 import os
@@ -17,7 +18,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm
+from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -140,9 +141,9 @@ def montemple(request):
 def bar(request):
 	Bars = Bar.objects.all()
 	Bar_like = LikeBar.objects.all()
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like})
+	sortieForme = sortieForm(request.POST)
 
-from django.views.decorators.csrf import csrf_exempt
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
 
 @csrf_exempt
 def ajoutlike(request):
@@ -167,7 +168,8 @@ def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')
 
 def sortie(request):
-	return render(request, 'socialnetwork/sortie.html')
+	sortieForme = sortieForm(request.POST)
+	return render(request, 'socialnetwork/sortie.html',{'sortieForme': sortieForme})
 
 
 def editerProfil(request):

@@ -149,3 +149,8 @@
     .container_menusortie section{
         padding-left: 15px;
     }
+
+.form-horizontal .form-group {
+    margin-right: -1px;
+    margin-left: 3px;
+}

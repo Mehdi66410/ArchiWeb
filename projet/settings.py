@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'bootstrap3',
     'bootstrap_ui',
     'social_django',
-    'js',
 ]
 
 MIDDLEWARE = [

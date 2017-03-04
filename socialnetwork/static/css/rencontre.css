@@ -146,6 +146,7 @@
     height:300px;
     width:300px;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 .container_rencontre .contour_edit_swap .titre{

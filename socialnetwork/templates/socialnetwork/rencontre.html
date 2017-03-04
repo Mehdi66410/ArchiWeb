@@ -117,13 +117,13 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
+                                        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                     </div>
                                     <div class="item">
-                                        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+                                        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                     </div>
                                     <div class="item">
-                                       <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar">
+                                       <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                     </div>
                                 </div>
                             </div>
@@ -155,6 +155,38 @@
     </div>
 </div>
 
+    <!-- <img class="thumbnail" src="http://lorempixel.com/100/100/"  data-toggle="modal" data-target="#myModal2" /> -->
+
+<!-- Modal -->
+<div class="container_modal_photo">
+    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 

@@ -19,6 +19,7 @@ urlpatterns = [
 	url(r'^index/sortie/montemple$', views.montemple, name='montemple'),
 	url(r'^index/sortie/bar$', views.bar, name='bar'),
 	url(r'^index/sortie/ajoutlike$', views.ajoutlike, name='ajoutlike'),
+	url(r'^index/sortie/changementloc$', views.changementloc, name='changementloc'),
 	url(r'^index/sortie/ajoutdislike$', views.ajoutdislike, name='ajoutdislike'),
 	url(r'^index/sortie/restaurant$', views.restaurant, name='restaurant'),
 	url(r'^index/menu$', views.menu, name='menu'),

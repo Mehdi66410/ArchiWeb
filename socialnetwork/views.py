@@ -142,7 +142,6 @@ def bar(request):
 	Bars = Bar.objects.all()
 	Bar_like = LikeBar.objects.all()
 	sortieForme = sortieForm(request.POST)
-
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
 
 @csrf_exempt
@@ -171,6 +170,9 @@ def sortie(request):
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/sortie.html',{'sortieForme': sortieForme})
 
+@csrf_exempt
+def changementloc(request):
+	return redirect(menu)
 
 def editerProfil(request):
 	if request.method == 'POST':

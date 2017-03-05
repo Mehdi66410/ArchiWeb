@@ -39,7 +39,7 @@
                                     <span class="glyphicon glyphicon-user"></span> {% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}
                                 </div>
                             </li>
-                            <li id=page_editerProfil">
+                            <li id="page_editerProfil">
                                 <a href="{% url 'editerProfil' %}"><span class="glyphicon glyphicon-wrench"></span> Editer le profil</a>
                             </li>
                             <li>

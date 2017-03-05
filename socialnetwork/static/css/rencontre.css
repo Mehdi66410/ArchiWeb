@@ -1,48 +1,60 @@
 /*GAUCHE*/
 .container_rencontre .contour_edit_gauche{
 	background-color: #2B2A29;
+  border-color:#FFFF00;
   border-radius: 40px;
   color:#FFFF00;
   opacity: 0.9;
-  padding: 20px;
   font-family: 'Lobster', cursive;
-  margin-bottom: 20px;
+  margin:0;
 }
 
-.container_rencontre .page-header{
-	margin-top: 0;
-	text-align: center;
-  font-size: 30px;
+.container_rencontre .contour_edit_gauche .panel-heading{
+  margin:0;
+  padding:15px;
 }
 
-.container_rencontre .btn_green_valider {
+.container_rencontre .contour_edit_gauche .panel-title{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.container_rencontre .contour_edit_gauche .panel-body{
+  border-top: 1px solid #FFFF00;
+  margin:auto;
+}
+
+.container_rencontre .contour_edit_gauche .btn_green_valider {
     color: #f8f8f8;
     background-color: #4BAE4F;
     border-color: #449d47;
-    margin-bottom:20px;
+    margin:0px;
 }
-.container_rencontre .btn_green_valider:hover{
+.container_rencontre .contour_edit_gauche .btn_green_valider:hover{
     color: #FFFF00;
 }
 
-.container_rencontre .info_titre{
+.container_rencontre .contour_edit_gauche .info_titre{
     color:#FFFF00;
     font-size: 15px;
     padding: 0;
-    margin:0;
+    margin-top: 5px;
+    margin-bottom: -3px;
 }
 
 /*SWITCH GENRE*/
-.container_rencontre .switch_genre {
+.container_rencontre .contour_edit_gauche .switch_genre {
   margin:0;
   padding: 0;
   padding-top: 5px;
+  margin-right: 15px;
+  display: inline-block;
 }
-.container_rencontre .switch_genre input{
+.container_rencontre .contour_edit_gauche .switch_genre input{
   display: none;
 }
 
-.container_rencontre .switch_genre i {
+.container_rencontre .contour_edit_gauche .switch_genre i {
   display: inline-block;
   cursor: pointer;
   padding-right: 20px;
@@ -51,7 +63,7 @@
   border-radius: 20px;
 }
 
-.container_rencontre .switch_genre i:before {
+.container_rencontre .contour_edit_gauche .switch_genre i:before {
   display: block;
   content: '';
   width: 20px;
@@ -60,17 +72,17 @@
   background: #FFFFFF; /*couleur rond switch*/
 }
 
-.container_rencontre .switch_genre :checked + i {
+.container_rencontre .contour_edit_gauche .switch_genre :checked + i {
   padding-right: 0;
   padding-left: 20px;
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF;
   -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF; }
 
-.container_rencontre .switch_genre.femme :checked + i {
+.container_rencontre .contour_edit_gauche .switch_genre.femme :checked + i {
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493;
   -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493; }
 
-.container_rencontre label {
+.container_rencontre .contour_edit_gauche label {
   display: block;
   position: relative;
   padding: 0.5rem 1rem;
@@ -79,29 +91,29 @@
   cursor: pointer;
 }
 
-.container_rencontre label span {
+.container_rencontre .contour_edit_gauche label span {
   display: inline-block;
   margin-left: 5px;
   line-height: 25px;
   color: grey; /*couleur non choisi*/
 }
 
-.container_rencontre input[type="radio"]:checked + i + .switch_homme,
-.container_rencontre input[type="radio"]:checked + i:before,
-.container_rencontre input[type="checkbox"]:checked + i + .switch_homme,
-.container_rencontre input[type="checkbox"]:checked + i:before {
+.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i + .switch_homme,
+.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i:before,
+.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i + .switch_homme,
+.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i:before {
   color: #00BFFF; 
 }
 
-.container_rencontre input[type="radio"]:checked + i + .switch_femme,
-.container_rencontre input[type="radio"]:checked + i:before,
-.container_rencontre input[type="checkbox"]:checked + i + .switch_femme,
-.container_rencontre input[type="checkbox"]:checked + i:before {
+.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i + .switch_femme,
+.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i:before,
+.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i + .switch_femme,
+.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i:before {
   color: #FF69B4 
 }
 
 /*range slider*/
-.container_rencontre #slider .barre_range {
+.container_rencontre .contour_edit_gauche #slider .barre_range {
   width: auto;
   height: 5px;
   background: #FFFF00;
@@ -109,22 +121,24 @@
   margin-top: 15px;
 }
 
-.container_rencontre #slider input[type="range"]{
+.container_rencontre .contour_edit_gauche #slider input[type="range"]{
   background: #FFFF00;
 }
 
-.container_rencontre #rangevalue{
+.container_rencontre .contour_edit_gauche #rangevalue{
   color: #4BAE4F;
 }
 
 /*SWAP*/
 .container_rencontre .contour_edit_swap{
-	background-color: #2B2A29;
+	  background-color: #2B2A29;
+    border: 1px solid #FFFF00;
     border-radius: 40px;
     color:#FFFF00;
     opacity: 0.9;
     padding: 20px;
     font-family: 'Lobster', cursive;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -132,44 +146,45 @@
     height:300px;
     width:300px;
     margin-top: 30px;
+    cursor: pointer;
 }
 
-.container_rencontre .titre{
+.container_rencontre .contour_edit_swap .titre{
 	text-decoration: underline;
 	margin:0;
 	margin-bottom: 10px;
 	margin-top: 5px;
 }
-.container_rencontre .info{
+.container_rencontre .contour_edit_swap .info{
     color:#C0C0C0;
     font-size: 15px;
 }
 
-.container_rencontre .info .glyphicon {
+.container_rencontre .contour_edit_swap .info .glyphicon {
   color: #FFFF00;
   padding-right: 10px;
 }
 
-.container_rencontre .info-sexeHomme {
+.container_rencontre .contour_edit_swap .info-sexeHomme {
   color: #00BFFF;
 }
-.container_rencontre .info .sexeFemme {
+.container_rencontre .contour_edit_swap .info .sexeFemme {
   color: #FF1493;
 }
 
 
-.container_rencontre #carousel_rencontre{
+.container_rencontre .contour_edit_swap #carousel_rencontre{
   padding-bottom: 50px;
 }
 
-.container_rencontre #carousel_rencontre .carousel-indicators {
+.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators {
   bottom: 0px;
 }
 
-.container_rencontre #carousel_rencontre .carousel-indicators li {
+.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators li {
   background: none;
   border-color: #4BAE4F;
 }
-.container_rencontre #carousel_rencontre .carousel-indicators .active {
+.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators .active {
   background: #FFFF00;
 }

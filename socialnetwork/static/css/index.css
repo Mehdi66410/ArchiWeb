@@ -10,7 +10,7 @@
 
 .container_index .omb_login{
     background-color: #2B2A29;
-    border-color: #000000;
+    border: 1px solid #FFFF00; 
     border-radius: 40px;
     width: 100%;
     padding:10px;

@@ -14,9 +14,15 @@ GENRE_CHOICES = (
 
 SARTHE = 72
 MAYENNE = 53
+LOIRE_ATLANTIQUE = 44
+MAINE_ET_LOIRE = 49
+VENDEE = 85
 DEPT_CHOICES = (
 	(SARTHE, 'Sarthe'),
-	(MAYENNE, 'Mayenne')
+	(MAYENNE, 'Mayenne'),
+	(MAINE_ET_LOIRE, 'Maine et Loire'),
+	(LOIRE_ATLANTIQUE, 'Loire Atlantique'),
+	(VENDEE,'Vendee')
 )
 
 # Create your models here.
@@ -51,9 +57,13 @@ class Restaurant(models.Model):
 	prix = models.IntegerField(default=25)
 	description = models.CharField(max_length=10000,default='')
 
-class jaimeBar(models.Model):
-	name = models.ForeignKey(Bar)
-	personne = models.ForeignKey(User)
+class LikeBar(models.Model):
+	bar_name = models.ForeignKey(Bar)
+	person_name = models.ForeignKey(User)
+
+class DislikeBar(models.Model):
+	bar_name = models.ForeignKey(Bar)
+	person_name = models.ForeignKey(User)
 
 class presentBar(models.Model):
 	name = models.ForeignKey(Bar)

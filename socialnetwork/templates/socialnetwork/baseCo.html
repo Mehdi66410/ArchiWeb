@@ -27,10 +27,10 @@
                 </div>
                 <div id="navbarHeader" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="{% url 'rencontre' %}"><span class="glyphicon glyphicon-globe"></span> Rencontres</a></li>
-                        <li><a href="{% url 'sortie' %}"><span class="glyphicon glyphicon-glass"></span> Sorties</a></li>
-                        <li><a href="{% url 'affinite' %}"><span class="glyphicon glyphicon-fire"></span> Affinités</a></li>
+                        <li id="page_home" class="active"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li id="page_rencontre"><a href="{% url 'rencontre' %}"><span class="glyphicon glyphicon-globe"></span> Rencontres</a></li>
+                        <li id="page_sortie"><a href="{% url 'sortie' %}"><span class="glyphicon glyphicon-glass"></span> Sorties</a></li>
+                        <li id="page_affinite"><a href="{% url 'affinite' %}"><span class="glyphicon glyphicon-fire"></span> Affinités</a></li>
                     </ul>
                     <form action="deconnexion" method="post">
                         <ul class="nav navbar-nav navbar-right">
@@ -39,7 +39,7 @@
                                     <span class="glyphicon glyphicon-user"></span> {% block title %}> Bonjour {% if user and not user.is_anonymous %} {{ user.username }} {% else %} visiteur {% endif %} {% endblock %}
                                 </div>
                             </li>
-                            <li>
+                            <li id=page_editerProfil">
                                 <a href="{% url 'editerProfil' %}"><span class="glyphicon glyphicon-wrench"></span> Editer le profil</a>
                             </li>
                             <li>

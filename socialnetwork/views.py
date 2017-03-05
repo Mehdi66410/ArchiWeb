@@ -6,9 +6,11 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
+from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,jaimeBar
+from .models import Bar,LikeBar,DislikeBar
 from .models import informationUser, searchInformationUser
+from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
 import os
@@ -16,7 +18,7 @@ import random
 from django.conf import settings
 
 # Importation des formulaires
-from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,updateBarLike
+from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -149,25 +151,44 @@ def montemple(request):
 
 def bar(request):
 	Bars = Bar.objects.all()
-	Bar_like = jaimeBar.objects.all()
-	ajoutJaime = updateBarLike(request.POST)
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like,'ajoutJaime': ajoutJaime})
+	Bar_like = LikeBar.objects.all()
+	sortieForme = sortieForm(request.POST)
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
 
-def ajoutjaime(request):
+@csrf_exempt
+def ajoutlike(request):
 	if request.method == 'POST':
-		ajoutJaime = updateBarLike(request.POST)
-		jaime = jaimeBar(personne=User.objects.get(pk=request.user.id))
-		jaime.name = Bar.objects.get(name=request.POST['barname'])
-		jaime.save()
-		return redirect(bar)
+		bar_like = Bar.objects.get(name=request.POST['barname'])
+		like = LikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_like)
+		like.save()
+		like_count = LikeBar.objects.filter(bar_name=bar_like).count()
+		return HttpResponse(like_count)
+
+@csrf_exempt
+def ajoutdislike(request):
+	if request.method == 'POST':
+		bar_dislike = Bar.objects.get(name=request.POST['barname'])
+		dislike = DislikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_dislike)
+		dislike.save()
+		dislike_count = DislikeBar.objects.filter(bar_name=bar_dislike).count()
+		return HttpResponse(dislike_count)
 
 
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')
 
 def sortie(request):
-	return render(request, 'socialnetwork/sortie.html')
+	sortieForme = sortieForm(request.POST)
+	return render(request, 'socialnetwork/sortie.html',{'sortieForme': sortieForme})
 
+@csrf_exempt
+def changementloc(request):
+	if request.method == 'POST':
+		forme = sortieForm(request.POST)
+		bar_dislike = request.POST.get('id')
+		if forme.is_valid():
+			print (bar_dislike)
+		return HttpResponse("ff")
 
 def editerProfil(request):
 	if request.method == 'POST':

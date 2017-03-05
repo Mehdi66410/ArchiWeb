@@ -12,3 +12,12 @@ $(document).ready(function(){   // le document est chargé
      return false; // on desactive le lien
     });
 });
+
+function local(id_localisation,loc){
+    $.post('http://localhost:8000/index/sortie/changementloc',
+    {
+        loc: loc,
+    }, function(data) {
+        $("#"+id_localisation).html(data);
+    });
+}

@@ -12,7 +12,8 @@
 {% csrf_token %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/editerProfil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editerProfil.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    
 <div class="container_editerProfil">
    	<div class="contour_edit">
@@ -44,4 +45,11 @@
         </div>
     </div>
 </div>
+<script>
+    // Permet de mettre en actif le bouton du menu header
+    $(document).ready(function () {
+        $(".nav li").removeClass("active");
+        $('#page_editerProfil').addClass('active');
+    });
+</script>
 {% endblock content %}

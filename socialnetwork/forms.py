@@ -43,23 +43,22 @@ class mdpForm(forms.Form):
 	username = forms.CharField(label='Pseudo',min_length=2, max_length=100)
 	email = forms.EmailField(label='Email',min_length=5, max_length=100)
 
-class updateBarLike(forms.Form):
-	username = forms.CharField(label='Username', min_length=2, max_length=100)
-	barname = forms.CharField(label='BarName', min_length=2, max_length=100)
-
 class informationUserForm(forms.Form):
 	genre = forms.ChoiceField(label='Vous êtes ...?', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
+	age = forms.IntegerField(label='Age', min_value=18, max_value=100)
 	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
 	profession = forms.CharField(label='Profession', min_length=2, max_length=100, required=False)
-	description = forms.CharField(label='Description', widget=forms.Textarea, max_length=250, required=False)
+	description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 3}), max_length=250, required=False)
 
 class searchInformationUserForm(forms.Form):
 	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
 	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
-	ageMin = forms.IntegerField(label='Age minimum', min_value=18)
-	ageMax = forms.IntegerField(label='Age maximum')
+	ageMin = forms.IntegerField(label='Age minimum', min_value=18, max_value=100)
+	ageMax = forms.IntegerField(label='Age maximum', min_value=18, max_value=100)
 
 
+class sortieForm(forms.Form):
+	localisation = forms.MultipleChoiceField(label='Localisation', widget=forms.SelectMultiple, choices=DEPT_CHOICES, required=False)
 
 
 

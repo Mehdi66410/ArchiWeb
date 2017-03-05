@@ -138,6 +138,10 @@
   text-align: center;
   opacity: 0.9;
 }
+.container_modal_mdp .panel-heading{
+  border-bottom:1px solid #FFFF00;
+  margin-bottom: 40px;
+}
 .container_modal_mdp .panel_footer{
   font-family: 'Lobster', cursive;
   background-color: #2b2a29;
@@ -225,7 +229,7 @@ footer {
     padding: 10px;
     border: 1px solid black;
     border-radius: 40px;
-    margin-top: 12px;
+    margin-top: 50px;
     margin-bottom: 15px;
 
     color: #FFFFFF; 

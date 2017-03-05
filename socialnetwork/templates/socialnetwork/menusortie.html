@@ -12,6 +12,7 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/menusortie.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <div class="container_header">
 	<div class="container_menusortie">
@@ -36,7 +37,16 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Localisation <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-map-marker"></span></a>
 							<ul class="dropdown-menu forAnimate" role="menu">
-								<li><a href="#">Changer position</a></li>
+							 	<form method="post">
+	                           		{% csrf_token %}
+									<div class="form-group has-success"><select class="form-control" id="localisation" name="localisation">
+									<option value=72 id=1 onclick="local(id,'Sarthe')">Sarthe</option>
+									<option value=53 id=2 onclick="local(id,'Mayenne')">Mayenne</option>
+									<option value=44 id=3 onclick="local(id,'Maine et Loire')">Maine et Loire</option>
+									<option value=49 id=4 onclick="local(id,'Loire Atlantique')">Loire Atlantique</option>
+									<option value=85 id=5 onclick="local(id,'Vendée')">Vendée</option>
+									</select></div>
+                            	</form>
 							</ul>
 						</li>
 						<li ><a href="{% url 'bar' %}">Bar<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-glass"></span></a></li>
@@ -51,4 +61,12 @@
 		{% endblock menu_main %}
 	</div>
 </div>
+
+<script>
+    // Permet de mettre en actif le bouton du menu header
+    $(document).ready(function () {
+      $(".nav li").removeClass("active");
+      $('#page_sortie').addClass('active');
+    });
+</script>
 {% endblock content %}

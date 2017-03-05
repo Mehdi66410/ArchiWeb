@@ -13,43 +13,46 @@
 
 {% block menu_main %}
     <link rel="stylesheet" href="{% static 'css/bar.css' %}">
-	
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<div class="container_sortie">
-<div style="padding-top:25px;"></div> 
-<div class="container_bar">
-	{% for n in Bars %}
+	<div style="padding-top:25px;"></div> 
+	<div class="container_bar">
+	{% for bar in Bars %}
 
-	<div class="row" id="{{ n.id }}">
+	<div class="row" >
+
+
 		<div class="col-xs-12 col-sm-6 col-md-9">
 			<div class="well well-sm">
 				<div class="row">
 					<div class="col-sm-6 col-md-2">
-						<img src="/media/{{ n.picture }}" class="img-rounded img-responsive" draggable="false" />
+						<img src="/media/{{ bar.picture }}" class="img-rounded img-responsive" draggable="false" />
 					</div>
 					<div class="col-sm-6 col-md-4">
-                			<h4>{{ n.name }}</h4>
+                			<h4>{{ bar.name }}</h4>
 						<small>
-							<cite>{{n.address}}<i class="glyphicon glyphicon-map-marker"></i></cite>
+							<cite>{{bar.address}}<i class="glyphicon glyphicon-map-marker"></i></cite>
 						</small>
 						<p>
-							<i class="glyphicon glyphicon-star-empty"></i> Specialité : {{n.speciality}} <br />
-							<i class="glyphicon glyphicon-euro"></i> Prix moyen : {{n.prix}} €
+							<i class="glyphicon glyphicon-star-empty"></i> Specialité : {{bar.speciality}} <br />
+							<i class="glyphicon glyphicon-euro"></i> Prix moyen : {{bar.prix}} €
 						</p>
 					</div>
 					<div class="col-sm-6 col-md-6">
 						<h4>Description du bar</h4>
-						<p>{{n.description}}</p>
+						<p>{{bar.description}}</p>
 					</div>
-					<div class="col-sm-6 col-md-12">
+					<div class="col-sm-6 col-md-12" >
 						<div class="row nav">
 							<div class="col-md-12" style="margin: 0px;">
-								<hr>
-								<form class="form" role="form" method="post" action="ajoutjaime" accept-charset="UTF-8" id="ajoutjaime">
-								{% csrf_token %}
-								<input name="barname" value="{{n.name}}" type="hidden">
-								{% bootstrap_button "J'aime" button_type="submit" button_class="rate-btn rate-btn-friendly"  %}
-								</form>
-								<button class="rate-btn rate-btn-heart"><i class="fa fa-frown-o fa-lg"></i> Je n'aime pas </button>
+								<div>
+									<button class="btn btn1 like"  onclick="like( {{ bar.id }}, '{{bar.name}}' )">J'aime</button>
+									<span id={{bar.id}}></span>
+									<p>
+									<button class="btn btn2 dislike"  onclick="dislike( {{ bar.id }}, '{{bar.name}}' )">Je n'aime pas
+									</button>
+									<span id={{bar.id}}></span>
+								</div>
 								<span class="pull-right"><button class="rate-btn rate-btn-report"> <i class="fa fa-car fa-lg" ></i> J'y vais aujourd'hui !</button></span>
 							</div>
 						</div>
@@ -59,9 +62,7 @@
 		</div>
 	</div>
 	{% endfor %} 
-
 </div>
-
-	</div>
+</div>
 
 {% endblock menu_main %}

@@ -161,7 +161,8 @@ def present(request):
 		bar_present = Bar.objects.get(pk=request.POST['id_bar'])
 		present_personne = presentBar(id_person=User.objects.get(pk=request.user.id), id_bar=bar_present)
 		present_personne.save()
-		return HttpResponse("")
+		present_count = presentBar.objects.filter(id_bar=bar_present).count()
+		return HttpResponse(present_count)
 
 @csrf_exempt
 def ajoutdislike(request):

@@ -22,7 +22,7 @@ from .forms import informationUserForm, searchInformationUserForm, loginForm, re
 
 # Variable global
 localisation_ = 72
-
+genre_ = 'H'
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -105,26 +105,27 @@ def menu(request):
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 
+@csrf_exempt
+def genre_person(request):
+	global genre_
+	genre_ = request.POST['genre_']
+	return HttpResponse("")
+
 def rencontre(request):
 	utilisateur = User.objects.get(pk=request.user.id)
-
 	if request.method == 'POST':
 		if "informationUser" in request.POST:
 			formInformationUser = informationUserForm(request.POST)
 			if formInformationUser.is_valid():
 				try : 
-					informationUser = InformationUser.objects.get(user=utilisateur)
-					informationUser.genre = request.POST['genre']
-					informationUser.age = request.POST['age']
 					if request.POST['localisation']:
-						informationUser.localisation = request.POST['localisation']
-					if request.POST['profession']:
-						informationUser.profession = request.POST['profession']
-					if request.POST['description']:
-						informationUser.description = request.POST['description']
-					informationUser.save()
+						if request.POST['profession']:
+							if request.POST['description']:
+								informationUser_ = InformationUser(user=utilisateur, genre=genre_, localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
+								informationUser_.save()
+								messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 				except InformationUser.DoesNotExist:
-					informationUser = InformationUser(user=utilisateur, genre=request.POST['genre'], localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
+					informationUser = InformationUser(user=utilisateur, genre=genre_, localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
 					informationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 			else:

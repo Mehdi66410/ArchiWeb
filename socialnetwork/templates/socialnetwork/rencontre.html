@@ -31,15 +31,14 @@
                         <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                             <form action="rencontre" class="form-horizontal" role="form" method="post">
                                 {% csrf_token %}
-                                <!-- {% bootstrap_field formInformationUser.genre %} -->
                                 <h3 class="info_titre"> Vous êtes.. ? </h3>
                                 <label class="switch_genre">
-                                    <input type="radio" name="genre" value="HOMME" checked>
+                                    <input type="radio" name="genre" checked id="H" onclick="genre_person(id)">
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="radio" name="genre" value="FEMME">
+                                    <input type="radio" name="genre" id="F" onclick="genre_person(id)">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>

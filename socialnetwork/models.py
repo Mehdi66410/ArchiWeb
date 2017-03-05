@@ -71,15 +71,15 @@ class presentBar(models.Model):
 
 class InformationUser(models.Model):
 	user = models.ForeignKey(User)
-	genre = models.CharField(choices=GENRE_CHOICES, max_length=1)
+	genre = models.CharField(choices=GENRE_CHOICES, max_length=1,default='Homme')
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	age = models.IntegerField()
 	description = models.CharField(max_length=500)
-	profession = models.CharField(max_length=100)
+	profession = models.CharField(max_length=100,default='Prof')
 
 class searchInformationUser(models.Model):
 	user = models.ForeignKey(User)
-	genre = models.CharField(choices=GENRE_CHOICES, max_length=1)
+	genre = models.CharField(choices=GENRE_CHOICES, max_length=1,default='Homme')
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	ageMin = models.IntegerField()
 	ageMax = models.IntegerField()

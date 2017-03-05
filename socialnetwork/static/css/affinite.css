@@ -1,3 +1,160 @@
 .container_affinite{
-	margin-top: 15%;
+	margin:10px;
 }
+
+.container_affinite .carte_profil{
+	background-color: #2B2A29;
+    border: 1px solid #FFFF00;
+    border-radius: 40px;
+    color:#FFFF00;
+    opacity: 0.9;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
+    margin:10px;
+}
+
+.container_affinite .carte_profil .clic_group{
+	cursor: pointer;
+  margin-top: 20px;
+}
+
+.container_affinite .carte_profil .titre{
+	text-decoration: underline;
+	margin:0;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.container_affinite .carte_profil .img-thumbnail{
+    height:150px;
+    width:150px;
+    margin-bottom: 10px;
+}
+
+.container_affinite .carte_profil .info{
+    color:#C0C0C0;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.container_affinite .carte_profil .info .glyphicon {
+  color: #FFFF00;
+  padding-right: 10px;
+}
+
+.container_affinite .carte_profil .info .sexeHomme {
+  color: #00BFFF;
+}
+.container_affinite .carte_profil .info .sexeFemme {
+  color: #FF1493;
+}
+
+
+/*MODAL PROFIL COMPLET*/
+.container_modal_profil_complet .panel_header{
+  font-family: 'Lobster', cursive;
+  background-color: #2b2a29;
+  border-color: #ffff00;
+  color:#FFFF00;
+  opacity: 0.9;
+}
+.container_modal_profil_complet .panel-heading{
+  border-bottom:1px solid #FFFF00;
+  margin-bottom: 40px;
+}
+
+.container_modal_profil_complet .titre{
+	text-decoration: underline;
+	margin:0;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.container_modal_profil_complet .img-thumbnail{
+    height:300px;
+    width:300px;
+    cursor: pointer;
+}
+
+.container_modal_profil_complet #carousel_rencontre{
+  padding-bottom: 50px;
+}
+
+.container_modal_profil_complet  #carousel_rencontre .carousel-indicators {
+  bottom: 0px;
+}
+
+.container_modal_profil_complet #carousel_rencontre .carousel-indicators li {
+  background: none;
+  border-color: #4BAE4F;
+}
+.container_modal_profil_complet #carousel_rencontre .carousel-indicators .active {
+  background: #FFFF00;
+}
+
+.container_modal_profil_complet .info{
+    color:#C0C0C0;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.container_modal_profil_complet .info .glyphicon {
+  color: #FFFF00;
+  padding-right: 10px;
+}
+
+.container_modal_profil_complet .info .sexeHomme {
+  color: #00BFFF;
+}
+.container_modal_profil_complet .info .sexeFemme {
+  color: #FF1493;
+}
+
+.container_modal_profil_complet .close{
+  color:#FFFF00;
+  opacity: 0.9;
+}
+
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.body-panel
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+

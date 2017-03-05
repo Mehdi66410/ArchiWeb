@@ -19,27 +19,32 @@
    	<div class="contour_edit">
         <h1 class="page-header">Editer le profil</h1>
         <div class="row">
-        	<div class="col-md-6 col-xs-12">
+        	<div class="col-md-6 col-sm-6 col-xs-12">
             	<div class="text-center">
                 	<img src="{{ MEDIA_URL }}{{ lienPicture.url }}" class="avatar img-circle img-thumbnail" alt="avatar">
                 	<h6>Charger une photo différente...</h6>
                     <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                     	{% csrf_token %}
                         {% bootstrap_field formUploadPicture.picture field_class='well well-sm' show_label=False%}
-                        {% bootstrap_button "Charger et sauvegarder la photo" button_type="submit" button_class="btn btn_green_add" name='uploadPicture' %}
+                        {% bootstrap_button "Charger et sauvegarder la photo" button_type="submit" button_class="btn btn_green_add col-xs-offset-2 col-xs-8" name='uploadPicture' %}
                     </form>
                 </div>
         	</div>
-        	<div class="col-xs-offset-1 col-md-4 col-xs-10 personal-info">
-            	<h3 class="col-xs-12">Informations personnelles</h3>
+        	<div class="col-xs-offset-1 col-md-5 col-sm-5 col-xs-10 personal-info">
+            	<h4 class="text-center">Informations personnelles</h4>
                 <form class="form-horizontal" role="form" method="post" action="">
                     {% csrf_token %}
-                    {% bootstrap_field formEditProfil.firstname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
-                    {% bootstrap_field formEditProfil.lastname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
-                    {% bootstrap_field formEditProfil.username addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
-                    {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
-                    {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-md-12 col-xs-12' label_class='control-label' %}
-                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_save col-md-offset-3 col-md-6 col-xs-offset-2 col-xs-8" name='modifInfo' %}
+                    <h3 class="info_titre"> Votre prénom </h3>
+                    {% bootstrap_field formEditProfil.firstname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
+                    <h3 class="info_titre"> Votre nom </h3>
+                    {% bootstrap_field formEditProfil.lastname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
+                    <h3 class="info_titre"> Votre pseudo </h3>
+                    {% bootstrap_field formEditProfil.username addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
+                    <h3 class="info_titre"> Votre email </h3>
+                    {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
+                    <h3 class="info_titre"> Votre mot de passe </h3>
+                    {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
+                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_save col-xs-offset-2 col-xs-8" name='modifInfo' %}
                 </form>
         	</div>
         </div>

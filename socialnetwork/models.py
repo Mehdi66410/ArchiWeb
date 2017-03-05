@@ -66,8 +66,8 @@ class DislikeBar(models.Model):
 	person_name = models.ForeignKey(User)
 
 class presentBar(models.Model):
-	name = models.ForeignKey(Bar)
-	personne = models.ForeignKey(User)
+	id_bar = models.ForeignKey(Bar)
+	id_person = models.ForeignKey(User)
 
 class InformationUser(models.Model):
 	user = models.ForeignKey(User)

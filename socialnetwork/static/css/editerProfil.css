@@ -27,11 +27,18 @@
     font-size:12px;
 }
 
-.container_editerProfil .personal-info h3{
+.container_editerProfil .personal-info h4{
     font-size:30px;
-    text-align: center;
-    margin-top: 0;
+    margin-top: 10px;
     text-decoration: underline;
+}
+
+.container_editerProfil .personal-info .info_titre{
+    color:#FFFF00;
+    font-size: 15px;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 3px;
 }
 
 .container_editerProfil .control-label{

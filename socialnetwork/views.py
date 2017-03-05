@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar
+from .models import Bar,LikeBar,DislikeBar,presentBar
 from .models import InformationUser, searchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
@@ -19,6 +19,10 @@ from django.conf import settings
 
 # Importation des formulaires
 from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
+
+# Variable global
+localisation_ = 72
+
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -154,8 +158,9 @@ def rencontre(request):
 def montemple(request):
 	return render(request, 'socialnetwork/montemple.html')
 
+
 def bar(request):
-	Bars = Bar.objects.all()
+	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
@@ -164,17 +169,35 @@ def bar(request):
 def ajoutlike(request):
 	if request.method == 'POST':
 		bar_like = Bar.objects.get(name=request.POST['barname'])
-		like = LikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_like)
-		like.save()
+		person_like = User.objects.get(pk=request.user.id)
+		like_count_bar_person = LikeBar.objects.filter(bar_name=bar_like,person_name=person_like).count()
+		if(like_count_bar_person==0):
+			like = LikeBar(person_name=person_like, bar_name=bar_like)
+			like.save()
 		like_count = LikeBar.objects.filter(bar_name=bar_like).count()
 		return HttpResponse(like_count)
+
+@csrf_exempt
+def present(request):
+	if request.method == 'POST':
+		bar_present = Bar.objects.get(pk=request.POST['id_bar'])
+		person_present = User.objects.get(pk=request.user.id)
+		present_personne = presentBar(id_person=person_present, id_bar=bar_present)
+		present_count_bar_person = presentBar.objects.filter(id_bar=bar_present,id_person=person_present).count()
+		if(present_count_bar_person==0):
+			present_personne.save()
+			present_count = presentBar.objects.filter(id_bar=bar_present).count()
+		return HttpResponse(present_count)
 
 @csrf_exempt
 def ajoutdislike(request):
 	if request.method == 'POST':
 		bar_dislike = Bar.objects.get(name=request.POST['barname'])
-		dislike = DislikeBar(person_name=User.objects.get(pk=request.user.id), bar_name=bar_dislike)
-		dislike.save()
+		person_dislike = User.objects.get(pk=request.user.id)
+		dislike_count_bar_person = DislikeBar.objects.filter(bar_name=bar_dislike,person_name=person_dislike).count()
+		if(dislike_count_bar_person==0):
+			dislike = DislikeBar(person_name=person_dislike, bar_name=bar_dislike)
+			dislike.save()
 		dislike_count = DislikeBar.objects.filter(bar_name=bar_dislike).count()
 		return HttpResponse(dislike_count)
 
@@ -190,10 +213,9 @@ def sortie(request):
 def changementloc(request):
 	if request.method == 'POST':
 		forme = sortieForm(request.POST)
-		bar_dislike = request.POST.get('id')
-		if forme.is_valid():
-			print (bar_dislike)
-		return HttpResponse("ff")
+		global localisation_
+		localisation_ = request.POST['id_localisation']
+	return redirect(bar)
 
 def editerProfil(request):
 	if request.method == 'POST':

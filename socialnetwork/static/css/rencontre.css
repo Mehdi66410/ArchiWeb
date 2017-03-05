@@ -112,23 +112,6 @@
   color: #FF69B4 
 }
 
-/*range slider*/
-.container_rencontre .contour_edit_gauche #slider .barre_range {
-  width: auto;
-  height: 5px;
-  background: #FFFF00;
-  border-radius: 40px;
-  margin-top: 15px;
-}
-
-.container_rencontre .contour_edit_gauche #slider input[type="range"]{
-  background: #FFFF00;
-}
-
-.container_rencontre .contour_edit_gauche #rangevalue{
-  color: #4BAE4F;
-}
-
 /*SWAP*/
 .container_rencontre .contour_edit_swap{
 	  background-color: #2B2A29;
@@ -165,7 +148,7 @@
   padding-right: 10px;
 }
 
-.container_rencontre .contour_edit_swap .info-sexeHomme {
+.container_rencontre .contour_edit_swap .info .sexeHomme {
   color: #00BFFF;
 }
 .container_rencontre .contour_edit_swap .info .sexeFemme {

@@ -69,14 +69,17 @@ class presentBar(models.Model):
 	name = models.ForeignKey(Bar)
 	personne = models.ForeignKey(User)
 
-class informationUser(models.Model):
+class InformationUser(models.Model):
 	user = models.ForeignKey(User)
+	genre = models.CharField(choices=GENRE_CHOICES, max_length=1)
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	age = models.IntegerField()
 	description = models.CharField(max_length=500)
+	profession = models.CharField(max_length=100)
 
 class searchInformationUser(models.Model):
 	user = models.ForeignKey(User)
+	genre = models.CharField(choices=GENRE_CHOICES, max_length=1)
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	ageMin = models.IntegerField()
 	ageMax = models.IntegerField()

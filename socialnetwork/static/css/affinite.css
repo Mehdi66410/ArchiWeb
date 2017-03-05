@@ -15,6 +15,7 @@
 
 .container_affinite .carte_profil .clic_group{
 	cursor: pointer;
+  margin-top: 20px;
 }
 
 .container_affinite .carte_profil .titre{

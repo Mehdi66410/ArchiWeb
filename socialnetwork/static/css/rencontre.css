@@ -125,6 +125,12 @@
     margin-bottom: 20px;
 }
 
+@media(max-width:1000px){
+    .container_rencontre .contour_edit_swap{
+        margin-top: 0px;
+    }
+}
+
 .container_rencontre .img-thumbnail{
     height:300px;
     width:300px;

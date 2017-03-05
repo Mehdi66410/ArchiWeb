@@ -26,23 +26,23 @@
             <div class="row omb_socialButtons">
                 <div class="col-xs-4 col-sm-4">
                     <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-facebook">
-                        <i class="fa fa-facebook visible-xs"></i>
+                        <i class="fa fa-facebook visible-sm visible-xs"></i>
                         {{ form.as_p }}
-                        <span class="hidden-xs">Facebook</span>
+                        <span class="hidden-sm hidden-xs">Facebook</span>
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-4">
                     <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-twitter">
-                        <i class="fa fa-twitter visible-xs"></i>
+                        <i class="fa fa-twitter visible-sm visible-xs"></i>
                         {{ form.as_p }}
-                        <span class="hidden-xs">Twitter</span>
+                        <span class="hidden-sm hidden-xs">Twitter</span>
                     </a>
                 </div>  
                 <div class="col-xs-4 col-sm-4">
                     <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-google">
-                        <i class="fa fa-google-plus visible-xs"></i>
+                        <i class="fa fa-google-plus visible-sm visible-xs"></i>
                         {{ form.as_p }}
-                        <span class="hidden-xs">Google+</span>
+                        <span class="hidden-sm hidden-xs">Google+</span>
                     </a>
                 </div>  
             </div>
@@ -64,7 +64,7 @@
 
                         {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' show_label=False %}
                         
-                        {% bootstrap_button "Inscription" button_type="submit" button_class="btn btn-lg btn-green-inscription col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-8" %}
+                        {% bootstrap_button "Inscription" button_type="submit" button_class="btn btn-lg btn-green-inscription col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8" %}
                     </form>
                 </div>
             </div> 

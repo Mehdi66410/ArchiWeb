@@ -138,8 +138,10 @@ def rencontre(request):
 def montemple(request):
 	return render(request, 'socialnetwork/montemple.html')
 
+localisation_ = 49
+
 def bar(request):
-	Bars = Bar.objects.all()
+	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
@@ -174,10 +176,10 @@ def sortie(request):
 def changementloc(request):
 	if request.method == 'POST':
 		forme = sortieForm(request.POST)
-		bar_dislike = request.POST.get('id')
+		global localisation_
+		localisation_ = request.POST['id_localisation']
 		if forme.is_valid():
-			print (bar_dislike)
-		return HttpResponse("ff")
+			return redirect(bar)
 
 def editerProfil(request):
 	if request.method == 'POST':

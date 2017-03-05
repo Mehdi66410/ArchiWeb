@@ -39,12 +39,12 @@
 							<ul class="dropdown-menu forAnimate" role="menu">
 							 	<form method="post">
 	                           		{% csrf_token %}
-									<div class="form-group has-success"><select class="form-control" id="localisation" name="localisation">
-									<option value=72 id=1 onclick="local(id,'Sarthe')">Sarthe</option>
-									<option value=53 id=2 onclick="local(id,'Mayenne')">Mayenne</option>
-									<option value=44 id=3 onclick="local(id,'Maine et Loire')">Maine et Loire</option>
-									<option value=49 id=4 onclick="local(id,'Loire Atlantique')">Loire Atlantique</option>
-									<option value=85 id=5 onclick="local(id,'Vendée')">Vendée</option>
+									<div class="form-group has-success"><select type="checkbox" class="form-control" id="localisation" name="localisation">
+									<option value=72 id=72 onclick="local(id)">Sarthe</option>
+									<option value=53 id=53 onclick="local(id)">Mayenne</option>
+									<option value=44 id=44 onclick="local(id)">Maine et Loire</option>
+									<option value=49 id=49 onclick="local(id)">Loire Atlantique</option>
+									<option value=85 id=85 onclick="local(id)">Vendée</option>
 									</select></div>
                             	</form>
 							</ul>

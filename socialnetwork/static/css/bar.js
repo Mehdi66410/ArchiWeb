@@ -15,3 +15,12 @@ function dislike(id_like,barname){
 		$("#"+id_like).html(data);
 	});
 }
+
+function present(id_bar){
+    $.post('http://localhost:8000/index/sortie/present',
+    {
+        id_bar: id_bar,
+    }, function(data) {
+        $("#"+id_bar).html(data);
+    });
+}

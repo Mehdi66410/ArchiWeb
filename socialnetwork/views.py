@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar
+from .models import Bar,LikeBar,DislikeBar,presentBar
 from .models import informationUser, searchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
@@ -156,6 +156,14 @@ def ajoutlike(request):
 		return HttpResponse(like_count)
 
 @csrf_exempt
+def present(request):
+	if request.method == 'POST':
+		bar_present = Bar.objects.get(pk=request.POST['id_bar'])
+		present_personne = presentBar(id_person=User.objects.get(pk=request.user.id), id_bar=bar_present)
+		present_personne.save()
+		return HttpResponse("")
+
+@csrf_exempt
 def ajoutdislike(request):
 	if request.method == 'POST':
 		bar_dislike = Bar.objects.get(name=request.POST['barname'])
@@ -179,7 +187,7 @@ def changementloc(request):
 		global localisation_
 		localisation_ = request.POST['id_localisation']
 		if forme.is_valid():
-			return redirect(bar)
+			return render(request, 'socialnetwork/bar.html')
 
 def editerProfil(request):
 	if request.method == 'POST':

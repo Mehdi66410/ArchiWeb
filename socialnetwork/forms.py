@@ -44,11 +44,11 @@ class mdpForm(forms.Form):
 	email = forms.EmailField(label='Email',min_length=5, max_length=100)
 
 class informationUserForm(forms.Form):
-	genre = forms.ChoiceField(label='Vous êtes ...?', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
+	genre = forms.ChoiceField(label='Vous êtes ...?', widget=forms.RadioSelect, choices=GENRE_CHOICES)
 	age = forms.IntegerField(label='Age', min_value=18, max_value=100)
-	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
-	profession = forms.CharField(label='Profession', min_length=2, max_length=100, required=False)
-	description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 3}), max_length=250, required=False)
+	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES)
+	profession = forms.CharField(label='Profession', min_length=2, max_length=100)
+	description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 3}), max_length=250)
 
 class searchInformationUserForm(forms.Form):
 	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)

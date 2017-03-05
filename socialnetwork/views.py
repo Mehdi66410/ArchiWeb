@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar
-from .models import informationUser, searchInformationUser
+from .models import InformationUser, searchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
@@ -106,21 +106,25 @@ def rencontre(request):
 
 	if request.method == 'POST':
 		if "informationUser" in request.POST:
-			# formInformationUser = informationUserForm(request.POST)
-			# if formInformationUser.is_valid():
-			# 	try : 
-			# 		informationUser = InformationUser.objects.get(user=utilisateur)
-			# 		informationUser.genre = request.POST['genre']
-			# 		if request.POST['localisation']:
-			# 			informationUser.localisation = request.POST['localisation']
-			# 		if request.POST['profession']:
-			# 			informationUser.profession = request.POST['profession']
-			# 		if request.POST['description']:
-			# 			informationUser.description = request.POST['description']
-			# 		informationUser.save()
-			# 	except InformationUser.DoesNotExist:
-			# 		informationUser = InformationUser(user=utilisateur, genre=request.POST['genre'], localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'])
-			# 		informationUser.save
+			formInformationUser = informationUserForm(request.POST)
+			if formInformationUser.is_valid():
+				try : 
+					informationUser = InformationUser.objects.get(user=utilisateur)
+					informationUser.genre = request.POST['genre']
+					informationUser.age = request.POST['age']
+					if request.POST['localisation']:
+						informationUser.localisation = request.POST['localisation']
+					if request.POST['profession']:
+						informationUser.profession = request.POST['profession']
+					if request.POST['description']:
+						informationUser.description = request.POST['description']
+					informationUser.save()
+				except InformationUser.DoesNotExist:
+					informationUser = InformationUser(user=utilisateur, genre=request.POST['genre'], localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
+					informationUser.save()
+					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
+			else:
+				messages.add_message(request, messages.ERROR, "Tout les champs n'ont pas été complété pour sauvegarder vos informations.")
 		else:
 			formInformationUser = informationUserForm()
 
@@ -136,15 +140,16 @@ def rencontre(request):
 		formInformationUser = informationUserForm()
 		formSearchInformationUser = searchInformationUserForm()
 
-	# Chargement des informations de l'utilisateur et les informations de recherche
-	try:
-		userInformation = informationUser.objects.get(user=utilisateur)
-		userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
-	except informationUser.DoesNotExist:
-		messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
-		return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
+	# # Chargement des informations de l'utilisateur et les informations de recherche
+	# try:
+	# 	userInformation = InformationUser.objects.get(user=utilisateur)
+	# 	userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
+	# except InformationUser.DoesNotExist:
+	# 	# messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
+	# 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
 
-	return render(request, 'socialnetwork/rencontre.html')
+	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
+
 
 def montemple(request):
 	return render(request, 'socialnetwork/montemple.html')

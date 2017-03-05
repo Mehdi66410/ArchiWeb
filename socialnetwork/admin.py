@@ -9,7 +9,7 @@ from .models import Restaurant
 from .models import LikeBar
 from .models import DislikeBar
 from .models import presentBar
-from .models import informationUser
+from .models import InformationUser
 from .models import searchInformationUser
 
 
@@ -20,5 +20,5 @@ admin.site.register(Restaurant)
 admin.site.register(LikeBar)
 admin.site.register(DislikeBar)
 admin.site.register(presentBar)
-admin.site.register(informationUser)
+admin.site.register(InformationUser)
 admin.site.register(searchInformationUser)

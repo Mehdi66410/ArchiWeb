@@ -34,12 +34,12 @@
                                 <!-- {% bootstrap_field formInformationUser.genre %} -->
                                 <h3 class="info_titre"> Vous êtes.. ? </h3>
                                 <label class="switch_genre">
-                                    <input type="radio" name="genre" value="homme" checked>
+                                    <input type="radio" name="genre" value="HOMME" checked>
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="radio" name="genre" value="femme">
+                                    <input type="radio" name="genre" value="FEMME">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>
@@ -55,7 +55,7 @@
                                 
                                 {% bootstrap_field formInformationUser.description show_label=False%}
 
-                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" %}
+                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" name='informationUser' %}
                             </form>
                         </div>
                     </div>

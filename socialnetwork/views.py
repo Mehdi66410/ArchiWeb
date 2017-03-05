@@ -20,6 +20,10 @@ from django.conf import settings
 # Importation des formulaires
 from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
 
+# Variable global
+localisation_ = 72
+
+
 def index(request):
 	if not request.user.is_authenticated:
 		formRegister = registerForm()
@@ -138,7 +142,6 @@ def rencontre(request):
 def montemple(request):
 	return render(request, 'socialnetwork/montemple.html')
 
-localisation_ = 49
 
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
@@ -196,8 +199,7 @@ def changementloc(request):
 		forme = sortieForm(request.POST)
 		global localisation_
 		localisation_ = request.POST['id_localisation']
-		if forme.is_valid():
-			return render(request, 'socialnetwork/bar.html')
+	return redirect(bar)
 
 def editerProfil(request):
 	if request.method == 'POST':

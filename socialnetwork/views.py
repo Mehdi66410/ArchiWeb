@@ -104,10 +104,21 @@ def rencontre(request):
 
 	if request.method == 'POST':
 		if "informationUser" in request.POST:
-			formInformationUser = informationUserForm(request.POST)
-			#if formInformationUser.is_valid():
-				
-
+			# formInformationUser = informationUserForm(request.POST)
+			# if formInformationUser.is_valid():
+			# 	try : 
+			# 		informationUser = InformationUser.objects.get(user=utilisateur)
+			# 		informationUser.genre = request.POST['genre']
+			# 		if request.POST['localisation']:
+			# 			informationUser.localisation = request.POST['localisation']
+			# 		if request.POST['profession']:
+			# 			informationUser.profession = request.POST['profession']
+			# 		if request.POST['description']:
+			# 			informationUser.description = request.POST['description']
+			# 		informationUser.save()
+			# 	except InformationUser.DoesNotExist:
+			# 		informationUser = InformationUser(user=utilisateur, genre=request.POST['genre'], localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'])
+			# 		informationUser.save
 		else:
 			formInformationUser = informationUserForm()
 

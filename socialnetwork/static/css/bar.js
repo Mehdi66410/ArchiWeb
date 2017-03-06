@@ -1,16 +1,16 @@
-function like(id_like,barname){
+function like(id_like){
     $.post('http://localhost:8000/index/sortie/ajoutlike',
     {
-        barname: barname,
+        id_like: id_like,
     }, function(data) {
 		$("#"+id_like).html(data);
 	});
 }
 
-function dislike(id_like,barname){
+function dislike(id_like){
 	$.post('http://localhost:8000/index/sortie/ajoutdislike',
     {
-        barname: barname,
+        id_like: id_like,
     }, function(data) {
 		$("#"+id_like).html(data);
 	});

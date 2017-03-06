@@ -183,7 +183,7 @@ def bar(request):
 @csrf_exempt
 def ajoutlike(request):
 	if request.method == 'POST':
-		bar_like = Bar.objects.get(name=request.POST['barname'])
+		bar_like = Bar.objects.get(pk=request.POST['id_like'])
 		person_like = User.objects.get(pk=request.user.id)
 		like_count_bar_person = LikeBar.objects.filter(bar_name=bar_like,person_name=person_like).count()
 		if(like_count_bar_person==0):
@@ -207,7 +207,7 @@ def present(request):
 @csrf_exempt
 def ajoutdislike(request):
 	if request.method == 'POST':
-		bar_dislike = Bar.objects.get(name=request.POST['barname'])
+		bar_dislike = Bar.objects.get(pk=request.POST['id_like'])
 		person_dislike = User.objects.get(pk=request.user.id)
 		dislike_count_bar_person = DislikeBar.objects.filter(bar_name=bar_dislike,person_name=person_dislike).count()
 		if(dislike_count_bar_person==0):

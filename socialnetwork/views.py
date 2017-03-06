@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar
-from .models import InformationUser, searchInformationUser
+from .models import InformationUser, SearchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
@@ -118,12 +118,16 @@ def rencontre(request):
 			formInformationUser = informationUserForm(request.POST)
 			if formInformationUser.is_valid():
 				try : 
-					if request.POST['localisation']:
-						if request.POST['profession']:
-							if request.POST['description']:
-								informationUser_ = InformationUser(user=utilisateur, genre=genre_, localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
-								informationUser_.save()
-								messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
+					informationUser = InformationUser.objects.get(user=utilisateur)
+					informationUser.genre = genre_
+					informationUser.age = request.POST['age']
+					informationUser.localisation = request.POST['localisation']
+					if request.POST['profession']:
+						informationUser.profession = request.POST['profession']
+					if request.POST['description']:
+						informationUser.description = request.POST['description']
+					informationUser.save()
+					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 				except InformationUser.DoesNotExist:
 					informationUser = InformationUser(user=utilisateur, genre=genre_, localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
 					informationUser.save()
@@ -135,23 +139,37 @@ def rencontre(request):
 
 		if "searchInformationUser" in request.POST:
 			formSearchInformationUser = searchInformationUserForm(request.POST)
-			#if formInformationUser.is_valid():
-				
-
+			if formInformationUser.is_valid():
+				try :
+					searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
+					searchInformationUser.ageMin = request.POST['ageMin']
+					searchInformationUser.ageMax = request.POST['ageMax']
+					# searchInformationUser.genreF = 
+					# searchInformationUser.genreM =
+					if request.POST['localisation']:
+						searchInformationUser.localisation = request.POST['localisation']
+					searchInformationUser.save()
+					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
+				except SearchInformationUser.DoesNotExist:
+					searchInformationUser = SearchInformationUser(user=utilisateur, ageMin=request.POST['ageMin'], ageMax=request.POST['ageMax'], localisation=request.POST['localisation'])
+					searchInformationUser.save()
+					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
+			else:
+				messages.add_message(request, messages.ERROR, "Tout les champs n'ont pas été complété pour sauvegarder vos critères de recherche.")
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
 	else:
-		formInformationUser = informationUserForm()
-		formSearchInformationUser = searchInformationUserForm()
-
-	# # Chargement des informations de l'utilisateur et les informations de recherche
-	# try:
-	# 	userInformation = InformationUser.objects.get(user=utilisateur)
-	# 	userSearchInformation = searchInformationUser.objects.get(user=utilisateur)
-	# except InformationUser.DoesNotExist:
-	# 	# messages.add_message(request, messages.ERROR, "Il est nécéssaire de compléter les informations concernant votre profil et vos recherches")
-	# 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
+		try:
+			informationUser = InformationUser.objects.get(user=utilisateur)
+			formInformationUser = informationUserForm({'age':informationUser.age, 'localisation': informationUser.localisation, 'profession': informationUser.profession, 'description': informationUser.description})
+		except InformationUser.DoesNotExist:
+			formInformationUser = informationUserForm()
+		try:
+			searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
+			formSearchInformationUser = searchInformationUserForm({'ageMin': searchInformationUser.ageMin, 'ageMax': searchInformationUser.ageMax, 'localisation': searchInformationUser.localisation})
+		except SearchInformationUser.DoesNotExist:
+			formSearchInformationUser = searchInformationUserForm()
 
 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
 

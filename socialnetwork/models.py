@@ -76,9 +76,11 @@ class Restaurant(models.Model):
 	prix = models.IntegerField(default=25)
 	description = models.CharField(max_length=10000,default='')
 
-class searchInformationUser(models.Model):
+class SearchInformationUser(models.Model):
 	user = models.ForeignKey(User)
-	genre = models.CharField(choices=GENRE_CHOICES, max_length=1,default='Homme')
+	genreF = models.BooleanField(default=False)
+	genreM = models.BooleanField(default=False)
 	localisation = models.IntegerField(choices=DEPT_CHOICES)
 	ageMin = models.IntegerField()
 	ageMax = models.IntegerField()
+

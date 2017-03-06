@@ -10,7 +10,7 @@ from .models import LikeBar
 from .models import DislikeBar
 from .models import presentBar
 from .models import InformationUser
-from .models import searchInformationUser
+from .models import SearchInformationUser
 
 
 admin.site.register(Friend)
@@ -21,4 +21,4 @@ admin.site.register(LikeBar)
 admin.site.register(DislikeBar)
 admin.site.register(presentBar)
 admin.site.register(InformationUser)
-admin.site.register(searchInformationUser)
+admin.site.register(SearchInformationUser)

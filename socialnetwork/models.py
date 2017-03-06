@@ -27,18 +27,6 @@ DEPT_CHOICES = (
 
 # Create your models here.
 
-class Friend(models.Model):
-	ajouteur = models.OneToOneField(User, related_name='ajouteur')
-	ajoute = models.OneToOneField(User, related_name='ajoute')
-	confirme = models.BooleanField(default=False)
-	add_date = models.DateField()
-
-class PictureUser(models.Model):
-	user = models.ForeignKey(User)
-	picture = models.FileField(upload_to='upload')
-	add_date = models.DateField(auto_now_add=True)
-
-
 class Bar(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
@@ -48,26 +36,15 @@ class Bar(models.Model):
 	prix = models.IntegerField(default=5)
 	description = models.CharField(max_length=10000,default='')
 
-class Restaurant(models.Model):
-	name = models.CharField(max_length=100)
-	address = models.CharField(max_length=100)
-	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
-	picture = models.FileField(upload_to='upload',default='')
-	speciality = models.CharField(max_length=100, default='')
-	prix = models.IntegerField(default=25)
-	description = models.CharField(max_length=10000,default='')
-
-class LikeBar(models.Model):
-	bar_name = models.ForeignKey(Bar)
-	person_name = models.ForeignKey(User)
-
 class DislikeBar(models.Model):
 	bar_name = models.ForeignKey(Bar)
 	person_name = models.ForeignKey(User)
 
-class presentBar(models.Model):
-	id_bar = models.ForeignKey(Bar)
-	id_person = models.ForeignKey(User)
+class Friend(models.Model):
+	ajouteur = models.OneToOneField(User, related_name='ajouteur')
+	ajoute = models.OneToOneField(User, related_name='ajoute')
+	confirme = models.BooleanField(default=False)
+	add_date = models.DateField()
 
 class InformationUser(models.Model):
 	user = models.ForeignKey(User)
@@ -76,6 +53,28 @@ class InformationUser(models.Model):
 	age = models.IntegerField()
 	description = models.CharField(max_length=500)
 	profession = models.CharField(max_length=100,default='Prof')
+
+class LikeBar(models.Model):
+	bar_name = models.ForeignKey(Bar)
+	person_name = models.ForeignKey(User)
+
+class PictureUser(models.Model):
+	user = models.ForeignKey(User)
+	picture = models.FileField(upload_to='upload')
+	add_date = models.DateField(auto_now_add=True)
+
+class presentBar(models.Model):
+	id_bar = models.ForeignKey(Bar)
+	id_person = models.ForeignKey(User)
+
+class Restaurant(models.Model):
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=100)
+	localisation = models.IntegerField(choices=DEPT_CHOICES,default=72)
+	picture = models.FileField(upload_to='upload',default='')
+	speciality = models.CharField(max_length=100, default='')
+	prix = models.IntegerField(default=25)
+	description = models.CharField(max_length=10000,default='')
 
 class searchInformationUser(models.Model):
 	user = models.ForeignKey(User)

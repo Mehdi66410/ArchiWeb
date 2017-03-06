@@ -60,25 +60,59 @@ margin:0;
 
 }
 
-.btn1{
-	background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 
+
+
+
+
+.container_bar .carte_bar{
+	background-color: #2B2A29;
+    border: 1px solid #FFFF00;
+    border-radius: 40px;
+    color:#FFFF00;
+    opacity: 0.9;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
+    margin:10px;
+    justify-content:
 }
 
-.btn2{
-	background-color: #f44336;
-	border: none;
-    color: white;
-    padding: 8px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.container_bar .img-rounded{
+	height:150px;
+	width: 150px;
+}
+
+.container_bar .description_bar{
+	 text-align: justify;
+    text-justify: inter-word;
+}
+
+.container_bar .btn_green_like {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+    margin-bottom:3px;
+}
+.container_bar .btn_green_like:hover{
+    color: #FFFF00;
+}
+
+.container_bar .btn_red_dislike {
+    color: #f8f8f8;
+    background-color: #c32f10;
+    border-color: #c32f10;
+    margin-bottom:3px;
+}
+.container_bar .btn_red_dislike:hover{
+    color: #FFFF00;
+}
+
+.container_bar .btn_blue_go {
+    color: #f8f8f8;
+    background-color: #428bca;
+	border-color: #357ebd;
+    margin-bottom:3px;
+}
+.container_bar .btn_blue_go:hover{
+    color: #FFFF00;
 }

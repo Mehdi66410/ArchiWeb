@@ -5,7 +5,6 @@
 {% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
-{% bootstrap_messages %}
 
 {% load staticfiles %}
 <!DOCTYPE html>
@@ -25,6 +24,8 @@
 
     {% block header %}
     {% endblock header %}
+    {% bootstrap_messages %}
+
 
     <div class="container_principal">
     {% block content %}

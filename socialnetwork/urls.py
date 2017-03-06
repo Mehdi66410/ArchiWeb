@@ -16,7 +16,6 @@ urlpatterns = [
 	url(r'^index/affinite$', views.affinite, name='affinite'),
 	url(r'^index/rencontre$', views.rencontre, name='rencontre'),
 	url(r'^index/sortie$', views.sortie, name='sortie'),
-	url(r'^index/sortie/montemple$', views.montemple, name='montemple'),
 	url(r'^index/sortie/bar$', views.bar, name='bar'),
 	url(r'^index/sortie/ajoutlike$', views.ajoutlike, name='ajoutlike'),
 	url(r'^index/sortie/present$', views.present, name='present'),

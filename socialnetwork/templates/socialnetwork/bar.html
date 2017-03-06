@@ -12,38 +12,34 @@
 {% csrf_token %}
 
 {% block menu_main %}
-    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sortie.css' %}">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
-<div class="container_bar">
+<div class="container_sortie">
 	{% for bar in Bars %}
 	<div class="row" >
-		<div class="col-xs-offset-1 col-xs-10 col-sm-9 col-md-9">
-			<div class="carte_bar">
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="carte_description">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+					<div class="col-xs-12 col-sm-6 col-md-6 text-center info_top">
 						<img src="/media/{{ bar.picture }}" class="img-rounded" draggable="false" />
                 		<h4>{{ bar.name }}</h4>
-						<small>
-							<cite>{{bar.address}}<i class="glyphicon glyphicon-map-marker"></i></cite>
-						</small>
-						<p>
-							<i class="glyphicon glyphicon-star-empty"></i> Specialité : {{bar.speciality}} <br />
-							<i class="glyphicon glyphicon-euro"></i> Prix moyen : {{bar.prix}} €
-						</p>
+						<h5><span class="glyphicon glyphicon-map-marker"></span>{{bar.address}}</h5>
+						<h5><span class="glyphicon glyphicon-star-empty"></span> Specialité : {{bar.speciality}}</h5>
+						<h5><span class="glyphicon glyphicon-euro"></span> Prix moyen : {{bar.prix}} €</h5>
 					</div>
-					<div class="description_bar col-sm-6 col-sm-6 col-md-6">
+					<div class="info_description col-sm-6 col-sm-6 col-md-6">
 						<h4>Description du bar</h4>
 						<p>{{bar.description}}</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-						<button class="btn btn_red_dislike col-xs-offset-2 col-xs-4"  onclick="dislike( {{ bar.id }},'{{bar.name}})">
+						<button class="btn btn_red_dislike col-xs-offset-2 col-xs-4"  onclick="dislike( {{ bar.id }})">
 							<span class="glyphicon glyphicon-thumbs-down"></span><span class="hidden-sm hidden-xs"> Je n'aime pas </span>
 						</button>
 						<span id={{bar.id}}></span>
-						<button class="btn btn_green_like col-xs-offset-1 col-xs-4"  onclick="like( {{ bar.id }},'{{bar.name}}')"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-sm hidden-xs"> J'aime</span>
+						<button class="btn btn_green_like col-xs-offset-1 col-xs-4"  onclick="like( {{ bar.id }})"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-sm hidden-xs"> J'aime</span>
 						</button>
 						<span id={{bar.id}}></span>
 					</div>

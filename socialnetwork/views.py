@@ -174,10 +174,6 @@ def rencontre(request):
 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
 
 
-def montemple(request):
-	return render(request, 'socialnetwork/montemple.html')
-
-
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()

@@ -7,6 +7,7 @@ from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.db.models import Q
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
@@ -120,14 +121,12 @@ def rencontre(request):
 			formInformationUser = informationUserForm(request.POST)
 			if formInformationUser.is_valid():
 				try : 
-					informationUser = InformationUser.objects.get(user=utilisateur)
-					informationUser.genre = request.POST['genre']
-					informationUser.age = request.POST['age']
-					informationUser.localisation = request.POST['localisation']
-					if request.POST['profession']:
-						informationUser.profession = request.POST['profession']
-					if request.POST['description']:
-						informationUser.description = request.POST['description']
+					informationUser 				= InformationUser.objects.get(user=utilisateur)
+					informationUser.genre 			= request.POST['genre']
+					informationUser.age 			= request.POST['age']
+					informationUser.localisation 	= request.POST['localisation']
+					informationUser.profession 		= request.POST['profession']
+					informationUser.description 	= request.POST['description']
 					informationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 				except InformationUser.DoesNotExist:
@@ -202,23 +201,35 @@ def rencontre(request):
 		genreSearchF = False
 		swap = False
 		formSearchInformationUser = searchInformationUserForm()
-
+		
 	if swap:
 		messages.add_message(request, messages.SUCCESS, "SWAP OK")
-		# On exclue dans un premier temps les utilisateurs n'étant pas dans l'intervalle age.
-		# On exclue ensuite ceux qui ne sont pas dans la localisation
-		# On exluce ensuite ceux qui ne sont pas du bon genre
-		userSelect = UserInformation.exclude(age__gt > searchInformationUser.ageMin, age__gt < searchInformationUser.ageMax).objects.get()
-		# Pour le genre, l'age, la localisation, la profession, la description
-		userInformation = User.objects.get(pk=userSelect.user)
-		# Pour le nom et le prénom
+		try:
+			userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).first()
+		except InformationUser.DoesNotExist:
+			userSelect = False
+
+		if userSelect:
+			try: 
+				userInformation = User.objects.get(pk=userSelect.user.pk)
+			except User.DoesNotExist:
+				userInformation = False
+
+			try:
+				userPicture = PictureUser.objects.get(user=userSelect.user.pk)
+			except PictureUser.DoesNotExist:
+				userPicture = False
+		else:
+			userInformation = False
+			userPicture = False
+		
 
 	else:
 		# Il est nécéssaire de compléter toutes les information pour pouvoir accéder au SWAP
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de completer toutes les informations pour pouvoir accéder au swap.")
 
 
-	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap})
+	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap, 'userInformation': userInformation, 'userSelect': userSelect, 'userPicture': userPicture })
 
 
 def bar(request):

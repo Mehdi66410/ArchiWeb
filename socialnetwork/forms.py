@@ -22,7 +22,7 @@ DEPT_CHOICES = (
 
 class informationUserForm(forms.Form):
 	age = forms.IntegerField(label='Age', min_value=18, max_value=100, required=True)
-	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
+	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=True)
 	profession = forms.CharField(label='Profession', min_length=2, max_length=100, required=False)
 	description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 3}), max_length=250, required=False)
 

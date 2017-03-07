@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
-from django.db.models import Count, FloatField, Sum
+from django.db.models import Count, F,FloatField, Sum
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
@@ -113,9 +113,15 @@ def stars(request):
 		note = starBar(id_user=utilisateur, id_bar=id_barr,notes=valueStar)
 		note.save()
 
-	nb_bar = starBar.objects.filter(id_bar=id_barr).count()
-	starBar.objects.get(id_bar=id_barr).aggregate( somme_note_bar = Sum('notes'), output_field=FloatField())
-	return HttpResponse(somme_note_bar)
+	nb_bar = float(starBar.objects.filter(id_bar=id_barr).count())
+	print(nb_bar)
+	s=starBar.objects.filter(id_bar=id_barr).aggregate(somme_note_bar=Sum('notes'))
+	total_note = float(s['somme_note_bar'])
+	print(total_note)
+	moy=float(total_note/nb_bar)
+	print(moy)
+	html = "Note moyenne : <span id='count-existing'>%f</span>/5" %moy
+	return HttpResponse(moy)
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

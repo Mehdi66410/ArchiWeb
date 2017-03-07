@@ -6,8 +6,10 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
-from django.db.models import Count
+
 from django.db.models import Q
+from django.db.models import Count, F,FloatField, Sum
+
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
@@ -103,11 +105,25 @@ def menu(request):
 @csrf_exempt
 def stars(request):
 	valueStar = request.POST['value']
-	id_barr = request.POST['id_barr']
+	id_barr = Bar.objects.get(pk=request.POST['id_barr'])
 	utilisateur = User.objects.get(pk=request.user.id)
-	note = starBar(id_user=utilisateur, id_bar=Bar.objects.get(pk=id_barr),notes=valueStar)
-	note.save()
-	return HttpResponse("")
+	try:
+		if request.POST['value']:
+			note = starBar.objects.get(id_user=utilisateur,id_bar=id_barr)
+			note.notes=valueStar
+			note.save()
+	except starBar.DoesNotExist:
+		note = starBar(id_user=utilisateur, id_bar=id_barr,notes=valueStar)
+		note.save()
+
+	nb_bar = float(starBar.objects.filter(id_bar=id_barr).count())
+	s=starBar.objects.filter(id_bar=id_barr).aggregate(somme_note_bar=Sum('notes'))
+	total_note = float(s['somme_note_bar'])
+	moy=float(total_note/nb_bar)
+	bar = Bar.objects.get(pk=request.POST['id_barr'])
+	bar.notes=moy
+	bar.save()
+	return HttpResponse(moy)
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
@@ -259,7 +275,7 @@ def present(request):
 		present_count_bar_person = presentBar.objects.filter(id_bar=bar_present,id_person=person_present).count()
 		if(present_count_bar_person==0):
 			present_personne.save()
-			present_count = presentBar.objects.filter(id_bar=bar_present).count()
+		present_count = presentBar.objects.filter(id_bar=bar_present).count()
 		return HttpResponse(present_count)
 
 @csrf_exempt
@@ -278,9 +294,8 @@ def ajoutdislike(request):
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')
 
-def sortie(request):
-	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/sortie.html',{'sortieForme': sortieForme})
+def discotheque(request):
+	return render(request, 'socialnetwork/discotheque.html')
 
 @csrf_exempt
 def changementloc(request):

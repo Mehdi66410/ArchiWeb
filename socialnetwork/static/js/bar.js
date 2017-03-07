@@ -21,12 +21,11 @@ function present(id_bar){
     {
         id_bar: id_bar,
     }, function(data) {
-        $("#"+id_bar).html(data);
+        $("#count-existing-" + data).text(data);
     });
 }
 
 var __slice = [].slice;
-
 (function($, window) {
   var Starrr;
 
@@ -67,7 +66,8 @@ var __slice = [].slice;
             value: value,
             id_barr: id_barr
         }, function(data) {
-            $("#"+value).html(data);
+            gl_note=data;
+            $("#count-existing-" + id_barr).text(data);
         });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });
@@ -140,29 +140,14 @@ $(function() {
   return $(".starrr").starrr();
 });
 
-// function clique(id_bar,id){
-//   $('#stars').on('starrr:change', function(e, value){
-//     $.post('http://localhost:8000/index/sortie/stars',
-//     {
-//         value: value,
-//     }, function(data) {
-//         $("#"+value).html(data);
-//     });
-//           alert(value)
-
-//     $('#count').html(value);
-//   });
-//   $('#stars-existing').on('starrr:change', function(e, value){
-//      $.post('http://localhost:8000/index/sortie/stars',
-//     {
-//         value: value,
-//     }, function(data) {
-//         $("#"+value).html(data);
-//     });
-//           alert(value)
-
-//     $('#count-existing').html(value);
-//   });
-
-// };
+$( document ).ready(function() {
+      
+  $('#stars').on('starrr:change', function(e, value){
+    $('#count').html(value);
+  });
+  
+  $('#stars-existing').on('starrr:change', function(e, value){
+    $('#count-existing').html(value);
+  });
+});
 

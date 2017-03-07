@@ -24,16 +24,6 @@
   margin:auto;
 }
 
-.container_rencontre .contour_edit_gauche .btn_green_valider {
-    color: #f8f8f8;
-    background-color: #4BAE4F;
-    border-color: #449d47;
-    margin:0px;
-}
-.container_rencontre .contour_edit_gauche .btn_green_valider:hover{
-    color: #FFFF00;
-}
-
 .container_rencontre .contour_edit_gauche .info_titre{
     color:#FFFF00;
     font-size: 15px;
@@ -159,21 +149,4 @@
 }
 .container_rencontre .contour_edit_swap .info .sexeFemme {
   color: #FF1493;
-}
-
-
-.container_rencontre .contour_edit_swap #carousel_rencontre{
-  padding-bottom: 50px;
-}
-
-.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators {
-  bottom: 0px;
-}
-
-.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators li {
-  background: none;
-  border-color: #4BAE4F;
-}
-.container_rencontre .contour_edit_swap #carousel_rencontre .carousel-indicators .active {
-  background: #FFFF00;
 }

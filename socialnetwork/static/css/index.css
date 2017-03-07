@@ -46,18 +46,3 @@
 .container_index .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
 .container_index .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
 .container_index .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
-
-
-.container_index .btn-green-inscription {
-    color: #f8f8f8;
-    background-color: #4BAE4F;
-    border-color: #449d47;
-    margin-top:5px;
-    margin-bottom:5px;
-}
-
-.container_index .btn-green-inscription:hover{
-    color: #FFFF00;
-}
-
-

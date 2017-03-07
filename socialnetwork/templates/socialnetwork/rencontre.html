@@ -14,181 +14,181 @@
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
     <script src="{% static 'js/rencontre.js' %}"></script>
 
-<div class="container_rencontre">
-     <div class="col-md-4 col-sm-6">
-        <div class="panel-group" id="accordion_rencontre">
-            <div class="panel contour_edit_gauche">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseInfo">
-                            <span class="glyphicon glyphicon-th-list"></span> Vos informations
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseInfo" class="collapse in">
-                    <div class="panel-body row">
-                        <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
-                            <form action="rencontre" class="form-horizontal" role="form" method="post">
-                                {% csrf_token %}
-                                <h3 class="info_titre"> Vous êtes.. ? </h3>
-                                <label class="switch_genre">
-                                    <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" onclick="genre_person(id)">
-                                    <i></i>
-                                    <span class="switch_homme"> Homme </span>
-                                </label>
-                                <label class="switch_genre femme">
-                                    <input type="radio" name="genre" id="F" {% if genrePerson == 'F' %} checked {% endif %} onclick="genre_person(id)">
-                                    <i></i>
-                                    <span class="switch_femme"> Femme </span>
-                                </label>
+    <div class="container_rencontre">
+         <div class="col-md-4 col-sm-6">
+            <div class="panel-group" id="accordion_rencontre">
+                <div class="panel contour_edit_gauche">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseInfo">
+                                <span class="glyphicon glyphicon-th-list"></span> Vos informations
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseInfo" class="collapse in">
+                        <div class="panel-body row">
+                            <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                                <form action="rencontre" class="form-horizontal" role="form" method="post">
+                                    {% csrf_token %}
+                                    <h3 class="info_titre"> Vous êtes.. ? </h3>
+                                    <label class="switch_genre">
+                                        <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" onclick="genre_person(id)">
+                                        <i></i>
+                                        <span class="switch_homme"> Homme </span>
+                                    </label>
+                                    <label class="switch_genre femme">
+                                        <input type="radio" name="genre" id="F" {% if genrePerson == 'F' %} checked {% endif %} onclick="genre_person(id)">
+                                        <i></i>
+                                        <span class="switch_femme"> Femme </span>
+                                    </label>
 
-                                <h3 class="info_titre"> Votre age.. ? </h3>
-                                {% bootstrap_field formInformationUser.age addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                    <h3 class="info_titre"> Votre age.. ? </h3>
+                                    {% bootstrap_field formInformationUser.age addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-                                <h3 class="info_titre"> Votre localisation.. ? </h3>
-                                {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
-                                
-                                <h3 class="info_titre"> Votre profession.. ? </h3>
-                                {% bootstrap_field formInformationUser.profession addon_before='<span class="glyphicon glyphicon-briefcase"></span>' addon_before_class='input-group-addon success' show_label=False%}
-                                
-                                {% bootstrap_field formInformationUser.description show_label=False%}
+                                    <h3 class="info_titre"> Votre localisation.. ? </h3>
+                                    {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                    
+                                    <h3 class="info_titre"> Votre profession.. ? </h3>
+                                    {% bootstrap_field formInformationUser.profession addon_before='<span class="glyphicon glyphicon-briefcase"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                    
+                                    {% bootstrap_field formInformationUser.description show_label=False%}
 
-                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" name='informationUser' %}
-                            </form>
+                                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-12 col-md-12" name='informationUser' %}
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="panel contour_edit_gauche">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseRecherche">
-                            <span class="glyphicon glyphicon-th-list"></span> Votre recherche
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseRecherche" class="collapse">
-                    <div class="panel-body row">
-                        <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
-                            <form action="rencontre" class="form-horizontal" role="form" method="post">
-                                {% csrf_token %}
-                                <h3 class="info_titre"> Vous recherchez..? </h3>
-                                <label class="switch_genre">
-                                    <input type="checkbox" name="genreM" {% if genreSearchM %} checked {% endif %} value="homme">
-                                    <i></i>
-                                    <span class="switch_homme"> Homme </span>
-                                </label>
-                                <label class="switch_genre femme">
-                                    <input type="checkbox" name="genreF" {% if genreSearchF %} checked {% endif %} value="femme">
-                                    <i></i>
-                                    <span class="switch_femme"> Femme </span>
-                                </label>
-                                <h3 class="info_titre"> Sa localisation..? </h3>
-                                {% bootstrap_field formSearchInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
-                                
-                                <h3 class="info_titre"> Son age min..? </h3>
-                                {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
-                   
-                                <h3 class="info_titre"> Son age max..? </h3>
-                                {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                <div class="panel contour_edit_gauche">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseRecherche">
+                                <span class="glyphicon glyphicon-th-list"></span> Votre recherche
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseRecherche" class="collapse">
+                        <div class="panel-body row">
+                            <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
+                                <form action="rencontre" class="form-horizontal" role="form" method="post">
+                                    {% csrf_token %}
+                                    <h3 class="info_titre"> Vous recherchez..? </h3>
+                                    <label class="switch_genre">
+                                        <input type="checkbox" name="genreM" {% if genreSearchM %} checked {% endif %} value="homme">
+                                        <i></i>
+                                        <span class="switch_homme"> Homme </span>
+                                    </label>
+                                    <label class="switch_genre femme">
+                                        <input type="checkbox" name="genreF" {% if genreSearchF %} checked {% endif %} value="femme">
+                                        <i></i>
+                                        <span class="switch_femme"> Femme </span>
+                                    </label>
+                                    <h3 class="info_titre"> Sa localisation..? </h3>
+                                    {% bootstrap_field formSearchInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                    
+                                    <h3 class="info_titre"> Son age min..? </h3>
+                                    {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                       
+                                    <h3 class="info_titre"> Son age max..? </h3>
+                                    {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" name='searchInformationUser' %}
-                            </form>
+                                    {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-12 col-md-12" name='searchInformationUser' %}
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-8 col-sm-6">
-            <div class="contour_edit_swap">
-                <div class="row">
-                    <div class='col-md-6 col-xs-12'>
-                        <div class="col-xs-8 col-xs-offset-2 slide-row">
-                            <div id="carousel_rencontre" class="carousel slide slide-carousel" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carousel_rencontre" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel_rencontre" data-slide-to="1"></li>
-                                    <li data-target="#carousel_rencontre" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-                                    </div>
-                                    <div class="item">
-                                       <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+        <div class="col-md-8 col-sm-6">
+                <div class="contour_edit_swap">
+                    <div class="row">
+                        <div class='col-md-6 col-xs-12'>
+                            <div class="col-xs-8 col-xs-offset-2 slide-row">
+                                <div id="carousel_rencontre" class="carousel slide slide-carousel" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel_rencontre" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel_rencontre" data-slide-to="1"></li>
+                                        <li data-target="#carousel_rencontre" data-slide-to="2"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                        </div>
+                                        <div class="item">
+                                            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                        </div>
+                                        <div class="item">
+                                           <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                        </div>
                                     </div>
                                 </div>
+                            </div>                         
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="text-center">
+                                <h3 class="titre">NOM PRENOM</h3>
                             </div>
-                        </div>                         
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="text-center">
-                            <h3 class="titre">NOM PRENOM</h3>
-                        </div>
-                        <div class="info">
-                            <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
-                            <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
-                            <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
-                            <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
-                            <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-red-barre col-md-5 col-xs-offset-1 col-xs-4">
-                                <span class="glyphicon glyphicon-remove-sign"></span><span class="hidden-sm hidden-xs"> Ne me plait pas </span>
-                            </button>
-                            <button type="button" class="btn btn-green-barre col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-4">
-                                <span class="glyphicon glyphicon-heart"></span><span class="hidden-sm hidden-xs"> Me plait beaucoup </span>
-                            </button>
+                            <div class="info">
+                                <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
+                                <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
+                                <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
+                                <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
+                                <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn_red col-md-5 col-xs-offset-1 col-xs-4">
+                                    <span class="glyphicon glyphicon-remove-sign"></span><span class="hidden-sm hidden-xs"> Ne me plait pas </span>
+                                </button>
+                                <button type="button" class="btn btn_green col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-4">
+                                    <span class="glyphicon glyphicon-heart"></span><span class="hidden-sm hidden-xs"> Me plait beaucoup </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal -->
-<div class="container_modal_photo">
-    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+    <!-- Modal -->
+    <div class="container_modal_photo">
+        <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
+                            </div>
                         </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
-                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
                     </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Permet de mettre en actif le bouton de la navbar du header
-    $(document).ready(function () {
-      $(".nav li").removeClass("active");
-      $('#page_rencontre').addClass('active');
-    });
-</script>
+    <script>
+        // Permet de mettre en actif le bouton de la navbar du header
+        $(document).ready(function () {
+          $(".nav li").removeClass("active");
+          $('#page_rencontre').addClass('active');
+        });
+    </script>
 {% endblock content %}
 
 

@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render
 # Importation des modèles
 from django.contrib.auth.models import User
-from django.db.models import Count
+from django.db.models import Count, FloatField, Sum
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
@@ -112,7 +112,10 @@ def stars(request):
 	except starBar.DoesNotExist:
 		note = starBar(id_user=utilisateur, id_bar=id_barr,notes=valueStar)
 		note.save()
-	return HttpResponse("")
+
+	nb_bar = starBar.objects.filter(id_bar=id_barr).count()
+	starBar.objects.get(id_bar=id_barr).aggregate( somme_note_bar = Sum('notes'), output_field=FloatField())
+	return HttpResponse(somme_note_bar)
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

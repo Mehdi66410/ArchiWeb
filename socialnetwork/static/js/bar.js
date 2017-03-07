@@ -21,7 +21,7 @@ function present(id_bar){
     {
         id_bar: id_bar,
     }, function(data) {
-        $("#"+id_bar).html(data);
+        $("#"+data).html(data);
     });
 }
 
@@ -140,29 +140,14 @@ $(function() {
   return $(".starrr").starrr();
 });
 
-// function clique(id_bar,id){
-//   $('#stars').on('starrr:change', function(e, value){
-//     $.post('http://localhost:8000/index/sortie/stars',
-//     {
-//         value: value,
-//     }, function(data) {
-//         $("#"+value).html(data);
-//     });
-//           alert(value)
-
-//     $('#count').html(value);
-//   });
-//   $('#stars-existing').on('starrr:change', function(e, value){
-//      $.post('http://localhost:8000/index/sortie/stars',
-//     {
-//         value: value,
-//     }, function(data) {
-//         $("#"+value).html(data);
-//     });
-//           alert(value)
-
-//     $('#count-existing').html(value);
-//   });
-
-// };
+$( document ).ready(function() {
+      
+  $('#stars').on('starrr:change', function(e, value){
+    $('#count').html(value);
+  });
+  
+  $('#stars-existing').on('starrr:change', function(e, value){
+    $('#count-existing').html(value);
+  });
+});
 

@@ -120,7 +120,7 @@ def stars(request):
 	print(total_note)
 	moy=float(total_note/nb_bar)
 	print(moy)
-	html = "Note moyenne : <span id='count-existing'>%f</span>/5" %moy
+	html = "Note moyenne : <span id='count-existing' >%f</span>/5" %moy
 	return HttpResponse(moy)
 
 def affinite(request):

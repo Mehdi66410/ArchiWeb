@@ -21,7 +21,7 @@ function present(id_bar){
     {
         id_bar: id_bar,
     }, function(data) {
-        $("#"+data).html(data);
+        $("#"+id_bar).html(data);
     });
 }
 
@@ -67,7 +67,9 @@ var __slice = [].slice;
             value: value,
             id_barr: id_barr
         }, function(data) {
-            $("#"+value).html(data);
+            console.log(data)
+            $('#count-existing').html(data);
+          
         });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });

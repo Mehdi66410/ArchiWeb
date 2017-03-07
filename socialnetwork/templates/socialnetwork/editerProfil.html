@@ -26,7 +26,7 @@
                         <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                         	{% csrf_token %}
                             {% bootstrap_field formUploadPicture.picture field_class='well well-sm' show_label=False%}
-                            {% bootstrap_button "Charger et sauvegarder la photo" button_type="submit" button_class="btn btn_green_add col-xs-offset-2 col-xs-8" name='uploadPicture' %}
+                            {% bootstrap_button "Charger et sauvegarder la photo" button_type="submit" button_class="btn btn_green col-xs-offset-2 col-xs-8" name='uploadPicture' %}
                         </form>
                     </div>
             	</div>
@@ -45,7 +45,7 @@
                         {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
                         <h3 class="info_titre"> Votre mot de passe </h3>
                         {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
-                        {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_save col-xs-offset-2 col-xs-8" name='modifInfo' %}
+                        {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-offset-2 col-xs-8" name='modifInfo' %}
                     </form>
             	</div>
             </div>

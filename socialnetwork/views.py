@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar,presentBar
+from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
@@ -19,6 +19,8 @@ from django.conf import settings
 
 # Importation des formulaires
 from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
+
+localisation_=72
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -97,9 +99,13 @@ def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
+@csrf_exempt
 def stars(request):
-	etoile = request.POST['value']
-	print("coucou c'est moi")
+	valueStar = request.POST['value']
+	id_barr = request.POST['id_barr']
+	utilisateur = User.objects.get(pk=request.user.id)
+	note = starBar(id_user=utilisateur, id_bar=Bar.objects.get(pk=id_barr),notes=valueStar)
+	note.save()
 	return HttpResponse("")
 
 def affinite(request):

@@ -38,7 +38,7 @@ var __slice = [].slice;
     };
 
     function Starrr($el, options) {
-      var i, _, _ref,
+      var i, _, value_star,_ref,
         _this = this;
 
       this.options = $.extend({}, this.defaults, options);
@@ -53,15 +53,26 @@ var __slice = [].slice;
       this.createStars();
       this.syncRating();
       this.$el.on('mouseover.starrr', 'span', function(e) {
-        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
+        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1); //ici
       });
       this.$el.on('mouseout.starrr', function() {
         return _this.syncRating();
       });
       this.$el.on('click.starrr', 'span', function(e) {
+        var value = _this.$el.find('span').index(e.currentTarget) + 1;
+        var id_barr = _this.$el.data('id');
+
+        $.post('http://localhost:8000/index/sortie/stars',
+        {
+            value: value,
+            id_barr: id_barr
+        }, function(data) {
+            $("#"+value).html(data);
+        });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });
       this.$el.on('starrr:change', this.options.change);
+
     }
 
     Starrr.prototype.createStars = function() {
@@ -129,12 +140,29 @@ $(function() {
   return $(".starrr").starrr();
 });
 
-function clique(id_bar){
-  $('#stars').on('starrr:change', function(e, value){
-    $('#count').html(value);
-  });
-  
-  $('#stars-existing').on('starrr:change', function(e, value){
-    $('#count-existing').html(value);
-  });
-};
+// function clique(id_bar,id){
+//   $('#stars').on('starrr:change', function(e, value){
+//     $.post('http://localhost:8000/index/sortie/stars',
+//     {
+//         value: value,
+//     }, function(data) {
+//         $("#"+value).html(data);
+//     });
+//           alert(value)
+
+//     $('#count').html(value);
+//   });
+//   $('#stars-existing').on('starrr:change', function(e, value){
+//      $.post('http://localhost:8000/index/sortie/stars',
+//     {
+//         value: value,
+//     }, function(data) {
+//         $("#"+value).html(data);
+//     });
+//           alert(value)
+
+//     $('#count-existing').html(value);
+//   });
+
+// };
+

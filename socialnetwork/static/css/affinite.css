@@ -1,28 +1,17 @@
-.container_affinite{
-	margin:10px;
-}
-
 .container_affinite .carte_profil{
 	background-color: #2B2A29;
-    border: 1px solid #FFFF00;
-    border-radius: 40px;
-    color:#FFFF00;
-    opacity: 0.9;
-    padding: 20px;
-    font-family: 'Lobster', cursive;
-    margin:10px;
+  border: 1px solid #FFFF00;
+  border-radius: 40px;
+  color:#FFFF00;
+  opacity: 0.9;
+  padding: 20px;
+  font-family: 'Lobster', cursive;
+  margin:10px;
 }
 
 .container_affinite .carte_profil .clic_group{
 	cursor: pointer;
   margin-top: 20px;
-}
-
-.container_affinite .carte_profil .titre{
-	text-decoration: underline;
-	margin:0;
-	font-size: 20px;
-	margin-bottom: 5px;
 }
 
 .container_affinite .carte_profil .img-thumbnail{
@@ -31,24 +20,7 @@
     margin-bottom: 10px;
 }
 
-.container_affinite .carte_profil .info{
-    color:#C0C0C0;
-    font-size: 15px;
-    margin-top: 20px;
-}
-
-.container_affinite .carte_profil .info .glyphicon {
-  color: #FFFF00;
-  padding-right: 10px;
-}
-
-.container_affinite .carte_profil .info .sexeHomme {
-  color: #00BFFF;
-}
-.container_affinite .carte_profil .info .sexeFemme {
-  color: #FF1493;
-}
-
+/******************************/
 
 /*MODAL PROFIL COMPLET*/
 .container_modal_profil_complet .panel_header{
@@ -63,57 +35,20 @@
   margin-bottom: 40px;
 }
 
-.container_modal_profil_complet .titre{
-	text-decoration: underline;
-	margin:0;
-	font-size: 20px;
-	margin-bottom: 5px;
-}
-
 .container_modal_profil_complet .img-thumbnail{
     height:300px;
     width:300px;
     cursor: pointer;
 }
 
-.container_modal_profil_complet #carousel_rencontre{
-  padding-bottom: 50px;
-}
-
-.container_modal_profil_complet  #carousel_rencontre .carousel-indicators {
-  bottom: 0px;
-}
-
-.container_modal_profil_complet #carousel_rencontre .carousel-indicators li {
-  background: none;
-  border-color: #4BAE4F;
-}
-.container_modal_profil_complet #carousel_rencontre .carousel-indicators .active {
-  background: #FFFF00;
-}
-
-.container_modal_profil_complet .info{
-    color:#C0C0C0;
-    font-size: 15px;
-    margin-top: 20px;
-}
-
-.container_modal_profil_complet .info .glyphicon {
-  color: #FFFF00;
-  padding-right: 10px;
-}
-
-.container_modal_profil_complet .info .sexeHomme {
-  color: #00BFFF;
-}
-.container_modal_profil_complet .info .sexeFemme {
-  color: #FF1493;
-}
-
 .container_modal_profil_complet .close{
   color:#FFFF00;
   opacity: 0.9;
 }
+
+
+
+
 
 
 .chat

@@ -97,9 +97,12 @@ def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
+@csrf_exempt
 def stars(request):
 	etoile = request.POST['value']
-	print("coucou c'est moi")
+	id_barr = request.POST['id_barr']
+	print(etoile)
+	print(id_barr)
 	return HttpResponse("")
 
 def affinite(request):

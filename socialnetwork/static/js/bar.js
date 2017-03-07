@@ -68,8 +68,8 @@ var __slice = [].slice;
             id_barr: id_barr
         }, function(data) {
             console.log(data)
-            $('#count-existing').html(data);
-          
+    
+    $('#count-existing').html(data);          
         });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });

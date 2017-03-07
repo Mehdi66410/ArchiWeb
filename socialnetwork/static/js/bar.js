@@ -21,17 +21,10 @@ function present(id_bar){
     {
         id_bar: id_bar,
     }, function(data) {
-        $("#"+id_bar).html(data);
+        $("#count-existing-" + data).text(data);
     });
 }
-var gl_note;
 
- 
-function test(champ){
-    var aide = document.getElementById("modif") ;
-    aide.innerHTML = str(gl_note) 
-
-}
 var __slice = [].slice;
 (function($, window) {
   var Starrr;

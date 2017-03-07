@@ -281,9 +281,8 @@ def ajoutdislike(request):
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')
 
-def sortie(request):
-	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/sortie.html',{'sortieForme': sortieForme})
+def discotheque(request):
+	return render(request, 'socialnetwork/discotheque.html')
 
 @csrf_exempt
 def changementloc(request):

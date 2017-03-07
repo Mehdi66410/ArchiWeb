@@ -16,8 +16,19 @@ function dislike(id_like){
 	});
 }
 
+function present_person(id_bar){
+    $.post('http://localhost:8000/index/personne_present_bar',
+    {
+        id_bar: id_bar,
+    }, function(data) {
+        alert(data)
+        console.log(data)
+        $("#affichage_pers-" + id_bar).innerHTML=data;
+    });
+}
+
 function present(id_bar){
-    $.post('http://localhost:8000/index/present',
+  $.post('http://localhost:8000/index/present',
     {
         id_bar: id_bar,
     }, function(data) {
@@ -66,7 +77,6 @@ var __slice = [].slice;
             value: value,
             id_barr: id_barr
         }, function(data) {
-            gl_note=data;
             $("#count-existing-" + id_barr).text(data);
         });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);

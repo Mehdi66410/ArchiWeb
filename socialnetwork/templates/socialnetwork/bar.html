@@ -45,6 +45,9 @@
 					<div class="col-xs-4 col-sm-6">
 						<button class="btn btn_blue_go col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6"  onclick="present( {{ bar.id }})"><span class="glyphicon glyphicon-road"></span><span class="hidden-sm hidden-xs"> Aujourd'hui j'y vais ! </span>
 						</button>
+						<div class="help-block text-right">
+                            <a data-toggle="modal" data-target="#person_go" data-id="{{bar.id}}" onclick="present_person({{bar.id}})">Personnes présentes</a>
+                        </div>
 						<span id={{bar.id}}></span>
 					</div>
 					    <div class="row lead">
@@ -56,6 +59,29 @@
 			</div>
 		</div>
 	</div>
+
+
+    <div class="container_modal_mdp">
+        <div class="modal fade" id="person_go" tabindex="-1" role="dialog" aria-labelledby="mdpLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="panel panel_header">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>Liste des personnes présentes</h4>
+                    </div>
+                    <form class="form" role="form" method="post" action="personne_present_bar" accept-charset="UTF-8" id="login-nav">
+                        <div class="modal_body">
+                            <div class="row">
+                                <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                					<span id="affichage_pers-{{bar.id}}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 	{% endfor %} 
 </div>
 

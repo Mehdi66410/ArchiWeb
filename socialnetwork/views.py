@@ -251,8 +251,25 @@ def rencontre(request):
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()
+	present = presentBar.objects.all()
 	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme})
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present})
+
+@csrf_exempt
+def personne_present_bar(request):
+	present = presentBar.objects.values_list('id_person_id',flat=True).filter(id_bar=request.POST['id_bar']) #present[0] contient id première personne qui y va 
+	liste = []
+	for id_pers in present:
+		pers = User.objects.values_list('username',flat=True).filter(pk=id_pers)
+		liste.append(pers[0])
+
+	html = ""
+	for perso in liste:
+		html+="<h1>"+perso+"</h1>"
+
+	print(html)
+	return HttpResponse(html)
+
 
 @csrf_exempt
 def ajoutlike(request):

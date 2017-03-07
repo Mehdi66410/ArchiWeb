@@ -14,11 +14,14 @@
     <link rel="stylesheet" href="{% static 'css/menu.css' %}">
     
     <div class="container_menu">
+        <!--Groupe rencontre -->
         <div class="col-sm-offset-1 col-sm-5">
             <div class="bs-calltoaction bs-calltoaction-r">
                 <div class="row">
                     <div class="col-md-12 cta-contents">
+                        <!--Titre rencontre -->
                         <h1 class="cta-title">Rencontres</h1>
+                        <!--Description rencontre -->
                         <div class="cta-desc">
                             <p>Envi de rencontres, d'amitié et d'amour?</p>
                             <p>C'est ici pour trouver les personnes qui changeront votre vie.</p>
@@ -30,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                 <!--Bouton redirection rencontre -->
                 <div class="row">
                     <div class="col-sm-offset-3 col-md-6 col-sm-6 col-xs-offset-2 col-xs-8 cta-button">
                         <a href="{% url 'rencontre' %}" class="btn btn-lg btn-block btn-r">Démarrer !</a>
@@ -37,11 +41,14 @@
                 </div>
             </div>
         </div>
+        <!--Groupe sortie -->
         <div class="col-sm-5">
             <div class="bs-calltoaction bs-calltoaction-s">
                 <div class="row">
                     <div class="col-md-12 cta-contents">
+                        <!--Titre sortie -->
                         <h1 class="cta-title">Sorties</h1>
+                        <!--Description sortie -->
                         <div class="cta-desc">
                             <p>Marre de rester seul chez toi?</p>
                             <p>C'est ici pour passer les plus belles soirées loin de la solitude.</p>
@@ -53,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+                <!--Bouton redirection sortie -->
                 <div class="row">
                     <div class="col-sm-offset-3 col-md-6 col-sm-6 col-xs-offset-2 col-xs-8 cta-button">
                         <a href="{% url 'sortie' %}" class="btn btn-lg btn-block btn-s">Démarrer !</a>
@@ -61,12 +69,13 @@
             </div>
         </div>
     </div>
-<script>
-    // Permet de mettre en actif le bouton du menu header
-    $(document).ready(function () {
-        $(".nav li").removeClass("active");
-        $('#page_home').addClass('active');
-    });
-</script>
+    
+    <script>
+        // Permet de mettre en actif le bouton de la navbar du header
+        $(document).ready(function () {
+            $(".nav li").removeClass("active");
+            $('#page_home').addClass('active');
+        });
+    </script>
 {% endblock content %}
 

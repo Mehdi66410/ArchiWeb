@@ -102,10 +102,16 @@ def menu(request):
 @csrf_exempt
 def stars(request):
 	valueStar = request.POST['value']
-	id_barr = request.POST['id_barr']
+	id_barr = Bar.objects.get(pk=request.POST['id_barr'])
 	utilisateur = User.objects.get(pk=request.user.id)
-	note = starBar(id_user=utilisateur, id_bar=Bar.objects.get(pk=id_barr),notes=valueStar)
-	note.save()
+	try:
+		if request.POST['value']:
+			note = starBar.objects.get(id_user=utilisateur,id_bar=id_barr)
+			note.notes=valueStar
+			note.save()
+	except starBar.DoesNotExist:
+		note = starBar(id_user=utilisateur, id_bar=id_barr,notes=valueStar)
+		note.save()
 	return HttpResponse("")
 
 def affinite(request):
@@ -248,7 +254,7 @@ def present(request):
 		present_count_bar_person = presentBar.objects.filter(id_bar=bar_present,id_person=person_present).count()
 		if(present_count_bar_person==0):
 			present_personne.save()
-			present_count = presentBar.objects.filter(id_bar=bar_present).count()
+		present_count = presentBar.objects.filter(id_bar=bar_present).count()
 		return HttpResponse(present_count)
 
 @csrf_exempt

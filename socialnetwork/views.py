@@ -20,6 +20,8 @@ from django.conf import settings
 # Importation des formulaires
 from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
 
+localisation_=72
+
 def index(request):
 	if not request.user.is_authenticated:
 		formRegister = registerForm()
@@ -101,8 +103,7 @@ def menu(request):
 def stars(request):
 	etoile = request.POST['value']
 	id_barr = request.POST['id_barr']
-	print(etoile)
-	print(id_barr)
+
 	return HttpResponse("")
 
 def affinite(request):

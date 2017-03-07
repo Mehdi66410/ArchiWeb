@@ -1,0 +1,86 @@
+/*bouton vert, rouge pour toutes les pages, ainsi que addon vert et jaune*/
+.input-group-addon.success {
+    color: #FFFF00;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+}
+
+.glyphicon {
+  color: #FFFF00;
+  padding-right: 5px;
+}
+
+.btn_green {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+    margin-bottom:3px;
+}
+.btn_green:hover{
+    color: #FFFF00;
+}
+
+.btn_red {
+    color: #f8f8f8;
+    background-color: #c32f10;
+    border-color: #c32f10;
+    margin-bottom:3px;
+}
+.btn_red:hover{
+    color: #FFFF00;
+}
+
+.sexeHomme {
+    color: #00BFFF;
+}
+.sexeFemme {
+    color: #FF1493;
+}
+
+.informationBase{
+    color:#C0C0C0;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.titre20{
+  text-decoration: underline;
+  margin:0;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.fa-twitter {
+    color: #00aced;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-google-plus {
+    color: #c32f10;
+}
+
+.fa-github {
+    color: #000000;
+}
+
+.close{
+  color:#FFFF00;
+  opacity: 0.9;
+}
+
+#carousel_rencontre{
+  padding-bottom: 50px;
+}
+#carousel_rencontre .carousel-indicators {
+  bottom: 0px;
+}
+#carousel_rencontre .carousel-indicators li {
+  background: none;
+  border-color: #4BAE4F;
+}
+#carousel_rencontre .carousel-indicators .active {
+  background: #FFFF00;
+}

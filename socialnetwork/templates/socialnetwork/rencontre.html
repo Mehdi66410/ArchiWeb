@@ -33,12 +33,12 @@
                                 {% csrf_token %}
                                 <h3 class="info_titre"> Vous êtes.. ? </h3>
                                 <label class="switch_genre">
-                                    <input type="radio" name="genre" checked id="H" onclick="genre_person(id)">
+                                    <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" onclick="genre_person(id)">
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="radio" name="genre" id="F" onclick="genre_person(id)">
+                                    <input type="radio" name="genre" id="F" {% if genrePerson == 'F' %} checked {% endif %} onclick="genre_person(id)">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>
@@ -73,15 +73,14 @@
                         <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                             <form action="rencontre" class="form-horizontal" role="form" method="post">
                                 {% csrf_token %}
-                                <!--{% bootstrap_field formSearchInformationUser.genre %}-->
                                 <h3 class="info_titre"> Vous recherchez..? </h3>
                                 <label class="switch_genre">
-                                    <input type="checkbox" name="genre" value="homme" checked>
+                                    <input type="checkbox" name="genreF" {% if genreSearhM == True %} checked {% endif %} value="homme" checked>
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="checkbox" name="genre" value="femme">
+                                    <input type="checkbox" name="genreM" {% if genreSearhF == True %} checked {% endif %} value="femme">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>
@@ -95,7 +94,7 @@
                                 <h3 class="info_titre"> Son age max..? </h3>
                                 {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" %}
+                                {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green_valider col-xs-12 col-md-12" name='searchInformationUser' %}
                             </form>
                         </div>
                     </div>

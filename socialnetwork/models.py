@@ -54,6 +54,11 @@ class InformationUser(models.Model):
 	description = models.CharField(max_length=500)
 	profession = models.CharField(max_length=100,default='Prof')
 
+class starBar(models.Model):
+	id_bar = models.ForeignKey(Bar)
+	id_user = models.ForeignKey(User)
+	notes = models.IntegerField(default=0)
+
 class LikeBar(models.Model):
 	bar_name = models.ForeignKey(Bar)
 	person_name = models.ForeignKey(User)

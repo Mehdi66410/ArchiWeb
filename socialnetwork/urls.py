@@ -19,7 +19,6 @@ urlpatterns = [
 	url(r'^index/sortie/bar$', views.bar, name='bar'),
 	url(r'^index/sortie/ajoutlike$', views.ajoutlike, name='ajoutlike'),
 	url(r'^index/sortie/present$', views.present, name='present'),
-	url(r'^index/rencontre/genre_person$', views.genre_person, name='genre_person'),
 	url(r'^index/sortie/stars$', views.stars, name='stars'),
 
 	url(r'^index/sortie/changementloc$', views.changementloc, name='changementloc'),

@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar,presentBar
+from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
@@ -20,9 +20,7 @@ from django.conf import settings
 # Importation des formulaires
 from .forms import informationUserForm, searchInformationUserForm, loginForm, registerForm, uploadPictureForm, updateProfilForm, mdpForm,sortieForm
 
-# Variable global
-localisation_ = 72
-genre_ = 'H'
+localisation_=72
 
 def index(request):
 	if not request.user.is_authenticated:
@@ -101,19 +99,17 @@ def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
+@csrf_exempt
 def stars(request):
-	etoile = request.POST['value']
-	print("coucou c'est moi")
+	valueStar = request.POST['value']
+	id_barr = request.POST['id_barr']
+	utilisateur = User.objects.get(pk=request.user.id)
+	note = starBar(id_user=utilisateur, id_bar=Bar.objects.get(pk=id_barr),notes=valueStar)
+	note.save()
 	return HttpResponse("")
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
-
-@csrf_exempt
-def genre_person(request):
-	global genre_
-	genre_ = request.POST['genre_']
-	return HttpResponse("")
 
 def rencontre(request):
 	utilisateur = User.objects.get(pk=request.user.id)
@@ -133,7 +129,7 @@ def rencontre(request):
 					informationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 				except InformationUser.DoesNotExist:
-					informationUser = InformationUser(user=utilisateur, genre=genre_, localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
+					informationUser = InformationUser(user=utilisateur, genre=request.POST['genre'] , localisation=request.POST['localisation'], profession=request.POST['profession'], description=request.POST['description'], age=request.POST['age'])
 					informationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 			else:
@@ -187,9 +183,10 @@ def rencontre(request):
 
 	try:
 		informationUser = InformationUser.objects.get(user=utilisateur)
-		genre_ = informationUser.genre
+		genreUser = informationUser.genre
 		formInformationUser = informationUserForm({'age':informationUser.age, 'localisation': informationUser.localisation, 'profession': informationUser.profession, 'description': informationUser.description})
 	except InformationUser.DoesNotExist:
+		genreUser = 'H'
 		formInformationUser = informationUserForm()
 
 	try:
@@ -202,7 +199,7 @@ def rencontre(request):
 		genreSearchF = False
 		formSearchInformationUser = searchInformationUserForm()
 
-	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genre_, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF})
+	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF})
 
 
 def bar(request):

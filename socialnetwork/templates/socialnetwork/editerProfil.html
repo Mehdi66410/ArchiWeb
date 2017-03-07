@@ -14,15 +14,17 @@
     <link rel="stylesheet" href="{% static 'css/editerProfil.css' %}">
    
     <div class="container_editerProfil">
-       	<div class="contour_edit">
+       	<div class="contour_zone col-sm-offset-1 col-sm-10">
             <!-- Titre editer profil-->
-            <h1 class="page-header">Editer le profil</h1>
+            <div class="text-center">
+                <h1 class="titre_zone40">Editer le profil</h1>
+            </div>
             <div class="row">
                 <!-- image editer profil partie gauche-->
             	<div class="col-md-6 col-sm-6 col-xs-12">
                 	<div class="text-center">
-                    	<img src="{{ MEDIA_URL }}{{ lienPicture.url }}" class="avatar img-circle img-thumbnail" alt="avatar">
-                    	<h6>Charger une photo différente...</h6>
+                    	<img src="{{ MEDIA_URL }}{{ lienPicture.url }}" class="avatar img-circle img-thumbnail image250" alt="avatar">
+                    	<h1 class="titre_zone12">Charger une photo différente...</h1>
                         <form action="editerProfil" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
                         	{% csrf_token %}
                             {% bootstrap_field formUploadPicture.picture field_class='well well-sm' show_label=False%}
@@ -31,19 +33,21 @@
                     </div>
             	</div>
                 <!-- formulaire profil partie droite-->
-            	<div class="col-xs-offset-1 col-md-5 col-sm-5 col-xs-10 personal-info">
-                	<h4 class="text-center">Informations personnelles</h4>
+            	<div class="col-xs-offset-1 col-md-5 col-sm-5 col-xs-10 formulaire_zone">
+                    <div class="text-center">
+                	   <h1 class="titre_zone20">Informations personnelles</h1>
+                    </div>
                     <form class="form-horizontal" role="form" method="post" action="">
                         {% csrf_token %}
-                        <h3 class="info_titre"> Votre prénom </h3>
+                        <h1 class="titre_zone15"> Votre prénom </h1>
                         {% bootstrap_field formEditProfil.firstname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
-                        <h3 class="info_titre"> Votre nom </h3>
+                        <h1 class="titre_zone15"> Votre nom </h1>
                         {% bootstrap_field formEditProfil.lastname addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
-                        <h3 class="info_titre"> Votre pseudo </h3>
+                        <h1 class="titre_zone15"> Votre pseudo </h1>
                         {% bootstrap_field formEditProfil.username addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
-                        <h3 class="info_titre"> Votre email </h3>
+                        <h1 class="titre_zone15"> Votre email </h1>
                         {% bootstrap_field formEditProfil.email addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
-                        <h3 class="info_titre"> Votre mot de passe </h3>
+                        <h1 class="titre_zone15"> Votre mot de passe </h1>
                         {% bootstrap_field formEditProfil.password addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success' field_class='col-xs-11' show_label=False%}
                         {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-offset-2 col-xs-8" name='modifInfo' %}
                     </form>

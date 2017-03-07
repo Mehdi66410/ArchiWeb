@@ -29,7 +29,32 @@
 .btn_red:hover{
     color: #FFFF00;
 }
+.btn_violet{
+    color: #FFFFFF;
+    background-color: #A569BD;
+    border-color: #FFFFFF ;
+    opacity: 0.8;
+    margin-bottom:10px;
+}
 
+.btn_violet:hover{
+    color: #FFFFFF ;
+    border-color: #FFFFFF;
+    opacity: 1;
+}
+
+.btn_blue{
+    color: #FFFFFF;
+    background-color: #0ea5f5;
+    border-color: #FFFFFF ;
+    opacity: 0.8;
+    margin-bottom:10px;
+}
+.btn_blue:hover{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    opacity: 1;
+}
 .sexeHomme {
     color: #00BFFF;
 }
@@ -84,3 +109,4 @@
 #carousel_rencontre .carousel-indicators .active {
   background: #FFFF00;
 }
+

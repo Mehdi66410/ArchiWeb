@@ -1,48 +1,38 @@
 .container_index .cote_gauche{
-    text-align: center;
     color: #FFFFFF;
     font-family: 'Lobster', cursive;
-    font-size: 30px;
     padding-left: 5%;
     padding-top: 8%;
     margin-bottom: 15px;
 }
 
-.container_index .omb_login{
-    background-color: #2B2A29;
-    border: 1px solid #FFFF00; 
+.container_index .titre_zone30{
+    font-size: 30px;
+}
+
+.container_index .contour_zone{
     border-radius: 40px;
-    width: 100%;
-    padding:10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    background-color: #2B2A29;
+    border: 1px solid #FFFF00;
+    color: #FFFF00;
     opacity: 0.9;
+    font-family: 'Lobster', cursive;
+    margin:10px;
+    padding:20px;
 }
 
-@media (min-width: 768px) {
-    .container_index .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-        margin-left: auto;
-    }
-    .container_index .cote_gauche{
-        font-size: 40px;
-    }
-}
-
-.container_index .omb_login .omb_authTitle {
-    text-align: center;
+.container_index .contour_zone .titre_zone20 {
     color: #FFFF00;
     font-size: 20pt;
-    font-family: 'Lobster', cursive;
 }
     
-.container_index .omb_login .omb_socialButtons a {
+.container_index .contour_zone .boutonSocial a {
     color: white;
     opacity:0.7;
 }
-.container_index .omb_login .omb_socialButtons a:hover {
-    color: white;
+.container_index .contour_zone .boutonSocial a:hover {
     opacity:1;      
 }
-.container_index .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-.container_index .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-.container_index .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+.container_index .contour_zone .boutonSocial .omb_btn-facebook {background: #3b5998;}
+.container_index .contour_zone .boutonSocial .omb_btn-twitter {background: #00aced;}
+.container_index .contour_zone .boutonSocial .omb_btn-google {background: #c32f10;}

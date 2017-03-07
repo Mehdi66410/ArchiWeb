@@ -17,13 +17,13 @@
 		<div class="row">
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-12 col-sm-6 col-md-4">
-	    		<div class="carte_profil">
+	    		<div class="contour_zone">
 	                <div class="text-center">
-	                    <h3 class="titre20">NOM PRENOM</h3>
+	                    <h1 class="titre_zone20">NOM PRENOM</h1>
 	                </div>
-	                <div class="clic_group row text-center" data-toggle="modal" data-target="#profil_complet">
+	                <div class="contenu_zone contenu_zone_pointeur row" data-toggle="modal" data-target="#profil_complet">
 	            	    <div class='col-sm-6'>
-	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
+	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image150" alt="avatar">
 	            	    </div>
 		                <div class="informationBase col-sm-6">
 		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
@@ -51,7 +51,7 @@
 	            <div class="panel panel_header">
 	                <div class="panel-heading">
 	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	                    <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h4>
+	                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h1>
 	                </div>
 	                <div class="modal_body row">
 	                	<div class="col-sm-6 col-xs-5">
@@ -70,15 +70,17 @@
 		                	</div>
 		                </div>
 		                <div class="col-sm-6 col-xs-7 text-center">
-		                     <h3 class="titre20">NOM PRENOM</h3>
-		                    <div class="informationBase">
-		                        <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
-		                        <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
-		                        <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
-		                        <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
-		                        <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
-		                    </div>
-		               </div>
+			                <div class="text-center">
+			                    <h1 class="titre_zone20">NOM PRENOM</h1>
+			                </div>
+			                <div class="informationBase">
+			                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
+			                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
+			                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
+			                    <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
+		                        <p class="description_comment"><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
+			                </div>
+	    				</div>
 		            </div>
 	            </div>
 	        </div>

@@ -1,54 +1,48 @@
-.container_editerProfil .contour_edit{
-	background-color: #2B2A29;
-    border: 1px solid #FFFF00;
+.container_editerProfil .contour_zone{
     border-radius: 40px;
-    color:#FFFF00;
+    background-color: #2B2A29;
+    border: 1px solid #FFFF00;
+    color: #FFFF00;
     opacity: 0.9;
-    margin: 20px;
-    margin-top: 0;
     font-family: 'Lobster', cursive;
+    margin-bottom: 10px;
 }
 
-.container_editerProfil .page-header{
-	margin-top: 0;
-	text-align: center;
+.container_editerProfil .titre_zone40{
     font-size: 40px;
-    border-color:#FFFF00;
+    text-decoration: underline;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FFFF00;
 }
 
-.container_editerProfil .img-thumbnail{
-    margin-top: 30px;
+.container_editerProfil .titre_zone20{
+    font-size: 20px;
+    text-decoration: underline;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.container_editerProfil .image250{
+    margin-top: 20px;
     height:250px;
     width:250px;
 }
 
-.container_editerProfil .text-center h6{
-	text-align: center;
+.container_editerProfil .titre_zone12{
     font-size:12px;
 }
-.container_editerProfil .personal-info{
+
+
+.container_editerProfil .formulaire_zone{
     margin-bottom: 10px;
 }
 
-.container_editerProfil .personal-info h4{
-    font-size:30px;
-    margin-top: 10px;
-    text-decoration: underline;
-}
-
-.container_editerProfil .personal-info .info_titre{
-    color:#FFFF00;
+.container_editerProfil .formulaire_zone .titre_zone15{
     font-size: 15px;
     padding: 0;
     margin-top: 5px;
     margin-bottom: 3px;
-}
-
-.container_editerProfil .control-label{
-    font-size:15px;
-    margin-left: 15px;
-    padding: 0;
-    color:#4BAE4F;
 }
 
 .container_editerProfil .well{

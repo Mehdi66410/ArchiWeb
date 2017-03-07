@@ -65,6 +65,22 @@
   margin-left: 15px;
 }
 
+.container_header .navbar-inverse .dropdown_sortie ul{
+  color: #FFFFFF;
+  background-color: #2b2a29;
+  border:1px solid #FFFF00;
+}
+
+.container_header .navbar-inverse .dropdown_sortie ul li > a{
+  color: #FFFFFF;
+}
+.container_header .navbar-inverse .dropdown_sortie ul li > a:hover,
+.container_header .navbar-inverse .dropdown_sortie ul li > a:focus {
+  color: #ffff00;
+  text-decoration: underline;
+  background: #2b2a29;
+}
+
 
 /*******************************************/
 
@@ -145,14 +161,14 @@ footer {
   width: 100%;
   height: 100%;
   margin: 0; padding: 0;
-}
-
-.container_footer .footer_text{
-  text-align: center;
-  font-size: 12pt;
   font-family: 'Lobster', cursive;
   color:#FFFFFF;
-  margin-top: 10px;
+}
+
+.container_footer .titre_zone15{
+    font-size: 15px;
+    margin-top: 12px;
+    margin-bottom: 5px;
 }
 
 .container_footer .fa {

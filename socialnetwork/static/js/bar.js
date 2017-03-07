@@ -23,7 +23,7 @@ function present_person(id_bar){
     }, function(data) {
         alert(data)
         console.log(data)
-        $("#affichage_pers-" + id_bar).innerHTML=data;
+        $("#affichage_pers-" + id_bar).text(data);
     });
 }
 

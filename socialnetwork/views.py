@@ -265,7 +265,7 @@ def personne_present_bar(request):
 
 	html = ""
 	for perso in liste:
-		html+="<h1>"+perso+"</h1>"
+		html+=str(perso) + " "
 
 	print(html)
 	return HttpResponse(html)

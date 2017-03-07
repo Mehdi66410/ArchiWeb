@@ -32,12 +32,12 @@
                                 {% csrf_token %}
                                 <h3 class="info_titre"> Vous êtes.. ? </h3>
                                 <label class="switch_genre">
-                                    <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" onclick="genre_person(id)">
+                                    <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" value="H">
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="radio" name="genre" id="F" {% if genrePerson == 'F' %} checked {% endif %} onclick="genre_person(id)">
+                                    <input type="radio" name="genre" id="F" {% if genrePerson == 'F' %} checked {% endif %} value="F">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>

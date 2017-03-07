@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db.models import Count
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar,presentBar
+from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
 from django.views.decorators.csrf import csrf_exempt
 
@@ -101,9 +101,11 @@ def menu(request):
 
 @csrf_exempt
 def stars(request):
-	etoile = request.POST['value']
+	valueStar = request.POST['value']
 	id_barr = request.POST['id_barr']
-
+	utilisateur = User.objects.get(pk=request.user.id)
+	note = starBar(id_user=utilisateur, id_bar=Bar.objects.get(pk=id_barr),notes=valueStar)
+	note.save()
 	return HttpResponse("")
 
 def affinite(request):

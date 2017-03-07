@@ -4,7 +4,6 @@
 {% load bootstrap3 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
 {% bootstrap_messages %}
@@ -13,8 +12,8 @@
 
 {% block menu_main %}
     <link rel="stylesheet" href="{% static 'css/sortie.css' %}">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	
+    <script src="{% static 'js/bar.js' %}"></script>
+
 <div class="container_sortie">
 	{% for bar in Bars %}
 	<div class="row" >
@@ -48,6 +47,11 @@
 						</button>
 						<span id={{bar.id}}></span>
 					</div>
+					    <div class="row lead">
+					        <div id="stars-existing" class="starrr" data-rating='4' onclick="clique({{bar.id}})"></div>
+					        You gave a rating of <span id="count-existing">3</span> star(s)
+					    </div>
+					
 				</div>
 			</div>
 		</div>

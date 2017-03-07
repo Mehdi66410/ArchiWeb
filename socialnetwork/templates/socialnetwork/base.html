@@ -2,59 +2,56 @@
 {% load bootstrap3 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
-
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <body>
-    <head>
-        <meta charset="utf-8">
-        <title>Vis Ton Meeting</title>
-        <link rel="SHORTCUT ICON" href="{% static 'css/images/favicon.png' %}" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    </head>
+        <head>
+            <meta charset="utf-8">
+            <title>Vis Ton Meeting</title>
+            <link rel="SHORTCUT ICON" href="{% static 'css/images/favicon.png' %}" />
+            <!-- css internet -->
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+            <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-    {% block header %}
-    {% endblock header %}
-    {% bootstrap_messages %}
+            <!-- css -->
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+            
+            <!-- js internet -->
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        </head>
 
+        {% block header %}
+        <!-- header en fonction du mode co/deco -->
+        {% endblock header %}
 
-    <div class="container_principal">
-    {% block content %}
-    {% endblock content %}
-    </div>
+        {% bootstrap_messages %}
 
-    <footer>
-        <div class="row container_footer">
-            <div class="col-md-8 footer_text">
-                © 2017 Vis Ton Meeting. All rights reserved VTM. Valentin & Tony & Mehdi
-            </div>
-            <div class="col-sm-offset-1 col-md-3">
-                <a href="https://facebook.com/vistonmeeting"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
-                <a href="https://twitter.com/VisTonMeeting"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-                <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
-                <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a>
-            </div>
+        <div class="container_principal">
+            {% block content %}
+                <!-- contenu de la page en fonction de la page -->
+            {% endblock content %}
         </div>
-    </footer>
-   
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{% static 'css/bar.js' %}"></script>
-    <script src="{% static 'css/menusortie.js' %}"></script>
-    <script src="{% static 'css/rencontre.js' %}"></script>
-
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <footer>
+            <!-- footer de l'ensemble des pages -->
+            <div class="row container_footer">
+                <div class="col-md-8 footer_text">
+                    © 2017 Vis Ton Meeting. All rights reserved VTM. Valentin & Tony & Mehdi
+                </div>
+                <div class="col-sm-offset-1 col-md-3">
+                    <a href="https://facebook.com/vistonmeeting"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+                    <a href="https://twitter.com/VisTonMeeting"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+                    <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
+                    <a href="https://github.com/Hactogeek/ArchiWeb"><i class="fa fa-github fa-2x fa-fw"></i></a>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

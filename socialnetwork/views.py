@@ -101,6 +101,10 @@ def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
+def stars(request):
+	etoile = request.POST['value']
+	print("coucou c'est moi")
+	return HttpResponse("")
 
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')

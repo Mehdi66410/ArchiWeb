@@ -4,7 +4,6 @@
 {% load bootstrap3 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
 {% bootstrap_messages %}
@@ -13,229 +12,229 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/affinite.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<div class="container_affinite">
-	<div class="row">
-    	<div class="col-xs-12 col-sm-6 col-md-4">
-    		<div class="carte_profil">
-                <div class="text-center">
-                    <h3 class="titre">NOM PRENOM</h3>
-                </div>
-                <div class="clic_group row text-center" data-toggle="modal" data-target="#profil_complet">
-            	    <div class='col-sm-6'>
-            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
-            	    </div>
-	                <div class="info col-sm-6">
-	                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
-	                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
-	                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
+	<div class="container_affinite">
+		<div class="row">
+			<!-- carte description de l'affinité simple -->
+	    	<div class="col-xs-12 col-sm-6 col-md-4">
+	    		<div class="carte_profil">
+	                <div class="text-center">
+	                    <h3 class="titre">NOM PRENOM</h3>
 	                </div>
-	            </div>
-                <div class="row">
-                    <button type="button" class="btn btn-red-barre col-xs-offset-1 col-xs-4">
-                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
-                    </button>
-                    <button type="button" data-toggle="modal" data-target="#modal_chat" class="btn btn-green-barre col-xs-offset-2 col-xs-4">
-                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Ouvrir un chat </span>
-                    </button>
-                </div>
-    		</div>
-		</div>
-
-		<div class="col-xs-12 col-sm-6 col-md-4">
-    		<div class="carte_profil">
-                <div class="text-center">
-                    <h3 class="titre">NOM PRENOM</h3>
-                </div>
-                <div class="clic_group row text-center" data-toggle="modal" data-target="#profil_complet">
-            	    <div class='col-sm-6'>
-            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
-            	    </div>
-	                <div class="info col-sm-6">
-	                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
-	                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
-	                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
-	                </div>
-	            </div>
-                <div class="row">
-                    <button type="button" class="btn btn-red-barre col-xs-offset-1 col-xs-4">
-                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
-                    </button>
-                    <button type="button" data-toggle="modal" data-target="#modal_chat" class="btn btn-green-barre col-xs-offset-2 col-xs-4">
-                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Ouvrir un chat </span>
-                    </button>
-                </div>
-    		</div>
-		</div>
-		
-   	</div>
-</div>
-
-<!-- Modal -->
-<div class="container_modal_profil_complet">
-    <div class="modal fade" id="profil_complet" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="panel panel_header">
-                <div class="panel-heading">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h4>
-                </div>
-                <div class="modal_body row">
-                	<div class="col-sm-6 col-xs-5">
-	                	<div id="carousel_rencontre" class="carousel slide slide-carousel col-xs-offset-1" data-ride="carousel">
-	                	    <div class="carousel-inner">
-	                	        <div class="item active">
-	                	            <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-	                	        </div>
-	                	        <div class="item">
-	                	            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-	                	        </div>
-	                	        <div class="item">
-	                	           <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-	                	        </div>
-	                	    </div>
-	                	</div>
-	                </div>
-	                <div class="col-sm-6 col-xs-7 text-center">
-	                     <h3 class="titre">NOM PRENOM</h3>
-	                    <div class="info">
-	                        <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
-	                        <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
-	                        <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
-	                        <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
-	                        <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
-	                    </div>
-	               </div>
-	            </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="container_modal_photo">
-    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
-                        </div>
-                    </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="container_modal_chat">
-    <div class="modal fade" id="modal_chat" tabindex="-1" role="dialog" aria-labelledby="modalChat" aria-hidden="true">
-        <div class="modal-dialog">
-		    <div class="row form-group">
-		        <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-8 col-lg-offset-2">
-		            <div class="panel panel-primary">
-		                <div class="panel-heading">
-		                    <span class="glyphicon glyphicon-comment"></span> Conversation
-		                    <div class="btn-group pull-right">
-		                        <a href="{% url 'affinite' %}" span class="glyphicon glyphicon-refresh"></span>Rafraichir</a>
-		                    </div>
-		                </div>
-		                <div class="panel-body body-panel">
-		                    <ul class="chat">
-		                        <li class="left clearfix"><span class="chat-img pull-left">
-		                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-		                        </span>
-		                            <div class="chat-body clearfix">
-		                                <div class="header">
-		                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-		                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-		                                </div>
-		                                <p>
-		                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-		                                    dolor, quis ullamcorper ligula sodales.
-		                                </p>
-		                            </div>
-		                        </li>
-		                        <li class="right clearfix"><span class="chat-img pull-right">
-		                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-		                        </span>
-		                            <div class="chat-body clearfix">
-		                                <div class="header">
-		                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-		                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-		                                </div>
-		                                <p>
-		                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-		                                    dolor, quis ullamcorper ligula sodales.
-		                                </p>
-		                            </div>
-		                        </li>
-		                        <li class="left clearfix"><span class="chat-img pull-left">
-		                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-		                        </span>
-		                            <div class="chat-body clearfix">
-		                                <div class="header">
-		                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-		                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-		                                </div>
-		                                <p>
-		                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-		                                    dolor, quis ullamcorper ligula sodales.
-		                                </p>
-		                            </div>
-		                        </li>
-		                        <li class="right clearfix"><span class="chat-img pull-right">
-		                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-		                        </span>
-		                            <div class="chat-body clearfix">
-		                                <div class="header">
-		                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-		                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-		                                </div>
-		                                <p>
-		                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-		                                    dolor, quis ullamcorper ligula sodales.
-		                                </p>
-		                            </div>
-		                        </li>
-		                    </ul>
-		                </div>
-		                <div class="panel-footer clearfix">
-		                    <textarea class="form-control" rows="3"></textarea>
-		                    <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
-		                        <button class="btn btn-warning btn-lg btn-block" id="btn-chat">Envoyer</button>
-		                    </span>
+	                <div class="clic_group row text-center" data-toggle="modal" data-target="#profil_complet">
+	            	    <div class='col-sm-6'>
+	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
+	            	    </div>
+		                <div class="info col-sm-6">
+		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
+		                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
+		                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
 		                </div>
 		            </div>
-		        </div>
-		    </div>
-        </div>
-    </div>
-</div>
+	                <div class="row">
+	                    <button type="button" class="btn btn-red-barre col-xs-offset-1 col-xs-4">
+	                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
+	                    </button>
+	                    <button type="button" data-toggle="modal" data-target="#modal_chat" class="btn btn-green-barre col-xs-offset-2 col-xs-4">
+	                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Ouvrir un chat </span>
+	                    </button>
+	                </div>
+	    		</div>
+			</div>
+
+			<!-- <div class="col-xs-12 col-sm-6 col-md-4">
+	    		<div class="carte_profil">
+	                <div class="text-center">
+	                    <h3 class="titre">NOM PRENOM</h3>
+	                </div>
+	                <div class="clic_group row text-center" data-toggle="modal" data-target="#profil_complet">
+	            	    <div class='col-sm-6'>
+	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar">
+	            	    </div>
+		                <div class="info col-sm-6">
+		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
+		                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
+		                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
+		                </div>
+		            </div>
+	                <div class="row">
+	                    <button type="button" class="btn btn-red-barre col-xs-offset-1 col-xs-4">
+	                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
+	                    </button>
+	                    <button type="button" data-toggle="modal" data-target="#modal_chat" class="btn btn-green-barre col-xs-offset-2 col-xs-4">
+	                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Ouvrir un chat </span>
+	                    </button>
+	                </div>
+	    		</div>
+			</div> -->
+			
+	   	</div>
+	</div>
+
+	<!-- Modal pour afficher le profil complet -->
+	<div class="container_modal_profil_complet">
+	    <div class="modal fade" id="profil_complet" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="panel panel_header">
+	                <div class="panel-heading">
+	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	                    <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h4>
+	                </div>
+	                <div class="modal_body row">
+	                	<div class="col-sm-6 col-xs-5">
+		                	<div id="carousel_rencontre" class="carousel slide slide-carousel col-xs-offset-1" data-ride="carousel">
+		                	    <div class="carousel-inner">
+		                	        <div class="item active">
+		                	            <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+		                	        </div>
+		                	        <div class="item">
+		                	            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+		                	        </div>
+		                	        <div class="item">
+		                	           <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+		                	        </div>
+		                	    </div>
+		                	</div>
+		                </div>
+		                <div class="col-sm-6 col-xs-7 text-center">
+		                     <h3 class="titre">NOM PRENOM</h3>
+		                    <div class="info">
+		                        <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
+		                        <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
+		                        <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
+		                        <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
+		                        <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
+		                    </div>
+		               </div>
+		            </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- Modal pour afficher les photos en grand -->
+	<div class="container_modal_photo">
+	    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
+	                    <!-- Wrapper for slides -->
+	                    <div class="carousel-inner">
+	                        <div class="item active">
+	                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+	                        </div>
+	                        <div class="item">
+	                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
+	                        </div>
+	                        <div class="item">
+	                            <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
+	                        </div>
+	                    </div>
+	                    <!-- Controls -->
+	                    <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
+	                        <span class="glyphicon glyphicon-chevron-left"></span>
+	                    </a>
+	                    <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
+	                        <span class="glyphicon glyphicon-chevron-right"></span>
+	                    </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- Modal chat  -->
+	<div class="container_modal_chat">
+	    <div class="modal fade" id="modal_chat" tabindex="-1" role="dialog" aria-labelledby="modalChat" aria-hidden="true">
+	        <div class="modal-dialog">
+			    <div class="row form-group">
+			        <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-8 col-lg-offset-2">
+			            <div class="panel panel-primary">
+			                <div class="panel-heading">
+			                    <span class="glyphicon glyphicon-comment"></span> Conversation
+			                    <div class="btn-group pull-right">
+			                        <a href="{% url 'affinite' %}" span class="glyphicon glyphicon-refresh"></span>Rafraichir</a>
+			                    </div>
+			                </div>
+			                <div class="panel-body body-panel">
+			                    <ul class="chat">
+			                        <li class="left clearfix"><span class="chat-img pull-left">
+			                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+			                        </span>
+			                            <div class="chat-body clearfix">
+			                                <div class="header">
+			                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+			                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+			                                </div>
+			                                <p>
+			                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+			                                    dolor, quis ullamcorper ligula sodales.
+			                                </p>
+			                            </div>
+			                        </li>
+			                        <li class="right clearfix"><span class="chat-img pull-right">
+			                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+			                        </span>
+			                            <div class="chat-body clearfix">
+			                                <div class="header">
+			                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+			                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+			                                </div>
+			                                <p>
+			                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+			                                    dolor, quis ullamcorper ligula sodales.
+			                                </p>
+			                            </div>
+			                        </li>
+			                        <li class="left clearfix"><span class="chat-img pull-left">
+			                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+			                        </span>
+			                            <div class="chat-body clearfix">
+			                                <div class="header">
+			                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+			                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+			                                </div>
+			                                <p>
+			                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+			                                    dolor, quis ullamcorper ligula sodales.
+			                                </p>
+			                            </div>
+			                        </li>
+			                        <li class="right clearfix"><span class="chat-img pull-right">
+			                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+			                        </span>
+			                            <div class="chat-body clearfix">
+			                                <div class="header">
+			                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+			                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+			                                </div>
+			                                <p>
+			                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+			                                    dolor, quis ullamcorper ligula sodales.
+			                                </p>
+			                            </div>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="panel-footer clearfix">
+			                    <textarea class="form-control" rows="3"></textarea>
+			                    <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
+			                        <button class="btn btn-warning btn-lg btn-block" id="btn-chat">Envoyer</button>
+			                    </span>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+	        </div>
+	    </div>
+	</div>
 
 
-<script>
-    // Permet de mettre en actif le bouton du menu header
-    $(document).ready(function () {
-      $(".nav li").removeClass("active");
-      $('#page_affinite').addClass('active');
-    });
-</script>
+	<script>
+	    // Permet de mettre en actif le bouton de la navbar du header
+	    $(document).ready(function () {
+	      $(".nav li").removeClass("active");
+	      $('#page_affinite').addClass('active');
+	    });
+	</script>
 {% endblock content %}

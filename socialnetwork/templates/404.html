@@ -4,7 +4,6 @@
 {% load bootstrap3 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
 {% bootstrap_messages %}
@@ -12,32 +11,34 @@
 {% csrf_token %}
 
 {% block header %}
-<header>
-    <div class="container_header">
-        <nav class="navbar navbar-inverse navbar-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarHeader">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'index' %}">Vis Ton Meeting</a>
+    <header>
+        <div class="container_header">
+            <!--navbar quasi vide pour page 404 -->
+            <nav class="navbar navbar-inverse navbar-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarHeader">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'index' %}">Vis Ton Meeting</a>
+                    </div>
+                    <div id="navbarHeader" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="navbarHeader" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 {% endblock header %}
 
 {% block content %}
     <div class="container_404">
+        <!--Message 404 -->
         <div class="col-xs-offset-2 col-xs-8">
             <div class="bs-calltoaction">
                 <div class="row">

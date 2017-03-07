@@ -2,11 +2,10 @@
 {% load bootstrap3 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% load bootstrap_ui_tags %}
-
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <body>
@@ -18,8 +17,13 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bar.js' %}"></script>
+        <script src="{% static 'js/rencontre.js' %}"></script>
     </head>
 
     {% block header %}
@@ -45,16 +49,5 @@
             </div>
         </div>
     </footer>
-   
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{% static 'css/bar.js' %}"></script>
-    <script src="{% static 'css/menusortie.js' %}"></script>
-    <script src="{% static 'css/rencontre.js' %}"></script>
-
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </body>
 </html>

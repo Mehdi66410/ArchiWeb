@@ -114,13 +114,12 @@ def stars(request):
 		note.save()
 
 	nb_bar = float(starBar.objects.filter(id_bar=id_barr).count())
-	print(nb_bar)
 	s=starBar.objects.filter(id_bar=id_barr).aggregate(somme_note_bar=Sum('notes'))
 	total_note = float(s['somme_note_bar'])
-	print(total_note)
 	moy=float(total_note/nb_bar)
-	print(moy)
-	html = "Note moyenne : <span id='count-existing' >%f</span>/5" %moy
+	bar = Bar.objects.get(pk=request.POST['id_barr'])
+	bar.notes=moy
+	bar.save()
 	return HttpResponse(moy)
 
 def affinite(request):

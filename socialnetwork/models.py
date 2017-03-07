@@ -35,7 +35,7 @@ class Bar(models.Model):
 	speciality = models.CharField(max_length=100, default='')
 	prix = models.IntegerField(default=5)
 	description = models.CharField(max_length=10000,default='')
-	notes = models.IntegerField(default=0)
+	notes = models.FloatField(default=0)
 
 class DislikeBar(models.Model):
 	bar_name = models.ForeignKey(Bar)

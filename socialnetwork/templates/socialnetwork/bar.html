@@ -44,7 +44,7 @@
 							<button class="btn btn_blue_dark col-xs-5"  onclick="present( {{ bar.id }})">
 								<span class="glyphicon glyphicon-road"></span><span class="hidden-sm hidden-xs"> Aujourd'hui j'y vais ! </span>
 							</button>
-	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go" data-id="{{bar.id}}" onclick="present_person({{bar.id}})">
+	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{bar.id}}" data-id="{{bar.id}}" onclick="present_person({{bar.id}})">
 								<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
 	                       	</button>
 	                    </div>
@@ -54,9 +54,8 @@
 		</div>
 	</div>
 
-
     <div class="container_modal_personne">
-        <div class="modal fade" id="person_go" tabindex="-1" role="dialog" aria-labelledby="personModal" aria-hidden="true">
+        <div class="modal fade" id="person_go{{bar.id}}" tabindex="-1" role="dialog" aria-labelledby="personModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="panel panel_header">
                     <div class="panel-heading">

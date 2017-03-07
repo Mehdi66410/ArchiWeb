@@ -1,5 +1,5 @@
 function like(id_like){
-    $.post('http://localhost:8000/index/sortie/ajoutlike',
+    $.post('http://localhost:8000/index/ajoutlike',
     {
         id_like: id_like,
     }, function(data) {
@@ -8,7 +8,7 @@ function like(id_like){
 }
 
 function dislike(id_like){
-	$.post('http://localhost:8000/index/sortie/ajoutdislike',
+	$.post('http://localhost:8000/index/ajoutdislike',
     {
         id_like: id_like,
     }, function(data) {
@@ -17,7 +17,7 @@ function dislike(id_like){
 }
 
 function present(id_bar){
-    $.post('http://localhost:8000/index/sortie/present',
+    $.post('http://localhost:8000/index/present',
     {
         id_bar: id_bar,
     }, function(data) {
@@ -61,7 +61,7 @@ var __slice = [].slice;
         var value = _this.$el.find('span').index(e.currentTarget) + 1;
         var id_barr = _this.$el.data('id');
 
-        $.post('http://localhost:8000/index/sortie/stars',
+        $.post('http://localhost:8000/index/stars',
         {
             value: value,
             id_barr: id_barr

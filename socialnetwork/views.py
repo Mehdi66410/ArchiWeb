@@ -106,6 +106,8 @@ def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 
 def rencontre(request):
+	swap = True
+
 	utilisateur = User.objects.get(pk=request.user.id)
 	if request.method == 'POST':
 		if "informationUser" in request.POST:
@@ -181,6 +183,7 @@ def rencontre(request):
 		formInformationUser = informationUserForm({'age':informationUser.age, 'localisation': informationUser.localisation, 'profession': informationUser.profession, 'description': informationUser.description})
 	except InformationUser.DoesNotExist:
 		genreUser = 'H'
+		swap = False
 		formInformationUser = informationUserForm()
 
 	try:
@@ -191,9 +194,25 @@ def rencontre(request):
 	except SearchInformationUser.DoesNotExist:
 		genreSearchM = False
 		genreSearchF = False
+		swap = False
 		formSearchInformationUser = searchInformationUserForm()
 
-	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF})
+	if swap:
+		messages.add_message(request, messages.SUCCESS, "SWAP OK")
+		# On exclue dans un premier temps les utilisateurs n'étant pas dans l'intervalle age.
+		# On exclue ensuite ceux qui ne sont pas dans la localisation
+		# On exluce ensuite ceux qui ne sont pas du bon genre
+		userSelect = UserInformation.exclude(age__gt > searchInformationUser.ageMin, age__gt < searchInformationUser.ageMax).objects.get()
+		# Pour le genre, l'age, la localisation, la profession, la description
+		userInformation = User.objects.get(pk=userSelect.user)
+		# Pour le nom et le prénom
+
+	else:
+		# Il est nécéssaire de compléter toutes les information pour pouvoir accéder au SWAP
+		messages.add_message(request, messages.ERROR, "Il est nécéssaire de completer toutes les informations pour pouvoir accéder au swap.")
+
+
+	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap})
 
 
 def bar(request):

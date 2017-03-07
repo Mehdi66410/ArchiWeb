@@ -17,20 +17,20 @@
     <div class="container_rencontre">
          <div class="col-md-4 col-sm-6">
             <div class="panel-group" id="accordion_rencontre">
-                <div class="panel contour_edit_gauche">
+                <div class="panel contour_zone_no_margin">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h1 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseInfo">
                                 <span class="glyphicon glyphicon-th-list"></span> Vos informations
                             </a>
-                        </h4>
+                        </h1>
                     </div>
                     <div id="collapseInfo" class="collapse in">
                         <div class="panel-body row">
                             <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
                                     {% csrf_token %}
-                                    <h3 class="info_titre"> Vous êtes.. ? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Vous êtes.. ? </h3>
                                     <label class="switch_genre">
                                         <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" value="H">
                                         <i></i>
@@ -42,13 +42,13 @@
                                         <span class="switch_femme"> Femme </span>
                                     </label>
 
-                                    <h3 class="info_titre"> Votre age.. ? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Votre age.. ? </h3>
                                     {% bootstrap_field formInformationUser.age addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
-                                    <h3 class="info_titre"> Votre localisation.. ? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Votre localisation.. ? </h3>
                                     {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
-                                    <h3 class="info_titre"> Votre profession.. ? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Votre profession.. ? </h3>
                                     {% bootstrap_field formInformationUser.profession addon_before='<span class="glyphicon glyphicon-briefcase"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
                                     {% bootstrap_field formInformationUser.description show_label=False%}
@@ -59,20 +59,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel contour_edit_gauche">
+                <div class="panel contour_zone_no_margin">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
+                        <h1 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseRecherche">
                                 <span class="glyphicon glyphicon-th-list"></span> Votre recherche
                             </a>
-                        </h4>
+                        </h1>
                     </div>
                     <div id="collapseRecherche" class="collapse">
                         <div class="panel-body row">
                             <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
                                     {% csrf_token %}
-                                    <h3 class="info_titre"> Vous recherchez..? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Vous recherchez..? </h3>
                                     <label class="switch_genre">
                                         <input type="checkbox" name="genreM" {% if genreSearchM %} checked {% endif %} value="homme">
                                         <i></i>
@@ -83,13 +83,13 @@
                                         <i></i>
                                         <span class="switch_femme"> Femme </span>
                                     </label>
-                                    <h3 class="info_titre"> Sa localisation..? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Sa localisation..? </h3>
                                     {% bootstrap_field formSearchInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
-                                    <h3 class="info_titre"> Son age min..? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Son age min..? </h3>
                                     {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
                        
-                                    <h3 class="info_titre"> Son age max..? </h3>
+                                    <h3 class="titre_zone15_NoUnderline"> Son age max..? </h3>
                                     {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
                                     {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-12 col-md-12" name='searchInformationUser' %}
@@ -102,7 +102,7 @@
         </div>
 
         <div class="col-md-8 col-sm-6">
-                <div class="contour_edit_swap">
+                <div class="contour_zone_swap">
                     {% if userSelect == None %}
                         <p> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </p>
                     {% elif swap %}
@@ -110,26 +110,17 @@
                         <div class='col-md-6 col-xs-12'>
                             <div class="col-xs-8 col-xs-offset-2 slide-row">
                                 {% if userPicture %}
-                                <div id="carousel_rencontre" class="carousel slide slide-carousel" data-ride="carousel">
-                                    <!-- <ol class="carousel-indicators">
-                                        <li data-target="#carousel_rencontre" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel_rencontre" data-slide-to="1"></li>
-                                        <li data-target="#carousel_rencontre" data-slide-to="2"></li>
-                                    </ol> -->
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-                                        </div>
-                                    </div>
-                                </div>
+                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image300Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                 {% else %}
-                                    <p> Aucune image pour ce profil </p>
+                                    <div class="text-center"> 
+                                        <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
+                                    </div>
                                 {% endif %}
                             </div>                         
                         </div>
-                        <div class="col-md-6 col-xs-12">
+                        <div class="col-md-6 col-xs-12 text-center">
                             <div class="text-center">
-                                <h3 class="titre">
+                                <h1 class="titre_zone20">
                                     {% if userInformation.first_name and userInformation.last_name %}
                                         {% if userInformation.first_name %}
                                             {{ userInformation.first_name }} 
@@ -140,9 +131,9 @@
                                     {% else %}
                                         {{userInformation.username }}
                                     {% endif %}
-                                </h3>
+                                </h1>
                             </div>
-                            <div class="info">
+                            <div class="informationBase">
                                 <p><span class="glyphicon glyphicon-user {% if userSelect.genre is 'H' %} sexeHomme {% else %} sexeFemme {% endif %}"></span> {{ userSelect.get_genre_display }} </p>
                                 <p><span class="glyphicon glyphicon-gift"></span>{{ userSelect.age }} ans </p>
                                 <p><span class="glyphicon glyphicon-map-marker"></span> {{ userSelect.get_localisation_display }} </p>
@@ -154,7 +145,7 @@
                                         Pas de profession renseigné
                                     {% endif %}
                                 </p>
-                                <p>
+                                <p class="description_comment">
                                     <span class="glyphicon glyphicon-comment"></span> 
                                     {% if userSelect.profession %}
                                         {{ userSelect.description }}
@@ -181,31 +172,17 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal pour afficher les photos en grand -->
     <div class="container_modal_photo">
         <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div id="carousel-modal_image_profil" class="carousel slide" data-ride="carousel">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive" src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" alt="avatar">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/8/" alt="avatar">
-                            </div>
-                        </div>
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-modal_image_profil" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
+                <div class="panel panel_header">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
+                    </div>
+                    <div class="modal-content">
+                        <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="img-responsive" alt="avatar">
                     </div>
                 </div>
             </div>

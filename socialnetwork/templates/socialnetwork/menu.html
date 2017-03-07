@@ -10,18 +10,16 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
-    
-    <div class="container_menu">
+{% block content %}    
+    <div class="container">
         <!--Groupe rencontre -->
-        <div class="col-sm-offset-1 col-sm-5">
+        <div class="col-sm-6">
             <div class="contour_zone_violet">
                 <div class="row">
                     <div class="col-md-12 contenu_zone">
                         <!--Titre rencontre -->
                         <div class="text-center">
-                            <h1 class="titre_zone25">Rencontres</h1>
+                            <h1 class="titre_zone25_blanc">Rencontres</h1>
                         </div>
                         <!--Description rencontre -->
                         <div class="description_zone text-center">
@@ -44,13 +42,13 @@
             </div>
         </div>
         <!--Groupe sortie -->
-        <div class="col-sm-5">
+        <div class="col-sm-6">
             <div class="contour_zone_bleu">
                 <div class="row">
                     <div class="col-md-12 contenu_zone">
                         <!--Titre sortie -->
                         <div class="text-center">
-                            <h1 class="titre_zone25">Sorties</h1>
+                            <h1 class="titre_zone25_blanc">Sorties</h1>
                         </div>
                         <!--Description sortie -->
                         <div class="description_zone text-center">

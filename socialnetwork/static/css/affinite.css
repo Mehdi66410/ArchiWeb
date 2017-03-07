@@ -1,144 +1,38 @@
-.container_affinite .contour_zone{
-    padding: 20px;
-    border-radius: 40px;
-    background-color: #2B2A29;
-    border: 1px solid #FFFF00;
-    color: #FFFF00;
-    opacity: 0.9;
-    font-family: 'Lobster', cursive;
-    margin:10px;
-}
-
-.container_affinite .contour_zone .titre_zone20{
-    font-size: 20px;
-    text-decoration: underline;
-    margin: 0;
-    margin-bottom: 5px;
-}
-
-.container_affinite .contour_zone .contenu_zone{
-    font-size: 15pt;
-    padding-top: 15px;
-    text-align: center;
-    color:#FFFFFF;
-}
-
-.container_affinite .contour_zone .contenu_zone_pointeur{
+.container_affinite .contenu_zone_pointeur{
   cursor: pointer;
 }
 
-.container_affinite .contour_zone .image150{
-    height:150px;
-    width:150px;
-    margin-bottom: 10px;
-}
-
-.container_affinite .contour_zone .contenu_zone .informationBase{
-    color:#C0C0C0;
-    font-size: 15px;
-    margin-top: 20px;
-}
-
-/******************************/
-
-/*MODAL PROFIL COMPLET*/
-.container_modal_profil_complet .panel_header{
-  font-family: 'Lobster', cursive;
-  background-color: #2b2a29;
-  border-color: #ffff00;
-  color:#FFFF00;
-  opacity: 0.9;
-}
-.container_modal_profil_complet .panel-heading{
-  border-bottom:1px solid #FFFF00;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.container_modal_profil_complet .img-thumbnail{
-    height:300px;
-    width:300px;
-    cursor: pointer;
-}
-
-.container_modal_profil_complet .close{
-  color:#FFFF00;
-  opacity: 0.9;
-}
-
-.container_modal_profil_complet .titre_zone20{
-  font-size: 20px;
-  text-decoration: underline;
-  margin: 0;
-  margin-bottom: 5px;
-}
-.container_modal_profil_complet .informationBase{
-  color:#C0C0C0;
-  font-size: 15px;
-  margin-top: 20px;
-}
-.container_modal_profil_complet .description_comment{
-    text-align: justify;
-    text-justify: inter-word;
-    margin-left:10px;
-    margin-right:10px;
-}
-
-#carousel_rencontre{
-  padding-bottom: 50px;
-}
-#carousel_rencontre .carousel-indicators {
-  bottom: 0px;
-}
-#carousel_rencontre .carousel-indicators li {
-  background: none;
-  border-color: #4BAE4F;
-}
-#carousel_rencontre .carousel-indicators .active {
-  background: #FFFF00;
-}
-
-
-
-
-.chat
-{
+.container_affinite .chat{
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.chat li
-{
+.container_affinite .chat li{
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: 1px dotted #B3A9A9;
 }
 
-.chat li.left .chat-body
-{
+.container_affinite .chat li.left .chat-body{
     margin-left: 60px;
 }
 
-.chat li.right .chat-body
-{
+.container_affinite .chat li.right .chat-body{
     margin-right: 60px;
 }
 
 
-.chat li .chat-body p
-{
+.container_affinite .chat li .chat-body p{
     margin: 0;
     color: #777777;
 }
 
-.panel .slidedown .glyphicon, .chat .glyphicon
-{
+.container_affinite .panel .slidedown .glyphicon, .chat .glyphicon{
     margin-right: 5px;
 }
 
-.body-panel
-{
+.container_affinite .body-panel{
     overflow-y: scroll;
     height: 250px;
 }

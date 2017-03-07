@@ -1,50 +1,38 @@
-/*GAUCHE*/
-.container_rencontre .contour_edit_gauche{
-	background-color: #2B2A29;
-  border-color:#FFFF00;
-  border-radius: 40px;
-  color:#FFFF00;
-  opacity: 0.9;
-  font-family: 'Lobster', cursive;
-  margin:0;
-}
 
-.container_rencontre .contour_edit_gauche .panel-heading{
-  margin:0;
+.container_rencontre .panel-heading{
   padding:15px;
+  margin:0;
 }
 
-.container_rencontre .contour_edit_gauche .panel-title{
+.container_rencontre .panel-title{
   font-size: 20px;
   margin-left: 10px;
 }
 
-.container_rencontre .contour_edit_gauche .panel-body{
+.container_rencontre .panel-body{
   border-top: 1px solid #FFFF00;
   margin:auto;
 }
 
-.container_rencontre .contour_edit_gauche .info_titre{
-    color:#FFFF00;
+.container_rencontre .titre_zone15_NoUnderline{
     font-size: 15px;
-    padding: 0;
-    margin-top: 5px;
-    margin-bottom: -3px;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 /*SWITCH GENRE*/
-.container_rencontre .contour_edit_gauche .switch_genre {
+.container_rencontre .contour_zone_no_margin .switch_genre {
   margin:0;
   padding: 0;
   padding-top: 5px;
   margin-right: 15px;
   display: inline-block;
 }
-.container_rencontre .contour_edit_gauche .switch_genre input{
+.container_rencontre .contour_zone_no_margin .switch_genre input{
   display: none;
 }
 
-.container_rencontre .contour_edit_gauche .switch_genre i {
+.container_rencontre .contour_zone_no_margin .switch_genre i {
   display: inline-block;
   cursor: pointer;
   padding-right: 20px;
@@ -53,7 +41,7 @@
   border-radius: 20px;
 }
 
-.container_rencontre .contour_edit_gauche .switch_genre i:before {
+.container_rencontre .contour_zone_no_margin .switch_genre i:before {
   display: block;
   content: '';
   width: 20px;
@@ -62,17 +50,17 @@
   background: #FFFFFF; /*couleur rond switch*/
 }
 
-.container_rencontre .contour_edit_gauche .switch_genre :checked + i {
+.container_rencontre .contour_zone_no_margin .switch_genre :checked + i {
   padding-right: 0;
   padding-left: 20px;
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF;
   -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF; }
 
-.container_rencontre .contour_edit_gauche .switch_genre.femme :checked + i {
+.container_rencontre .contour_zone_no_margin .switch_genre.femme :checked + i {
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493;
   -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493; }
 
-.container_rencontre .contour_edit_gauche label {
+.container_rencontre .contour_zone_no_margin label {
   display: block;
   position: relative;
   padding: 0.5rem 1rem;
@@ -81,29 +69,30 @@
   cursor: pointer;
 }
 
-.container_rencontre .contour_edit_gauche label span {
+.container_rencontre .contour_zone_no_margin label span {
   display: inline-block;
   margin-left: 5px;
   line-height: 25px;
   color: grey; /*couleur non choisi*/
 }
 
-.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i + .switch_homme,
-.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i:before,
-.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i + .switch_homme,
-.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i:before {
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i + .switch_homme,
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i:before,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i + .switch_homme,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i:before {
   color: #00BFFF; 
 }
 
-.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i + .switch_femme,
-.container_rencontre .contour_edit_gauche input[type="radio"]:checked + i:before,
-.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i + .switch_femme,
-.container_rencontre .contour_edit_gauche input[type="checkbox"]:checked + i:before {
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i + .switch_femme,
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i:before,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i + .switch_femme,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i:before {
   color: #FF69B4 
 }
 
+
 /*SWAP*/
-.container_rencontre .contour_edit_swap{
+.contour_zone_swap{
 	  background-color: #2B2A29;
     border: 1px solid #FFFF00;
     border-radius: 40px;
@@ -116,17 +105,11 @@
 }
 
 @media(max-width:1000px){
-    .container_rencontre .contour_edit_swap{
+    .contour_zone_swap{
         margin-top: 0px;
     }
 }
 
-.container_rencontre .img-thumbnail{
-    height:300px;
-    width:300px;
-    margin-top: 30px;
-    cursor: pointer;
-}
 
 .container_rencontre .contour_edit_swap .titre{
 	text-decoration: underline;
@@ -139,14 +122,3 @@
     font-size: 15px;
 }
 
-.container_rencontre .contour_edit_swap .info .glyphicon {
-  color: #FFFF00;
-  padding-right: 10px;
-}
-
-.container_rencontre .contour_edit_swap .info .sexeHomme {
-  color: #00BFFF;
-}
-.container_rencontre .contour_edit_swap .info .sexeFemme {
-  color: #FF1493;
-}

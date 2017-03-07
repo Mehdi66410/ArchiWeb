@@ -10,9 +10,7 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-{% block header %}
-    <link rel="stylesheet" href="{% static 'css/404.css' %}">
-    
+{% block header %}    
     <header>
         <div class="container_header">
             <!--navbar quasi vide pour page 404 -->
@@ -41,7 +39,7 @@
 {% block content %}
     <div class="container_404">
         <!--Message 404 -->
-        <div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
+        <div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 div_404">
             <div class="contour_zone">
                 <div class="row">
                     <div class="col-md-12">

@@ -24,9 +24,15 @@ function present(id_bar){
         $("#"+id_bar).html(data);
     });
 }
+var gl_note;
 
+ 
+function test(champ){
+    var aide = document.getElementById("modif") ;
+    aide.innerHTML = str(gl_note) 
+
+}
 var __slice = [].slice;
-
 (function($, window) {
   var Starrr;
 
@@ -67,9 +73,8 @@ var __slice = [].slice;
             value: value,
             id_barr: id_barr
         }, function(data) {
-            console.log(data)
-    
-    $('#count-existing').html(data);          
+            gl_note=data;
+            $("#count-existing-" + id_barr).text(data);
         });
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });

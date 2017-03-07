@@ -175,7 +175,7 @@ EMAIL_HOST_PASSWORD = '************RevePas************'
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = 'connexion'
+LOGIN_URL = 'index'
 LOGOUT_URL = 'deconnexion'
 
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f63159570a99761e2642d67ed5d6c3d0' #Secret

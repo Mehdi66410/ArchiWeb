@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 from django.db.models import Q
 from django.db.models import Count, F,FloatField, Sum
-
+from django.contrib.auth.decorators import login_required
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
@@ -56,6 +56,7 @@ def connexion(request):
 				return redirect(index)
 	else:
 		formLogin = loginForm()
+	
 	formRegister = registerForm()
 	return render(request, 'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin})
 
@@ -98,11 +99,13 @@ def mdp_oublie(request):
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
+@login_required
 def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
 @csrf_exempt
+@login_required
 def stars(request):
 	valueStar = request.POST['value']
 	id_barr = Bar.objects.get(pk=request.POST['id_barr'])
@@ -125,9 +128,11 @@ def stars(request):
 	bar.save()
 	return HttpResponse(moy)
 
+@login_required
 def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 
+@login_required
 def rencontre(request):
 	swap = True
 
@@ -247,7 +252,7 @@ def rencontre(request):
 
 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap, 'userInformation': userInformation, 'userSelect': userSelect, 'userPicture': userPicture })
 
-
+@login_required
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()
@@ -256,6 +261,7 @@ def bar(request):
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present})
 
 @csrf_exempt
+@login_required
 def personne_present_bar(request):
 	present = presentBar.objects.values_list('id_person_id',flat=True).filter(id_bar=request.POST['id_bar']) #present[0] contient id première personne qui y va 
 	liste = []
@@ -270,6 +276,7 @@ def personne_present_bar(request):
 
 
 @csrf_exempt
+@login_required
 def ajoutlike(request):
 	if request.method == 'POST':
 		bar_like = Bar.objects.get(pk=request.POST['id_like'])
@@ -305,10 +312,11 @@ def ajoutdislike(request):
 		dislike_count = DislikeBar.objects.filter(bar_name=bar_dislike).count()
 		return HttpResponse(dislike_count)
 
-
+@login_required
 def restaurant(request):
 	return render(request, 'socialnetwork/restaurant.html')
 
+@login_required
 def discotheque(request):
 	return render(request, 'socialnetwork/discotheque.html')
 

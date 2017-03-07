@@ -49,7 +49,7 @@
 					</div>
 					    <div class="row lead">
 					        <div id="stars-existing" class="starrr" data-rating='{{bar.notes}}' data-id='{{bar.id}}'></div>
-					        Note moyenne : <span id="count-existing-{{bar.id}}" >{{bar.notes}}</span>/5
+					        {%if bar.notes %}Note moyenne : <span id="count-existing-{{bar.id}}" >{{bar.notes}}</span>/5{% else %}Pas de notes disponible{% endif %}
 					    </div>
 					
 				</div>

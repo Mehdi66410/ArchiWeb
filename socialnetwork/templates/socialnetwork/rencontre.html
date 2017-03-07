@@ -12,7 +12,6 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
-    <script src="{% static 'js/rencontre.js' %}"></script>
 
 
     <div class="container_rencontre">
@@ -101,41 +100,68 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-8 col-sm-6">
                 <div class="contour_edit_swap">
+                    {% if userSelect == None %}
+                        <p> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </p>
+                    {% elif swap %}
                     <div class="row">
                         <div class='col-md-6 col-xs-12'>
                             <div class="col-xs-8 col-xs-offset-2 slide-row">
+                                {% if userPicture %}
                                 <div id="carousel_rencontre" class="carousel slide slide-carousel" data-ride="carousel">
-                                    <ol class="carousel-indicators">
+                                    <!-- <ol class="carousel-indicators">
                                         <li data-target="#carousel_rencontre" data-slide-to="0" class="active"></li>
                                         <li data-target="#carousel_rencontre" data-slide-to="1"></li>
                                         <li data-target="#carousel_rencontre" data-slide-to="2"></li>
-                                    </ol>
+                                    </ol> -->
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-                                        </div>
-                                        <div class="item">
-                                            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
-                                        </div>
-                                        <div class="item">
-                                           <img src="http://lorempixel.com/200/200/people/8/" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                            <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+                                    <p> Aucune image pour ce profil </p>
+                                {% endif %}
                             </div>                         
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <div class="text-center">
-                                <h3 class="titre">NOM PRENOM</h3>
+                                <h3 class="titre">
+                                    {% if userInformation.first_name and userInformation.last_name %}
+                                        {% if userInformation.first_name %}
+                                            {{ userInformation.first_name }} 
+                                        {% endif %}
+                                        {% if userInformation.last_name %}
+                                            {{ userInformation.last_name }} 
+                                        {% endif %}
+                                    {% else %}
+                                        {{userInformation.username }}
+                                    {% endif %}
+                                </h3>
                             </div>
                             <div class="info">
-                                <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span> Homme</p>
-                                <p><span class="glyphicon glyphicon-gift"></span> 20 ans</p>
-                                <p><span class="glyphicon glyphicon-map-marker"></span> Paris</p>
-                                <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
-                                <p><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
+                                <p><span class="glyphicon glyphicon-user {% if userSelect.genre is 'H' %} sexeHomme {% else %} sexeFemme {% endif %}"></span> {{ userSelect.get_genre_display }} </p>
+                                <p><span class="glyphicon glyphicon-gift"></span>{{ userSelect.age }} ans </p>
+                                <p><span class="glyphicon glyphicon-map-marker"></span> {{ userSelect.get_localisation_display }} </p>
+                                <p>
+                                    <span class="glyphicon glyphicon-briefcase"></span> 
+                                    {% if userSelect.profession %}
+                                        {{ userSelect.profession }}
+                                    {% else %}
+                                        Pas de profession renseigné
+                                    {% endif %}
+                                </p>
+                                <p>
+                                    <span class="glyphicon glyphicon-comment"></span> 
+                                    {% if userSelect.profession %}
+                                        {{ userSelect.description }}
+                                    {% else %}
+                                        Pas de description
+                                    {% endif %}
+                                </p>
                             </div>
                             <div>
                                 <button type="button" class="btn btn_red col-md-5 col-xs-offset-1 col-xs-4">
@@ -147,6 +173,9 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                        <p> Il faut compléter toutes les informatiosn pour accéder au swap.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -161,7 +190,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="img-responsive" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+                                <img class="img-responsive" src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" alt="avatar">
                             </div>
                             <div class="item">
                                 <img class="img-responsive" src="http://lorempixel.com/600/600/people/9/" alt="avatar">

@@ -287,7 +287,6 @@ def discotheque(request):
 @csrf_exempt
 def changementloc(request):
 	if request.method == 'POST':
-		forme = sortieForm(request.POST)
 		global localisation_
 		localisation_ = request.POST['id_localisation']
 	return redirect(bar)

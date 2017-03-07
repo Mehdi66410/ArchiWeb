@@ -119,7 +119,7 @@ def rencontre(request):
 			if formInformationUser.is_valid():
 				try : 
 					informationUser = InformationUser.objects.get(user=utilisateur)
-					informationUser.genre = genre_
+					informationUser.genre = request.POST['genre']
 					informationUser.age = request.POST['age']
 					informationUser.localisation = request.POST['localisation']
 					if request.POST['profession']:
@@ -139,19 +139,40 @@ def rencontre(request):
 
 		if "searchInformationUser" in request.POST:
 			formSearchInformationUser = searchInformationUserForm(request.POST)
-			if formInformationUser.is_valid():
+			if formSearchInformationUser.is_valid():
 				try :
 					searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
 					searchInformationUser.ageMin = request.POST['ageMin']
 					searchInformationUser.ageMax = request.POST['ageMax']
-					# searchInformationUser.genreF = 
-					# searchInformationUser.genreM =
+					
+					if "genreF" in request.POST:
+						searchInformationUser.genreF = True
+					else:
+						searchInformationUser.genreF = False
+
+					if "genreM" in request.POST:
+						searchInformationUser.genreM = True
+					else:
+						searchInformationUser.genreM = False
+
 					if request.POST['localisation']:
 						searchInformationUser.localisation = request.POST['localisation']
+
 					searchInformationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
+
 				except SearchInformationUser.DoesNotExist:
-					searchInformationUser = SearchInformationUser(user=utilisateur, ageMin=request.POST['ageMin'], ageMax=request.POST['ageMax'], localisation=request.POST['localisation'])
+					if "genreF" in request.POST:
+						genreSearchF = True
+					else:
+						genreSearchF = False
+
+					if "genreM" in request.POST:
+						genreSearchM = True
+					else:
+						genreSearchM = False
+
+					searchInformationUser = SearchInformationUser(user=utilisateur, ageMin=request.POST['ageMin'], ageMax=request.POST['ageMax'], localisation=request.POST['localisation'], genreF=genreSearchF, genreM=genreSearchM)
 					searchInformationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
 			else:
@@ -159,19 +180,25 @@ def rencontre(request):
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
-	else:
-		try:
-			informationUser = InformationUser.objects.get(user=utilisateur)
-			formInformationUser = informationUserForm({'age':informationUser.age, 'localisation': informationUser.localisation, 'profession': informationUser.profession, 'description': informationUser.description})
-		except InformationUser.DoesNotExist:
-			formInformationUser = informationUserForm()
-		try:
-			searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
-			formSearchInformationUser = searchInformationUserForm({'ageMin': searchInformationUser.ageMin, 'ageMax': searchInformationUser.ageMax, 'localisation': searchInformationUser.localisation})
-		except SearchInformationUser.DoesNotExist:
-			formSearchInformationUser = searchInformationUserForm()
 
-	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser})
+	try:
+		informationUser = InformationUser.objects.get(user=utilisateur)
+		genre_ = informationUser.genre
+		formInformationUser = informationUserForm({'age':informationUser.age, 'localisation': informationUser.localisation, 'profession': informationUser.profession, 'description': informationUser.description})
+	except InformationUser.DoesNotExist:
+		formInformationUser = informationUserForm()
+
+	try:
+		searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
+		genreSearchF = searchInformationUser.genreF
+		genreSearchM = searchInformationUser.genreM
+		formSearchInformationUser = searchInformationUserForm({'ageMin': searchInformationUser.ageMin, 'ageMax': searchInformationUser.ageMax, 'localisation': searchInformationUser.localisation})
+	except SearchInformationUser.DoesNotExist:
+		genreSearchM = False
+		genreSearchF = False
+		formSearchInformationUser = searchInformationUserForm()
+
+	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genre_, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF})
 
 
 def bar(request):

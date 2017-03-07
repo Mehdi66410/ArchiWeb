@@ -40,7 +40,6 @@ class registerForm(forms.Form):
 	password = forms.CharField(label='Password',min_length=6, max_length=100, widget=forms.PasswordInput)
 
 class searchInformationUserForm(forms.Form):
-	genre = forms.ChoiceField(label='Genre', widget=forms.RadioSelect, choices=GENRE_CHOICES, required=True)
 	localisation = forms.ChoiceField(label='Localisation', widget=forms.Select, choices=DEPT_CHOICES, required=False)
 	ageMin = forms.IntegerField(label='Age minimum', min_value=18, max_value=100, required=True)
 	ageMax = forms.IntegerField(label='Age maximum', min_value=18, max_value=100, required=True)

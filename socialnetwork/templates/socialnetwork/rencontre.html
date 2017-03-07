@@ -75,18 +75,17 @@
                                 {% csrf_token %}
                                 <h3 class="info_titre"> Vous recherchez..? </h3>
                                 <label class="switch_genre">
-                                    <input type="checkbox" name="genreF" {% if genreSearhM == True %} checked {% endif %} value="homme" checked>
+                                    <input type="checkbox" name="genreM" {% if genreSearchM %} checked {% endif %} value="homme">
                                     <i></i>
                                     <span class="switch_homme"> Homme </span>
                                 </label>
                                 <label class="switch_genre femme">
-                                    <input type="checkbox" name="genreM" {% if genreSearhF == True %} checked {% endif %} value="femme">
+                                    <input type="checkbox" name="genreF" {% if genreSearchF %} checked {% endif %} value="femme">
                                     <i></i>
                                     <span class="switch_femme"> Femme </span>
                                 </label>
-                                
                                 <h3 class="info_titre"> Sa localisation..? </h3>
-                                {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+                                {% bootstrap_field formSearchInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                 
                                 <h3 class="info_titre"> Son age min..? </h3>
                                 {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}

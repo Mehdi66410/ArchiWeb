@@ -18,10 +18,20 @@
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-offset-1 col-xs-10">
 	    		<div class="contour_zone">
-	                <div class="text-center">
-	                    <h1 class="titre_zone20">Choisissez une option pour votre recherche..</h1>
+	                <div class="row">
+	                	<a href="{% url 'bar' %}" class="btn btn-lg btn_dark col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-2">
+	                		<span class="glyphicon glyphicon-glass"></span><span class="hidden-xs"> Bar </span>
+	                	</a>
+	                	<a href="{% url 'discotheque' %}" class="btn btn-lg btn_dark col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-2">
+	                		<span class="glyphicon glyphicon-music"></span><span class="hidden-xs"> Discothèques </span>
+	                	</a>
+	                	<a href="{% url 'restaurant' %}" class="btn btn-lg btn_dark col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-2">
+	                		<span class="glyphicon glyphicon-cutlery"></span><span class="hidden-xs">Restaurant </span>
+	                	</a>
+		            </div>
+		            <div class="text-center">
+	                    <h1 class="titre_zone20">Choisissez une localisation pour votre recherche..</h1>
 	                </div>
-	                 </br>
 	                <div class="row">
 	                    <form method="post" action="changementloc">
                        		{% csrf_token %}

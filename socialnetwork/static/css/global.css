@@ -187,7 +187,7 @@
 }
 
 .btn_green {
-    color: #f8f8f8;
+    color: #FFFFFF;
     background-color: #4BAE4F;
     border-color: #449d47;
     margin-bottom:3px;
@@ -197,7 +197,7 @@
 }
 
 .btn_red {
-    color: #f8f8f8;
+    color: #FFFFFF;
     background-color: #c32f10;
     border-color: #c32f10;
     margin-bottom:3px;
@@ -233,14 +233,28 @@
 }
 
 .btn_blue_dark {
-    color: #f8f8f8;
+    color: #FFFFFF;
     background-color: #428bca;
-  border-color: #357ebd;
+    border-color: #357ebd;
     margin-bottom:3px;
 }
 .btn_blue_dark:hover{
     color: #FFFF00;
 }
+
+.btn_dark{
+    color: #FFFFFF;
+    background-color: #2B2A29;
+    border-color: #FFFF00;
+    margin-bottom:20px;
+}
+
+.btn_dark:hover,
+.btn_dark:hover .glyphicon{
+    color: #2B2A29;
+    background-color: #FFFF00;
+}
+
 /*******************************************/
 
 /*information*/

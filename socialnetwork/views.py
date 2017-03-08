@@ -324,7 +324,7 @@ def discotheque(request):
 def changementloc(request):
 	if request.method == 'POST':
 		global localisation_
-		localisation_ = request.POST['id_localisation']
+		localisation_ = request.POST['localisation']
 	return redirect(bar)
 
 def editerProfil(request):

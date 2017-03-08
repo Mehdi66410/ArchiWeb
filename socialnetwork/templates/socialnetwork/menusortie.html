@@ -22,16 +22,10 @@
 	                    <h1 class="titre_zone20">Choisissez une option pour votre recherche..</h1>
 	                </div>
 	                <div class="row">
-	                    <form method="post">
+	                    <form method="post" action="changementloc">
                        		{% csrf_token %}
 							<div class="form-group has-success col-sm-offset-2 col-sm-6 col-xs-12">
-								<select type="checkbox" class="form-control" id="localisation" name="localisation">
-									<option value=72 id=72 onclick="local(id)">Sarthe</option>
-									<option value=53 id=53 onclick="local(id)">Mayenne</option>
-									<option value=49 id=49 onclick="local(id)">Maine et Loire</option>
-									<option value=44 id=44 onclick="local(id)">Loire Atlantique</option>
-									<option value=85 id=85 onclick="local(id)">Vendée</option>
-								</select>
+								  {% bootstrap_field sortieForme.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
 							</div>
 							<div class="col-sm-3 col-xs-12">
 								<button type="input" class="btn btn_green col-xs-offset-1 col-xs-10">

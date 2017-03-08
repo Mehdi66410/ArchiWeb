@@ -22,10 +22,10 @@
 	                    <h1 class="titre_zone20">NOM PRENOM</h1>
 	                </div>
 	                <div class="contenu_zone contenu_zone_pointeur row" data-toggle="modal" data-target="#profil_complet">
-	            	    <div class='col-sm-6'>
+	            	    <div class='col-sm-7'>
 	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image150" alt="avatar">
 	            	    </div>
-		                <div class="informationBase col-sm-6">
+		                <div class="informationBase col-sm-5">
 		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
 		                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
 		                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
@@ -36,7 +36,7 @@
 	                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
 	                    </button>
 	                    <button type="button" data-toggle="modal" data-target="#modal_chat" class="btn btn_green col-xs-offset-2 col-xs-4">
-	                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Ouvrir un chat </span>
+	                        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Discuter </span>
 	                    </button>
 	                </div>
 	    		</div>
@@ -45,7 +45,7 @@
 	</div>
 
 	<!-- Modal pour afficher le profil complet -->
-	<div class="container_modal_profil_complet">
+	<div class="container">
 	    <div class="modal fade" id="profil_complet" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
 	        <div class="modal-dialog dialog_opacity">
 	            <div class="panel panel_header">
@@ -55,7 +55,7 @@
 	                </div>
 	                <div class="modal_body row">
 	                	<div class="col-sm-6 col-xs-5">
-		                	<img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image300Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+		                	<img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
 		                </div>
 		                <div class="col-sm-6 col-xs-7 text-center">
 			                <div class="text-center">
@@ -76,7 +76,7 @@
 	</div>
 
 	<!-- Modal pour afficher les photos en grand -->
-	<div class="container_modal_photo">
+	<div class="container">
 	    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
 	        <div class="modal-dialog dialog_PP">
 	        	<div class="panel panel_header">

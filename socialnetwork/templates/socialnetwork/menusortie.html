@@ -36,7 +36,7 @@
 	                    <form method="post" action="changementloc">
                        		{% csrf_token %}
 							<div class="form-group has-success col-sm-offset-2 col-sm-6 col-xs-12">
-								  {% bootstrap_field sortieForme.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
+								{% bootstrap_field sortieForme.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
 							</div>
 							<div class="col-sm-3 col-xs-12">
 								<button type="input" class="btn btn_green col-xs-offset-1 col-xs-10">

@@ -108,9 +108,9 @@
                     {% elif swap %}
                     <div class="row">
                         <div class='col-md-6 col-xs-12'>
-                            <div class="col-xs-8 col-xs-offset-2 slide-row">
+                            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-1 col-sm-10 slide-row">
                                 {% if userPicture %}
-                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image300Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                 {% else %}
                                     <div class="text-center"> 
                                         <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
@@ -173,7 +173,7 @@
     </div>
 
     <!-- Modal pour afficher les photos en grand -->
-    <div class="container_modal_photo">
+    <div class="container">
         <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
             <div class="modal-dialog dialog_PP">
                 <div class="panel panel_header">

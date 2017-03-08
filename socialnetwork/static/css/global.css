@@ -1,7 +1,7 @@
 /*contour*/
 .contour_zone{
     padding: 20px;
-    border-radius: 40px;
+    border-radius: 5px;
     background-color: #2B2A29;
     border: 1px solid #FFFF00;
     color: #FFFF00;
@@ -20,7 +20,8 @@
 
 .contour_zone_violet{
     padding: 20px;
-    border-radius: 40px;
+    padding-top:0;
+    border-radius: 5px;
     background-color: #5B2C6F;
     border: 1px solid #A569BD;
     color: #A569BD;
@@ -31,7 +32,8 @@
 
 .contour_zone_bleu{
     padding: 20px;
-    border-radius: 40px;
+    padding-top:0;
+    border-radius: 5px;
     background-color: #151ac2;
     border: 1px solid #0ea5f5;
     color: #0ea5f5;
@@ -41,7 +43,7 @@
 }
 
 .contour_zone_no_margin{
-    border-radius: 40px;
+    border-radius: 5px;
     background-color: #2B2A29;
     border: 1px solid #FFFF00;
     color: #FFFF00;
@@ -49,6 +51,22 @@
     font-family: 'Lobster', cursive;
     margin:0;
     padding:0:;
+}
+
+.contenu_zone_pointeur{
+  cursor: pointer;
+}
+
+.contour_zone_swap{
+    background-color: #2B2A29;
+    border: 1px solid #FFFF00;
+    border-radius: 5px;
+    color:#FFFF00;
+    opacity: 0.9;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 /*******************************************/
@@ -98,7 +116,7 @@
 
 .titre_zone25_blanc{
     margin:0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 25pt;
     text-decoration: underline;
     color: #FFFFFF; 
@@ -118,12 +136,11 @@
     margin-bottom: 5px;
 }
 
-.titre_zone40_border{
-    font-size: 40px;
+.titre_zone30_border{
+    font-size: 30px;
     text-decoration: underline;
-    margin-top: 5px;
+    margin: 0px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #FFFF00;
 }
 
 /*******************************************/
@@ -295,9 +312,10 @@
     width:250px;
 }
 
-.image300Pointeur{
-    height:300px;
-    width:300px;
+.image250Pointeur{
+    height:250px;
+    width:250px;
+    margin-top: 20px;
     cursor: pointer;
 }
 

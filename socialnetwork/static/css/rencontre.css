@@ -14,12 +14,6 @@
   margin:auto;
 }
 
-.container_rencontre .titre_zone15_NoUnderline{
-    font-size: 15px;
-    margin: 0;
-    margin-bottom: 5px;
-}
-
 /*SWITCH GENRE*/
 .container_rencontre .contour_zone_no_margin .switch_genre {
   margin:0;
@@ -89,36 +83,3 @@
 .container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i:before {
   color: #FF69B4 
 }
-
-
-/*SWAP*/
-.contour_zone_swap{
-	  background-color: #2B2A29;
-    border: 1px solid #FFFF00;
-    border-radius: 40px;
-    color:#FFFF00;
-    opacity: 0.9;
-    padding: 20px;
-    font-family: 'Lobster', cursive;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-@media(max-width:1000px){
-    .contour_zone_swap{
-        margin-top: 0px;
-    }
-}
-
-
-.container_rencontre .contour_edit_swap .titre{
-	text-decoration: underline;
-	margin:0;
-	margin-bottom: 10px;
-	margin-top: 5px;
-}
-.container_rencontre .contour_edit_swap .info{
-    color:#C0C0C0;
-    font-size: 15px;
-}
-

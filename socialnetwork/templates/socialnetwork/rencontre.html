@@ -175,14 +175,14 @@
     <!-- Modal pour afficher les photos en grand -->
     <div class="container_modal_photo">
         <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog dialog_PP">
                 <div class="panel panel_header">
                     <div class="panel-heading">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
                     </div>
                     <div class="modal-content">
-                        <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="img-responsive" alt="avatar">
+                        <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="img-responsive image400" alt="avatar">
                     </div>
                 </div>
             </div>

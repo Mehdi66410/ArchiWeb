@@ -268,10 +268,18 @@
 /*******************************************/
 
 /*image*/
+
 .image150{
     height:150px;
     width:150px;
     margin-bottom: 10px;
+}
+
+.image150Pointeur{
+    height:150px;
+    width:150px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .image250{
@@ -284,6 +292,11 @@
     height:300px;
     width:300px;
     cursor: pointer;
+}
+
+.image400{
+    height:400px;
+    width:400px;
 }
 
 /*******************************************/
@@ -307,6 +320,17 @@
   border-bottom:1px solid #FFFF00;
   margin-bottom: 10px;
   text-align: center;
+}
+
+.dialog_opacity{
+    opacity:0.9;
+}
+.dialog_PP{
+    width:400px;
+}
+
+.dialog_ListeP{
+    width:400px;
 }
 
 /*******************************************/

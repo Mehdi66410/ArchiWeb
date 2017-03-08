@@ -230,7 +230,7 @@ def rencontre(request):
 		except InformationUser.DoesNotExist:
 			userSelect = False
 
-		if userSelect != False:
+		if userSelect:
 			try: 
 				userInformation = User.objects.get(pk=userSelect.user.pk)
 			except User.DoesNotExist:
@@ -251,6 +251,8 @@ def rencontre(request):
 		# Il est nécéssaire de compléter toutes les information pour pouvoir accéder au SWAP
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de completer toutes les informations pour pouvoir accéder au swap.")
 
+	if userPicture == False:
+		userPicture = PictureUser(picture="/upload/profilePictureOriginal.jpg")
 
 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap, 'userInformation': userInformation, 'userSelect': userSelect, 'userPicture': userPicture })
 

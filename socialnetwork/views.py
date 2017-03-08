@@ -230,7 +230,7 @@ def rencontre(request):
 		except InformationUser.DoesNotExist:
 			userSelect = False
 
-		if userSelect:
+		if userSelect != False:
 			try: 
 				userInformation = User.objects.get(pk=userSelect.user.pk)
 			except User.DoesNotExist:
@@ -243,9 +243,11 @@ def rencontre(request):
 		else:
 			userInformation = False
 			userPicture = False
-		
 
 	else:
+		userSelect = False
+		userInformation = False
+		userPicture = False
 		# Il est nécéssaire de compléter toutes les information pour pouvoir accéder au SWAP
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de completer toutes les informations pour pouvoir accéder au swap.")
 

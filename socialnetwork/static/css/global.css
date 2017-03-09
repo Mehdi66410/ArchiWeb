@@ -267,7 +267,9 @@
 }
 
 .btn_dark:hover,
-.btn_dark:hover .glyphicon{
+.btn_dark:hover .glyphicon,
+.en_cours,
+.en_cours .glyphicon{
     color: #2B2A29;
     background-color: #FFFF00;
 }

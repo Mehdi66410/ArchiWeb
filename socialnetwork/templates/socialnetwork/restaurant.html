@@ -13,5 +13,12 @@
 {% block menu_main %}	
 	<div class="container">
 		
-	</div>		
+	</div>
+	<script>
+	    // Permet de mettre en actif le bouton restaurant
+	    $(document).ready(function () {
+	    	$(".sortie_bouton a").removeClass("en_cours");
+	      	$('#page_restaurant').addClass('en_cours');
+	    });
+	</script>	
 {% endblock menu_main %}

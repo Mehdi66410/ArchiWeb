@@ -37,6 +37,11 @@ class Bar(models.Model):
 	description = models.CharField(max_length=10000,default='')
 	notes = models.FloatField(default=0)
 
+class Chat(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User)
+    message = models.CharField(max_length=200)
+
 class DislikeBar(models.Model):
 	bar_name = models.ForeignKey(Bar)
 	person_name = models.ForeignKey(User)

@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
 from .models import InformationUser, SearchInformationUser
+from .models import Chat
 from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
@@ -134,7 +135,8 @@ def affinite(request):
 
 @login_required
 def chat(request):
-	return render(request, 'socialnetwork/chat.html')
+	c = Chat.objects.all()
+	return render(request, "socialnetwork/chat.html", {'chat': c})
 
 @login_required
 def rencontre(request):

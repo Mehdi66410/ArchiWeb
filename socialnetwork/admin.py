@@ -12,6 +12,7 @@ from .models import presentBar
 from .models import InformationUser
 from .models import SearchInformationUser
 from .models import starBar
+from .models import Chat
 
 
 
@@ -25,3 +26,4 @@ admin.site.register(presentBar)
 admin.site.register(InformationUser)
 admin.site.register(SearchInformationUser)
 admin.site.register(starBar)
+admin.site.register(Chat)

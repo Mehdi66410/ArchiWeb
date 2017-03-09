@@ -81,6 +81,15 @@
 /*******************************************/
 
 /*titre*/
+
+.titre_zone_chat{
+    font-size: 15px;
+    color:#FFFFFF;
+    border: 1px solid #FFFFFF;
+    background-color: #000000;
+
+}
+
 .titre_zone12_NoUnderline{
     font-size: 12px;
     margin-top: 10px;

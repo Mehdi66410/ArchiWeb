@@ -138,6 +138,18 @@ def chat(request):
 	c = Chat.objects.all()
 	return render(request, "socialnetwork/chat.html", {'chat': c})
 
+@csrf_exempt
+@login_required
+def chat_post(request):
+	if request.method == "POST":
+		msg = request.POST.get('msgbox', None)
+		c = Chat(user=request.user, message=msg)
+		if msg != '':
+			c.save()
+		return JsonResponse({ 'msg': msg, 'user': c.user.username })
+	else:
+		return HttpResponse('Request must be POST.')
+
 @login_required
 def rencontre(request):
 	swap = True

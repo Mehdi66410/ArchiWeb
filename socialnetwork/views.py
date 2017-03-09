@@ -133,6 +133,10 @@ def affinite(request):
 	return render(request, 'socialnetwork/affinite.html')
 
 @login_required
+def chat(request):
+	return render(request, 'socialnetwork/chat.html')
+
+@login_required
 def rencontre(request):
 	swap = True
 

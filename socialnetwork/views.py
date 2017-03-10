@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models import Count, F,FloatField, Sum
 from django.contrib.auth.decorators import login_required
+from .models import Affinite
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar,starRestaurant, starDiscotheque,Restaurant, Discotheque,presentRestau,presentDisco
 from .models import InformationUser, SearchInformationUser
@@ -268,7 +269,34 @@ def rencontre(request):
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
-        # On essaye de récupérer les informations de l'utilisateur pour compléter les formulaires
+		if"plait" in request.POST or "plaitPas" in request.POST:
+			try:
+				# On cherche si une personne a déjà swaper avec notre utilisateur
+				affinite = Affinite.objects.filter(Q(ajouteur=utilisateur) | Q(ajoute=utilisateur)).filter(Q(ajouteur=request.POST['ajoute']) | Q(ajoute=request.POST['ajoute'])).get()
+				messages.add_message(request, messages.ERROR, "Try")
+				if "plait" in request.POST:
+					if affinite.ajouteur == utilisateur:
+						affinite.ajouteurConfirm = True
+					if affinite.ajoute == utilisateur:
+						affinite.ajouteConfirm = True
+					affinite.save()
+				if("plaitPas" in request.POST):
+					if affinite.ajouteur == utilisateur:
+						affinite.ajouteurConfirm = False
+					if affinite.ajoute == utilisateur:
+						affinite.ajouteConfirm = False
+					affinite.save()
+
+			except Affinite.DoesNotExist:
+				messages.add_message(request, messages.ERROR, "Execpt")
+
+				if "plait" in request.POST:
+					affinite = Affinite(ajouteur=utilisateur, ajoute=User.objects.get(pk=request.POST['ajoute']), ajouteurConfirm=True, ajouteConfirm=False)
+				if "plaitPas" in request.POST:
+					affinite = Affinite(ajouteur=utilisateur, ajoute=User.objects.get(pk=request.POST['ajoute']), ajouteurConfirm=False, ajouteConfirm=False)
+				affinite.save()
+
+    # On essaye de récupérer les informations de l'utilisateur pour compléter les formulaires
 	try:
 		informationUser = InformationUser.objects.get(user=utilisateur)
 		genreUser = informationUser.genre
@@ -296,9 +324,9 @@ def rencontre(request):
 			if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
 				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).first()
 			elif searchInformationUser.genreF == True:
-				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='H').first()
-			elif searchInformationUser.genreM == True:
 				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='F').first()
+			elif searchInformationUser.genreM == True:
+				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='H').first()
 			else:
 				userSelect = False
 

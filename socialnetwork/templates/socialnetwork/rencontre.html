@@ -104,7 +104,9 @@
         <div class="col-md-8 col-sm-6">
                 <div class="contour_zone_swap">
                     {% if userSelect == None %}
-                        <p> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </p>
+                        <div class="text-center">
+                            <h1 class="titre_zone15_NoUnderline"> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </h1>
+                        </div>
                     {% elif swap %}
                     <div class="row">
                         <div class='col-md-6 col-xs-12'>
@@ -165,7 +167,9 @@
                         </div>
                     </div>
                     {% else %}
-                        <p> Il faut compléter toutes les informatiosn pour accéder au swap.</p>
+                        <div class="text-center">
+                            <h1 class="titre_zone15_NoUnderline">Il faut compléter toutes les informatiosn pour accéder au swap. </h1>
+                        </div>
                     {% endif %}
                 </div>
             </div>

@@ -1,3 +1,4 @@
+
 {% extends 'socialnetwork/menusortie.html' %}
 
 {# Load the tag library #}
@@ -10,15 +11,79 @@
 {% load staticfiles %}
 {% csrf_token %}
 
-{% block menu_main %}	
-	<div class="container">
-		
+{% block menu_main %}
+    <script src="{% static 'js/restaurant.js' %}"></script>
+
+<div class="container">
+	{% for resto in Restaurants %}
+	<div class="row" >
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="contour_zone">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+						<img src="/media/{{ resto.picture }}" class="img-rounded image150" draggable="false" />
+                		<h1 class="titre_zone20">{{ resto.name }}</h1>
+                		<div class="informationBase">
+							<h5><span class="glyphicon glyphicon-map-marker"></span>{{resto.address}}</h5>
+							<h5><span class="glyphicon glyphicon-star-empty"></span> Specialité : {{resto.speciality}}</h5>
+							<h5><span class="glyphicon glyphicon-euro"></span> Prix moyen : {{resto.prix}} €</h5>
+							<div class="score_star">
+								<div id="stars-existing" class="starrr" data-rating='{{resto.notes}}' data-id='{{resto.id}}'></div>
+								{%if resto.notes %}
+									<h1 class="titre_zone15_NoUnderline">Note moyenne : <span id="count-existing-{{resto.id}}" >{{resto.notes}}</span>/5</h1>
+								{% else %}
+									<h1 class="titre_zone15_NoUnderline">Pas de notes disponible</h1>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="informationBase text-center col-sm-6 col-md-6">
+						<h1 class="titre_zone20_jaune">Description du Restaurant</h1>
+						<p class="description_comment">{{resto.description}}</p>
+						</br>
+						<div>
+							<button class="btn btn_blue_dark col-xs-5"  onclick="present( {{ resto.id }})">
+								<span class="glyphicon glyphicon-road"></span><span class="hidden-sm hidden-xs"> Aujourd'hui j'y vais ! </span>
+							</button>
+	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{resto.id}}" data-id="{{resto.id}}" onclick="present_person({{resto.id}})">
+								<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
+	                       	</button>
+	                    </div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<script>
+
+    <div class="container">
+        <div class="modal fade" id="person_go{{resto.id}}" tabindex="-1" role="dialog" aria-labelledby="personModal" aria-hidden="true">
+            <div class="modal-dialog dialog_ListeP dialog_opacity">
+                <div class="panel panel_header">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>Liste des personnes présentes</h4>
+                    </div>
+                    <form class="form" role="form" method="post" action="personne_present_restau" accept-charset="UTF-8" id="login-nav">
+                        <div class="modal_body">
+                            <div class="row">
+                                <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                					<span id="affichage_pers-{{resto.id}}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	{% endfor %}
+</div>
+<script>
 	    // Permet de mettre en actif le bouton restaurant
 	    $(document).ready(function () {
 	    	$(".sortie_bouton a").removeClass("en_cours");
 	      	$('#page_restaurant').addClass('en_cours');
 	    });
-	</script>	
+</script>	
+
 {% endblock menu_main %}

@@ -19,13 +19,23 @@ urlpatterns = [
 	url(r'^index/rencontre$', views.rencontre, name='rencontre'),
 	url(r'^index/discotheque$', views.discotheque, name='discotheque'),
 	url(r'^index/bar$', views.bar, name='bar'),
-	url(r'^index/ajoutlike$', views.ajoutlike, name='ajoutlike'),
 	url(r'^index/present$', views.present, name='present'),
+	url(r'^index/presentrestau$', views.presentrestau, name='presentrestau'),
+	url(r'^index/presentdisco$', views.presentdisco, name='presentdisco'),
+
 	url(r'^index/stars$', views.stars, name='stars'),
+
+	url(r'^index/starsRestau$', views.starsRestau, name='starsRestau'),
+	url(r'^index/starsDisco$', views.starsDisco, name='starsDisco'),
+
+
 	url(r'^index/personne_present_bar$', views.personne_present_bar, name='personne_present_bar'),
+	url(r'^index/personne_present_restau$', views.personne_present_restau, name='personne_present_restau'),
+	url(r'^index/personne_present_disco$', views.personne_present_disco, name='personne_present_disco'),
+
 
 	url(r'^index/changementloc$', views.changementloc, name='changementloc'),
-	url(r'^index/ajoutdislike$', views.ajoutdislike, name='ajoutdislike'),
+
 	url(r'^index/restaurant$', views.restaurant, name='restaurant'),
 	url(r'^index/menu$', views.menu, name='menu'),
 	url(r'^listUser$', views.listUser, name='listUser'),

@@ -11,7 +11,7 @@ from django.db.models import Q
 from django.db.models import Count, F,FloatField, Sum
 from django.contrib.auth.decorators import login_required
 from .models import PictureUser
-from .models import Bar,LikeBar,DislikeBar,presentBar,starBar
+from .models import Bar,LikeBar,DislikeBar,presentBar,starBar,starRestaurant, starDiscotheque,Restaurant, Discotheque,presentRestau,presentDisco
 from .models import InformationUser, SearchInformationUser
 from .models import Chat
 from django.views.decorators.csrf import csrf_exempt
@@ -127,6 +127,54 @@ def stars(request):
 	bar = Bar.objects.get(pk=request.POST['id_barr'])
 	bar.notes=moy
 	bar.save()
+	return HttpResponse(moy)
+
+@csrf_exempt
+@login_required
+def starsRestau(request):
+	valueStar = request.POST['value']
+	id_resta = Restaurant.objects.get(pk=request.POST['id_restau'])
+	utilisateur = User.objects.get(pk=request.user.id)
+	try:
+		if request.POST['value']:
+			note = starRestaurant.objects.get(id_user=utilisateur,id_restau=id_resta)
+			note.notes=valueStar
+			note.save()
+	except starRestaurant.DoesNotExist:
+		note = starRestaurant(id_user=utilisateur, id_restau=id_resta,notes=valueStar)
+		note.save()
+
+	nb_restau = float(starRestaurant.objects.filter(id_restau=id_resta).count())
+	s=starRestaurant.objects.filter(id_restau=id_resta).aggregate(somme_note_restau=Sum('notes'))
+	total_note = float(s['somme_note_restau'])
+	moy=float(total_note/nb_restau)
+	restaurant = Restaurant.objects.get(pk=request.POST['id_restau'])
+	restaurant.notes=moy
+	restaurant.save()
+	return HttpResponse(moy)
+
+@csrf_exempt
+@login_required
+def starsDisco(request):
+	valueStar = request.POST['value']
+	id_disco = Discotheque.objects.get(pk=request.POST['id_disco'])
+	utilisateur = User.objects.get(pk=request.user.id)
+	try:
+		if request.POST['value']:
+			note = starDiscotheque.objects.get(id_user=utilisateur,id_disco=id_disco)
+			note.notes=valueStar
+			note.save()
+	except starDiscotheque.DoesNotExist:
+		note = starDiscotheque(id_user=utilisateur, id_disco=id_disco,notes=valueStar)
+		note.save()
+
+	nb_disco = float(starDiscotheque.objects.filter(id_disco=id_disco).count())
+	s=starDiscotheque.objects.filter(id_disco=id_disco).aggregate(somme_note_disco=Sum('notes'))
+	total_note = float(s['somme_note_disco'])
+	moy=float(total_note/nb_disco)
+	discotheque = Discotheque.objects.get(pk=request.POST['id_disco'])
+	discotheque.notes=moy
+	discotheque.save()
 	return HttpResponse(moy)
 
 @login_required
@@ -282,6 +330,7 @@ def bar(request):
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present})
 
+
 @csrf_exempt
 @login_required
 def personne_present_bar(request):
@@ -296,19 +345,33 @@ def personne_present_bar(request):
 		html+=str(perso) + " "
 	return HttpResponse(html)
 
+@csrf_exempt
+@login_required
+def personne_present_restau(request):
+	present = presentRestau.objects.values_list('id_person_id',flat=True).filter(id_restau=request.POST['id_restau']) #present[0] contient id première personne qui y va 
+	liste = []
+	for id_pers in present:
+		pers = User.objects.values_list('username',flat=True).filter(pk=id_pers)
+		liste.append(pers[0])
+
+	html = ""
+	for perso in liste:
+		html+=str(perso) + " "
+	return HttpResponse(html)
 
 @csrf_exempt
 @login_required
-def ajoutlike(request):
-	if request.method == 'POST':
-		bar_like = Bar.objects.get(pk=request.POST['id_like'])
-		person_like = User.objects.get(pk=request.user.id)
-		like_count_bar_person = LikeBar.objects.filter(bar_name=bar_like,person_name=person_like).count()
-		if(like_count_bar_person==0):
-			like = LikeBar(person_name=person_like, bar_name=bar_like)
-			like.save()
-		like_count = LikeBar.objects.filter(bar_name=bar_like).count()
-		return HttpResponse(like_count)
+def personne_present_disco(request):
+	present = presentDisco.objects.values_list('id_person_id',flat=True).filter(id_disco=request.POST['id_disco']) #present[0] contient id première personne qui y va 
+	liste = []
+	for id_pers in present:
+		pers = User.objects.values_list('username',flat=True).filter(pk=id_pers)
+		liste.append(pers[0])
+
+	html = ""
+	for perso in liste:
+		html+=str(perso) + " "
+	return HttpResponse(html)
 
 @csrf_exempt
 def present(request):
@@ -322,32 +385,52 @@ def present(request):
 		present_count = presentBar.objects.filter(id_bar=bar_present).count()
 		return HttpResponse(present_count)
 
+
 @csrf_exempt
-def ajoutdislike(request):
+def presentrestau(request):
 	if request.method == 'POST':
-		bar_dislike = Bar.objects.get(pk=request.POST['id_like'])
-		person_dislike = User.objects.get(pk=request.user.id)
-		dislike_count_bar_person = DislikeBar.objects.filter(bar_name=bar_dislike,person_name=person_dislike).count()
-		if(dislike_count_bar_person==0):
-			dislike = DislikeBar(person_name=person_dislike, bar_name=bar_dislike)
-			dislike.save()
-		dislike_count = DislikeBar.objects.filter(bar_name=bar_dislike).count()
-		return HttpResponse(dislike_count)
+		restau_present = Restaurant.objects.get(pk=request.POST['id_restau'])
+		person_present = User.objects.get(pk=request.user.id)
+		present_personne = presentRestau(id_person=person_present, id_restau=restau_present)
+		present_count_restau_person = presentRestau.objects.filter(id_restau=restau_present,id_person=person_present).count()
+		if(present_count_restau_person==0):
+			present_personne.save()
+		present_count = presentRestau.objects.filter(id_restau=restau_present).count()
+		return HttpResponse(present_count)
+
+@csrf_exempt
+def presentdisco(request):
+	if request.method == 'POST':
+		disco_present = Discotheque.objects.get(pk=request.POST['id_disco'])
+		person_present = User.objects.get(pk=request.user.id)
+		present_personne = presentDisco(id_person=person_present, id_disco=disco_present)
+		present_count_disco_person = presentDisco.objects.filter(id_disco=disco_present,id_person=person_present).count()
+		if(present_count_disco_person==0):
+			present_personne.save()
+		present_count = presentDisco.objects.filter(id_disco=disco_present).count()
+		return HttpResponse(present_count)
+
 
 @login_required
 def restaurant(request):
-	return render(request, 'socialnetwork/restaurant.html')
+	Restaurants = Restaurant.objects.filter(localisation=localisation_)
+	present = presentRestau.objects.all()
+	sortieForme = sortieForm(request.POST)
+	return render(request, 'socialnetwork/restaurant.html',{'Restaurants': Restaurants,'sortieForme': sortieForme, 'present': present})
 
 @login_required
 def discotheque(request):
-	return render(request, 'socialnetwork/discotheque.html')
+	Discotheques = Discotheque.objects.filter(localisation=localisation_)
+	present = presentDisco.objects.all()
+	sortieForme = sortieForm(request.POST)
+	return render(request, 'socialnetwork/discotheque.html',{'Discotheques': Discotheques,'sortieForme': sortieForme, 'present': present})
 
 @csrf_exempt
 def changementloc(request):
 	if request.method == 'POST':
 		global localisation_
 		localisation_ = request.POST['localisation']
-	return redirect(bar)
+	return redirect(discotheque)
 
 def editerProfil(request):
 	if request.method == 'POST':

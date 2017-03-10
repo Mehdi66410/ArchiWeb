@@ -45,18 +45,38 @@
 	                    </h1>
 	                </div>
 	                <div class="contenu_zone row">
-	            	    <div class='col-sm-7'>
-	            	    	{% if userPicture.user.pk == user.pk%}
-                                <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image150" alt="avatar">
-                            {% else %}
-                                <img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
-                            {% endif %}
-	            	    </div>
-		                <div class="informationBase col-sm-5">
-		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
-		                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
-		                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
-		                </div>
+	                	{% for picture in userPicture %}
+		            	    <div class='col-sm-7'>
+								{% if affinite_list.ajouteur.pk == user.pk%}
+									<img 
+			                   			{% if picture.user.pk == affinite_list.ajoute.pk %}
+	                                		src="{{ MEDIA_URL }}{{ picture.picture.url }}" 
+	                                	{% else %} 
+	                                		src="/media/upload/profilePictureOriginal.jpg"
+	                                	{% endif %}
+	                                class="avatar img-circle img-thumbnail image150" alt="avatar">
+		                        {% else %}
+	                                <img 
+	                                	{% if picture.user.pk == affinite_list.ajouteur.pk %}
+	                                		src="{{ MEDIA_URL }}{{ picture.picture.url }}" 
+										{% else %}
+											src="/media/upload/profilePictureOriginal.jpg"
+										{% endif %}
+	                                class="avatar img-circle img-thumbnail image150" alt="avatar">
+		                        {% endif %}
+		            	    </div>
+		            	{% endfor %}
+			                <div class="informationBase col-sm-5">
+			                	<p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
+			                		Homme
+			                    </p>
+			                    <p><span class="glyphicon glyphicon-gift"></span>
+				                    20 ans
+			                    </p>
+			                    <p><span class="glyphicon glyphicon-map-marker"></span>
+				                    Paris
+			                    </p>
+			                </div>
 		            </div>
 		            <a data-toggle="modal" data-target="#profil_complet" class="btn btn_dark col-xs-offset-3 col-xs-6">
 	                    <span class="glyphicon glyphicon-resize-full"></span><span> + d'informations </span>

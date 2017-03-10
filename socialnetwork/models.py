@@ -28,8 +28,8 @@ DEPT_CHOICES = (
 # Create your models here.
 
 class Affinite(models.Model):
-	ajouteur = models.OneToOneField(User, related_name='ajouteur')
-	ajoute = models.OneToOneField(User, related_name='ajoute')
+	ajouteur = models.ForeignKey(User, related_name='ajouteur')
+	ajoute = models.ForeignKey(User, related_name='ajoute')
 	ajouteurConfirm = models.BooleanField(default=False)
 	ajouteConfirm = models.BooleanField(default=False)
 

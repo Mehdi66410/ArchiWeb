@@ -45,58 +45,31 @@
 	                    </h1>
 	                </div>
 	                <div class="contenu_zone row">
+	                	<div class='col-sm-7'>
 	                	{% for picture in userPicture %}
-		            	    <div class='col-sm-7'>
-								{% if affinite_list.ajouteur.pk == user.pk%}
-									<img 
-			                   			{% if picture.user.pk == affinite_list.ajoute.pk %}
-	                                		src="{{ MEDIA_URL }}{{ picture.picture.url }}" 
-	                                	{% else %} 
-	                                		src="/media/upload/profilePictureOriginal.jpg"
-	                                	{% endif %}
-	                                class="avatar img-circle img-thumbnail image150" alt="avatar">
-		                        {% elif affinite_list.ajoute.pk == user.pk%}
-	                                <img 
-	                                	{% if picture.user.pk == affinite_list.ajouteur.pk %}
-	                                		src="{{ MEDIA_URL }}{{ picture.picture.url }}" 
-										{% else %}
-											src="/media/upload/profilePictureOriginal.jpg"
-										{% endif %}
-	                                class="avatar img-circle img-thumbnail image150" alt="avatar">
-		                        {% endif %}
-		            	    </div>
+							{% if affinite_list.ajouteur.pk == user.pk and picture.user.pk == affinite_list.ajoute.pk  or affinite_list.ajoute.pk == user.pk and picture.user.pk == affinite_list.ajouteur.pk %}
+								<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-circle img-thumbnail image150" alt="avatar">
+							{% else %}
+								<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
+							{% endif %}
 		            	{% endfor %}
-		            	{% for information in userInformation %}
-			                <div class="informationBase col-sm-5">
-			                	{% if affinite_list.ajouteur.pk == user.pk%}
-									<p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
-										{% if information.user.pk == affinite_list.ajoute.pk %}
-											{{information.get_genre_display}}
-										{% endif %}
+		            	</div>
+
+			            <div class="informationBase col-sm-5">
+			            	{% for information in userInformation %}
+			                	{% if affinite_list.ajouteur.pk == user.pk and information.user.pk == affinite_list.ajoute.pk or affinite_list.ajoute.pk == user.pk and information.user.pk == affinite_list.ajouteur.pk  %}
+									<p><span class="glyphicon glyphicon-user {% if information.genre is Homme %} sexeHomme {% else %} sexeFemme {% endif %}"></span>
+										{{information.get_genre_display}}
 				                    </p>
 				                    <p><span class="glyphicon glyphicon-gift"></span>
-						                {% if information.user.pk == affinite_list.ajoute.pk %}
-											{{information.age}} ans
-										{% endif %}
+										{{information.age}} ans
 				                    </p>
 				                    <p><span class="glyphicon glyphicon-map-marker"></span>
-					                    {% if information.user.pk == affinite_list.ajoute.pk %}
-											{{information.get_localisation_display}}
-										{% endif %}
-				                    </p>
-		                        {% elif affinite_list.ajoute.pk == user.pk%}
-	                                <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
-			                		Homme
-				                    </p>
-				                    <p><span class="glyphicon glyphicon-gift"></span>
-					                    20 ans
-				                    </p>
-				                    <p><span class="glyphicon glyphicon-map-marker"></span>
-					                    Paris
+										{{information.get_localisation_display}}
 				                    </p>
 		                        {% endif %}
-			                </div>
-			            {% endfor %}
+		                    {% endfor %}
+			            </div>
 		            </div>
 		            <a data-toggle="modal" data-target="#profil_complet" class="btn btn_dark col-xs-offset-3 col-xs-6">
 	                    <span class="glyphicon glyphicon-resize-full"></span><span> + d'informations </span>

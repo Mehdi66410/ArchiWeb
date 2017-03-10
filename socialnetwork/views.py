@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
 # Importation des modèles
 from django.contrib.auth.models import User
 
@@ -184,6 +185,7 @@ def affinite(request):
 
 @login_required
 def chat(request):
+	affinite = Affinite.objects()
 	chat_message = Chat.objects.filter(emetteur=request.user.id,recepteur=request.user)
 	return render(request, "socialnetwork/chat.html", {'chat_message': chat_message})
 
@@ -467,7 +469,7 @@ def changementloc(request):
 	if request.method == 'POST':
 		global localisation_
 		localisation_ = request.POST['localisation']
-	return redirect(discotheque)
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def editerProfil(request):
 	if request.method == 'POST':

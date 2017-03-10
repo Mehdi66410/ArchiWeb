@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 from .models import PictureUser
 from .models import Bar,LikeBar,DislikeBar,presentBar,starBar,starRestaurant, starDiscotheque,Restaurant, Discotheque,presentRestau,presentDisco
 from .models import InformationUser, SearchInformationUser
-from .models import Chat
+from .models import Chat,Affinite
 from django.views.decorators.csrf import csrf_exempt
 
 from django.core.mail import send_mail
@@ -180,7 +180,12 @@ def starsDisco(request):
 
 @login_required
 def affinite(request):
-	return render(request, 'socialnetwork/affinite.html')
+	utilisateur = User.objects.get(pk=request.user.id)
+	affinite = Affinite.objects.filter(Q(ajouteur=utilisateur, ajouteurConfirm=True, ajouteConfirm=True) | Q(ajoute=utilisateur, ajouteurConfirm=True, ajouteConfirm=True))
+	userInformation = InformationUser.objects.all()
+	userPicture = PictureUser.objects.all()
+	return render(request, 'socialnetwork/affinite.html', {'affinite': affinite, 'userInformation': userInformation,'userPicture':userPicture})
+
 
 @login_required
 def chat(request):

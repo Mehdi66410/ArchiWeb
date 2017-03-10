@@ -13,15 +13,44 @@
 {% block content %}
 	<div class="container_affinite">
 		<div class="row">
+			{% for affinite_list in affinite %}
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-12 col-sm-6 col-md-4">
 	    		<div class="contour_zone">
 	                <div class="text-center">
-	                    <h1 class="titre_zone20">NOM PRENOM</h1>
+	                    <h1 class="titre_zone20">
+	                    	{% if affinite_list.ajouteur.pk == user.pk%}
+		                   		{% if affinite_list.ajoute.first_name or affinite_list.ajoute.last_name %}
+	                                {% if affinite_list.ajoute.first_name %}
+	                                    {{ affinite_list.ajoute.first_name }} 
+	                                {% endif %}
+	                                {% if affinite_list.ajoute.last_name %}
+	                                    {{ affinite_list.ajoute.last_name }} 
+	                                {% endif %}
+	                            {% else %}
+	                                {{affinite_list.ajoute }}
+	                            {% endif %}
+	                        {% else %}
+	                            {% if affinite_list.ajouteur.first_name or affinite_list.ajouteur.last_name %}
+	                                {% if affinite_list.ajouteur.first_name %}
+	                                    {{ affinite_list.ajouteur.first_name }} 
+	                                {% endif %}
+	                                {% if affinite_list.ajouteur.last_name %}
+	                                    {{ affinite_list.ajouteur.last_name }} 
+	                                {% endif %}
+	                            {% else %}
+	                                {{affinite_list.ajouteur }}
+	                            {% endif %}
+	                        {% endif %}
+	                    </h1>
 	                </div>
 	                <div class="contenu_zone row">
 	            	    <div class='col-sm-7'>
-	            	        <img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image150" alt="avatar">
+	            	    	{% if userPicture.user.pk == user.pk%}
+                                <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image150" alt="avatar">
+                            {% else %}
+                                <img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
+                            {% endif %}
 	            	    </div>
 		                <div class="informationBase col-sm-5">
 		                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
@@ -42,55 +71,53 @@
 	                </div>
 	    		</div>
 			</div>
-	   	</div>
-	</div>
 
-	<!-- Modal pour afficher le profil complet -->
-	<div class="container">
-	    <div class="modal fade" id="profil_complet" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
-	        <div class="modal-dialog dialog_opacity">
-	            <div class="panel panel_header">
-	                <div class="panel-heading">
-	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h1>
-	                </div>
-	                <div class="modal_body row">
-	                	<div class="col-sm-6 col-xs-5">
-		                	<img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+
+			<!-- Modal pour afficher le profil complet -->
+		    <div class="modal fade" id="profil_complet" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
+		        <div class="modal-dialog dialog_opacity">
+		            <div class="panel panel_header">
+		                <div class="panel-heading">
+		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h1>
 		                </div>
-		                <div class="col-sm-6 col-xs-7 text-center">
-			                <div class="text-center">
-			                    <h1 class="titre_zone20">NOM PRENOM</h1>
+		                <div class="modal_body row">
+		                	<div class="col-sm-6 col-xs-5">
+			                	<img src="http://lorempixel.com/200/200/people/10/" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
 			                </div>
-			                <div class="informationBase">
-			                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
-			                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
-			                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
-			                    <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
-		                        <p class="description_comment"><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
-			                </div>
-	    				</div>
+			                <div class="col-sm-6 col-xs-7 text-center">
+				                <div class="text-center">
+				                    <h1 class="titre_zone20">NOM PRENOM</h1>
+				                </div>
+				                <div class="informationBase">
+				                    <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>Homme</p>
+				                    <p><span class="glyphicon glyphicon-gift"></span>20 ans</p>
+				                    <p><span class="glyphicon glyphicon-map-marker"></span>Paris</p>
+				                    <p><span class="glyphicon glyphicon-briefcase"></span> Prof Boostrap</p>
+			                        <p class="description_comment"><span class="glyphicon glyphicon-comment"></span> aaaaaaaa aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa LIMITE 250 c aaaaaaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa  </p>
+				                </div>
+		    				</div>
+			            </div>
 		            </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+		        </div>
+		    </div>
 
-	<!-- Modal pour afficher les photos en grand -->
-	<div class="container">
-	    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
-	        <div class="modal-dialog dialog_PP">
-	        	<div class="panel panel_header">
-	                <div class="panel-heading">
-	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
-	            	</div>
-	            	<div class="modal-content">
-	                	<img class="img-responsive image400" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
-	            	</div>
-	            </div>
-	        </div>
-	    </div>
+			<!-- Modal pour afficher les photos en grand -->
+		    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+		        <div class="modal-dialog dialog_PP">
+		        	<div class="panel panel_header">
+		                <div class="panel-heading">
+		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
+		            	</div>
+		            	<div class="modal-content">
+		                	<img class="img-responsive image400" src="http://lorempixel.com/600/600/people/10/" alt="avatar">
+		            	</div>
+		            </div>
+		        </div>
+		    </div>
+		{% endfor %}
+	   	</div>
 	</div>
 
 	<script>

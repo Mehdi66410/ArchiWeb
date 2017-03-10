@@ -27,6 +27,12 @@ DEPT_CHOICES = (
 
 # Create your models here.
 
+class Affinite(models.Model):
+	ajouteur = models.OneToOneField(User, related_name='ajouteur')
+	ajoute = models.OneToOneField(User, related_name='ajoute')
+	ajouteurConfirm = models.BooleanField(default=False)
+	ajouteConfirm = models.BooleanField(default=False)
+
 class Bar(models.Model):
 	name = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
@@ -45,12 +51,6 @@ class Chat(models.Model):
 class DislikeBar(models.Model):
 	bar_name = models.ForeignKey(Bar)
 	person_name = models.ForeignKey(User)
-
-class Friend(models.Model):
-	ajouteur = models.OneToOneField(User, related_name='ajouteur')
-	ajoute = models.OneToOneField(User, related_name='ajoute')
-	confirme = models.BooleanField(default=False)
-	add_date = models.DateField()
 
 class InformationUser(models.Model):
 	user = models.ForeignKey(User)

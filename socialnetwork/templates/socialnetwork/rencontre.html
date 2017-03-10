@@ -103,7 +103,7 @@
 
         <div class="col-md-8 col-sm-6">
                 <div class="contour_zone_swap">
-                    {% if userSelect == None %}
+                    {% if userSelect == None or userSelect == False %}
                         <div class="text-center">
                             <h1 class="titre_zone15_NoUnderline"> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </h1>
                         </div>
@@ -157,12 +157,26 @@
                                 </p>
                             </div>
                             <div>
-                                <button type="button" class="btn btn_red col-md-5 col-xs-offset-1 col-xs-4">
-                                    <span class="glyphicon glyphicon-remove-sign"></span><span class="hidden-sm hidden-xs"> Ne me plait pas </span>
-                                </button>
-                                <button type="button" class="btn btn_green col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-4">
-                                    <span class="glyphicon glyphicon-heart"></span><span class="hidden-sm hidden-xs"> Me plait beaucoup </span>
-                                </button>
+                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
+                                    {% csrf_token %}
+
+
+                                    <input type="hidden" name="ajoute" value="{{userSelect.user.pk}}"/>
+
+
+                                    {% bootstrap_button "Ne me plait pas" button_type="submit" button_class="btn btn_red col-md-5 col-xs-offset-1 col-xs-4" name='plaitPas' icon='glyphicon glyphicon-remove-sign' %}
+
+                                    {% bootstrap_button "Me plait beaucoup" button_type="submit" button_class="btn btn_green col-md-5 col-xs-offset-1 col-xs-4" name='plait' icon='glyphicon glyphicon-heart' %}
+
+
+
+                                    <!-- <button type="button" class="btn btn_red col-md-5 col-xs-offset-1 col-xs-4" name="plaitPas">
+                                        <span class="glyphicon glyphicon-remove-sign"></span><span class="hidden-sm hidden-xs"> Ne me plait pas </span>
+                                    </button>
+                                    <button type="button" class="btn btn_green col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-4" name="plait">
+                                        <span class="glyphicon glyphicon-heart"></span><span class="hidden-sm hidden-xs"> Me plait beaucoup </span>
+                                    </button> -->
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,7 @@
 	                                		src="/media/upload/profilePictureOriginal.jpg"
 	                                	{% endif %}
 	                                class="avatar img-circle img-thumbnail image150" alt="avatar">
-		                        {% else %}
+		                        {% elif affinite_list.ajoute.pk == user.pk%}
 	                                <img 
 	                                	{% if picture.user.pk == affinite_list.ajouteur.pk %}
 	                                		src="{{ MEDIA_URL }}{{ picture.picture.url }}" 
@@ -66,17 +66,37 @@
 		                        {% endif %}
 		            	    </div>
 		            	{% endfor %}
+		            	{% for information in userInformation %}
 			                <div class="informationBase col-sm-5">
-			                	<p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
+			                	{% if affinite_list.ajouteur.pk == user.pk%}
+									<p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
+										{% if information.user.pk == affinite_list.ajoute.pk %}
+											{{information.get_genre_display}}
+										{% endif %}
+				                    </p>
+				                    <p><span class="glyphicon glyphicon-gift"></span>
+						                {% if information.user.pk == affinite_list.ajoute.pk %}
+											{{information.age}} ans
+										{% endif %}
+				                    </p>
+				                    <p><span class="glyphicon glyphicon-map-marker"></span>
+					                    {% if information.user.pk == affinite_list.ajoute.pk %}
+											{{information.get_localisation_display}}
+										{% endif %}
+				                    </p>
+		                        {% elif affinite_list.ajoute.pk == user.pk%}
+	                                <p><span class="glyphicon glyphicon-user {% if sexe is Homme%} sexeHomme {% else %} sexeFemme {% endif %}"></span>
 			                		Homme
-			                    </p>
-			                    <p><span class="glyphicon glyphicon-gift"></span>
-				                    20 ans
-			                    </p>
-			                    <p><span class="glyphicon glyphicon-map-marker"></span>
-				                    Paris
-			                    </p>
+				                    </p>
+				                    <p><span class="glyphicon glyphicon-gift"></span>
+					                    20 ans
+				                    </p>
+				                    <p><span class="glyphicon glyphicon-map-marker"></span>
+					                    Paris
+				                    </p>
+		                        {% endif %}
 			                </div>
+			            {% endfor %}
 		            </div>
 		            <a data-toggle="modal" data-target="#profil_complet" class="btn btn_dark col-xs-offset-3 col-xs-6">
 	                    <span class="glyphicon glyphicon-resize-full"></span><span> + d'informations </span>

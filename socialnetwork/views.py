@@ -183,8 +183,8 @@ def affinite(request):
 
 @login_required
 def chat(request):
-	c = Chat.objects.all()
-	return render(request, "socialnetwork/chat.html", {'chat': c})
+	chat_message = Chat.objects.filter(emetteur=request.user.id,recepteur=request.user)
+	return render(request, "socialnetwork/chat.html", {'chat_message': chat_message})
 
 @csrf_exempt
 @login_required

@@ -39,7 +39,8 @@ class Bar(models.Model):
 
 class Chat(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User)
+    emetteur = models.ForeignKey(User)
+    recepteur=models.ForeignKey(User)
     message = models.CharField(max_length=200)
 
 class DislikeBar(models.Model):

@@ -297,6 +297,8 @@
     text-justify: inter-word;
     margin-left:10px;
     margin-right:10px;
+    border:1px solid #FFFF00;
+    padding:5px;
 }
 
 .sexeHomme {

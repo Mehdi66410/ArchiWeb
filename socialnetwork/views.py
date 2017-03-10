@@ -142,11 +142,11 @@ def rencontre(request):
 			formInformationUser = informationUserForm(request.POST)
 			if formInformationUser.is_valid():
 				try : 
-					informationUser 				= InformationUser.objects.get(user=utilisateur)
-					informationUser.genre 			= request.POST['genre']
-					informationUser.age 			= request.POST['age']
+					informationUser 		= InformationUser.objects.get(user=utilisateur)
+					informationUser.genre 		= request.POST['genre']
+					informationUser.age 		= request.POST['age']
 					informationUser.localisation 	= request.POST['localisation']
-					informationUser.profession 		= request.POST['profession']
+					informationUser.profession 	= request.POST['profession']
 					informationUser.description 	= request.POST['description']
 					informationUser.save()
 					messages.add_message(request, messages.SUCCESS, "Vos informations ont bien été enregistrés !")
@@ -202,7 +202,7 @@ def rencontre(request):
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
-
+        # On essaye de récupérer les informations de l'utilisateur pour compléter les formulaires
 	try:
 		informationUser = InformationUser.objects.get(user=utilisateur)
 		genreUser = informationUser.genre
@@ -222,11 +222,20 @@ def rencontre(request):
 		genreSearchF = False
 		swap = False
 		formSearchInformationUser = searchInformationUserForm()
-		
+	
+        # Si toutes les informations de l'utilisateur sont complétés, on lui propose le swap
 	if swap:
-		messages.add_message(request, messages.SUCCESS, "SWAP OK")
+		#messages.add_message(request, messages.SUCCESS,searchInformationUser.genreF)
 		try:
-			userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).first()
+			if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
+				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).first()
+			elif searchInformationUser.genreF == True:
+				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='H').first()
+			elif searchInformationUser.genreM == True:
+				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='F').first()
+			else:
+				userSelect = False
+
 		except InformationUser.DoesNotExist:
 			userSelect = False
 

@@ -12,8 +12,7 @@
 
 {% block content %}
 	<div class="container_affinite">
-		<div class="row">
-			{% for affinite_list in affinite %}
+		{% for affinite_list in affinite %}
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-12 col-sm-6 col-md-4">
 	    		<div class="contour_zone">
@@ -176,6 +175,19 @@
 		            </div>
 		        </div>
 		    </div>
+		{% empty %}
+			<div class="container_affinite">
+			<!-- carte description de l'affinité simple -->
+		    	<div class="col-xs-12 col-sm-6 col-md-4">
+		    		<div class="contour_zone">
+		                <div class="text-center">
+		                    <h1 class="titre_zone20">
+		                    	Vous n'avez pas d'affinités pour le moment
+		                    </h1>
+		                </div>
+		    		</div>
+				</div>
+			</div>
 		{% endfor %}
 	   	</div>
 	</div>

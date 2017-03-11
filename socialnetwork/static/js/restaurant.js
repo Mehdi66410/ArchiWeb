@@ -13,6 +13,7 @@ function present(id_restau){
         id_restau: id_restau,
     }, function(data) {
         $("#count-existing-" + id_restau).text(data);
+        alert("Votre enregistrement est pris en compte!")
     });
 }
 

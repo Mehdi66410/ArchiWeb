@@ -185,13 +185,18 @@ def affinite(request):
 	affinite = Affinite.objects.filter(Q(ajouteur=utilisateur, ajouteurConfirm=True, ajouteConfirm=True) | Q(ajoute=utilisateur, ajouteurConfirm=True, ajouteConfirm=True))
 	userInformation = InformationUser.objects.all()
 	userPicture = PictureUser.objects.all()
+	try:
+		affinite[0]
+	except IndexError:
+		messages.add_message(request, messages.ERROR, "Vous ne possédez aucune affinité")
+		messages.add_message(request, messages.WARNING, "N'hésitez pas à aller dans la partie rencontre pour liker des profils")
+		messages.add_message(request, messages.SUCCESS, "Courage l'ami!")
 	return render(request, 'socialnetwork/affinite.html', {'affinite': affinite, 'userInformation': userInformation,'userPicture':userPicture})
 
 
 @login_required
 def chat(request):
-	affinite = Affinite.objects()
-	chat_message = Chat.objects.filter(emetteur=request.user.id,recepteur=request.user)
+	chat_message = Chat.objects.filter(Q(emetteur=request.user.id) | Q(recepteur=request.user.id))
 	return render(request, "socialnetwork/chat.html", {'chat_message': chat_message})
 
 @csrf_exempt
@@ -199,8 +204,8 @@ def chat(request):
 def chat_post(request):
 	if request.method == "POST":
 		msg = request.POST.get('msgbox', None)
-		c = Chat(emetteur=request.user, message=msg)
 		if msg != '':
+			c = Chat(emetteur=request.user,recepteur=request.user, message=msg)
 			c.save()
 		return JsonResponse({ 'msg': msg, 'user': c.user.username })
 	else:
@@ -516,6 +521,7 @@ def editerProfil(request):
 				except PictureUser.DoesNotExist:
 					picture = PictureUser(user=User.objects.get(pk=request.user.id), picture=request.FILES['picture'])
 					picture.save()
+				messages.add_message(request, messages.SUCCESS, "Votre photo de profil est bien sauvegardée!")
 		else:
 			formUploadPicture = uploadPictureForm()
 
@@ -535,6 +541,8 @@ def editerProfil(request):
 			user.email = request.POST['email']
 			user.pseudo = request.POST['username']
 			user.save()
+			messages.add_message(request, messages.SUCCESS, "Vos informations sont bien sauvegardées!")
+
 		else:
 			formUpdateProfil = updateProfilForm({'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
 	

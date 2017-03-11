@@ -13,6 +13,7 @@ function present(id_disco){
         id_disco: id_disco,
     }, function(data) {
         $("#count-existing-" + id_disco).text(data);
+        alert("Votre enregistrement est pris en compte!")
     });
 }
 

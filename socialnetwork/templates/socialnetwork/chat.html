@@ -22,16 +22,16 @@
 	                    <h1 class="titre_zone20">Conversation avec XXXXXXX</h1>
 	                </div>
 	                <div id="chat-body" class="panel">
-	                    <div id="msg-list-div" class="panel-body">
+	                    <div id="msg-list-div" class="panel-body scroll_chat">
 	                        <ul id="msg-list" class="list-group">
-	                            {% for obj in chat %}
-	                                {% if obj.user == request.user %}
+	                            {% for obj in chat_message %}
+	                                {% if obj.emetteur.pk == user.pk %}
 	                                    <li class="text-right list-group-item titre_zone_chat">{{ obj.message }}</li>
 	                                {% else %}
 	                                    <li class="text-left list-group-item titre_zone_chat">{{ obj.message }}</li>
 	                                {% endif %}
 	                            {% empty %}
-	                                <li class="text-right list-group-item titre_zone_chat">No messages yet!</li>
+	                                <li class="text-right list-group-item titre_zone_chat">Pas encore de messages entre vous..</li>
 	                            {% endfor %}
 	                            <script>
 	                                var chatlist = document.getElementById('msg-list-div');

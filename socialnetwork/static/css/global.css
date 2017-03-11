@@ -384,3 +384,8 @@
     border-color: #4BAE4F;
     border-radius: 40px;
 }
+
+.scroll_chat{
+    overflow-y: scroll;
+    height: 85%;
+}

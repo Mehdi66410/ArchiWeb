@@ -31,6 +31,7 @@ function present(id_bar){
         id_bar: id_bar,
     }, function(data) {
         $("#count-existing-" + data).text(data);
+         alert("Votre enregistrement est pris en compte!")
     });
 }
 

@@ -327,17 +327,43 @@ def rencontre(request):
         # Si toutes les informations de l'utilisateur sont complétés, on lui propose le swap
 	if swap:
 		#messages.add_message(request, messages.SUCCESS,searchInformationUser.genreF)
+		
+		# On récupère la liste des affinités que l'utilisateur a déjà eu
+		listeUserAffinite = []
+		try :
+			affinites = Affinite.objects.filter(Q(ajouteur=utilisateur) | Q(ajoute=utilisateur)).all()
+			for affinite in affinites:
+				if affinite.ajouteur == utilisateur:
+					listeUserAffinite.append(affinite.ajoute)
+				elif affinite.ajoute == utilisateur:
+					listeUserAffinite.append(affinite.ajouteur)
+		except Affinite.DoesNotExist:
+			affinites = False
+
+		# On récupère la liste des utilisateurs correspondant aux critères de recherches
 		try:
 			if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
-				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).first()
+				listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).all()
 			elif searchInformationUser.genreF == True:
-				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='F').first()
+				listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='F').all()
 			elif searchInformationUser.genreM == True:
-				userSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='H').first()
+				listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=request.user.pk).filter(genre='H').all()
 			else:
-				userSelect = False
-
+				listeUserSelect = False
 		except InformationUser.DoesNotExist:
+			listeUserSelect = False
+
+		messages.add_message(request, messages.SUCCESS,listeUserAffinite)
+		messages.add_message(request, messages.SUCCESS,listeUserSelect)
+
+		# On exclue les utilisateurs ayant déja eu une affinité avec
+		if len(listeUserAffinite) >= 0:
+			for affinite in listeUserAffinite:
+				listeUserSelect = listeUserSelect.exclude(user=affinite)
+			
+			# On récupère la première affinité renvoyée
+			userSelect = listeUserSelect.first()
+		else:
 			userSelect = False
 
 		if userSelect:

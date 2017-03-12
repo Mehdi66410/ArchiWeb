@@ -190,26 +190,45 @@ def affinite(request):
 	except IndexError:
 		messages.add_message(request, messages.ERROR, "Vous ne possédez aucune affinité")
 		messages.add_message(request, messages.WARNING, "N'hésitez pas à aller dans la partie rencontre pour liker des profils")
-		messages.add_message(request, messages.SUCCESS, "Courage l'ami!")
 	return render(request, 'socialnetwork/affinite.html', {'affinite': affinite, 'userInformation': userInformation,'userPicture':userPicture})
-
-
-@login_required
-def chat(request):
-	chat_message = Chat.objects.filter(Q(emetteur=request.user.id) | Q(recepteur=request.user.id))
-	return render(request, "socialnetwork/chat.html", {'chat_message': chat_message})
 
 @csrf_exempt
 @login_required
+def affinite_suppr(request):
+	if "suppr" in request.POST:
+		affinite_modif = Affinite.objects.get(pk=request.POST['id_affinite'])
+		affinite_modif.ajouteurConfirm = False
+		affinite_modif.ajouteConfirm = False
+		affinite_modif.save()
+		messages.add_message(request, messages.WARNING, "Affinité supprimée..")
+	return redirect(affinite)
+
+@login_required
+def chat(request):
+	if "chat_open" in request.POST:
+		affinite_chat=Affinite.objects.get(pk=request.POST['id_affinite'])
+		chat_message = Chat.objects.filter(Q(emetteur=affinite_chat.ajouteur, recepteur=affinite_chat.ajoute) | Q(emetteur=affinite_chat.ajoute,recepteur=affinite_chat.ajouteur)).order_by('pk')
+		utilisateur = User.objects.get(pk=request.user.id)
+		affiniteInformation = User.objects.get(pk=affinite_chat.ajouteur.id)
+		if affiniteInformation == utilisateur:
+			affiniteInformation = User.objects.get(pk=affinite_chat.ajoute.id)
+		return render(request, "socialnetwork/chat.html", {'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
+	return HttpResponse("")
+
+@login_required
 def chat_post(request):
-	if request.method == "POST":
-		msg = request.POST.get('msgbox', None)
+	if request.POST:
+		msg = request.POST['chat-msg']
+		affinite_chat=Affinite.objects.get(pk=request.POST['id_affinite'])
+		chat_message = Chat.objects.filter(Q(emetteur=affinite_chat.ajouteur, recepteur=affinite_chat.ajoute) | Q(emetteur=affinite_chat.ajoute,recepteur=affinite_chat.ajouteur)).order_by('pk')
+		utilisateur = User.objects.get(pk=request.user.id)
+		affiniteInformation = User.objects.get(pk=affinite_chat.ajouteur.id)
+		if affiniteInformation == utilisateur:
+			affiniteInformation = User.objects.get(pk=affinite_chat.ajoute.id)
 		if msg != '':
-			c = Chat(emetteur=request.user,recepteur=request.user, message=msg)
+			c = Chat(emetteur=utilisateur,recepteur=affiniteInformation, message=msg)
 			c.save()
-		return JsonResponse({ 'msg': msg, 'user': c.user.username })
-	else:
-		return HttpResponse('Request must be POST.')
+	return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
 
 @login_required
 def rencontre(request):

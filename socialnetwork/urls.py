@@ -14,6 +14,7 @@ urlpatterns = [
 	url(r'^index/deconnexion$', views.deconnexion, name='deconnexion'),
 	url(r'^index/editerProfil$', views.editerProfil, name='editerProfil'),
 	url(r'^index/affinite$', views.affinite, name='affinite'),
+	url(r'^index/affinite_suppr$', views.affinite_suppr, name='affinite_suppr'),
 	url(r'^index/chat$', views.chat, name='chat'),
 	url(r'^index/chat_post$', views.chat_post, name='chat_post'),
 	url(r'^index/rencontre$', views.rencontre, name='rencontre'),

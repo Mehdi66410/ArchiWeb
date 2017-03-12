@@ -114,9 +114,7 @@
                                 {% if userPicture %}
                                     <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                 {% else %}
-                                    <div class="text-center"> 
-                                        <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
-                                    </div>
+                                    <img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                 {% endif %}
                             </div>                         
                         </div>
@@ -187,7 +185,7 @@
                         <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
                     </div>
                     <div class="modal-content">
-                        <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="img-responsive image400" alt="avatar">
+                        <img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
                     </div>
                 </div>
             </div>

@@ -12,33 +12,33 @@
 
 {% block content %}
 	<div class="container_affinite">
-		{% for affinite_list in affinite %}
+		{% for affinite_obj in affinite %}
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-12 col-sm-6 col-md-4">
 	    		<div class="contour_zone">
 	                <div class="text-center">
 	                    <h1 class="titre_zone20">
-	                    	{% if affinite_list.ajouteur.pk == user.pk%}
-		                   		{% if affinite_list.ajoute.first_name or affinite_list.ajoute.last_name %}
-	                                {% if affinite_list.ajoute.first_name %}
-	                                    {{ affinite_list.ajoute.first_name }} 
+	                    	{% if affinite_obj.ajouteur.pk == user.pk%}
+		                   		{% if affinite_obj.ajoute.first_name or affinite_obj.ajoute.last_name %}
+	                                {% if affinite_obj.ajoute.first_name %}
+	                                    {{ affinite_obj.ajoute.first_name }} 
 	                                {% endif %}
-	                                {% if affinite_list.ajoute.last_name %}
-	                                    {{ affinite_list.ajoute.last_name }} 
+	                                {% if affinite_obj.ajoute.last_name %}
+	                                    {{ affinite_obj.ajoute.last_name }} 
 	                                {% endif %}
 	                            {% else %}
-	                                {{affinite_list.ajoute }}
+	                                {{affinite_obj.ajoute }}
 	                            {% endif %}
 	                        {% else %}
-	                            {% if affinite_list.ajouteur.first_name or affinite_list.ajouteur.last_name %}
-	                                {% if affinite_list.ajouteur.first_name %}
-	                                    {{ affinite_list.ajouteur.first_name }} 
+	                            {% if affinite_obj.ajouteur.first_name or affinite_obj.ajouteur.last_name %}
+	                                {% if affinite_obj.ajouteur.first_name %}
+	                                    {{ affinite_obj.ajouteur.first_name }} 
 	                                {% endif %}
-	                                {% if affinite_list.ajouteur.last_name %}
-	                                    {{ affinite_list.ajouteur.last_name }} 
+	                                {% if affinite_obj.ajouteur.last_name %}
+	                                    {{ affinite_obj.ajouteur.last_name }} 
 	                                {% endif %}
 	                            {% else %}
-	                                {{affinite_list.ajouteur }}
+	                                {{affinite_obj.ajouteur }}
 	                            {% endif %}
 	                        {% endif %}
 	                    </h1>
@@ -46,7 +46,7 @@
 	                <div class="contenu_zone row">
 	                	<div class='col-sm-7'>
 	                	{% for picture in userPicture %}
-							{% if affinite_list.ajouteur.pk == user.pk and picture.user.pk == affinite_list.ajoute.pk  or affinite_list.ajoute.pk == user.pk and picture.user.pk == affinite_list.ajouteur.pk %}
+							{% if affinite_obj.ajouteur.pk == user.pk and picture.user.pk == affinite_obj.ajoute.pk  or affinite_obj.ajoute.pk == user.pk and picture.user.pk == affinite_obj.ajouteur.pk %}
 								<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-circle img-thumbnail image150" alt="avatar">
 							{% else %}
 								<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
@@ -56,7 +56,7 @@
 
 			            <div class="informationBase col-sm-5">
 			            	{% for information in userInformation %}
-			                	{% if affinite_list.ajouteur.pk == user.pk and information.user.pk == affinite_list.ajoute.pk or affinite_list.ajoute.pk == user.pk and information.user.pk == affinite_list.ajouteur.pk  %}
+			                	{% if affinite_obj.ajouteur.pk == user.pk and information.user.pk == affinite_obj.ajoute.pk or affinite_obj.ajoute.pk == user.pk and information.user.pk == affinite_obj.ajouteur.pk  %}
 									<p><span class="glyphicon glyphicon-user {% if information.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}"></span>
 										{{information.get_genre_display}}
 				                    </p>
@@ -70,23 +70,27 @@
 		                    {% endfor %}
 			            </div>
 		            </div>
-		            <a data-toggle="modal" data-target="#profil_complet{{affinite_list.pk}}" class="btn btn_dark col-xs-offset-3 col-xs-6">
+		            <a data-toggle="modal" data-target="#profil_complet{{affinite_obj.pk}}" class="btn btn_dark col-xs-offset-3 col-xs-6">
 	                    <span class="glyphicon glyphicon-resize-full"></span><span> + d'informations </span>
 	                </a>
 	                <div class="row">
-						 <button type="button" class="btn btn_red col-xs-offset-1 col-xs-4">
-	                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Supprimer </span>
-	                    </button>
-                        <a href="{% url 'chat' %}" class="btn btn_green col-xs-offset-2 col-xs-4">
-                        	<span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"> Discuter </span>
-                        </a>
+                        <form action="affinite_suppr" class="form-horizontal" role="form" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id_affinite" value="{{affinite_obj.id}}"/>
+                            {% bootstrap_button "Supprimer" button_type="submit" button_class="btn btn_red col-xs-offset-1 col-xs-4" name='suppr' icon='glyphicon glyphicon-trash' %}
+                        </form>
+                        <form action="chat" class="form-horizontal" role="form" method="post">
+                        	{% csrf_token %}
+                            <input type="hidden" name="id_affinite" value="{{affinite_obj.id}}"/>
+                            {% bootstrap_button "Discuter" button_type="submit" button_class="btn btn_green col-xs-offset-2 col-xs-4" name='chat_open' icon='glyphicon glyphicon-comment' %}
+						</form>
 	                </div>
 	    		</div>
 			</div>
 
 
 			<!-- Modal pour afficher le profil complet -->
-		    <div class="modal fade" id="profil_complet{{affinite_list.pk}}" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
+		    <div class="modal fade" id="profil_complet{{affinite_obj.pk}}" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
 		        <div class="modal-dialog dialog_opacity">
 		            <div class="panel panel_header">
 		                <div class="panel-heading">
@@ -96,44 +100,44 @@
 		                <div class="modal_body row">
 		                	<div class="col-sm-6 col-xs-5">
 			                	{% for picture in userPicture %}
-									{% if affinite_list.ajouteur.pk == user.pk and picture.user.pk == affinite_list.ajoute.pk  or affinite_list.ajoute.pk == user.pk and picture.user.pk == affinite_list.ajouteur.pk %}
-										<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_list.pk}}">
+									{% if affinite_obj.ajouteur.pk == user.pk and picture.user.pk == affinite_obj.ajoute.pk  or affinite_obj.ajoute.pk == user.pk and picture.user.pk == affinite_obj.ajouteur.pk %}
+										<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_obj.pk}}">
 									{% else %}
-										<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_list.pk}}">
+										<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_obj.pk}}">
 									{% endif %}
 				            	{% endfor %}
 			                </div>
 			                <div class="col-sm-6 col-xs-7 text-center">
 				                <div class="text-center">
 				                    <h1 class="titre_zone20">
-            	                    	{% if affinite_list.ajouteur.pk == user.pk%}
-            		                   		{% if affinite_list.ajoute.first_name or affinite_list.ajoute.last_name %}
-            	                                {% if affinite_list.ajoute.first_name %}
-            	                                    {{ affinite_list.ajoute.first_name }} 
+            	                    	{% if affinite_obj.ajouteur.pk == user.pk%}
+            		                   		{% if affinite_obj.ajoute.first_name or affinite_obj.ajoute.last_name %}
+            	                                {% if affinite_obj.ajoute.first_name %}
+            	                                    {{ affinite_obj.ajoute.first_name }} 
             	                                {% endif %}
-            	                                {% if affinite_list.ajoute.last_name %}
-            	                                    {{ affinite_list.ajoute.last_name }} 
+            	                                {% if affinite_obj.ajoute.last_name %}
+            	                                    {{ affinite_obj.ajoute.last_name }} 
             	                                {% endif %}
             	                            {% else %}
-            	                                {{affinite_list.ajoute }}
+            	                                {{affinite_obj.ajoute }}
             	                            {% endif %}
             	                        {% else %}
-            	                            {% if affinite_list.ajouteur.first_name or affinite_list.ajouteur.last_name %}
-            	                                {% if affinite_list.ajouteur.first_name %}
-            	                                    {{ affinite_list.ajouteur.first_name }} 
+            	                            {% if affinite_obj.ajouteur.first_name or affinite_obj.ajouteur.last_name %}
+            	                                {% if affinite_obj.ajouteur.first_name %}
+            	                                    {{ affinite_obj.ajouteur.first_name }} 
             	                                {% endif %}
-            	                                {% if affinite_list.ajouteur.last_name %}
-            	                                    {{ affinite_list.ajouteur.last_name }} 
+            	                                {% if affinite_obj.ajouteur.last_name %}
+            	                                    {{ affinite_obj.ajouteur.last_name }} 
             	                                {% endif %}
             	                            {% else %}
-            	                                {{affinite_list.ajouteur }}
+            	                                {{affinite_obj.ajouteur }}
             	                            {% endif %}
             	                        {% endif %}
 				                    </h1>
 				                </div>
 				                <div class="informationBase">
 				                    {% for information in userInformation %}
-					                	{% if affinite_list.ajouteur.pk == user.pk and information.user.pk == affinite_list.ajoute.pk or affinite_list.ajoute.pk == user.pk and information.user.pk == affinite_list.ajouteur.pk  %}
+					                	{% if affinite_obj.ajouteur.pk == user.pk and information.user.pk == affinite_obj.ajoute.pk or affinite_obj.ajoute.pk == user.pk and information.user.pk == affinite_obj.ajouteur.pk  %}
 											<p><span class="glyphicon glyphicon-user {% if information.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}"></span>
 												{{information.get_genre_display}}
 						                    </p>
@@ -156,7 +160,7 @@
 		    </div>
 
 			<!-- Modal pour afficher les photos en grand -->
-		    <div class="modal fade" id="modal_image_profil{{affinite_list.pk}}" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+		    <div class="modal fade" id="modal_image_profil{{affinite_obj.pk}}" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
 		        <div class="modal-dialog dialog_PP">
 		        	<div class="panel panel_header">
 		                <div class="panel-heading">
@@ -165,10 +169,10 @@
 		            	</div>
 		            	<div class="modal-content">
 		                	{% for picture in userPicture %}
-								{% if affinite_list.ajouteur.pk == user.pk and picture.user.pk == affinite_list.ajoute.pk  or affinite_list.ajoute.pk == user.pk and picture.user.pk == affinite_list.ajouteur.pk %}
-									<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-circle img-thumbnail image400" alt="avatar">
+								{% if affinite_obj.ajouteur.pk == user.pk and picture.user.pk == affinite_obj.ajoute.pk  or affinite_obj.ajoute.pk == user.pk and picture.user.pk == affinite_obj.ajouteur.pk %}
+									<img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
 								{% else %}
-									<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image400" alt="avatar">
+									<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-thumbnail image400" alt="avatar">
 								{% endif %}
 			            	{% endfor %}
 		            	</div>

@@ -476,6 +476,9 @@ def present(request):
 		present_count_bar_person = presentBar.objects.filter(id_bar=bar_present,id_person=person_present).count()
 		if(present_count_bar_person==0):
 			present_personne.save()
+		else:
+			present_personne_ = presentBar.objects.get(id_person=person_present, id_bar=bar_present)
+			present_personne_.delete()
 		present_count = presentBar.objects.filter(id_bar=bar_present).count()
 		return HttpResponse(present_count)
 
@@ -489,6 +492,9 @@ def presentrestau(request):
 		present_count_restau_person = presentRestau.objects.filter(id_restau=restau_present,id_person=person_present).count()
 		if(present_count_restau_person==0):
 			present_personne.save()
+		else:
+			present_personne_ = presentRestau.objects.get(id_person=person_present, id_restau=restau_present)
+			present_personne_.delete()
 		present_count = presentRestau.objects.filter(id_restau=restau_present).count()
 		return HttpResponse(present_count)
 
@@ -501,6 +507,9 @@ def presentdisco(request):
 		present_count_disco_person = presentDisco.objects.filter(id_disco=disco_present,id_person=person_present).count()
 		if(present_count_disco_person==0):
 			present_personne.save()
+		else:
+			present_personne_ = presentDisco.objects.get(id_person=person_present, id_disco=disco_present)
+			present_personne_.delete()
 		present_count = presentDisco.objects.filter(id_disco=disco_present).count()
 		return HttpResponse(present_count)
 

@@ -12,6 +12,7 @@ function present(id_disco){
     {
         id_disco: id_disco,
     });
+    alert("Votre enregistrement est pris en compte!")
 }
 
 var __slice = [].slice;

@@ -12,6 +12,7 @@ function present(id_bar){
     {
         id_bar: id_bar,
     });
+    alert("Votre enregistrement est pris en compte!")
 }
 
 var __slice = [].slice;

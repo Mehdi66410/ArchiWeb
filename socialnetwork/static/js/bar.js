@@ -1,21 +1,3 @@
-function like(id_like){
-    $.post('http://localhost:8000/index/ajoutlike',
-    {
-        id_like: id_like,
-    }, function(data) {
-		$("#"+id_like).html(data);
-	});
-}
-
-function dislike(id_like){
-	$.post('http://localhost:8000/index/ajoutdislike',
-    {
-        id_like: id_like,
-    }, function(data) {
-		$("#"+id_like).html(data);
-	});
-}
-
 function present_person(id_bar){
     $.post('http://localhost:8000/index/personne_present_bar',
     {
@@ -29,9 +11,6 @@ function present(id_bar){
   $.post('http://localhost:8000/index/present',
     {
         id_bar: id_bar,
-    }, function(data) {
-        $("#count-existing-" + data).text(data);
-         alert("Votre enregistrement est pris en compte!")
     });
 }
 

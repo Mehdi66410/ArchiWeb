@@ -11,9 +11,6 @@ function present(id_restau){
   $.post('http://localhost:8000/index/presentrestau',
     {
         id_restau: id_restau,
-    }, function(data) {
-        $("#count-existing-" + id_restau).text(data);
-        alert("Votre enregistrement est pris en compte!")
     });
 }
 

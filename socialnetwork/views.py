@@ -421,8 +421,9 @@ def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
 	Bar_like = LikeBar.objects.all()
 	present = presentBar.objects.all()
+	userPresent=presentBar.objects.filter(id_person=request.user.id)
 	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present})
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
 
 @csrf_exempt
@@ -518,15 +519,17 @@ def presentdisco(request):
 def restaurant(request):
 	Restaurants = Restaurant.objects.filter(localisation=localisation_)
 	present = presentRestau.objects.all()
+	userPresent=presentRestau.objects.filter(id_person=request.user.id)
 	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/restaurant.html',{'Restaurants': Restaurants,'sortieForme': sortieForme, 'present': present})
+	return render(request, 'socialnetwork/restaurant.html',{'Restaurants': Restaurants,'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
 @login_required
 def discotheque(request):
 	Discotheques = Discotheque.objects.filter(localisation=localisation_)
 	present = presentDisco.objects.all()
+	userPresent=presentDisco.objects.filter(id_person=request.user.id)
 	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/discotheque.html',{'Discotheques': Discotheques,'sortieForme': sortieForme, 'present': present})
+	return render(request, 'socialnetwork/discotheque.html',{'Discotheques': Discotheques,'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
 @csrf_exempt
 def changementloc(request):

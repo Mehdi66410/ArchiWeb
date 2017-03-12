@@ -41,12 +41,24 @@
 						<p class="description_comment">{{bar.description}}</p>
 						</br>
 						<div>
-							<button class="btn btn_blue_dark col-xs-5" id="JV{{ bar.id }}" onclick="toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }})">
+							{% for userPresent_obj in userPresent %}
+								{% if bar.id == userPresent_obj.id_bar.id%}
+								<script>
+									$(document).ready(function () {
+										$("#JV{{ bar.id }}").css("display", "none");
+										$("#JVP{{ bar.id }}").css("display", "");
+									});
+								</script>
+								{% endif %}
+							{% endfor %}
+
+							<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ bar.id }}" onclick="toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }})">
 								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Aujourd'hui j'y vais !</span>
 							</button>
 							<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ bar.id }}" onclick=";toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }})">
 								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Je n'y vais plus?</span>
 							</button>
+							
 	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{bar.id}}" data-id="{{bar.id}}" onclick="present_person({{bar.id}})">
 								<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
 	                       	</button>

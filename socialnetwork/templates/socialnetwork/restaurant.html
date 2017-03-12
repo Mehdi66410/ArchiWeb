@@ -42,9 +42,24 @@
 						<p class="description_comment">{{resto.description}}</p>
 						</br>
 						<div>
-							<button class="btn btn_blue_dark col-xs-5"  onclick="present( {{ resto.id }})">
-								<span class="glyphicon glyphicon-road"></span><span class="hidden-sm hidden-xs"> Aujourd'hui j'y vais ! </span>
+							{% for userPresent_obj in userPresent %}
+								{% if resto.id == userPresent_obj.id_restau.id%}
+								<script>
+									$(document).ready(function () {
+										$("#JV{{ resto.id }}").css("display", "none");
+										$("#JVP{{ resto.id }}").css("display", "");
+									});
+								</script>
+								{% endif %}
+							{% endfor %}
+
+							<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ resto.id }}" onclick="toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
+								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Aujourd'hui j'y vais !</span>
 							</button>
+							<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ resto.id }}" onclick=";toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
+								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Je n'y vais plus?</span>
+							</button>
+
 	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{resto.id}}" data-id="{{resto.id}}" onclick="present_person({{resto.id}})">
 								<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
 	                       	</button>
@@ -79,11 +94,21 @@
 	{% endfor %}
 </div>
 <script>
-	    // Permet de mettre en actif le bouton restaurant
-	    $(document).ready(function () {
-	    	$(".sortie_bouton a").removeClass("en_cours");
-	      	$('#page_restaurant').addClass('en_cours');
-	    });
+    // Permet de mettre en actif le bouton restaurant
+    $(document).ready(function () {
+    	$(".sortie_bouton a").removeClass("en_cours");
+      	$('#page_restaurant').addClass('en_cours');
+    });
+
+    function toggle(anId){
+		node = document.getElementById(anId);
+		if (node.style.display=="none"){
+			node.style.display = "";
+		}
+		else{
+			node.style.display = "none";
+		}
+	}
 </script>	
 
 {% endblock menu_main %}

@@ -51,6 +51,8 @@
 							{% else %}
 								<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
 							{% endif %}
+						{% empty %}
+							<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
 		            	{% endfor %}
 		            	</div>
 
@@ -105,6 +107,8 @@
 									{% else %}
 										<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_obj.pk}}">
 									{% endif %}
+								{% empty %}
+									<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_obj.pk}}">
 				            	{% endfor %}
 			                </div>
 			                <div class="col-sm-6 col-xs-7 text-center">
@@ -174,6 +178,8 @@
 								{% else %}
 									<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-thumbnail image400" alt="avatar">
 								{% endif %}
+							{% empty %}
+								<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-thumbnail image400" alt="avatar">
 			            	{% endfor %}
 		            	</div>
 		            </div>

@@ -1,0 +1,1080 @@
+- model: socialnetwork.bar
+  pk: 1
+  fields: {name: "Caf\xE9 Cr\xE8me", address: '2 Rue de la Barillerie, 72100 Le Mans',
+    localisation: 72, picture: upload/2772.jpeg, speciality: "J\xE4germeister", prix: 6,
+    description: "Cet \xE9tablissement discret, tranquille et imperturbable en journ\xE9e
+      se m\xE9tamorphose la nuit venue, et l'ambiance s'installe. La client\xE8le
+      rajeunit et la musique est un peu plus forte. Les commandes se succ\xE8dent
+      au bar \xE0 un rythme effr\xE9n\xE9, on parle haut, on fume dehors un verre
+      \xE0 la main, et des farceurs jettent parfois de la lessive dans la fontaine
+      situ\xE9e en face du bar. Le Caf\xE9 Cr\xE8me accueille m\xEAme un DJ le vendredi
+      et samedi soir ! Que demander de plus ? Voil\xE0 de quoi passer une bonne soir\xE9e
+      entre amis. En plus, saucisson \xE0 toute heure ! Un lieu \xE0 visiter, surtout
+      si les br\xE8ves de comptoir vous attirent.", notes: 2.0}
+- model: socialnetwork.bar
+  pk: 2
+  fields: {name: Luna Cafe, address: '37 Rue du Dr Leroy, 72000 Le Mans', localisation: 72,
+    picture: upload/bar-le-mans-luna-cafe-1419-4.jpeg, speciality: Vodka, prix: 7,
+    description: "Le Luna Caf\xE9, c'est un bar compos\xE9 de trois salles magistrales,
+      3 d\xE9cos, 9 \xE9crans, pour 3 ambiances d'enfer, toutes sur le th\xE8me de
+      la f\xEAte et de la bonne humeur !  Que ce soit pour une vir\xE9e entre potes,
+      pour un enterrement de vie de gar\xE7ons/filles, pour assister aux retransmissions
+      sur les 9 \xE9crans, (tous individualisables) ou simplement pour un verre entre
+      amoureux, ce bar est le lieu de toutes les d\xE9tentes.  Grand choix de boissons,
+      ambiance sport et d\xE9tente et d\xE9coration atypique : le Luna au Mans est
+      l'un des incontournables de la rue du Docteur Leroy.", notes: 2.0}
+- model: socialnetwork.bar
+  pk: 3
+  fields: {name: Le Mulligan's, address: '44 rue du Docteur-Leroy, 72000 Le Mans',
+    localisation: 72, picture: upload/bar-le-mans-le-mulligans-1420-4.jpeg, speciality: "Bi\xE8re",
+    prix: 7, description: "Il ne manque qu'une porte battante \xE0 franchir pour se
+      retrouver outre-mer, en plein coeur d'un Irish Pub : d\xE9cor int\xE9gral en
+      bois et tabourets hauts permettant de s'accouder au comptoir massif pour discuter
+      avec le \" tavernier \". Autour, des tables rondes (plateaux pos\xE9s sur des
+      barriques) ou carr\xE9es, prot\xE9g\xE9es par de courtes cloisons ou alors sur\xE9lev\xE9es.
+      M\xEAme apr\xE8s avoir chang\xE9 de propri\xE9taire en 2012, rien n'a chang\xE9.
+      La commande se fait directement au comptoir. Le grand \xE9cran plat f\xE9d\xE8re
+      tous les supporters sportifs, mais c'est \xE0 un match de rugby qu'il faut assister
+      ici pour mieux sentir la fi\xE8vre monter. Musique exclusivement anglo-saxonne
+      (plut\xF4t rock) pour une client\xE8le au look d\xE9sinvolte ou \xE9l\xE9gant,
+      qui discute, chante voire danse entre deux parties de billard ou de fl\xE9chettes.
+      Souvent, l'ambiance intensifie la chaleur en cours de soir\xE9e, et c'est le
+      moment de profiter de la terrasse, o\xF9 l'atmosph\xE8re est aussi gaie. A tester,
+      la table pression, dans le fond du bar \xE0 gauche : un table ronde sur laquelle
+      tr\xF4ne 2 tireuses pression (Guiness et Carlsberg). Vous commandez au bar le
+      nombre de litres voulu, puis vous pouvez vous servir vous-m\xEAme. Quand le
+      compte est atteint, il n'y a plus qu'\xE0 recommander. Une version moderne et
+      plus ludique de la girafe. Vers 2h, un son de cloche annonce la fermeture...
+      oui, d\xE9j\xE0. La r\xE9putation du Mulligan's est \xE0 hauteur de ce qu'il
+      procure.", notes: 3.0}
+- model: socialnetwork.bar
+  pk: 4
+  fields: {name: Fost, address: '34 rue du Port, 72000 Le Mans', localisation: 72,
+    picture: upload/cafe-fost-la-mans.jpeg, speciality: Punch Australien, prix: 13,
+    description: "Le dernier arriv\xE9 de la rue du Port, et il vaut vraiment le d\xE9tour,
+      l'ancien Jungle a \xE9t\xE9 repris et remani\xE9, ouf, enfin ! Pour la d\xE9co
+      de la premi\xE8re salle, les murs n'ont pas chang\xE9, on trouve toujours cette
+      ambiance chaleureuse feutr\xE9e et atypique qu'on adore, par contre tout le
+      reste a \xE9t\xE9 revu et corrig\xE9, le mobilier devenu tr\xE8s lounge, le
+      bar, le m\xE9nage (et ce n'\xE9tait pas du luxe), la climatisation et donc le
+      chauffage (les anciens clients savent de quoi on parle). De grands tabourets
+      vous attendent au bar, montez les quelque marches qui montent \xE0 la terrasse
+      et d\xE9couvrez \xE0 quel point les effort du nouveau propri\xE9taire ont \xE9t\xE9
+      b\xE9n\xE9fiques, et ce n'est pas fini, une seconde salle (au-dessus du bar)
+      a ouvert aussi, et l\xE0 c'est dans une ambiance surf que nous rentrons, des
+      canap\xE9s vous tendent les bras et n'attendent que vous, une pin-up tr\xF4ne
+      au milieu du bar tenant une planche de surf, les platines du DJ sont ici - regardez
+      c\xF4t\xE9 balcon (\xE0 partir de 23h le week-end) -, ainsi il peut voir ce
+      qu'il se passe en haut et en bas ! Assur\xE9ment c'est un lieu \xE0 red\xE9couvrir
+      et o\xF9 revenir avec une grande confiance. C\xF4t\xE9 consommations, on vous
+      proposera des shooters \xE0 2,50 \u20AC et 20 \u20AC le m\xE8tre, les softs
+      et sodas sont \xE0 2,50 \u20AC, les smoothies \xE0 7 \u20AC, et bien entendu
+      vous trouverez tous les autres cocktails et boissons que vous pouvez trouver
+      dans un \xE9tablissement comme celui-ci... C'est vraiment un rendez-vous \xE0
+      ne pas manquer.", notes: 4.0}
+- model: socialnetwork.bar
+  pk: 6
+  fields: {name: L'After Work, address: 27 Grande rue - 53000 Laval, localisation: 53,
+    picture: upload/l-after-work.jpeg, speciality: "Bi\xE8res, Vins et cocktails",
+    prix: 10, description: "L'After Work est le seul bar \xE0 Laval o\xF9 vous vous
+      servez vous-m\xEAme vos bi\xE8res pression. A tester !", notes: 0.0}
+- model: socialnetwork.bar
+  pk: 7
+  fields: {name: Le Dynamic Bar, address: '112 Rue de Bretagne, 53000 Laval', localisation: 53,
+    picture: upload/2016-10-13.jpeg, speciality: "Bi\xE8re", prix: 5, description: "Le
+      palais de la bi\xE8re lavalois", notes: 0.0}
+- model: socialnetwork.bar
+  pk: 8
+  fields: {name: Le Gainz'bar, address: "19, Rue des Po\xEBliers, Centre-ville Angers
+      49100", localisation: 49, picture: upload/_AN_5858.jpeg, speciality: "Bi\xE8re",
+    prix: 6, description: "Dans une ambiance rugbystique authentique, voil\xE0 un
+      bar o\xF9 l\u2019ap\xE9ro prend une dimension particuli\xE8re. Le Gainz\u2019bar
+      est un de ces bon bar de piliers o\xF9 l\u2019ap\xE9ro de fin d\u2019apr\xE8m
+      prend souvent des proportions inqui\xE9tantes et termine \xE0 des heures tardives.
+      Le Gainz\u2019bar est un bar qui \xE0 une \xE2me. Tu t\u2019y fais les meilleurs
+      amis du monde le temps d\u2019une soir\xE9e, sous des chansons paillardes et
+      des effluves de bi\xE8re.", notes: 3.0}
+- model: socialnetwork.bar
+  pk: 9
+  fields: {name: L'Okapi, address: '15 Rue des Deux Haies, Centre-ville Angers 49100',
+    localisation: 49, picture: upload/l-okapi-angers-147030588652.jpeg, speciality: Shot,
+    prix: 3, description: "Lorsqu\u2019on va \xE0 l\u2019Okapi, l\u2019ap\xE9ro est
+      en g\xE9n\xE9ral assez bien avanc\xE9. Entre un molotov et un tsunami (shots
+      flamb\xE9s maison, \xE0 vos risques et p\xE9rils), on adore l\u2019ambiance
+      et la gentillesse des patrons.", notes: 5.0}
+- model: socialnetwork.bar
+  pk: 10
+  fields: {name: "F\xE9es Maison", address: "3 rue Pr\xE9 Nian, 44000 Nantes", localisation: 44,
+    picture: upload/fee.jpeg, speciality: Vin, prix: 5, description: "Le F\xE9es Maison
+      est un endroit f\xE9e-\xE9rique ! . Dans un d\xE9cor cocooning les propri\xE9taires
+      vous accueillent dans une ambiance chaleureuse. Ouvert il y'a peu , l'\xE9tablissement
+      est un vrai f\xE9e-nom\xE8ne nantais : plut\xF4t salon de th\xE9 , petit bar
+      tranquille en d\xE9but de soir\xE9e et en semaine , le weekend l'\xE9tablissement
+      (gay friendly) se transforme en n'importe quoi extr\xEAmement chaleureux :que
+      se soit pour un Karaok\xE9 improvis\xE9, une partie de jeu ou une danse endiabl\xE9e
+      vous \xEAtes certains de vous amuser. Le concept propos\xE9 f\xE9e-d\xE8re un
+      grand nombre de personnes (essentiellement des habitu\xE9s certes) mais les
+      gens n'h\xE9sitent pas \xE0 se parler , se m\xE9langer , bref tout le monde
+      \xE0 un tr\xE8s bon esprit, que l'on pourrait qualifier de f\xE9e-stif.", notes: 0.0}
+- model: socialnetwork.bar
+  pk: 11
+  fields: {name: La Maison, address: '4 Rue Lebrun, 44000 Nantes', localisation: 44,
+    picture: upload/fdfd.jpeg, speciality: Cocktails, prix: 7, description: "Une ambiance
+      tr\xE8s sympa avec de la bonne musique et une d\xE9co qui change r\xE9guli\xE8rement
+      pour notre plus grand plaisir, un retour aux 70's qui nous fait bien plaisir
+      et nous met de bonne humeur !!", notes: 0.0}
+- model: socialnetwork.bar
+  pk: 12
+  fields: {name: Le Comptoir Saint-Jean, address: '65 esplanade de la Mer, 85160 Saint
+      Jean De Monts', localisation: 85, picture: upload/o.jpeg, speciality: "Bi\xE8re",
+    prix: 9, description: "Le bar - boutique Le Comptoir a ouvert au Printemps dernier
+      juste \xE0 c\xF4t\xE9 d'une deuxi\xE8me adresse incontournable L'Art Caf\xE9
+      ! Pas de concurrence : le credo de l'Art Caf\xE9 \xE9tant plut\xF4t les glaces,
+      Le Comptoir propose un salon de th\xE9, bar \xE0 vins et \xE0 bi\xE8res et des
+      gourmandises toutes autres ! Nous nous sommes install\xE9s sur la terrasse cosy
+      et color\xE9e mais l'int\xE9rieur m\xEAme du bar m'a aussi enchant\xE9e ! Un
+      look r\xE9tro \xE0 la Charleston avec des objets chin\xE9s comme des t\xE9l\xE9phones
+      tous droit sortis des ann\xE9es 20 !", notes: 4.0}
+- model: socialnetwork.bar
+  pk: 13
+  fields: {name: Le Bahiana, address: '15 Avenue de la Mer, 85160 St Jean de Monts',
+    localisation: 85, picture: upload/rrr.jpeg, speciality: Cocktails (Rhum), prix: 5,
+    description: "Rhum mac\xE9r\xE9 vers 20h en ao\xFBt.  Tr\xE8s peu d ambiance mais
+      les quantit\xE9s sont g\xE9n\xE9reuses.  Un dj passe de la musique la nuit.
+      Bar ouvert jusqu'\xE0 7h du matin. Attention prix major\xE9 \xE0 partir de 22h",
+    notes: 4.0}
+- model: socialnetwork.restaurant
+  pk: 1
+  fields: {name: La Vieille Porte, address: '12 Rue de la Vieille Porte ,72000 Le
+      Mans', localisation: 72, picture: upload/le-bistrot-de-la-vieille-porte_75175.jpeg,
+    speciality: Boeuf, prix: 20, description: "Le Bistrot de la vieille porte au Mans
+      vous surprendra par la qualit\xE9 de sa qualit\xE9, l\u2019exceptionnalit\xE9
+      de son service et la sympathie de son accueil. Les Manceaux red\xE9couvrent
+      dans ce restaurant toute l\u2019essence d\u2019une cuisine fran\xE7aise extr\xEAmement
+      succulente, g\xE9n\xE9reuse et d\u2019une incroyable simplicit\xE9. En somme,
+      on revient \xE0 l\u2019essentiel de la tradition culinaire de France, \xE0 l\u2019\xE9poque
+      o\xF9 les bistrots et les brasseries \xE9taient les \xE9tablissements de r\xE9f\xE9rence
+      \xE0 l\u2019heure du d\xE9jeuner. Plusieurs menus et formules repas figurent
+      dans la carte. Quel que soit votre choix, vous avez la promesse d\u2019un repas
+      d\xE9licieux qui ne vous laissera pas sur votre faim\u2009!", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 2
+  fields: {name: Ernest'inn, address: '37 Rue des Ponts Neufs, 72000 Le Mans', localisation: 72,
+    picture: upload/ernest-inn.jpeg, speciality: Burger, prix: 15, description: "L'atelier
+      burger Ernest'Inn, c'est un \xE9tablissement de restauration branch\xE9, avec
+      un design moderne fait d'un m\xE9lange d'acier et de bois. Le tout habill\xE9
+      de luminaires aux lignes pures. Apr\xE8s celui de la rue des Ponts-Neufs, Antoine
+      Allan vient d'ouvrir un deuxi\xE8me atelier burger, en bas de la rue Nationale.",
+    notes: 2.0}
+- model: socialnetwork.restaurant
+  pk: 3
+  fields: {name: L'Eveil Des Sens, address: '429 Boulevard Paul Lintier, 53100 Mayenne',
+    localisation: 53, picture: upload/leveil-des-sens-mayenne-garde-son-macaron.jpeg,
+    speciality: Foie gras, prix: 15, description: "Le Guide Michelin, qui a d\xE9voil\xE9
+      son palmar\xE8s ce jeudi 9 f\xE9vrier, r\xE9compense une nouvelle fois le restaurant
+      l\u2019\xC9veil des sens, situ\xE9 \xE0 Mayenne. Il garde son \xE9toile pour
+      la septi\xE8me ann\xE9e cons\xE9cutive. Cela reste le seul \xE9tablissement
+      \xE9toil\xE9 du d\xE9partement.", notes: 5.0}
+- model: socialnetwork.restaurant
+  pk: 4
+  fields: {name: Le Sofa, address: "33 rue Jean Bourr\xE9, 53200 Chateau gontier",
+    localisation: 53, picture: upload/dc6ac08d76e569267f36a3cdb408316f.jpeg, speciality: Boeuf,
+    prix: 20, description: "Pascal Ribault vous propose des formules l\xE9g\xE8res
+      et vari\xE9es tous les midis du mardi au vendredi, pui", notes: 3.0}
+- model: socialnetwork.restaurant
+  pk: 5
+  fields: {name: Pizza Tempo, address: '43 rue Boisnet ,49100 Angers', localisation: 49,
+    picture: upload/a2719de7eab504a59585352f4b49596b.jpeg, speciality: Pizza, prix: 8,
+    description: "Accueil efficace et sympathique \xE0 la commande pour cet acteur
+      historique de la pizza livr\xE9e sur Angers, on est conseill\xE9 sur les produits
+      choisis par un personnel rassurant. La livraison est rapide (en g\xE9n\xE9ral
+      30 minutes maxi) et les pizzas de bonne taille : une double a bel et bien de
+      quoi rassasier deux gourmands ! L'Allegro nous met toujours l'eau \xE0 la bouche
+      : du saumon fum\xE9 plut\xF4t go\xFBteux, accompagn\xE9 de cr\xE8me fra\xEEche,
+      d'aneth, de fromage fondant et de sauce tomate. Bien entendu, les ingr\xE9dients
+      pourraient \xEAtre encore plus marqu\xE9s en saveur, mais la p\xE2te est assez
+      fine et croustillante. La Pianissimo se compose de lardons, sauce tomate, cr\xE8me
+      fra\xEEche, oignon et champignon. La Molto associe le thon, les anchois, la
+      persillade et le fromage. L'Otello, un peu moins italienne, m\xE9lange le reblochon,
+      les pommes de terre et des saucisses de Francfort. Elle ravit tous les convives.
+      La carte offre \xE9galement de g\xE9n\xE9reuses Tartinissimos, et de belles
+      salades fra\xEEches \xE0 tarifs corrects. Faiblesse : la p\xE2te des pizzas
+      peut varier selon la recette choisie, surtout lorsque les champignons d\xE9gorgent
+      un peu leur eau. Talents : un accueil agr\xE9able, une livraison rapide et des
+      portions g\xE9n\xE9reuses. Id\xE9al pour les petits creux en milieu de soir\xE9e
+      ou les fiestas entre amis (nombreuses promos \xE0 suivre sur le site avec boissons
+      offertes sur les menus).", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 6
+  fields: {name: "Le Tha\xEF L'inde", address: '9 rue des Deux-Haies ,49100 Angers',
+    localisation: 49, picture: upload/caption.jpeg, speciality: Cuisine Asiatique,
+    prix: 13, description: "Superbe restaurant coup de coeur, dans une vieille b\xE2tisse
+      du XVIIe si\xE8cle. Il a eu la riche id\xE9e de fusionner deux cuisines, tha\xEFlandaise
+      et indienne, et remporte un beau succ\xE8s aupr\xE8s des Angevins et m\xEAme
+      au-del\xE0 ! On peut s'installer dans l'une des deux salles avec pierres apparentes
+      ou sur la terrasse - parfaite l'\xE9t\xE9 et couverte et chauff\xE9e l'hiver
+      - qui distille un c\xF4t\xE9 zen avec Bouddha tr\xF4nant au-dessus de la fontaine.
+      Le voyage gustatif d\xE9bute d\xE8s l'entr\xE9e avec des Pakoras de l\xE9gumes
+      \xE0 la fois moelleux et croustillants, ou d'excellents Paniers Dor\xE9s, sortes
+      de nems en forme de... paniers ! Les plats sont devenus des classiques de la
+      maison : curry Bombay, agneau massala, poulet Bangkok, servis avec un riz basmati
+      ou tha\xEF cuit \xE0 la perfection. Et pour ceux qui n'ont pas envie de viande,
+      l'\xE9tablissement propose quelques plats v\xE9g\xE9tariens. En dessert on go\xFBte
+      l'exotisme avec le Khaow Niaow Ma Muang, un riz gluant (khao niao) cuit au lait
+      de coco, ou le Soan Papdi, une p\xE2tisserie indienne \xE0 base de farine de
+      pois chiches. Faiblesse : il faut bien souvent r\xE9server une semaine \xE0
+      l'avance, et l'attente peut parfois \xEAtre longue entre les plats. Talents
+      : le concept de cuisine fusion servie dans une superbe vaisselle et le cadre,
+      peut-\xEAtre le plus joli de la ville et en plein centre-ville.", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 7
+  fields: {name: Le Bistronome Nantais, address: "1 rue du Ch\xE2teau ,44000 Nantes",
+    localisation: 44, picture: upload/index_edjZY2N.jpeg, speciality: Boeuf, prix: 20,
+    description: "Au pied du ch\xE2teau, vous ne pourrez pas manquer une magnifique
+      terrasse et son restaurant : le Bistronome Nantais (ou BN pour les intimes...).
+      Il faut l'avouer, la vue est unique \xE0 Nantes, face \xE0 l'entr\xE9e principale
+      du ch\xE2teau et dans une rue au calme ! \xC0 l'int\xE9rieur, le cadre est r\xE9solument
+      contemporain et offre un clin d'oeil \xE0 notre bien-aim\xE9e cit\xE9 des Ducs.
+      \xC0 l'\xE9tage, les murs font r\xE9f\xE9rence au patrimoine industriel et culturel
+      nantais. C\xF4t\xE9 plats, la carte est des plus all\xE9chante avec ses sp\xE9cialit\xE9s
+      locales et r\xE9gionales. En entr\xE9e, rien de mieux qu'un carpaccio de lotte
+      fum\xE9e \" maison \" et sa cr\xE8me citronn\xE9e \xE0 l'estragon ou des ravioles
+      de champignons et leur \xE9mulsion truff\xE9e, \xE0 moins qu'un passage par
+      le vivier du BN ne vous tente, entre hu\xEEtres, langoustines et tourteau...
+      En plat, go\xFBtez l'excellent filet de boeuf de Briere r\xF4ti au foie gras,
+      pommes de terre confites et jus cors\xE9 \xE0 la sauge. Les gourmands opteront
+      enfin pour la d\xE9licieuse cr\xE8me br\xFBl\xE9e aux berlingots ou l'incontournable
+      g\xE2teau nantais et sa chantilly vanill\xE9e ! A noter \xE9galement l'ardoise
+      all\xE9chante propos\xE9e chaque jour pour un excellent rapport qualit\xE9-prix.
+      Tous les matins (jusqu'\xE0 midi), le BN c'est aussi un petit d\xE9j' complet
+      et \xE0 l'heure de l'ap\xE9ro, bulots, hu\xEEtres et planche de charcuterie
+      et fromages \xE0 partager ; et le week-end, en plus de la carte, venez d\xE9guster
+      un brunch copieux. Enfin, entre deux visites culturelles ou une apr\xE8s-midi
+      shopping, venez donc prendre un th\xE9 ou une boisson fra\xEEche dans un cadre
+      hors norme (ouvert en continu uniquement en p\xE9riode estivale). \xC0 noter,
+      le BN est privatisable pour des d\xE9jeuners ou d\xEEners d'entreprises, anniversaires...
+      et m\xEAme des cocktails sur demande par mail. \" Lu \" et approuv\xE9, ce BN
+      !", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 8
+  fields: {name: My Resto, address: '15 rue Jean-Jacques-Rousseau ,44000 Nantes',
+    localisation: 44, picture: upload/my-resto.jpeg, speciality: Paris-Brest, prix: 16,
+    description: "C'est sur une rue pi\xE9tonni\xE8re que s'est ouvert le My Resto.
+      Fait unique \xE0 Nantes, il fonctionne dans un esprit de bin\xF4me avec son
+      (presque) jumeau situ\xE9 en face, le My Bar. Le My Resto, c'est un bel \xE9tablissement
+      \xE0 l'ambiance lounge et \xE0 l'esprit raffin\xE9. On aime ces murs noirs rehauss\xE9s
+      de tableaux de couleur et ces coussins \xE9pais tellement confortables ou ces
+      lampes design en forme d'ampoules. Dans l'assiette, c'est une cuisine traditionnelle,
+      avec des notes \" asiatiques \" qui vous sera servie. Une jolie carte qui propose
+      au choix de belles salades comme la salade Tha\xEF avec ses nems croustillants,
+      ou encore la fameuse salade Caesar New York New York... C\xF4t\xE9 plats, on
+      se laissera volontiers tenter par de belles propositions de tartares, comme
+      celui au thon, sucr\xE9 sal\xE9 (avocat et kiwi) ou les incontournables tartares
+      de boeuf revisit\xE9s. A noter que la viande matur\xE9e est s\xE9lectionn\xE9e
+      par leurs soins. Pour les amateurs de desserts, ne manquez pas le My Paris-Brest,
+      la brioche fa\xE7on pain perdu \xE0 l'Amaretto... Le My Resto, ce sont aussi
+      deux salles \xE0 l'\xE9tage qui peuvent \xEAtre privatis\xE9es pour des d\xE9jeuners
+      professionnels, ou des anniversaires. Canap\xE9s Chesterfield, bar et tout le
+      confort souhait\xE9. Un bien bel endroit pour un voyage des papilles \xE0 Nantes
+      !", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 9
+  fields: {name: La Paillote, address: '67 avenue des Demoiselles ,85160 Saint-Jean-de-Monts',
+    localisation: 85, picture: upload/c6f7dc656cedc1248779ab1d127d8211.jpeg, speciality: Poulet,
+    prix: 15, description: "Avec son cadre d\xE9paysant, faire une halte \xE0 La Paillote
+      c'est d\xE9j\xE0 les vacances : une paillote en bois \xE0 la d\xE9co exotique
+      dot\xE9e d'une vaste terrasse ombrag\xE9e, pos\xE9e dans la for\xEAt, \xE0 deux
+      pas de la plage. L'adresse est connue pour son rapport qualit\xE9/prix eu \xE9gard
+      aux portions g\xE9n\xE9reuses. St\xE9phane, ancien boucher, propose des sp\xE9cialit\xE9s
+      de r\xF4tisserie : os \xE0 moelle, cochon de lait r\xF4ti, andouillette g\xE9ante,
+      ou le plat du r\xF4tisseur (poulet, boeuf, agneau et pur\xE9e maison). A l'honneur
+      aussi, le boeuf, s\xE9lection ma\xEEtre boucher : entrec\xF4te, tartare coup\xE9
+      au couteau, c\xF4te de boeuf de 1,4 kg, r\xF4ti d'onglet... Autres suggestions
+      : le burger fa\xE7on Paillote. Les amateurs de poissons ne seront pas en reste
+      avec au choix : saumon gravlax en entr\xE9e ou grill\xE9 en plat, belle sole
+      meuni\xE8re (300/400 gr), marmite de poissons et crustac\xE9s ou le risotto
+      aux gambas. Focus sur la formule moules-frites maison (avec ap\xE9ro et digeo),
+      qui cartonne, et nouveau, aussi en version Pa\xEBlla. Sans oublier des salades
+      de saison, un choix de pizzas (pouvant s'emporter, tout comme les moules-frites
+      et les burgers)... Parmi les desserts, tous maison, gros plan sur La sp\xE9cialit\xE9
+      : le Paris-Brest. Offrez-vous une parenth\xE8se ici.", notes: 0.0}
+- model: socialnetwork.restaurant
+  pk: 10
+  fields: {name: La Langoust'In, address: "7 avenue de la For\xEAt ,85160 Saint-Jean-de-Monts",
+    localisation: 85, picture: upload/679dd004ccf5940479e0ac5e17905efa.jpeg, speciality: Poisson,
+    prix: 20, description: "C'est LE restaurant de poissons et fruits de mer de la
+      station ! Cette bonne table de l'avenue de la For\xEAt, se d\xE9marque d\xE9j\xE0
+      par sa carte majoritairement tourn\xE9e vers la mer. Les fruits de mer y sont
+      \xE0 l'honneur, pour preuve le vivier \xE0 homards bleus et langoustes. Des
+      plateaux de fruits de mer (\xE0 partir de 25 \u20AC) sont sugg\xE9r\xE9s dans
+      \"le coin de l'\xE9cailler\", ou \xE0 composer soi-m\xEAme. Yohann a obtenu
+      le titre de Ma\xEEtre Restaurateur, r\xE9compensant une cuisine de qualit\xE9,
+      d'une grande r\xE9gularit\xE9, \xE9galement labellis\xE9e \"cuisine montoise\",
+      qui valorise les produits locaux. A la carte des poissons : un excellent filet
+      de bar de ligne, une blanquette de lotte \xE0 la vanille... L'arrivage de poissons
+      frais est gage de fra\xEEcheur. Autre plat phare, pl\xE9biscit\xE9 par la client\xE8le,
+      la choucroute de la mer sans oublier le poulet aux langoustines. La carte sugg\xE8re
+      aussi un burger, dont le pain est lui aussi maison ! Les desserts sont aussi
+      beaux \xE0 regarder que bons \xE0 d\xE9guster \xE0 l'image d'un entremet poire
+      et sp\xE9culos go\xFBt\xE9 en \xE9t\xE9. Les assiettes sont g\xE9n\xE9reuses.
+      Belle carte de vins d'une cinquantaine de r\xE9f\xE9rences, \xE0 partir de 15
+      \u20AC. Autre bon point : le menu enfant proposant du poisson. Une valeur s\xFBre.",
+    notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 1
+  fields: {name: Le Guest's, address: '46 RUE DU DOC LEROY, 72000 LE MANS', localisation: 72,
+    picture: upload/Sequence-03.Image-fixe001-e1444005570944.jpeg, speciality: Electro,
+    prix: 14, description: "\xAB Ici, c'est classe ! \xBB Voil\xE0 pourquoi Fiorenzo,
+      18 ans, vient tr\xE8s souvent au Guest's, rue du Docteur-Leroy. Discoth\xE8que
+      inspiration Ibiza : si on veut rentrer, mieux vaut faire un minimum attention.
+      Baskets trop \xAB sport \xBB ou trop sales : les \xAB videurs \xBB n'auront
+      pas de piti\xE9 ! Les habits ne font pourtant pas les moines. Sachez qu'\xE0
+      l'entr\xE9e votre attitude sera d\xE9cisive : pas de bonsoir, pas de dance-floor
+      !  Petite fiert\xE9 du Guest's : les stars y dansent aussi. Particuli\xE8rement
+      les sportifs : Tom Chrystensen, recordman des 24 Heures du Mans et Joe-Wilfried
+      Tsonga ont d\xE9j\xE0 foul\xE9 la piste. On peut aussi croiser les joueurs du
+      Muc, mais c'est plus \xAB bas de gamme \xBB pour le Guest's...", notes: 4.0}
+- model: socialnetwork.discotheque
+  pk: 2
+  fields: {name: Le Loft, address: '23 place d''Alger,  72000 Le Mans', localisation: 72,
+    picture: upload/Loft-Factory-Bar.jpeg, speciality: "Ra\xEF", prix: 11, description: "Situ\xE9
+      \xE0 Le Mans, Loft factory Discoth\xE8que, est un lieu incontournable de la
+      nuit \xE0 Le Mans SoonNight vous propose de d\xE9couvrir son ambiance \xE0 travers
+      des reportages photos, de faire votre choix parmi la s\xE9lection d\u2019\xE9v\xE8nement
+      clubbing, \xE9tudiant, ou after work du Loft Factory et de t\xE9l\xE9charger
+      ou imprimer des invitations, pass ou r\xE9duction pour votre prochaine soir\xE9e.",
+    notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 3
+  fields: {name: Le Wiz, address: "7 Rue Saint-Honor\xE9, 72100 Le Mans", localisation: 72,
+    picture: upload/getlstd-property-photo.jpeg, speciality: "Vari\xE9t\xE9s fran\xE7aise",
+    prix: 5, description: "Discoth\xE8que situ\xE9 au pied des sites historiques,
+      une fois pass\xE9e l'entr\xE9e et pay\xE9, vous n'avez plus qu'\xE0 descendre
+      pour acc\xE9der a la salle qui est de petite taille mais avec son charme quand
+      m\xEAme. Soir\xE9e entreprise 11 gars, qui on \xE9tait accept\xE9. La salle
+      peut \xEAtre plus grande en ouvrant une seconde partie, selon le nombre de client.
+      Petite salle s\xE9parerai aussi pour les fumeurs.", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 4
+  fields: {name: La Scala, address: "Les Mardelles, 53810 Chang\xE9", localisation: 53,
+    picture: upload/scala-change.jpeg, speciality: Electro, prix: 11, description: "Apr\xE8s
+      dix-huit mois de fermeture, c'est un tout nouvel \xE9tablissement qui vient
+      de rouvrir ses portes, \xE0 Chang\xE9. \xAB Tout a \xE9t\xE9 restructur\xE9
+      \xBB, poursuit le propri\xE9taire. Le b\xE2timent - un ex-h\xF4tel avec salle
+      de banquet, reconverti en discoth\xE8que il y a vingt-trois ans - a fait l'objet
+      d'une r\xE9novation compl\xE8te (et impressionnante) et d'une extension de 600
+      m2. \xAB On ne pouvait pas r\xE9nover sans fermer. \xBB Les parkings ont, \xE9galement,
+      \xE9t\xE9 refaits.  \xC0 l'int\xE9rieur, tout a \xE9t\xE9 chang\xE9 : nouveau
+      mobilier, nouvelle d\xE9co, mais, surtout, derni\xE8res technologies en mati\xE8re
+      de diffusion du son, des vid\xE9os et des lumi\xE8res. Au total, le patron aura
+      d\xE9pens\xE9 un million d'euros pour faire de la Scala un club unique dans
+      la r\xE9gion ; dont 350 000 \u20AC pour le poste son, lumi\xE8res et vid\xE9o.",
+    notes: 4.0}
+- model: socialnetwork.discotheque
+  pk: 5
+  fields: {name: Le Donjon, address: '24 Quai Jehan Fouquet, 53000 Laval', localisation: 53,
+    picture: upload/9746299-15721614.jpeg, speciality: Rap, prix: 10, description: "\xAB
+      Cette bo\xEEte de nuit, je la vois davantage comme un bar dansant, intime et
+      chaleureux. \xBB Pas de doute, Maxence Cypr\xE8s a les id\xE9es bien arr\xEAt\xE9es.
+      Apr\xE8s avoir travaill\xE9 plusieurs ann\xE9es pour Hubert Pel\xE9, le propri\xE9taire
+      du Donjon, que ce soit au vestiaire puis au bar, cette Lavalloise d\u2019adoption
+      vient de reprendre les r\xEAnes de la discoth\xE8que face \xE0 la Mayenne. Cog\xE9rante
+      avec Vincent Thas de cet antre de la nuit lavalloise, la jeune femme de 29 ans
+      veut faire revivre le centre-ville, notamment la nuit. Au programme : musique
+      g\xE9n\xE9raliste et tenue correcte exig\xE9e.", notes: 3.0}
+- model: socialnetwork.discotheque
+  pk: 6
+  fields: {name: Le Deluxe, address: "10 All\xE9e Louis Vincent, 53000 Laval", localisation: 53,
+    picture: upload/maxresdefault.jpeg, speciality: Electro, prix: 10, description: "Depuis
+      d\xE9cembre 2011, la nouvelle discoth\xE8que Deluxe r\xE9jouit tous les \xAB
+      f\xEAtards \xBB de plus de 25 ans qui aiment \xE0 danser sur des musiques des
+      ann\xE9es 80 (entre autres) avec des voisins qui n'ont pas n\xE9cessairement
+      l'\xE2ge de pouvoir \xEAtre leurs enfants\u2026 Situ\xE9e au \xAB Green Village
+      \xBB, la nouvelle discoth\xE8que de Marc Lerouyer jouxte son bar-restaurant
+      Living Caf\xE9. D'une surface de 370 m\xB2, elle peut accueillir jusqu'\xE0
+      300 noctambules et exige, pour y entrer, une tenue correcte. Depuis le printemps
+      2012, elle organise un th\xE9 dansant le premier dimanche du mois.", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 7
+  fields: {name: "La R\xE9serve", address: '8 rue Saint Nicolas ,44000 Nantes', localisation: 44,
+    picture: upload/o_aKNKCEM.jpeg, speciality: Electro, prix: 10, description: "Incontestablement
+      une des boites les plus sympas de Nantes. La boite est situ\xE9 sur une petite
+      place qui regroupe plusieurs boites qui bougent en plein coeur de Nantes. A
+      fr\xE9quenter plut\xF4t entre amis et le soir pour profiter au maximum de l'ambiance
+      vous y trouverez de tr\xE8s nombreux cocktails et shooter mais aussi une table
+      ronde pour les petits groupes (une dizaine de personnes). L\xE9ger b\xE9mol
+      au niveau du service qui peut \xEAtre lent quand la boite est bond\xE9.", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 8
+  fields: {name: Le Loft, address: '9 rue Franklin ,44000 Nantes', localisation: 44,
+    picture: upload/index.jpeg, speciality: Electro, prix: 10, description: "Un endroit
+      qu'il fait bon de fr\xE9quenter Le Loft est un des endroits les plus fr\xE9quent\xE9s
+      en ce moment, clientele de moins en moins jeune et tres bonne ambiance sont
+      au rendez vous ! Un service nickel et une salle VIP' (l'Etage) r\xE9serv\xE9
+      aux habitu\xE9s, commercants et client\xE8les plus ag\xE9es sont deux tr\xE8s
+      bon points. De bonne soir\xE9es avec des Djs reconnu (Michael Canitrot, KFK,
+      Klement Bonneli, Bastien...) s'entremelent avec des soir\xE9es avec de la musique
+      g\xE9n\xE9raliste. Des consommations \xE0 des prix tres tres abordables sont
+      un point a ne pas n\xE9gliger. Bref Le Loft et l'Etage sont des endroits o\xF9
+      il fait bon d'y etre.", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 9
+  fields: {name: Le Studio 49, address: '8 Place Victor Vigan, 49000 Angers', localisation: 49,
+    picture: upload/sceno.fr.jpeg, speciality: Electro, prix: 9, description: "Le
+      Studio 49 fait un clin d'oeil \xE0 plus d'un titre au Studio 54, discoth\xE8que
+      new-yorkaise mythique des ann\xE9es 1970 o\xF9 se pressait tout le gotha de
+      l'\xE9poque. Si ce n'est pas le gotha angevin qui se bouscule devant l'entr\xE9e,
+      il faut tout de m\xEAme montrer patte blanche et tenue correcte pour pouvoir
+      y p\xE9n\xE9trer ! Au premier abord, la salle principale ne se d\xE9marque pas
+      de la concurrence : souvent surpeupl\xE9e, la piste de danse est rythm\xE9e
+      par les tubes du moment. Le charme de ce club est justement la deuxi\xE8me salle,
+      plus proche d'un bar de nuit que d'une discoth\xE8que et o\xF9 la musique est
+      un peu att\xE9nu\xE9e ; ouverte c\xF4t\xE9 jardin, elle offre un espace o\xF9
+      les fumeurs et les non-fumeurs pourront se c\xF4toyer sans se d\xE9ranger. Les
+      jardins re\xE7oivent de nombreuses animations th\xE9matiques et sont tr\xE8s
+      agr\xE9ables pour s'a\xE9rer de temps \xE0 autre. Le Studio 49 est pris\xE9
+      par les 30-40 ans qui veulent sortir sans \xEAtre bouscul\xE9s, et comme on
+      les comprend ! Il f\xEAte ses 10 ans lors de la rentr\xE9e 2016 et l'on salue
+      la qualit\xE9 de ses animations et de sa communication surdimensionn\xE9e.",
+    notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 10
+  fields: {name: "Le Bol\xE9ro", address: '38 Rue Saint-Laud, 49000 Angers', localisation: 49,
+    picture: upload/5229927-7803832.jpeg, speciality: Electro, prix: 9, description: "Ah
+      le Bol\xE9ro ! Une institution ! Plus qu'une simple bo\xEEte de nuit, \xE9tonnant
+      \xE0 l'ext\xE9rieur comme \xE0 l'int\xE9rieur. Construit en 1902 et d'abord
+      baptis\xE9 L'Alcazar, le lieu est repr\xE9sentatif du style Art nouveau, comme
+      en t\xE9moigne sa fa\xE7ade orn\xE9e de lign\xE9es v\xE9g\xE9tales et de motifs
+      floraux. Pierres de taille, fer forg\xE9 en forme d'ailes de col\xE9opt\xE8res,
+      bow-window et mascarons sculpt\xE9s : un \xE9crin de r\xEAve pour le \" caf\xE9-concert
+      coquin \" qu'il \xE9tait alors. Aujourd'hui, le Bol\xE9ro est la discoth\xE8que
+      historique du centre-ville au d\xE9cor d\xE9licieusement rococo. Il faut bien
+      s\xFBr montrer patte blanche, et la bande-son est plut\xF4t st\xE9r\xE9otyp\xE9e,
+      tr\xE8s disco. Quant \xE0 la piste, elle n'en finit plus d'\xEAtre trop petite
+      ! Mais il y a finalement toujours foule ici, surtout en fin de semaine. Derni\xE8re
+      initiative en date du ma\xEEtre des lieux, Malik, la cr\xE9ation du concept
+      \"club ! \" : des concerts au ton intimiste d'artistes souvent assez renomm\xE9s,
+      organis\xE9s de mani\xE8re plus ou moins r\xE9guli\xE8res. Parmi les derniers
+      invit\xE9s de ces soir\xE9es : Miossec, Mathieu Boogaerts, Peter Von Poehl ou
+      encore Pauline Croze... Attention, nombre de places tr\xE8s limit\xE9 !", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 11
+  fields: {name: Prosper Club, address: '11 Avenue de la Mer, 85160 Saint-Jean-de-Monts',
+    localisation: 85, picture: upload/prosper-club-saint-jean-de-monts.jpeg, speciality: Electro,
+    prix: 11, description: "Ya pas \xE0 dire, c'est la meilleure bo\xEEte de Saint
+      Jean de Monts !!! M\xEAme si l'entr\xE9e qui s'\xE9l\xE8ve \xE0 11 \u20AC environ
+      peu d\xE9courager, il faut savoir prendre le dessus !!! Programmation g\xE9n\xE9raliste
+      de maintenant et d'avant, rien de tel pour tripper !!! C\xF4t\xE9 ambiance,
+      c'est lumi\xE8re tamis\xE9e, gros d\xE9lires, bon accueil, alors courrez-y !!!
+      et un dernier truc, au moment de la fermeture partez en courrant car c'est bagare
+      assurr\xE9e !!! Mais allez-y quand m\xEAme !!! C'est trop bon !!!", notes: 0.0}
+- model: socialnetwork.discotheque
+  pk: 12
+  fields: {name: Le Bahiana, address: '15 avenue de la mer, 85160 ST JEAN DE MONTS',
+    localisation: 85, picture: upload/images.jpeg, speciality: Electro, prix: 10,
+    description: "A la fois bar et discoth\xE8que, le Bahiana s'ouvre sur un cadre
+      exotique d\xE9paysant, o\xF9 se dispersent autour des deux beaux bars centraux
+      de grandes banquettes rouges confortables, de bons cocktails, une super ambiance
+      musicale et de jolies serveuses. Avec ses quelque 20 printemps, il fait figure
+      d'incontournable. A peine \xE0 deux fuseaux horaires de la plage, cette rhumerie
+      est une v\xE9ritable invitation au voyage et \xE0 la f\xEAte sans les inconv\xE9nients
+      du trajet et autres dommages collat\xE9raux comme les 14 heures d'avion et les
+      moustiques... Cocktail en main, laissez-vous p\xE9n\xE9trer par les rythmes
+      musicaux des excellents groupes ou DJ qui se succ\xE8dent chaque semaine en
+      juillet et ao\xFBt. Et dansez jusqu'au petit matin puisque le Bahiana fait aussi
+      discoth\xE8que. L'autre plus du Bahiana, vous le d\xE9couvrirez en parcourant
+      les ardoises avec ces nombreuses mac\xE9rations \xE9tonnantes et d\xE9tonantes
+      : gingembre (attention mesdames, \xE7a va \xEAtre chaud !), fruits de la passion,
+      coco, ananas, mais aussi ses rhums et d'excellents cocktails joliment pr\xE9sent\xE9s...
+      Le Bahiana est aussi pr\xE9sent \xE0 Bali et \xE0 Nantes (place de la Bourse).",
+    notes: 0.0}
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$30000$PA5UCZOs2wqT$Tkz7VCMbIgsyno2lAvsUxA3g28VKml57Nldts4Mwruo=
+    last_login: 2017-03-13 10:46:26.535103+00:00
+    is_superuser: true
+    username: Flambiix
+    first_name: Flambii
+    last_name: XXX
+    email: aa@aa.aa
+    is_staff: true
+    is_active: true
+    date_joined: 2017-02-28 13:38:53+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$30000$LJQpFcro1Zrm$6OA+cYmdVxN2D3g4GLAHyd2ltBYZPRuAC2pvqiKVa+s=
+    last_login: null
+    is_superuser: true
+    username: hactogeek
+    first_name: Tony
+    last_name: ''
+    email: tony.marteau@outlook.com
+    is_staff: true
+    is_active: true
+    date_joined: 2017-02-28 13:39:16+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$30000$0jaYvB4qZ91q$yW+oUsTNa6P1/tWeQ7gRj7c1bN5Jn3aic5ulgMBUC6Q=
+    last_login: 2017-03-09 22:01:25+00:00
+    is_superuser: true
+    username: mehdi66410
+    first_name: Mehdi
+    last_name: ''
+    email: mehdi72320@live.fr
+    is_staff: true
+    is_active: true
+    date_joined: 2017-02-28 13:41:15+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 6
+  fields:
+    password: pbkdf2_sha256$30000$zfmkO1Ue5fNf$dW+CINF01fF6h7ISEiKCEIQaZviamNVWj1G/1I9dY5Q=
+    last_login: 2017-03-13 10:22:43+00:00
+    is_superuser: false
+    username: vtm1
+    first_name: vtm1
+    last_name: Test
+    email: vtm1@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:22:43+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 7
+  fields:
+    password: pbkdf2_sha256$30000$TCKTlopg1M4y$PWid98y9UzGt3OXGa47n5lj83z4tDLB7VwExLapXjOs=
+    last_login: 2017-03-13 10:22:54.747117+00:00
+    is_superuser: false
+    username: vtm2
+    first_name: ''
+    last_name: ''
+    email: vtm2@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:22:54.667314+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 8
+  fields:
+    password: pbkdf2_sha256$30000$okjEIWb0lBbo$sUBxZ4HFciwks/bZskviGPnp8R07gbr9PQ/eSabDwG4=
+    last_login: 2017-03-13 10:23:11+00:00
+    is_superuser: false
+    username: vtm3
+    first_name: vtm3
+    last_name: Test
+    email: vtm3@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:23:11+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 9
+  fields:
+    password: pbkdf2_sha256$30000$m7JalEHNaJmS$y5INXvHp8TFRYfNwyWNqeg0rEw8k6kCF45TyxV3CSD8=
+    last_login: 2017-03-13 10:23:23.542904+00:00
+    is_superuser: false
+    username: vtm4
+    first_name: ''
+    last_name: ''
+    email: vtm4@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:23:23.457412+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 10
+  fields:
+    password: pbkdf2_sha256$30000$2E7osKuYBdLW$JUjcAiqOYDEPQITkgwVXRMhMxfrA5OHLIuBL2jiQtX8=
+    last_login: 2017-03-13 10:23:35+00:00
+    is_superuser: false
+    username: vtm5
+    first_name: vtm5
+    last_name: Test
+    email: vtm5@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:23:35+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 11
+  fields:
+    password: pbkdf2_sha256$30000$adxiVVh0sycF$f3OZeOSw7F+RcnmQRx3zSnqTTY98oMeGuWeT22fJD8A=
+    last_login: 2017-03-13 10:23:47.323057+00:00
+    is_superuser: false
+    username: vtm6
+    first_name: ''
+    last_name: ''
+    email: vtm6@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:23:47.250500+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 12
+  fields:
+    password: pbkdf2_sha256$30000$9Huu6RuLOdQo$HN44sDJ+SsxvWlGSHROEXdcpp/8jjLLS9QXuteVpdPA=
+    last_login: 2017-03-13 10:24:02+00:00
+    is_superuser: false
+    username: vtm7
+    first_name: vtm7
+    last_name: Test
+    email: vtm7@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:24:02+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 13
+  fields:
+    password: pbkdf2_sha256$30000$nT6x0qKioEEP$fTllIK3wGKD62M5HmbyCGdhvjLDPdwV/iOKifJGVeG0=
+    last_login: 2017-03-13 10:24:12.576194+00:00
+    is_superuser: false
+    username: vtm8
+    first_name: ''
+    last_name: ''
+    email: vtm8@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:24:12.504167+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 14
+  fields:
+    password: pbkdf2_sha256$30000$1P2qESKDcxLj$dp/qe3BGOitoPLOgEDmq4Sk97n8cQ/ipudkL+0Iy5Wo=
+    last_login: 2017-03-13 10:24:24+00:00
+    is_superuser: false
+    username: vtm9
+    first_name: vtm9
+    last_name: Test
+    email: vtm9@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:24:24+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 15
+  fields:
+    password: pbkdf2_sha256$30000$6IptVdUeXXfR$LdEq9mBJ12aa6myMDyyMg94zO1iC89BQdOxsuqnPjBk=
+    last_login: 2017-03-13 10:24:35.098028+00:00
+    is_superuser: false
+    username: vtm10
+    first_name: ''
+    last_name: ''
+    email: vtm10@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:24:35.019699+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 16
+  fields:
+    password: pbkdf2_sha256$30000$J3Zm6otAmouy$K0Tzj4Pg8S8Mv8en/SGs9rqTFi6tEmMe/xPAoQ3qA6w=
+    last_login: 2017-03-13 10:29:12+00:00
+    is_superuser: false
+    username: vtm11
+    first_name: vtm11
+    last_name: Test
+    email: vtm11@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:29:12+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 17
+  fields:
+    password: pbkdf2_sha256$30000$8S2K0y5ILopd$KGiCWg1MNHmTTK4Q7tqPm9MOedOcJ2HRdG5b5XHCCWY=
+    last_login: 2017-03-13 10:29:25.320848+00:00
+    is_superuser: false
+    username: vtm12
+    first_name: ''
+    last_name: ''
+    email: vtm12@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:29:25.240203+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 18
+  fields:
+    password: pbkdf2_sha256$30000$qO5iHEzIFnGm$ABVWHncem62ZWeAcu8t2RflUZYN+v0eNbkADLCiNdZ4=
+    last_login: 2017-03-13 10:29:37+00:00
+    is_superuser: false
+    username: vtm13
+    first_name: vtm13
+    last_name: Test
+    email: vtm13@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:29:37+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 19
+  fields:
+    password: pbkdf2_sha256$30000$ue5YGh2s9tIP$OWo9SuFIxdmJOT8BQtS+Bg+He5XDTLdxVFMoatWUiYY=
+    last_login: 2017-03-13 10:29:47.720486+00:00
+    is_superuser: false
+    username: vtm14
+    first_name: ''
+    last_name: ''
+    email: vtm14@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:29:47.645119+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 20
+  fields:
+    password: pbkdf2_sha256$30000$bvV1ZuExxJtg$mJZngVwwYlCNzDFODzgLYjjufqQuoqrsGTAW5Sn9ZdE=
+    last_login: 2017-03-13 10:29:59+00:00
+    is_superuser: false
+    username: vtm15
+    first_name: vtm15
+    last_name: Test
+    email: vtm15@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:29:59+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 21
+  fields:
+    password: pbkdf2_sha256$30000$cMCu3iDa8q9v$tRXSEMtyLUiJqtD9o8eorgHU3aA08wpfuvVaL6+NYM4=
+    last_login: 2017-03-13 10:30:11.464259+00:00
+    is_superuser: false
+    username: vtm16
+    first_name: ''
+    last_name: ''
+    email: vtm16@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:30:11.383615+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 22
+  fields:
+    password: pbkdf2_sha256$30000$v2C2OxPRZyRS$S/SG4GwsCp02cWwBy6ujtmH67CRuJd3Ek7TW1ooPqqs=
+    last_login: 2017-03-13 10:30:24+00:00
+    is_superuser: false
+    username: vtm17
+    first_name: vtm17
+    last_name: Test
+    email: vtm17@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:30:24+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 23
+  fields:
+    password: pbkdf2_sha256$30000$F98ipHO8XvtX$22dRJHEi6TJnNIZkbMZXO8dBOo54+IO5XxB/j5dCg6A=
+    last_login: 2017-03-13 10:30:35.793463+00:00
+    is_superuser: false
+    username: vtm18
+    first_name: ''
+    last_name: ''
+    email: vtm18@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:30:35.716258+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 24
+  fields:
+    password: pbkdf2_sha256$30000$g9szNSCqYT3F$Hym6wQXmXkFQ90NqI0NBNy7edPuCjyWVMcBsmpG4DEg=
+    last_login: 2017-03-13 10:30:44+00:00
+    is_superuser: false
+    username: vtm19
+    first_name: vtm19
+    last_name: Test
+    email: vtm19@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:30:44+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 25
+  fields:
+    password: pbkdf2_sha256$30000$go5Kvci7iXlq$WtkzPUVKxnC/RrIvBcSa/mW0ALBJIULCLeLHyM0DDKg=
+    last_login: 2017-03-13 10:30:54.622137+00:00
+    is_superuser: false
+    username: vtm20
+    first_name: ''
+    last_name: ''
+    email: vtm20@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:30:54.543293+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 26
+  fields:
+    password: pbkdf2_sha256$30000$hTRDDmLVqg7g$L4JU2oG56uZjK2198AiSV64eBotOWmqGkVXAkiI/8JM=
+    last_login: 2017-03-13 10:31:09+00:00
+    is_superuser: false
+    username: vtm21
+    first_name: vtm21
+    last_name: Test
+    email: vtm21@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:31:09+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 27
+  fields:
+    password: pbkdf2_sha256$30000$tob4YcInXvJW$kcWtTCZrbkZ6bUPpf30VH4P1wP6airsB4YuKimVBsOs=
+    last_login: 2017-03-13 10:31:21.135076+00:00
+    is_superuser: false
+    username: vtm22
+    first_name: ''
+    last_name: ''
+    email: vtm22@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:31:21.055245+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 28
+  fields:
+    password: pbkdf2_sha256$30000$59gLXU63mpPR$xz93Py2e2SZ9u39XTvUYPEk1KcbUlfouDpJZDqAXir0=
+    last_login: 2017-03-13 10:31:31+00:00
+    is_superuser: false
+    username: vtm23
+    first_name: vtm23
+    last_name: Test
+    email: vtm23@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:31:31+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 29
+  fields:
+    password: pbkdf2_sha256$30000$BINvTmrjEKlK$Fxvpe4Y3+JRaZNgZNLSi2OT4nfRcsAFuJm+vmsKhfyo=
+    last_login: 2017-03-13 10:31:50.449691+00:00
+    is_superuser: false
+    username: vtm24
+    first_name: ''
+    last_name: ''
+    email: vtm24@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:31:50.369968+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 30
+  fields:
+    password: pbkdf2_sha256$30000$bvTO444smuRb$S44buXZ4HD0PmJG98DvlkVXXc0LTFanUQobV8DHpw/4=
+    last_login: 2017-03-13 10:32:14+00:00
+    is_superuser: false
+    username: vtm25
+    first_name: vtm25
+    last_name: Test
+    email: vtm25@vtm.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-13 10:32:14+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 31
+  fields:
+    password: pbkdf2_sha256$30000$MFtGXBZssmwr$qIjVhGF1OVKE9KACe9qs0W/VkGgiKn1ng9CjsI+Tqak=
+    last_login: 2017-03-13 10:50:42.042325+00:00
+    is_superuser: true
+    username: vjousse
+    first_name: Vi
+    last_name: Jousse
+    email: vjousse@vtm.com
+    is_staff: true
+    is_active: true
+    date_joined: 2017-03-13 10:46:17+00:00
+    groups: []
+    user_permissions: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
+      64, 65, 66, 73, 74, 75, 70, 71, 72, 67, 68, 69, 76, 77, 78, 79, 80, 81, 19,
+      20, 21, 1, 2, 3, 28, 29, 30, 7, 8, 9, 31, 32, 33, 40, 41, 42, 37, 38, 39, 13,
+      14, 15, 43, 44, 45, 16, 17, 18, 10, 11, 12, 46, 47, 48, 22, 23, 24, 25, 26,
+      27, 34, 35, 36, 4, 5, 6]
+
+- model: socialnetwork.presentdisco
+  pk: 1
+  fields: {id_disco: 2, id_person: 17}
+- model: socialnetwork.presentdisco
+  pk: 2
+  fields: {id_disco: 4, id_person: 19}
+- model: socialnetwork.presentdisco
+  pk: 3
+  fields: {id_disco: 6, id_person: 21}
+- model: socialnetwork.presentdisco
+  pk: 4
+  fields: {id_disco: 10, id_person: 25}
+- model: socialnetwork.presentrestau
+  pk: 1
+  fields: {id_restau: 2, id_person: 7}
+- model: socialnetwork.presentrestau
+  pk: 2
+  fields: {id_restau: 4, id_person: 9}
+- model: socialnetwork.presentrestau
+  pk: 3
+  fields: {id_restau: 6, id_person: 11}
+- model: socialnetwork.searchinformationuser
+  pk: 1
+  fields: {user: 31, genreF: true, genreM: false, localisation: 72, ageMin: 18, ageMax: 100}
+- model: socialnetwork.presentbar
+  pk: 1
+  fields: {id_bar: 1, id_person: 6}
+- model: socialnetwork.presentbar
+  pk: 2
+  fields: {id_bar: 6, id_person: 21}
+- model: socialnetwork.presentbar
+  pk: 3
+  fields: {id_bar: 7, id_person: 24}
+- model: socialnetwork.informationuser
+  pk: 1
+  fields: {user: 6, genre: H, localisation: 72, age: 20, description: vtm1 test test
+      test test, profession: prof}
+- model: socialnetwork.informationuser
+  pk: 2
+  fields: {user: 7, genre: H, localisation: 72, age: 30, description: vtm2 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 3
+  fields: {user: 8, genre: H, localisation: 72, age: 50, description: vtm3 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 4
+  fields: {user: 9, genre: F, localisation: 72, age: 20, description: vtm4 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 5
+  fields: {user: 10, genre: F, localisation: 72, age: 40, description: vtm5 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 6
+  fields: {user: 11, genre: H, localisation: 53, age: 20, description: vtm6 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 7
+  fields: {user: 12, genre: H, localisation: 53, age: 40, description: vtm7 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 8
+  fields: {user: 13, genre: F, localisation: 53, age: 30, description: vtm8 test test
+      test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 9
+  fields: {user: 14, genre: F, localisation: 53, age: 20, description: vtm9 test test
+      test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 10
+  fields: {user: 15, genre: F, localisation: 53, age: 60, description: vtm10 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 11
+  fields: {user: 16, genre: H, localisation: 49, age: 20, description: vtm11 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 12
+  fields: {user: 17, genre: H, localisation: 49, age: 30, description: vtm12 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 13
+  fields: {user: 18, genre: H, localisation: 49, age: 40, description: vtm13 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 14
+  fields: {user: 19, genre: F, localisation: 49, age: 20, description: vtm14 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 15
+  fields: {user: 20, genre: F, localisation: 49, age: 30, description: vtm15 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 16
+  fields: {user: 21, genre: H, localisation: 44, age: 20, description: vtm16 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 17
+  fields: {user: 22, genre: H, localisation: 44, age: 40, description: vtm17 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 18
+  fields: {user: 23, genre: F, localisation: 44, age: 20, description: vtm18 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 19
+  fields: {user: 24, genre: F, localisation: 44, age: 30, description: vtm19 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 20
+  fields: {user: 25, genre: F, localisation: 44, age: 50, description: vtm20 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 21
+  fields: {user: 26, genre: H, localisation: 85, age: 20, description: vtm21 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 22
+  fields: {user: 27, genre: H, localisation: 85, age: 30, description: vtm22 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 23
+  fields: {user: 28, genre: F, localisation: 85, age: 30, description: vtm23 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 24
+  fields: {user: 29, genre: F, localisation: 85, age: 20, description: vtm24 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 25
+  fields: {user: 30, genre: F, localisation: 85, age: 40, description: vtm25 test
+      test test test, profession: Prof}
+- model: socialnetwork.informationuser
+  pk: 26
+  fields: {user: 31, genre: H, localisation: 72, age: 30, description: Best prof ever
+      , profession: Prof}
+- model: socialnetwork.chat
+  pk: 1
+  fields: {created: ! '2017-03-13 10:50:30.099482+00:00', emetteur: 9, recepteur: 31,
+    message: 'Coucou toi, tu veux parler!!?'}
+- model: socialnetwork.affinite
+  pk: 1
+  fields: {ajouteur: 9, ajoute: 31, ajouteurConfirm: true, ajouteConfirm: true}
+- model: socialnetwork.affinite
+  pk: 2
+  fields: {ajouteur: 14, ajoute: 31, ajouteurConfirm: true, ajouteConfirm: true}
+- model: socialnetwork.affinite
+  pk: 3
+  fields: {ajouteur: 19, ajoute: 31, ajouteurConfirm: true, ajouteConfirm: true}

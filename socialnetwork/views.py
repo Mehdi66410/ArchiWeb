@@ -23,6 +23,7 @@ from .forms import informationUserForm, loginForm, mdpForm, updateProfilForm, up
 
 #variable globale
 localisation_=72
+actual_user_renc = None
 
 @login_required
 def affinite(request):
@@ -54,6 +55,7 @@ def affinite_suppr(request):
 		messages.add_message(request, messages.WARNING, "Affinité supprimée..")
 	return redirect(affinite)
 
+#Fonction qui renvoit la liste des bar pour une certaine localisation
 @login_required
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
@@ -63,6 +65,7 @@ def bar(request):
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
+#Fonction qui modifie la localisation et qui renvoit sur la page précédente
 @csrf_exempt
 def changementloc(request):
 	if request.method == 'POST':
@@ -135,6 +138,7 @@ def deconnexion(request):
 		else:
 			return render(request, 'socialnetwork/menu.html')
 
+#Fonction renvoyant la liste des discothèques en fonction de la localisation
 @login_required
 def discotheque(request):
 	Discotheques = Discotheque.objects.filter(localisation=localisation_)
@@ -224,6 +228,8 @@ def inscription(request):
 		form = registerForm()
 	return render(request, 'socialnetwork/index.html', {'form': form})
 
+#Fonction qui met j'aime sur une personne, on vérifie au préalable si l'utilisateur a déjà mis j'aime à cette personne, sinon on met j'aime
+# et on renvoit les informations (genre, age, profession, etc..) sur la prochaine personne qu'on va afficher
 @csrf_exempt
 def jaime(request):
 	global actual_user_renc
@@ -298,8 +304,8 @@ def jaime(request):
 		return HttpResponse(json.dumps(information_new))
 	return HttpResponse("Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard.")
 
-
-actual_user_renc = None
+#Fonction qui met j'aime sur une personne, on vérifie au préalable si l'utilisateur a déjà mis j'aime pas à cette personne, sinon on met j'aime
+# pas et on renvoit les informations (genre, age, profession, etc..) sur la prochaine personne qu'on va afficher
 @csrf_exempt
 def jaimepas(request):
 	global actual_user_renc
@@ -412,6 +418,7 @@ def page_not_found(request):
     response.status_code = 404
     return response
 
+# On récupère dans la table presentBar la liste des personnes allant dans le bar où on a cliquer sur "Afficher la liste des personnes présentes"
 @csrf_exempt
 @login_required
 def personne_present_bar(request):
@@ -426,6 +433,7 @@ def personne_present_bar(request):
 		html+=str(perso) + " "
 	return HttpResponse(html)
 
+# On récupère dans la table presentDisco la liste des personnes allant dans la discothèque où on a cliquer sur "Afficher la liste des personnes présentes"
 @csrf_exempt
 @login_required
 def personne_present_disco(request):
@@ -440,6 +448,7 @@ def personne_present_disco(request):
 		html+=str(perso) + " "
 	return HttpResponse(html)
 
+# On récupère dans la table presentRestau la liste des personnes allant dans le restaurant où on a cliquer sur "Afficher la liste des personnes présentes"
 @csrf_exempt
 @login_required
 def personne_present_restau(request):
@@ -454,6 +463,7 @@ def personne_present_restau(request):
 		html+=str(perso) + " "
 	return HttpResponse(html)
 
+# Fonction qui permet d'ajouter dans la table presentBar l'utilisateur qui aura choisit d'aller dans un bar
 @csrf_exempt
 def present(request):
 	if request.method == 'POST':
@@ -469,6 +479,7 @@ def present(request):
 		present_count = presentBar.objects.filter(id_bar=bar_present).count()
 		return HttpResponse(present_count)
 
+# Fonction qui permet d'ajouter dans la table presentDisco l'utilisateur qui aura choisit d'aller dans une discothèque
 @csrf_exempt
 def presentdisco(request):
 	if request.method == 'POST':
@@ -484,6 +495,7 @@ def presentdisco(request):
 		present_count = presentDisco.objects.filter(id_disco=disco_present).count()
 		return HttpResponse(present_count)
 
+# Fonction qui permet d'ajouter dans la table presentRestau l'utilisateur qui aura choisit d'aller dans un restaurant
 @csrf_exempt
 def presentrestau(request):
 	if request.method == 'POST':
@@ -657,6 +669,7 @@ def rencontre(request):
 
 	return render(request, 'socialnetwork/rencontre.html', {'formInformationUser': formInformationUser, 'formSearchInformationUser': formSearchInformationUser, 'genrePerson': genreUser, 'genreSearchM': genreSearchM,'genreSearchF': genreSearchF, 'swap': swap, 'userInformation': userInformation, 'userSelect': userSelect, 'userPicture': userPicture })
 
+#Fonction renvoyant la liste des restaurants en fonction de la localisation
 @login_required
 def restaurant(request):
 	Restaurants = Restaurant.objects.filter(localisation=localisation_)
@@ -665,6 +678,7 @@ def restaurant(request):
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/restaurant.html',{'Restaurants': Restaurants,'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
+# Fonction qui ajoute dans la table starBar la note que l'utilisateur aura mit pour un bar, si il y a déjà une note présente de sa part dans la table, on met la valeur à jour
 @csrf_exempt
 @login_required
 def stars(request):
@@ -689,6 +703,7 @@ def stars(request):
 	bar.save()
 	return HttpResponse(moy)
 
+# Fonction qui ajoute dans la table starDiscotheque la note que l'utilisateur aura mit pour une discothèque, si il y a déjà une note présente de sa part dans la table, on met la valeur à jour
 @csrf_exempt
 @login_required
 def starsDisco(request):
@@ -713,6 +728,7 @@ def starsDisco(request):
 	discotheque.save()
 	return HttpResponse(moy)
 
+# Fonction qui ajoute dans la table starRestaurant la note que l'utilisateur aura mit pour un restaurant, si il y a déjà une note présente de sa part dans la table, on met la valeur à jour
 @csrf_exempt
 @login_required
 def starsRestau(request):

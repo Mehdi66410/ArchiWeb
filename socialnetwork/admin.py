@@ -1,18 +1,7 @@
 from django.contrib import admin
-#test
+
 # Register your models here.
-
-from .models import Affinite
-from .models import PictureUser
-from .models import Bar
-from .models import Restaurant,Discotheque,starRestaurant,starDiscotheque,presentRestau,presentDisco
-from .models import presentBar
-from .models import InformationUser
-from .models import SearchInformationUser
-from .models import starBar
-from .models import Chat
-
-
+from .models import Affinite, Bar, Chat, Discotheque, InformationUser, PictureUser, presentBar, presentDisco, presentRestau, Restaurant, SearchInformationUser, starBar, starDiscotheque, starRestaurant
 
 admin.site.register(Affinite)
 admin.site.register(PictureUser)

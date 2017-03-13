@@ -16,13 +16,13 @@
 			<!-- bouton retour affinités et bouton pour rafraichir la page -->
 			<div class="col-xs-offset-1 col-xs-10">
 				<div class="text-center row">
-					<a href="{% url 'affinite' %}" class="btn btn-lg btn_dark col-xs-offset-2 col-xs-3">
+					<a href="{% url 'affinite' %}" class="btn btn-lg btn_dark col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-10">
 						<span class="glyphicon glyphicon-fire"></span>Retour affinités</span>
 					</a>
 					<form action="chat" class="form-horizontal" role="form" method="post">
                     	{% csrf_token %}
                         <input type="hidden" name="id_affinite" value="{{affinite_chat.id}}"/>
-                        {% bootstrap_button "Rafraichir" button_type="submit" button_class="btn btn-lg btn_dark col-xs-offset-2 col-xs-3" name='refresh' icon='glyphicon glyphicon-refresh' %}
+                        {% bootstrap_button "Rafraichir" button_type="submit" button_class="btn btn-lg btn_dark col-sm-offset-2 col-sm-4 col-xs-offset-1 col-xs-10" name='refresh' icon='glyphicon glyphicon-refresh' %}
 					</form>
 				</div>
 			</div>

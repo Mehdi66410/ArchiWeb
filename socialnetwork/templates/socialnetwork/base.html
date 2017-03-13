@@ -34,6 +34,9 @@
         {% bootstrap_messages %}
 
         <div class="container_principal">
+            <div id="loader">
+                <span class="loader loader-quart"></span>
+            </div>
             {% block content %}
                 <!-- contenu de la page en fonction de la page -->
             {% endblock content %}
@@ -56,4 +59,9 @@
             </div>
         </footer>
     </body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $("#loader").fadeOut(1000);
+        })
+    </script>
 </html>

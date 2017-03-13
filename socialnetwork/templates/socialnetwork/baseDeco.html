@@ -67,38 +67,37 @@
     </header>
 
     <!-- Modal pour le mot de passe oublié -->
-    <div class="container">
-        <div class="modal fade" id="mdp_oublie" tabindex="-1" role="dialog" aria-labelledby="mdpLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="panel panel_header">
-                    <div class="panel-heading">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Besoin de réinitialiser votre mot de passe?</h4>
-                        <h5>Nous vous enverrons un mail pour connaître votre nouveau mot de passe..</h5>
-                    </div>
-                    <!-- formulaire du mot de passe oublié pseudo adresse email pour envoie par mail du nouveau mdp -->
-                    <form class="form" role="form" method="post" action="mdp_oublie" accept-charset="UTF-8" id="login-nav">
-                        {% csrf_token %}
-                        <div class="modal_body">
-                            <div class="row">
-                                <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
-                                    {% bootstrap_field formMdp.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
-                                    {% bootstrap_field formMdp.email placeholder='Adresse email' addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' show_label=False %}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel_footer">
-                            {% bootstrap_button "Effacer" button_type="reset" button_class="btn btn_red" %}
-                            {% bootstrap_button "Valider" button_type="submit" button_class="btn btn_green"%}
-                        </div>
-                    </form>
+    <div class="modal fade" id="mdp_oublie" tabindex="-1" role="dialog" aria-labelledby="mdpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="panel panel_header">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Besoin de réinitialiser votre mot de passe?</h4>
+                    <h5>Nous vous enverrons un mail pour connaître votre nouveau mot de passe..</h5>
                 </div>
+                <!-- formulaire du mot de passe oublié pseudo adresse email pour envoie par mail du nouveau mdp -->
+                <form class="form" role="form" method="post" action="mdp_oublie" accept-charset="UTF-8" id="login-nav">
+                    {% csrf_token %}
+                    <div class="modal_body">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                                {% bootstrap_field formMdp.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                                {% bootstrap_field formMdp.email placeholder='Adresse email' addon_before='<span class="glyphicon glyphicon-envelope"></span>' addon_before_class='input-group-addon success' show_label=False %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_footer">
+                        {% bootstrap_button "Effacer" button_type="reset" button_class="btn btn_red" %}
+                        {% bootstrap_button "Valider" button_type="submit" button_class="btn btn_green"%}
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 {% endblock header %}
+
 

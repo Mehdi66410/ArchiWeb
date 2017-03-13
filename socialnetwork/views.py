@@ -558,33 +558,6 @@ def rencontre(request):
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
-		if"plait" in request.POST or "plaitPas" in request.POST:
-			try:
-				# On cherche si une personne a déjà swaper avec notre utilisateur
-				affinite = Affinite.objects.filter(Q(ajouteur=utilisateur) | Q(ajoute=utilisateur)).filter(Q(ajouteur=request.POST['ajoute']) | Q(ajoute=request.POST['ajoute'])).get()
-				messages.add_message(request, messages.ERROR, "Try")
-				if "plait" in request.POST:
-					if affinite.ajouteur == utilisateur:
-						affinite.ajouteurConfirm = True
-					if affinite.ajoute == utilisateur:
-						affinite.ajouteConfirm = True
-					affinite.save()
-				if("plaitPas" in request.POST):
-					if affinite.ajouteur == utilisateur:
-						affinite.ajouteurConfirm = False
-					if affinite.ajoute == utilisateur:
-						affinite.ajouteConfirm = False
-					affinite.save()
-
-			except Affinite.DoesNotExist:
-				messages.add_message(request, messages.ERROR, "Execpt")
-
-				if "plait" in request.POST:
-					affinite = Affinite(ajouteur=utilisateur, ajoute=User.objects.get(pk=request.POST['ajoute']), ajouteurConfirm=True, ajouteConfirm=False)
-				if "plaitPas" in request.POST:
-					affinite = Affinite(ajouteur=utilisateur, ajoute=User.objects.get(pk=request.POST['ajoute']), ajouteurConfirm=False, ajouteConfirm=False)
-				affinite.save()
-
     # On essaye de récupérer les informations de l'utilisateur pour compléter les formulaires
 	try:
 		informationUser = InformationUser.objects.get(user=utilisateur)
@@ -606,7 +579,7 @@ def rencontre(request):
 		swap = False
 		formSearchInformationUser = searchInformationUserForm()
 	
-        # Si toutes les informations de l'utilisateur sont complétés, on lui propose le swap
+	# Si toutes les informations de l'utilisateur sont complétés, on lui propose le swap
 	if swap:
 		#messages.add_message(request, messages.SUCCESS,searchInformationUser.genreF)
 		
@@ -635,16 +608,16 @@ def rencontre(request):
 		except InformationUser.DoesNotExist:
 			listeUserSelect = False
 
-		messages.add_message(request, messages.SUCCESS,listeUserAffinite)
-		messages.add_message(request, messages.SUCCESS,listeUserSelect)
-
 		# On exclue les utilisateurs ayant déja eu une affinité avec
 		if len(listeUserAffinite) >= 0:
 			for affinite in listeUserAffinite:
 				listeUserSelect = listeUserSelect.exclude(user=affinite)
 			
 			# On récupère la première affinité renvoyée
-			userSelect = listeUserSelect.first()
+			try:
+				userSelect = listeUserSelect.first()
+			except:
+				userSelect = False
 		else:
 			userSelect = False
 

@@ -25,15 +25,13 @@ from .forms import informationUserForm, loginForm, mdpForm, updateProfilForm, up
 localisation_=72
 actual_user_renc = None
 
+# Vue gérant le chargement des affinités
+# recupere l'ensemble des affinités où l'utilisateur est l'ajouteur ou l'ajouté et où les confirmations sont à true
 @login_required
 def affinite(request):
-	# Récupération de l'utilisateur
 	utilisateur = User.objects.get(pk=request.user.id)
-	# Récupération des affinités où l'utilisateur est l'ajouteur ou l'ajouté et où les confirmation sont a true
 	affinite = Affinite.objects.filter(Q(ajouteur=utilisateur, ajouteurConfirm=True, ajouteConfirm=True) | Q(ajoute=utilisateur, ajouteurConfirm=True, ajouteConfirm=True))
-	# Récupération des informations des utilisateurs
 	userInformation = InformationUser.objects.all()
-	# Récupération des photos de profil des utilisateurs
 	userPicture = PictureUser.objects.all()
 	try:
 		# Vérification que le nombre d'affinité est supérieur à 0
@@ -44,6 +42,9 @@ def affinite(request):
 		messages.add_message(request, messages.WARNING, "N'hésitez pas à aller dans la partie rencontre pour liker des profils")
 	return render(request, 'socialnetwork/affinite.html', {'affinite': affinite, 'userInformation': userInformation,'userPicture':userPicture})
 
+# Vue gérant la suppresion d'une affinité
+# redirection vers affinite
+# recupere l'id de l'affinite et met à false les champs de confirmation de l'objet pour enlever l'affinité
 @csrf_exempt
 @login_required
 def affinite_suppr(request):
@@ -73,6 +74,9 @@ def changementloc(request):
 		localisation_ = request.POST['localisation']
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+# Vue gérant le chargement des informations utiles au chat
+# Si non recuperation via formulaire redirection vers affinite
+# recupere l'ensemble des messages répondant aux critères et envoie des informations
 @login_required
 def chat(request):
 	if "chat_open" in request.POST or "refresh" in request.POST:
@@ -85,6 +89,9 @@ def chat(request):
 		return render(request, "socialnetwork/chat.html", {'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
 	return redirect(affinite)
 
+# Vue gérant l'envoi des messages dans le chat et leur enregistrement
+# Si non recuperation via formulaire redirection vers affinite
+# recupere le message saisi dans le champ input et creer un nouvel element chat
 @login_required
 def chat_post(request):
 	if request.POST:
@@ -121,6 +128,7 @@ def connexion(request):
 	formRegister = registerForm()
 	return render(request, 'socialnetwork/index.html', {'formRegister': formRegister, 'formLogin': formLogin})
 
+# Si echec du csrf
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
 
@@ -194,6 +202,7 @@ def editerProfil(request):
 
 	return render(request, 'socialnetwork/editerProfil.html', {'formUploadPicture': formUploadPicture, 'formEditProfil': formUpdateProfil, 'lienPicture': lienPicture.picture})
 
+# Vue gérant l'index en fonction de si oui ou non le user est authentifié
 def index(request):
 	if not request.user.is_authenticated:
 		formRegister = registerForm()
@@ -380,11 +389,17 @@ def jaimepas(request):
 		return HttpResponse(json.dumps(information_new))
 	return HttpResponse("Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard.")
 
+# Vue pour le menu
 @login_required
 def menu(request):
 	form = registerForm(request.POST)
 	return render(request, 'socialnetwork/menu.html',{'form': form})
 
+# Vue gérant le mot de passe oublié
+# redirection vers index
+# Recuperation des valeurs du user pour verifié que les informations sont valides
+# Generer d'un nouveau mot de passe et envoie d'un mail à l'adresse du user(terminal)
+# Enregistrement nouveau mot de passe
 def mdp_oublie(request):
 	if request.method == 'POST':
 		formMdp = mdpForm(request.POST)
@@ -396,11 +411,13 @@ def mdp_oublie(request):
 			except User.DoesNotExist:
 				messages.add_message(request, messages.ERROR, "Erreur de nom d'utilisateur ou de l'adresse email")
 				return redirect(index)
+			# Generer nouveau mot de passe
 			nouveaumotdepasse=''
 			for i in range(10):
 				nouveaumotdepasse += random.choice("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 			user.set_password(nouveaumotdepasse)
 			user.save()
+			# Envoie du mail indiquant que le mot de passe à changé
 			send_mail(
     			'Vis Ton Meeting: changement du mot de passe',
     			'A la suite de votre demande, votre mot de passe a été changé. Utilisez désormais '+ nouveaumotdepasse +' À bientôt sur VTM !',
@@ -413,6 +430,7 @@ def mdp_oublie(request):
 	messages.success(request, "Votre nouveau mot de passe vous a correctement été envoyé. Vérifiez votre adresse mail!")
 	return redirect(index)
 
+# Vue gérant la page 404
 def page_not_found(request):
     response = render_to_response('404.html',context_instance=RequestContext(request))
     response.status_code = 404

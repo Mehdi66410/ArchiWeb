@@ -3,7 +3,7 @@
  * pour réaliser le traitement, ensuite on renvoit les informations sur la prochaine personne présenté
  */
 function like(id_perso){
-    $.post('http://localhost:8000/index/jaime',
+    $.post('http://localhost:8000/jaime',
     {
         id_perso : id_perso
     }, function(data) {
@@ -27,7 +27,7 @@ function like(id_perso){
  * pour réaliser le traitement, ensuite on renvoit les informations sur la prochaine personne présenté
  */
 function dislike(id_perso){
-	$.post('http://localhost:8000/index/jaimepas',
+	$.post('http://localhost:8000/jaimepas',
     {
         id_perso : id_perso
     }, function(data) {

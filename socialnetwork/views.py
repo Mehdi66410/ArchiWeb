@@ -269,7 +269,7 @@ def jaime(request):
 		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='H').all()
 	else:
 		listeUserSelect = False
-# On exclue les utilisateurs ayant déja eu une affinité avec
+	# On exclue les utilisateurs ayant déja eu une affinité avec
 	if len(listeUserAffinite) > 0:
 
 		for affinite in listeUserAffinite:
@@ -345,7 +345,7 @@ def jaimepas(request):
 		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='H').all()
 	else:
 		listeUserSelect = False
-# On exclue les utilisateurs ayant déja eu une affinité avec
+	# On exclue les utilisateurs ayant déja eu une affinité avec
 	if len(listeUserAffinite) > 0:
 
 		for affinite in listeUserAffinite:

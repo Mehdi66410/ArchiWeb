@@ -2,7 +2,7 @@
 * Cette fonction utiliser afin de pouvoir récupérer la liste des personne présente en fonction de l'id_bar
  */
 function present_person(id_bar){
-    $.post('http://localhost:8000/index/personne_present_bar',
+    $.post('http://localhost:8000/personne_present_bar',
     {
         id_bar: id_bar,
     }, function(data) {
@@ -13,7 +13,7 @@ function present_person(id_bar){
  * Cette fonction permet de remplir la table presentBar en ajoutant l'id du bar et l'id de la personne connecté
  */
 function present(id_bar){
-  $.post('http://localhost:8000/index/present',
+  $.post('http://localhost:8000/present',
     {
         id_bar: id_bar,
     });

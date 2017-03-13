@@ -174,7 +174,7 @@
                                 </span>
                             </p>
                             <p class="description_comment">
-                                <span class="glyphicon glyphicon-comment" "></span><span id="desc-{{userInformation.id}}">
+                                <span class="glyphicon glyphicon-comment"></span><span id="desc-{{userInformation.id}}">
                                 {% if userSelect.profession %}
                                     {{ userSelect.description }}
                                 {% else %}
@@ -211,7 +211,7 @@
                     <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
                 </div>
                 <div class="modal-content">
-                    <img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
+                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
                 </div>
             </div>
         </div>

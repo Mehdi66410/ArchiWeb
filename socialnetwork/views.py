@@ -74,7 +74,7 @@ def chat(request):
 		if affiniteInformation == utilisateur:
 			affiniteInformation = User.objects.get(pk=affinite_chat.ajoute.id)
 		return render(request, "socialnetwork/chat.html", {'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
-	return HttpResponse("Doit passer par le menu affinité pour accéder à ce chat")
+	return redirect(affinite)
 
 @login_required
 def chat_post(request):
@@ -90,7 +90,7 @@ def chat_post(request):
 			c = Chat(emetteur=utilisateur,recepteur=affiniteInformation, message=msg)
 			c.save()
 		return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
-	return HttpResponse("Doit passer par le menu affinité pour accéder à ce chat")
+	return redirect(affinite)
 
 def connexion(request):
 	if request.method == 'POST':

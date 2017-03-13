@@ -1,4 +1,7 @@
-// permet de changer les informations en fonction de la localisation
+/* 
+* Cette fonction permet de renvoyer l'id_localisation a la vue changementloc afin de pouvoir modifier la variable localisation
+* 
+*/
 function local(id_localisation){
     $.post('http://localhost:8000/index/sortie/changementloc',
     {

@@ -1,3 +1,7 @@
+/**
+ * Cette fonction permet de pouvoir mettre j'aime à une personne, on récupère l'id de la personne sur laquelle on veut mettre j'aime et on appelle la vue jaime
+ * pour réaliser le traitement, ensuite on renvoit les informations sur la prochaine personne présenté
+ */
 function like(id_perso){
     $.post('http://localhost:8000/index/jaime',
     {
@@ -18,7 +22,10 @@ function like(id_perso){
         }
     });
 }
-
+/**
+ * Cette fonction permet de pouvoir mettre j'aime pas à une personne, on récupère l'id de la personne sur laquelle on veut mettre j'aime pas et on appelle la vue jaime
+ * pour réaliser le traitement, ensuite on renvoit les informations sur la prochaine personne présenté
+ */
 function dislike(id_perso){
 	$.post('http://localhost:8000/index/jaimepas',
     {

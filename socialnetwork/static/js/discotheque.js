@@ -1,3 +1,6 @@
+/*
+* Cette fonction utiliser afin de pouvoir récupérer la liste des personne présente en fonction de l'id_disco
+ */
 function present_person(id_disco){
     $.post('http://localhost:8000/index/personne_present_disco',
     {
@@ -6,7 +9,9 @@ function present_person(id_disco){
         $("#affichage_pers-" + id_disco).text(data);
     });
 }
-
+/**
+ * Cette fonction permet de remplir la table presentDisco en ajoutant l'id disco et l'id de la personne connecté
+ */
 function present(id_disco){
   $.post('http://localhost:8000/index/presentdisco',
     {
@@ -14,7 +19,9 @@ function present(id_disco){
     });
     alert("Votre enregistrement est pris en compte!")
 }
-
+/**
+ * Ces fonctions sont utilisé pour afficher les 5 étoiles (notes du bar/restaurant/discothèque)
+ */
 var __slice = [].slice;
 (function($, window) {
   var Starrr;

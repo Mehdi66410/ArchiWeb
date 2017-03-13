@@ -37,6 +37,11 @@ Maintenant que vous avez activé votre environnement virtuel (votre prompt **DOI
 Vérifiez que c'est bien le cas avec cette commande :
 
     python -c "import django; print(django.get_version())"
+    
+### Installation des packages nécéssaire
+
+Pour utiliser le site vous devez installez les packages requis :
+    pip install requirement.txt
 
 ### Créer la base de données
 

@@ -1,6 +1,6 @@
 # Architecture Web
 
-Il est tout d'abord nécessaire de créer son envirronnement virtuel.
+Il est tout d'abord nécessaire de créer son environnement virtuel.
 
 ### Créer son environnement virtuel
 
@@ -8,7 +8,7 @@ Placez-vous à la racine de votre compte en faisant :
 
     cd
 
-Ensuite, créez votre environnement virtuel (il doit porter votre nom de login spiXXX) :
+Ensuite, créez votre environnement virtuel :
 
     virtualenv -p /usr/bin/python3 env_archi
 

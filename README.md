@@ -1,48 +1,12 @@
 # Architecture Web
 
-Il est tout d'abord nécessaire de créer son environnement virtuel.
+Il est tout d'abord au préalable nécessaire d'avoir créé un environnement virtuel et d'avoir installer django.
 
-### Créer son environnement virtuel
-
-Placez-vous à la racine de votre compte en faisant :
-
-    cd
-
-Ensuite, créez votre environnement virtuel :
-
-    virtualenv -p /usr/bin/python3 env_archi
-
-Vérifiez que l'environnement a bien été créé :
-
-    ls -al env_archi/
-
-Pour pouvoir l'utiliser, vous allez devoir l'activer à chaque fois que vous vous connecterez sur 'env_archi' :
-
-    source env_archi/bin/activate
-
-Votre prompt devrait avoir changé et il devrait être préfixé par `(env_archi)` comme ceci :
-
-    (env_archi):~$
-
-### Installer django
-
-Maintenant que vous avez activé votre environnement virtuel (votre prompt **DOIT** etre préfixé par (env_archi), vous pouvez installer `Django` :
-
-    pip install Django
-
-Ça devrait vous afficher comme dernière ligne :
-
-    Successfully installed Django-1.10.5
-
-Vérifiez que c'est bien le cas avec cette commande :
-
-    python -c "import django; print(django.get_version())"
-    
 ### Installation des packages nécéssaire
 
-Pour utiliser le site vous devez installez les packages requis :
+Pour utiliser le site vous devez installer les packages requis :
 
-    pip install requirement.txt
+    pip install -r requirement.txt
 
 ### Créer la base de données
 

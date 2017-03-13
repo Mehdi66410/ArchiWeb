@@ -1,6 +1,6 @@
 # Architecture Web
 
-Il est tout d'abord au préalable nécessaire d'avoir créé un environnement virtuel et d'avoir installer django.
+Il est tout d'abord au préalable nécessaire d'avoir créé un environnement virtuel et d'avoir installé django.
 
 ### Installation des packages nécéssaire
 

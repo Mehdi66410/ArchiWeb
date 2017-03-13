@@ -140,3 +140,20 @@ $( document ).ready(function() {
   });
 });
 
+
+// Permet de mettre en actif le bouton restaurant
+$(document).ready(function () {
+  $(".sortie_bouton a").removeClass("en_cours");
+    $('#page_restaurant').addClass('en_cours');
+});
+
+// permet de switcher entre visible ou non d'un div
+function toggle(anId){
+  node = document.getElementById(anId);
+  if (node.style.display=="none"){
+    node.style.display = "";
+  }
+  else{
+    node.style.display = "none";
+  }
+}

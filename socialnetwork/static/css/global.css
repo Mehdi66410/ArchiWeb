@@ -1,4 +1,33 @@
-/*contour*/
+/*******************************************/
+
+/*CSS POUR BODY*/
+/*BODY*/
+html{
+  height: 100%;
+  margin: 0; padding: 0;
+}
+
+body {
+  display : table;
+  width: 100%;
+  height: 100%;
+  background:url('./images/background-3.jpeg');
+}
+
+footer {
+  display : table-row;
+  bottom: 0;
+}
+
+.container_principal{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*******************************************/
+
+/*CONTOURS*/
+/*coutour zone basique*/
 .contour_zone{
     padding: 20px;
     border-radius: 5px;
@@ -10,6 +39,7 @@
     margin:10px;
 }
 
+/*coutour zone pour titre*/
 .contour_zone_titre{
     color: #FFFFFF;
     font-family: 'Lobster', cursive;
@@ -18,6 +48,7 @@
     margin-bottom: 15px;
 }
 
+/*contour zone violet*/
 .contour_zone_violet{
     padding: 20px;
     padding-top:0;
@@ -30,6 +61,7 @@
     margin:10px;
 }
 
+/*contour zone bleu*/
 .contour_zone_bleu{
     padding: 20px;
     padding-top:0;
@@ -42,6 +74,7 @@
     margin:10px;
 }
 
+/*coutour zone sans margin*/
 .contour_zone_no_margin{
     border-radius: 5px;
     background-color: #2B2A29;
@@ -53,10 +86,12 @@
     padding:0:;
 }
 
+/*coutour zone avec cuseur en mode pointeur*/
 .contenu_zone_pointeur{
   cursor: pointer;
 }
 
+/*coutour zone spécial swap*/
 .contour_zone_swap{
     background-color: #2B2A29;
     border: 1px solid #FFFF00;
@@ -71,13 +106,15 @@
 
 /*******************************************/
 
-/*contenu*/
+/*CONTENU*/
+/*contenu basique*/
 .contenu_zone{
     font-size: 15pt;
     padding: 15px;
     text-align: center;
 }
 
+/*contenu avec option scroll*/
 .contenu_scroll{
     height:200pt;
     overflow:auto;
@@ -94,8 +131,9 @@
 
 /*******************************************/
 
-/*titre*/
+/*TITRE*/
 
+/*Titre pour chat à droite en gris*/
 .titre_zone_chat_droite{
     font-size: 15px;
     color:#000000;
@@ -108,6 +146,7 @@
     list-style: none;
 }
 
+/*Titre pour chat à gauche en bleu*/
 .titre_zone_chat_gauche{
     font-size: 15px;
     color:#000000;
@@ -120,24 +159,28 @@
     list-style: none;
 }
 
+/*Titre taille 12 sans soulignage*/
 .titre_zone12_NoUnderline{
     font-size: 12px;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
+/*Titre taille 15*/
 .titre_zone15{
     font-size: 15px;
     margin-top: 12px;
     margin-bottom: 5px;
 }
 
+/*Titre taille 15 sans soulignage*/
 .titre_zone15_NoUnderline{
     font-size: 15px;
     margin: 0;
     margin-bottom: 5px;
 }
 
+/*Titre taille 20 jaune*/
 .titre_zone20_jaune{
     font-size: 20px;
     margin: 0;
@@ -146,6 +189,7 @@
     color:#FFFF00;
 }
 
+/*Titre taille 20 souligné*/
 .titre_zone20{
     font-size: 20px;
     text-decoration: underline;
@@ -153,6 +197,7 @@
     margin-bottom: 10px;
 }
 
+/*Titre taille 25 blanc souligné*/
 .titre_zone25_blanc{
     margin:0;
     margin-bottom: 10px;
@@ -161,6 +206,7 @@
     color: #FFFFFF; 
 }
 
+/*Titre taille 25 jaune non souligné*/
 .titre_zone25_NoUnderline {
     color: #FFFF00;
     font-size: 25px;
@@ -168,6 +214,7 @@
     margin-bottom: 5px;
 }
 
+/*Titre taille 30 souligné*/
 .titre_zone30{
     font-size: 30px;
     text-decoration: underline;
@@ -175,6 +222,7 @@
     margin-bottom: 5px;
 }
 
+/*Titre taille 30 souligné*/
 .titre_zone30_border{
     font-size: 30px;
     text-decoration: underline;
@@ -184,64 +232,79 @@
 
 /*******************************************/
 
-/*bouton*/
+/*BOUTON*/
+
+/*Bouton couleur twitter*/
 .fa-twitter {
     color: #00aced;
 }
 
+/*Bouton couleur facebook*/
 .fa-facebook {
     color: #3b5998;
 }
 
+/*Bouton couleur google+*/
 .fa-google-plus {
     color: #c32f10;
 }
 
+/*Bouton couleur github*/
 .fa-github {
     color: #000000;
 }
 
+/*Bouton social*/
 .boutonSocial a {
     color: white;
     opacity:0.7;
 }
 
+/*Bouton social mode hover*/
 .boutonSocial a:hover {
     opacity:1; 
     color: white;     
 }
 
+/*Bouton social police blanc*/
 .boutonSocial .fa {
     color: white;
 }
 
+/*Bouton social couleur facebook*/
 .boutonSocial .omb_btn-facebook {
     background: #3b5998;
 }
 
+/*Bouton social couleur twitter*/
 .boutonSocial .omb_btn-twitter {
     background: #00aced;
 }
 
+/*Bouton social couleur google+*/
 .boutonSocial .omb_btn-google {
     background: #c32f10;
 }
 
+/*Bouton star*/
 .score_star{
     margin:20px;
 }
 
+/*addon vert success*/
 .input-group-addon.success {
     color: #FFFF00;
     background-color: #4BAE4F;
     border-color: #449d47;
 }
 
+/*Glyphicon jaune*/
 .glyphicon {
   color: #FFFF00;
   padding-right: 5px;
 }
 
+/*Bouton vert*/
 .btn_green {
     color: #FFFFFF;
     background-color: #4BAE4F;
@@ -252,6 +315,7 @@
     color: #FFFF00;
 }
 
+/*Bouton rouge*/
 .btn_red {
     color: #FFFFFF;
     background-color: #c32f10;
@@ -261,6 +325,8 @@
 .btn_red:hover{
     color: #FFFF00;
 }
+
+/*Bouton violet*/
 .btn_violet{
     color: #FFFFFF;
     background-color: #A569BD;
@@ -268,13 +334,13 @@
     opacity: 0.8;
     margin-bottom:10px;
 }
-
 .btn_violet:hover{
     color: #FFFFFF ;
     border-color: #FFFFFF;
     opacity: 1;
 }
 
+/*Bouton bleu*/
 .btn_blue{
     color: #FFFFFF;
     background-color: #0ea5f5;
@@ -288,6 +354,7 @@
     opacity: 1;
 }
 
+/*Bouton bleu foncé*/
 .btn_blue_dark {
     color: #FFFFFF;
     background-color: #428bca;
@@ -298,13 +365,13 @@
     color: #FFFF00;
 }
 
+/*Bouton gris et jaune*/
 .btn_dark{
     color: #FFFFFF;
     background-color: #2B2A29;
     border-color: #FFFF00;
     margin-bottom:20px;
 }
-
 .btn_dark:hover,
 .btn_dark:hover .glyphicon,
 .en_cours,
@@ -315,13 +382,15 @@
 
 /*******************************************/
 
-/*information*/
+/*INFORMATION*/
+/*Information basique*/
 .informationBase{
     color:#C0C0C0;
     font-size: 15px;
     margin-top: 20px;
 }
 
+/*Information pour description*/
 .description_comment{
     text-align: justify;
     text-justify: inter-word;
@@ -331,24 +400,27 @@
     padding:5px;
 }
 
+/*Informations homme bleu*/
 .sexeHomme {
     color: #00BFFF;
 }
 
+/*Informations femme rose*/
 .sexeFemme {
     color: #FF1493;
 }
 
 /*******************************************/
 
-/*image*/
-
+/*IMAGE*/
+/*Image 150*150*/
 .image150{
     height:150px;
     width:150px;
     margin-bottom: 10px;
 }
 
+/*Image 150*150 avec curseur en mode pointeur*/
 .image150Pointeur{
     height:150px;
     width:150px;
@@ -356,12 +428,14 @@
     cursor: pointer;
 }
 
+/*Image 250*250*/
 .image250{
     margin-top: 20px;
     height:250px;
     width:250px;
 }
 
+/*Image 250*250 avec curseur en mode pointeur*/
 .image250Pointeur{
     height:250px;
     width:250px;
@@ -369,6 +443,7 @@
     cursor: pointer;
 }
 
+/*Image 400*400*/
 .image400{
     height:400px;
     width:400px;
@@ -376,12 +451,14 @@
 
 /*******************************************/
 
-/*modal*/
+/*MODAL*/
+/*Bouton close en mode croix*/
 .close{
   color:#FFFF00;
   opacity: 0.9;
 }
 
+/*Panel en tete*/
 .panel_header{
   font-family: 'Lobster', cursive;
   background-color: #2b2a29;
@@ -391,26 +468,31 @@
   text-align: center;
 }
 
+/*Panel corps*/
 .panel-heading{
   border-bottom:1px solid #FFFF00;
   margin-bottom: 10px;
   text-align: center;
 }
 
+/*Panel opacity*/
 .dialog_opacity{
     opacity:0.9;
 }
+
+/*Panel taille 400*400*/
 .dialog_PP{
     width:400px;
 }
 
+/*Panel taille 400*400*/
 .dialog_ListeP{
     width:400px;
 }
 
 /*******************************************/
 
-/*well*/
+/*WELL*/
 .well_photo{
     color:#2B2A29;
     margin:0;
@@ -420,4 +502,235 @@
     opacity: 0.9;
     border-color: #4BAE4F;
     border-radius: 40px;
+}
+
+/*******************************************/
+
+/*CSS POUR HEADER*/
+/*HEADER*/
+.container_header .navbar-inverse {
+  background-color: #2b2a29;
+  border-color: #ffff00;
+  font-size: 12pt;
+  font-family: 'Lobster', cursive;
+  padding-right: 5px;
+}
+.container_header .navbar-inverse .navbar-brand {
+  color: #ffff00;
+  font-size: 20pt;
+  font-family: 'Lobster', cursive;
+  width: 200px;
+}
+.container_header .navbar-inverse .navbar-brand:hover,
+.container_header .navbar-inverse .navbar-brand:focus {
+  color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-text {
+  color: #FFFFFF;
+  margin-left: 15px;
+}
+.container_header .navbar-inverse .navbar-nav > li > a{
+  color: #FFFFFF;
+}
+.container_header .navbar-inverse .navbar-nav > li > a:hover,
+.container_header .navbar-inverse .navbar-nav > li > a:focus {
+  color: #ffff00;
+  text-decoration: underline;
+}
+.container_header .navbar-inverse .navbar-nav > .active > a,
+.container_header .navbar-inverse .navbar-nav > .active > a:hover,
+.container_header .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #ffff00;
+  background-color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-nav > .open > a,
+.container_header .navbar-inverse .navbar-nav > .open > a:hover,
+.container_header .navbar-inverse .navbar-nav > .open > a:focus {
+  color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-toggle {
+  border-color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-toggle:hover,
+.container_header .navbar-inverse .navbar-toggle:focus {
+  background-color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-collapse,
+.container_header .navbar-inverse .navbar-form {
+  border-color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-link {
+  color: #ffff00;
+}
+.container_header .navbar-inverse .navbar-link:hover {
+  color: #ffff00;
+}
+
+.container_header .navbar-inverse .navbar-btn {
+  margin-left: 15px;
+}
+
+.container_header .navbar-inverse .dropdown_sortie ul{
+  color: #FFFFFF;
+  background-color: #2b2a29;
+  border:1px solid #FFFF00;
+}
+
+.container_header .navbar-inverse .dropdown_sortie ul li > a{
+  color: #FFFFFF;
+}
+.container_header .navbar-inverse .dropdown_sortie ul li > a:hover,
+.container_header .navbar-inverse .dropdown_sortie ul li > a:focus {
+  color: #ffff00;
+  text-decoration: underline;
+  background: #2b2a29;
+}
+
+/*CONNEXION EN MODE DECONNECTE*/
+.container_header #login-dp{
+    min-width: 300px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:#2b2a29;
+    border-color: #ffff00;
+    margin-top: 3px;
+    opacity: 0.9;
+}
+.container_header #login-dp .help-block{
+    font-size:12px    
+}
+
+.container_header #login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+.container_header .pointeur_mdp{
+  cursor:pointer;
+}
+
+/*******************************************/
+
+/*CSS POUR FOOTER*/
+/*FOOTER*/
+.container_footer{
+  border: 1px solid #FFFF00;
+  border-radius: 3px;
+  background-color: #2b2a29;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0; padding: 0;
+  font-family: 'Lobster', cursive;
+  color:#FFFFFF;
+}
+
+.container_footer .fa {
+    opacity: 0.6;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 40px;
+}
+
+.container_footer .fa:hover{
+    opacity: 1;
+}
+
+/*******************************************/
+
+/*CSS POUR RENCONTRE*/
+.container_rencontre .panel-heading{
+  padding:15px;
+  margin:0;
+}
+
+.container_rencontre .panel-title{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.container_rencontre .panel-body{
+  border-top: 1px solid #FFFF00;
+  margin:auto;
+}
+
+/*SWITCH GENRE*/
+.container_rencontre .contour_zone_no_margin .switch_genre {
+  margin:0;
+  padding: 0;
+  padding-top: 5px;
+  margin-right: 15px;
+  display: inline-block;
+}
+.container_rencontre .contour_zone_no_margin .switch_genre input{
+  display: none;
+}
+
+.container_rencontre .contour_zone_no_margin .switch_genre i {
+  display: inline-block;
+  cursor: pointer;
+  padding-right: 20px;
+  transition: all ease 0.2s;
+  -webkit-transition: all ease 0.2s;
+  border-radius: 20px;
+}
+
+.container_rencontre .contour_zone_no_margin .switch_genre i:before {
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #FFFFFF; /*couleur rond switch*/
+}
+
+.container_rencontre .contour_zone_no_margin .switch_genre :checked + i {
+  padding-right: 0;
+  padding-left: 20px;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #00BFFF; }
+
+.container_rencontre .contour_zone_no_margin .switch_genre.femme :checked + i {
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #FF1493; }
+
+.container_rencontre .contour_zone_no_margin label {
+  display: block;
+  position: relative;
+  padding: 0.5rem 1rem;
+  line-height: 28px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.container_rencontre .contour_zone_no_margin label span {
+  display: inline-block;
+  margin-left: 5px;
+  line-height: 25px;
+  color: grey; /*couleur non choisi*/
+}
+
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i + .switch_homme,
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i:before,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i + .switch_homme,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i:before {
+  color: #00BFFF; 
+}
+
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i + .switch_femme,
+.container_rencontre .contour_zone_no_margin input[type="radio"]:checked + i:before,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i + .switch_femme,
+.container_rencontre .contour_zone_no_margin input[type="checkbox"]:checked + i:before {
+  color: #FF69B4 
+}
+
+/*******************************************/
+
+/*CSS POUR 404*/
+/*404*/
+.container_404 .div_404{
+    margin-top:80px;
+    margin-bottom: 20px;
 }

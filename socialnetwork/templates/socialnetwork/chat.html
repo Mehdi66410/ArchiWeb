@@ -11,10 +11,9 @@
 {% csrf_token %}
 
 {% block content %}
-	<script src="{% static 'js/chat.js' %}"></script>
-
-    <div class="container">
+	<div class="container">
 		<div class="row">
+			<!-- bouton retour affinités et bouton pour rafraichir la page -->
 			<div class="col-xs-offset-1 col-xs-10">
 				<div class="text-center row">
 					<a href="{% url 'affinite' %}" class="btn btn-lg btn_dark col-xs-offset-2 col-xs-3">
@@ -31,6 +30,7 @@
 	    	<div class="col-xs-offset-1 col-xs-10">
 	    		<div class="contour_zone">
 	                <div class="text-center">
+	                	<!-- nom de la personne avec qui le chat se déroule -->
 	                    <h1 class="titre_zone20"><span class="glyphicon glyphicon-comment"></span>Conversation avec
 	                    {% if affiniteInformation.first_name or affiniteInformation.last_name %}
                             {% if affiniteInformation.first_name %}
@@ -44,6 +44,7 @@
 	                    {% endif %}
 	                    </h1>
 	                </div>
+	                <!-- chargement des messages avec cette personne/ placement gauche ou droite -->
                     <div class="row contenu_scroll" id="div_scroll">
                         {% for obj in chat_message %}
                             {% if obj.emetteur.pk == user.pk %}
@@ -55,11 +56,7 @@
                             <li class="text-right titre_zone_chat_droite">Pas encore de messages entre vous..</li>
                         {% endfor %}
                     </div>
-                    <script type="text/javascript">
-                    	// scroll en bas à chaque fois
-        				element = document.getElementById('div_scroll');
-        				element.scrollTop = element.scrollHeight;
-                    </script> 
+                    <!-- formulaire pour envoyer le message -->
 	                <form  action="chat_post" class="form-horizontal" role="form" method="post">
 	                	{% csrf_token %}
 	                    <div class="input-group contenu_scroll_bottom">
@@ -74,11 +71,6 @@
 			</div>
 	   	</div>
 	</div>
-	<script>
-	    // Permet de mettre en actif le bouton de la navbar du header
-	    $(document).ready(function () {
-	      $(".nav li").removeClass("active");
-	      $('#page_affinite').addClass('active');
-	    });
-	</script>
+	<!-- chargement du script pour bouton navbar actif/bouton envoyer grisé/scroll en bas dans le chat -->
+	<script src="{% static 'js/chat.js' %}"></script>
 {% endblock content %}

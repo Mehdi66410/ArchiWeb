@@ -12,65 +12,70 @@
 {% csrf_token %}
 
 {% block menu_main %}
-    <script src="{% static 'js/restaurant.js' %}"></script>
-
-<div class="container">
+	<div class="container">
 	{% for resto in Restaurants %}
-	<div class="row" >
-		<div class="col-xs-offset-1 col-xs-10">
-			<div class="contour_zone">
-				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-md-6 text-center">
-						<img src="/media/{{ resto.picture }}" class="img-rounded image150" draggable="false" />
-                		<h1 class="titre_zone20">{{ resto.name }}</h1>
-                		<div class="informationBase">
-							<h5><span class="glyphicon glyphicon-map-marker"></span>{{resto.address}}</h5>
-							<h5><span class="glyphicon glyphicon-star-empty"></span> Specialité : {{resto.speciality}}</h5>
-							<h5><span class="glyphicon glyphicon-euro"></span> Prix moyen : {{resto.prix}} €</h5>
-							<div class="score_star">
-								<div id="stars-existing" class="starrr" data-rating='{{resto.notes}}' data-id='{{resto.id}}'></div>
-								{%if resto.notes %}
-									<h1 class="titre_zone15_NoUnderline">Note moyenne : <span id="count-existing-{{resto.id}}" >{{resto.notes}}</span>/5</h1>
-								{% else %}
-									<h1 class="titre_zone15_NoUnderline">Pas de notes disponible</h1>
-								{% endif %}
+		<div class="row" >
+			<!-- carte description d'un restaurant -->
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="contour_zone">
+					<div class="row">
+						<!-- partie informations du restaurant nom/adresse/spécialité/prix -->
+						<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+							<img src="/media/{{ resto.picture }}" class="img-rounded image150" draggable="false" />
+	                		<h1 class="titre_zone20">{{ resto.name }}</h1>
+	                		<div class="informationBase">
+								<h5><span class="glyphicon glyphicon-map-marker"></span>{{resto.address}}</h5>
+								<h5><span class="glyphicon glyphicon-star-empty"></span> Specialité : {{resto.speciality}}</h5>
+								<h5><span class="glyphicon glyphicon-euro"></span> Prix moyen : {{resto.prix}} €</h5>
+								<div class="score_star">
+									<!-- notation du restaurant avec systeme d'étoile -->
+									<div id="stars-existing" class="starrr" data-rating='{{resto.notes}}' data-id='{{resto.id}}'></div>
+									{%if resto.notes %}
+										<h1 class="titre_zone15_NoUnderline">Note moyenne : <span id="count-existing-{{resto.id}}" >{{resto.notes}}</span>/5</h1>
+									{% else %}
+										<h1 class="titre_zone15_NoUnderline">Pas de notes disponible</h1>
+									{% endif %}
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="informationBase text-center col-sm-6 col-md-6">
-						<h1 class="titre_zone20_jaune">Description du Restaurant</h1>
-						<p class="description_comment">{{resto.description}}</p>
-						</br>
-						<div>
-							{% for userPresent_obj in userPresent %}
-								{% if resto.id == userPresent_obj.id_restau.id%}
-								<script>
-									$(document).ready(function () {
-										$("#JV{{ resto.id }}").css("display", "none");
-										$("#JVP{{ resto.id }}").css("display", "");
-									});
-								</script>
-								{% endif %}
-							{% endfor %}
-
-							<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ resto.id }}" onclick="toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
-								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Aujourd'hui j'y vais !</span>
-							</button>
-							<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ resto.id }}" onclick=";toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
-								<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Je n'y vais plus?</span>
-							</button>
-
-	                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{resto.id}}" data-id="{{resto.id}}" onclick="present_person({{resto.id}})">
-								<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
-	                       	</button>
-	                    </div>
+						<!-- description du restaurant -->
+						<div class="informationBase text-center col-sm-6 col-md-6">
+							<h1 class="titre_zone20_jaune">Description du Restaurant</h1>
+							<p class="description_comment">{{resto.description}}</p>
+							</br>
+							<div>
+								<!-- recherche si personne va dans le restaurant pour choisir le bon bouton -->
+								{% for userPresent_obj in userPresent %}
+									{% if resto.id == userPresent_obj.id_restau.id%}
+									<script>
+										$(document).ready(function () {
+											$("#JV{{ resto.id }}").css("display", "none");
+											$("#JVP{{ resto.id }}").css("display", "");
+										});
+									</script>
+									{% endif %}
+								{% endfor %}
+								
+								<!-- affichage des boutons j'y vais ou je n'y vais plus en fonction du choix du user -->
+								<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ resto.id }}" onclick="toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
+									<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Aujourd'hui j'y vais !</span>
+								</button>
+								<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ resto.id }}" onclick=";toggle('JV{{ resto.id }}');toggle('JVP{{ resto.id }}');present( {{ resto.id }})">
+									<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Je n'y vais plus?</span>
+								</button>
+								
+								<!-- bouton personnes présentes au restaurant avec redirection modal -->
+		                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{resto.id}}" data-id="{{resto.id}}" onclick="present_person({{resto.id}})">
+									<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
+		                       	</button>
+		                    </div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-    <div class="container">
+		<!-- modal pour afficher les personnes présentes au restaurant -->
         <div class="modal fade" id="person_go{{resto.id}}" tabindex="-1" role="dialog" aria-labelledby="personModal" aria-hidden="true">
             <div class="modal-dialog dialog_ListeP dialog_opacity">
                 <div class="panel panel_header">
@@ -90,25 +95,9 @@
                 </div>
             </div>
         </div>
-    </div>
 	{% endfor %}
-</div>
-<script>
-    // Permet de mettre en actif le bouton restaurant
-    $(document).ready(function () {
-    	$(".sortie_bouton a").removeClass("en_cours");
-      	$('#page_restaurant').addClass('en_cours');
-    });
-
-    function toggle(anId){
-		node = document.getElementById(anId);
-		if (node.style.display=="none"){
-			node.style.display = "";
-		}
-		else{
-			node.style.display = "none";
-		}
-	}
-</script>	
-
+	</div>
+	
+	<!-- chargement script bouton navbar actif/div visible ou cachée/personne present dans le restaurant/notation du restaurant -->
+	<script src="{% static 'js/restaurant.js' %}"></script>
 {% endblock menu_main %}

@@ -11,11 +11,9 @@
 {% csrf_token %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
-    <script src="{% static 'js/rencontre.js' %}"></script>
-
     <div class="container_rencontre">
-         <div class="col-md-4 col-sm-6">
+        <div class="col-md-4 col-sm-6">
+            <!-- menu accordéon pour informations personnelles et recherche -->
             <div class="panel-group" id="accordion_rencontre">
                 <div class="panel contour_zone_no_margin">
                     <div class="panel-heading">
@@ -26,10 +24,12 @@
                         </h1>
                     </div>
                     <div id="collapseInfo" class="collapse in">
+                        <!-- informations personnelles du user genre/age/localisation/profession/description -->
                         <div class="panel-body row">
                             <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
                                     {% csrf_token %}
+                                    <!-- genre -->
                                     <h3 class="titre_zone15_NoUnderline"> Vous êtes.. ? </h3>
                                     <label class="switch_genre">
                                         <input type="radio" name="genre" {% if genrePerson == 'H' %} checked {% endif %} id="H" value="H">
@@ -41,16 +41,20 @@
                                         <i></i>
                                         <span class="switch_femme"> Femme </span>
                                     </label>
-
+                                    
+                                    <!-- age -->
                                     <h3 class="titre_zone15_NoUnderline"> Votre age.. ? </h3>
                                     {% bootstrap_field formInformationUser.age addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
-
+                                    
+                                    <!-- localisation -->
                                     <h3 class="titre_zone15_NoUnderline"> Votre localisation.. ? </h3>
                                     {% bootstrap_field formInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
+                                    <!-- profession -->
                                     <h3 class="titre_zone15_NoUnderline"> Votre profession.. ? </h3>
                                     {% bootstrap_field formInformationUser.profession addon_before='<span class="glyphicon glyphicon-briefcase"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
+                                    <!-- descrption -->
                                     {% bootstrap_field formInformationUser.description show_label=False%}
 
                                     {% bootstrap_button "Sauvegarder les changements" button_type="submit" button_class="btn btn_green col-xs-12 col-md-12" name='informationUser' %}
@@ -60,6 +64,7 @@
                     </div>
                 </div>
                 <div class="panel contour_zone_no_margin">
+                    <!-- informations de recherche genre/age/localisation-->
                     <div class="panel-heading">
                         <h1 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion_rencontre" href="#collapseRecherche">
@@ -72,6 +77,8 @@
                             <div class="col-xs-offset-1 col-md-10 col-xs-10 personal-info">
                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
                                     {% csrf_token %}
+
+                                    <!-- genre -->
                                     <h3 class="titre_zone15_NoUnderline"> Vous recherchez..? </h3>
                                     <label class="switch_genre">
                                         <input type="checkbox" name="genreM" {% if genreSearchM %} checked {% endif %} value="homme">
@@ -83,12 +90,16 @@
                                         <i></i>
                                         <span class="switch_femme"> Femme </span>
                                     </label>
+
+                                    <!-- localisation -->
                                     <h3 class="titre_zone15_NoUnderline"> Sa localisation..? </h3>
                                     {% bootstrap_field formSearchInformationUser.localisation placeholder='Localisation' addon_before='<span class="glyphicon glyphicon-map-marker"></span>' addon_before_class='input-group-addon success' show_label=False%}
                                     
+                                    <!-- age min -->
                                     <h3 class="titre_zone15_NoUnderline"> Son age min..? </h3>
                                     {% bootstrap_field formSearchInformationUser.ageMin addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
-                       
+                                    
+                                    <!-- age max -->
                                     <h3 class="titre_zone15_NoUnderline"> Son age max..? </h3>
                                     {% bootstrap_field formSearchInformationUser.ageMax addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False%}
 
@@ -102,115 +113,112 @@
         </div>
 
         <div class="col-md-8 col-sm-6">
-                <div class="contour_zone_swap"><span id="okok">
-                    {% if userSelect == None or userSelect == False %}
+            <!-- zone swap -->
+            <div class="contour_zone_swap">
+            <span id="okok">
+                {% if userSelect == None or userSelect == False %}
+                    <div class="text-center">
+                        <h1 class="titre_zone15_NoUnderline"> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </h1>
+                    </div>
+                {% elif swap %}
+                <div class="row">
+                    <div class='col-md-6 col-xs-12'>
+                        <!-- image de la personne proposée -->
+                        <div class="col-xs-offset-3 col-xs-6 col-sm-offset-1 col-sm-10 slide-row">
+                            {% if userPicture %}
+                                <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" id="imageUser" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                            {% else %}
+                                <div class="text-center"> 
+                                    <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
+                                </div>
+                            {% endif %}
+                        </div>                         
+                    </div>
+                    <div class="col-md-6 col-xs-12 text-center">
                         <div class="text-center">
-                            <h1 class="titre_zone15_NoUnderline"> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </h1>
-                        </div>
-                    {% elif swap %}
-                    <div class="row">
-                        <div class='col-md-6 col-xs-12'>
-                            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-1 col-sm-10 slide-row">
-                                {% if userPicture %}
-                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" id="imageUser" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                            <!-- nom de la personne proposée -->
+                            <span class="titre_zone20" id ="nom-{{userSelect.user.pk}}">
+                                {% if userInformation.first_name or userInformation.last_name %}
+                                    {% if userInformation.first_name %}
+                                        {{ userInformation.first_name }} 
+                                    {% endif %}
+                                    {% if userInformation.last_name %}
+                                        {{ userInformation.last_name }} 
+                                    {% endif %}
                                 {% else %}
-                                    <div class="text-center"> 
-                                        <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
-                                    </div>
+                                
+                                    {{userInformation.username }}
+             
                                 {% endif %}
-                            </div>                         
+                            </span>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-center">
-                            <div class="text-center">
-                                <span class="titre_zone20" id ="nom-{{userSelect.user.pk}}">
-                                    {% if userInformation.first_name or userInformation.last_name %}
-                                        {% if userInformation.first_name %}
-                                            {{ userInformation.first_name }} 
-                                        {% endif %}
-                                        {% if userInformation.last_name %}
-                                            {{ userInformation.last_name }} 
-                                        {% endif %}
-                                    {% else %}
-                                    
-                                        {{userInformation.username }}
-                 
-                                    {% endif %}
+                        <div class="informationBase">
+                            <!-- information de la personne proposée -->
+                            <p><span class="glyphicon glyphicon-user {% if userSelect.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}" ></span>
+                                <span id="genre-{{userSelect.user.pk}}">{{ userSelect.get_genre_display }}</span>
+                            </p>
+
+                            <p><span class="glyphicon glyphicon-gift" >
+                            </span>
+                                <span id="age-{{userSelect.user.pk}}"> {{ userSelect.age }} ans</span>
+                            </p>
+
+                            <p><span class="glyphicon glyphicon-map-marker"></span><span id="loc-{{userSelect.user.pk}}"> {{ userSelect.get_localisation_display }} </span></p>
+                            <p>
+                                <span class="glyphicon glyphicon-briefcase"></span><span  id="pro-{{userSelect.user.pk}}">
+                                {% if userSelect.profession %}
+                                    {{ userSelect.profession }}
+                                {% else %}
+                                    Pas de profession renseigné
+                                {% endif %}
                                 </span>
-                            </div>
-                             <div class="informationBase">
-                                <p><span  class="glyphicon glyphicon-user {% if userSelect.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}" ></span>
-                                    <span id="genre-{{userSelect.user.pk}}">{{ userSelect.get_genre_display }}</span>
-                                </p>
-
-                                <p><span class="glyphicon glyphicon-gift" >
+                            </p>
+                            <p class="description_comment">
+                                <span class="glyphicon glyphicon-comment" "></span><span id="desc-{{userInformation.id}}">
+                                {% if userSelect.profession %}
+                                    {{ userSelect.description }}
+                                {% else %}
+                                    Pas de description
+                                {% endif %}
                                 </span>
-                                    <span id="age-{{userSelect.user.pk}}"> {{ userSelect.age }} ans</span>
-                                </p>
-
-                                <p><span class="glyphicon glyphicon-map-marker"></span><span id="loc-{{userSelect.user.pk}}"> {{ userSelect.get_localisation_display }} </span></p>
-                                <p>
-                                    <span class="glyphicon glyphicon-briefcase"></span><span  id="pro-{{userSelect.user.pk}}">
-                                    {% if userSelect.profession %}
-                                        {{ userSelect.profession }}
-                                    {% else %}
-                                        Pas de profession renseigné
-                                    {% endif %}
-                                    </span>
-                                </p>
-                                <p class="description_comment">
-                                    <span class="glyphicon glyphicon-comment" "></span><span id="desc-{{userInformation.id}}">
-                                    {% if userSelect.profession %}
-                                        {{ userSelect.description }}
-                                    {% else %}
-                                        Pas de description
-                                    {% endif %}
-                                    </span>
-                                </p>
-                            </div>
-                            <div>
-                                    <button class="btn btn_red col-md-5 col-xs-offset-1 col-xs-10" onclick="dislike({{userInformation.id}})"><span class="glyphicon glyphicon-glyphicon glyphicon-remove-sign"></span> Ne me plait pas</button>
-
-                                    <button class="btn btn_green col-md-5 col-xs-offset-1 col-xs-10" onclick="like({{userInformation.id}})">
-                                        <span class="glyphicon glyphicon-glyphicon glyphicon-heart"></span> Me plait beaucoup
-
-                                    </button>
-                            </div>
+                            </p>
+                        </div>
+                        <div>
+                            <!-- bouton like et dislike pour la personne proposée -->
+                            <button class="btn btn_red col-md-5 col-xs-offset-1 col-xs-10" onclick="dislike({{userInformation.id}})"><span class="glyphicon glyphicon-glyphicon glyphicon-remove-sign"></span> Ne me plait pas</button>
+                            <button class="btn btn_green col-md-5 col-xs-offset-1 col-xs-10" onclick="like({{userInformation.id}})">
+                                <span class="glyphicon glyphicon-glyphicon glyphicon-heart"></span> Me plait beaucoup
+                            </button>
                         </div>
                     </div>
-                    {% else %}
-                        <div class="text-center">
-                            <h1 class="titre_zone15_NoUnderline">Il faut compléter toutes les informations pour accéder au swap. </h1>
-                        </div>
-                    {% endif %}
-                </div></span>
+                </div>
+                {% else %}
+                    <div class="text-center">
+                        <h1 class="titre_zone15_NoUnderline">Il faut compléter toutes les informations pour accéder au swap. </h1>
+                    </div>
+                {% endif %}
             </div>
+            </span>
         </div>
     </div>
 
     <!-- Modal pour afficher les photos en grand -->
-    <div class="container">
-        <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
-            <div class="modal-dialog dialog_PP">
-                <div class="panel panel_header">
-                    <div class="panel-heading">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
-                    </div>
-                    <div class="modal-content">
-                        <img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
-                    </div>
+    <div class="modal fade" id="modal_image_profil" tabindex="-1" role="dialog" aria-labelledby="modalImage" aria-hidden="true">
+        <div class="modal-dialog dialog_PP">
+            <div class="panel panel_header">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Photo de profil</h1>
+                </div>
+                <div class="modal-content">
+                    <img src="{{ MEDIA_URL }}{{ picture.picture.url }}" class="avatar img-thumbnail image400" alt="avatar">
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Permet de mettre en actif le bouton de la navbar du header
-        $(document).ready(function () {
-          $(".nav li").removeClass("active");
-          $('#page_rencontre').addClass('active');
-        });
-    </script>
+    
+    <!-- chargement du script pour bouton navbar actif/ action bouton j'aime ou j'aime pas-->
+    <script src="{% static 'js/rencontre.js' %}"></script>
 {% endblock content %}
 
 

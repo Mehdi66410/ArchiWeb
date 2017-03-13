@@ -26,13 +26,19 @@ localisation_=72
 
 @login_required
 def affinite(request):
+	# Récupération de l'utilisateur
 	utilisateur = User.objects.get(pk=request.user.id)
+	# Récupération des affinités où l'utilisateur est l'ajouteur ou l'ajouté et où les confirmation sont a true
 	affinite = Affinite.objects.filter(Q(ajouteur=utilisateur, ajouteurConfirm=True, ajouteConfirm=True) | Q(ajoute=utilisateur, ajouteurConfirm=True, ajouteConfirm=True))
+	# Récupération des informations des utilisateurs
 	userInformation = InformationUser.objects.all()
+	# Récupération des photos de profil des utilisateurs
 	userPicture = PictureUser.objects.all()
 	try:
+		# Vérification que le nombre d'affinité est supérieur à 0
 		affinite[0]
 	except IndexError:
+		# Si aucune affinité
 		messages.add_message(request, messages.ERROR, "Vous ne possédez aucune affinité")
 		messages.add_message(request, messages.WARNING, "N'hésitez pas à aller dans la partie rencontre pour liker des profils")
 	return render(request, 'socialnetwork/affinite.html', {'affinite': affinite, 'userInformation': userInformation,'userPicture':userPicture})
@@ -92,6 +98,9 @@ def chat_post(request):
 		return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
 	return redirect(affinite)
 
+# Vue gérant la connexion de l'utilisateur avec le formulaire manuel
+# Si authentification correct redirection vers le site
+# Sinon affichage d'un message d'erreur + redirection vers l'index
 def connexion(request):
 	if request.method == 'POST':
 		formLogin = loginForm(request.POST)
@@ -112,6 +121,9 @@ def connexion(request):
 def csrf_failure(request, reason=""):
 	return  HttpResponseForbidden("Access denied")
 
+# Vue gérant la déconnexion de l'utilisateur
+# Si déconnexion, redirection vers index + message de confirmation
+# Sinon, redirection vers connexion si l'utilisateur n'est pas connecté sinon vers le menu du site
 def deconnexion(request):
 	if request.method == 'POST':
 		logout(request)
@@ -131,12 +143,13 @@ def discotheque(request):
 	sortieForme = sortieForm(request.POST)
 	return render(request, 'socialnetwork/discotheque.html',{'Discotheques': Discotheques,'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
+# Vue gérant l'édition des informations (Nom, Prenom, Mail, Mot de passe, Pseudo) de l'utilisateur et sa photo de profil
 def editerProfil(request):
 	if request.method == 'POST':
+		# Si la vue recoit une demande de modificaiton de la photo de profil
 		if "uploadPicture" in request.POST:
 			formUploadPicture = uploadPictureForm(request.POST,request.FILES)
 			if formUploadPicture.is_valid():
-				
 				try : 
 					picture = PictureUser.objects.get(user=User.objects.get(pk=request.user.id))
 					picture.picture.delete()
@@ -149,24 +162,20 @@ def editerProfil(request):
 		else:
 			formUploadPicture = uploadPictureForm()
 
+		# Si la vue recoit une demande de modification des informations du profil
 		if "modifInfo" in request.POST:
 			formUpdateProfil = updateProfilForm(request.POST)
 			user = User.objects.get(pk=request.user.id)
-				
 			if request.POST['firstname']:
 				user.first_name = request.POST['firstname']
-				
 			if request.POST['lastname']:
 				user.last_name = request.POST['lastname']
-				
 			if request.POST['password']:
 				user.set_password(request.POST['password'])
-
 			user.email = request.POST['email']
 			user.pseudo = request.POST['username']
 			user.save()
 			messages.add_message(request, messages.SUCCESS, "Vos informations sont bien sauvegardées!")
-
 		else:
 			formUpdateProfil = updateProfilForm({'firstname': request.user.first_name, 'lastname': request.user.last_name, 'username': request.user.username, 'email': request.user.email})
 	
@@ -190,6 +199,8 @@ def index(request):
 	else:
 		return redirect(deconnexion)
 
+# Vue gérant l'inscription manuelle de l'utilisateur
+# Une vérification dans la base sur le pseudo est faite avant l'inscription
 def inscription(request):
 	if request.method == 'POST':
 		form = registerForm(request.POST)
@@ -488,12 +499,14 @@ def presentrestau(request):
 		present_count = presentRestau.objects.filter(id_restau=restau_present).count()
 		return HttpResponse(present_count)
 
+# Vue gérant la page rencontre
 @login_required
 def rencontre(request):
 	swap = True
 
 	utilisateur = User.objects.get(pk=request.user.id)
 	if request.method == 'POST':
+		# Si l'utilisateur veux modifier ces informations personnelles
 		if "informationUser" in request.POST:
 			formInformationUser = informationUserForm(request.POST)
 			if formInformationUser.is_valid():
@@ -515,6 +528,7 @@ def rencontre(request):
 		else:
 			formInformationUser = informationUserForm()
 
+		# Si l'utilisateur veux modifier ces critères de recherche
 		if "searchInformationUser" in request.POST:
 			formSearchInformationUser = searchInformationUserForm(request.POST)
 			if formSearchInformationUser.is_valid():
@@ -558,7 +572,7 @@ def rencontre(request):
 		else:
 			formSearchInformationUser = searchInformationUserForm()
 
-    # On essaye de récupérer les informations de l'utilisateur pour compléter les formulaires
+    # On essaye de récupérer les informations de l'utilisateur pour compléter le formulaire
 	try:
 		informationUser = InformationUser.objects.get(user=utilisateur)
 		genreUser = informationUser.genre
@@ -568,6 +582,7 @@ def rencontre(request):
 		swap = False
 		formInformationUser = informationUserForm()
 
+	# On essaye de recupérer les critères de recherche de l'utilisateur pour compléter le formulaires
 	try:
 		searchInformationUser = SearchInformationUser.objects.get(user=utilisateur)
 		genreSearchF = searchInformationUser.genreF
@@ -581,8 +596,6 @@ def rencontre(request):
 	
 	# Si toutes les informations de l'utilisateur sont complétés, on lui propose le swap
 	if swap:
-		#messages.add_message(request, messages.SUCCESS,searchInformationUser.genreF)
-		
 		# On récupère la liste des affinités que l'utilisateur a déjà eu
 		listeUserAffinite = []
 		try :
@@ -594,7 +607,6 @@ def rencontre(request):
 					listeUserAffinite.append(affinite.ajouteur)
 		except Affinite.DoesNotExist:
 			affinites = False
-
 		# On récupère la liste des utilisateurs correspondant aux critères de recherches
 		try:
 			if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
@@ -607,12 +619,10 @@ def rencontre(request):
 				listeUserSelect = False
 		except InformationUser.DoesNotExist:
 			listeUserSelect = False
-
 		# On exclue les utilisateurs ayant déja eu une affinité avec
 		if len(listeUserAffinite) >= 0:
 			for affinite in listeUserAffinite:
 				listeUserSelect = listeUserSelect.exclude(user=affinite)
-			
 			# On récupère la première affinité renvoyée
 			try:
 				userSelect = listeUserSelect.first()
@@ -620,7 +630,7 @@ def rencontre(request):
 				userSelect = False
 		else:
 			userSelect = False
-
+		# Si un utilisateur a été sélectionné, on récupère ses informations et sa photo
 		if userSelect:
 			try: 
 				userInformation = User.objects.get(pk=userSelect.user.pk)
@@ -639,9 +649,9 @@ def rencontre(request):
 		userSelect = False
 		userInformation = False
 		userPicture = False
-		# Il est nécéssaire de compléter toutes les information pour pouvoir accéder au SWAP
 		messages.add_message(request, messages.ERROR, "Il est nécéssaire de completer toutes les informations pour pouvoir accéder au swap.")
 
+	# Photo de profil par défault si l'utilisateur n'en a pas ajouté
 	if userPicture == False:
 		userPicture = PictureUser(picture="/upload/profilePictureOriginal.jpg")
 
@@ -726,20 +736,3 @@ def starsRestau(request):
 	restaurant.notes=moy
 	restaurant.save()
 	return HttpResponse(moy)
-
-#Vérifier si l'utilisateur est connecté
-#Exclure l'utilisateur
-#Exclure les utilisateurs avec qui il est déjà amis
-def listUser(request):
-	users  = User.objects.all().exclude(is_staff=True)
-	return render(request, 'socialnetwork/listUser.html', {'users': users})
-
-#Vérifier si l'utilisateur est connecté
-#Ajouter dans la base si tous les champs sont bon
-def addFriend(request):
-	if request.method == 'POST':
-		form = request.POST
-		#if form.is_valid():
-	return redirect(listUser)
-
-

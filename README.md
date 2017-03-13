@@ -53,11 +53,10 @@ Mettre yes
 
 ### Importer les fixtures
 
-    python manage.py makemigrations socialnetwork
+    python manage.py migrate
 
     python manage.py loaddata projet/fixtures/baseComplete.yaml 
     
-    python manage.py migrate
 
 ### Démarrer le serveur
 

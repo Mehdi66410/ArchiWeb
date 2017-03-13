@@ -11,12 +11,13 @@
 {% csrf_token %}
 
 {% block content %}
-	<div class="container_affinite">
+	<div class="container">
 		{% for affinite_obj in affinite %}
 			<!-- carte description de l'affinité simple -->
 	    	<div class="col-xs-12 col-sm-6 col-md-4">
 	    		<div class="contour_zone">
 	                <div class="text-center">
+	                	<!-- nom de l'affinité -->
 	                    <h1 class="titre_zone20">
 	                    	{% if affinite_obj.ajouteur.pk == user.pk%}
 		                   		{% if affinite_obj.ajoute.first_name or affinite_obj.ajoute.last_name %}
@@ -44,6 +45,7 @@
 	                    </h1>
 	                </div>
 	                <div class="contenu_zone row">
+	                	<!-- image de l'affinité -->
 	                	<div class='col-sm-7'>
 	                	{% for picture in userPicture %}
 							{% if affinite_obj.ajouteur.pk == user.pk and picture.user.pk == affinite_obj.ajoute.pk  or affinite_obj.ajoute.pk == user.pk and picture.user.pk == affinite_obj.ajouteur.pk %}
@@ -55,7 +57,8 @@
 							<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image150" alt="avatar">
 		            	{% endfor %}
 		            	</div>
-
+						
+						<!-- informations simples de l'affinité -->
 			            <div class="informationBase col-sm-5">
 			            	{% for information in userInformation %}
 			                	{% if affinite_obj.ajouteur.pk == user.pk and information.user.pk == affinite_obj.ajoute.pk or affinite_obj.ajoute.pk == user.pk and information.user.pk == affinite_obj.ajouteur.pk  %}
@@ -72,9 +75,11 @@
 		                    {% endfor %}
 			            </div>
 		            </div>
+		            <!-- bouton plus d'informations avec redirection modal -->
 		            <a data-toggle="modal" data-target="#profil_complet{{affinite_obj.pk}}" class="btn btn_dark col-xs-offset-3 col-xs-6">
 	                    <span class="glyphicon glyphicon-resize-full"></span><span> + d'informations </span>
 	                </a>
+	                <!-- formulaire pour suppression affinité ou ouverture chat -->
 	                <div class="row">
                         <form action="affinite_suppr" class="form-horizontal" role="form" method="post">
                             {% csrf_token %}
@@ -90,7 +95,6 @@
 	    		</div>
 			</div>
 
-
 			<!-- Modal pour afficher le profil complet -->
 		    <div class="modal fade" id="profil_complet{{affinite_obj.pk}}" tabindex="-1" role="dialog" aria-labelledby="profilLabel" aria-hidden="true">
 		        <div class="modal-dialog dialog_opacity">
@@ -99,7 +103,8 @@
 		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Profil complet</h1>
 		                </div>
-		                <div class="modal_body row">
+		                <div class="modal_body row">	
+		                	<!-- photo de l'affinité avec redirection modal -->
 		                	<div class="col-sm-6 col-xs-5">
 			                	{% for picture in userPicture %}
 									{% if affinite_obj.ajouteur.pk == user.pk and picture.user.pk == affinite_obj.ajoute.pk  or affinite_obj.ajoute.pk == user.pk and picture.user.pk == affinite_obj.ajouteur.pk %}
@@ -111,6 +116,7 @@
 									<img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil{{affinite_obj.pk}}">
 				            	{% endfor %}
 			                </div>
+			                <!-- informations completes de l'affinité -->
 			                <div class="col-sm-6 col-xs-7 text-center">
 				                <div class="text-center">
 				                    <h1 class="titre_zone20">
@@ -185,9 +191,11 @@
 		            </div>
 		        </div>
 		    </div>
+
+		<!-- si aucune affinité, petit message d'avertissement -->
 		{% empty %}
-			<div class="container_affinite">
-			<!-- carte description de l'affinité simple -->
+			<div class="container">
+				<!-- petit message aucune affinité-->
 		    	<div class="col-xs-12 col-sm-6 col-md-4">
 		    		<div class="contour_zone">
 		                <div class="text-center">
@@ -198,8 +206,8 @@
 		    		</div>
 				</div>
 			</div>
+
 		{% endfor %}
-	   	</div>
 	</div>
 
 	<script>

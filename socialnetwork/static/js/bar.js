@@ -130,7 +130,6 @@ $(function() {
 });
 
 $( document ).ready(function() {
-      
   $('#stars').on('starrr:change', function(e, value){
     $('#count').html(value);
   });
@@ -139,4 +138,23 @@ $( document ).ready(function() {
     $('#count-existing').html(value);
   });
 });
+
+
+
+// Permet de mettre en actif le bouton bar
+$(document).ready(function () {
+  $(".sortie_bouton a").removeClass("en_cours");
+    $('#page_bar').addClass('en_cours');
+});
+
+// permet de switcher entre visible ou non d'un div
+function toggle(anId){
+  node = document.getElementById(anId);
+  if (node.style.display=="none"){
+    node.style.display = "";
+  }
+  else{
+    node.style.display = "none";
+  }
+}
 

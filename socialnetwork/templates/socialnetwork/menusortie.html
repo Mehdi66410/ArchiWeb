@@ -11,13 +11,12 @@
 {% csrf_token %}
 
 {% block content %}
-    <script src="{% static 'js/menusortie.js' %}"></script>
-          
 	<div class="container">
 		<div class="row">
-			<!-- carte description de l'affinité simple -->
+			<!-- zone contenant les boutons de redirection vers les différentes sorties et le choix de la localisation -->
 	    	<div class="col-xs-offset-1 col-xs-10">
 	    		<div class="contour_zone">
+	    			<!-- bouton bar/restaurant/discotheque -->
 	                <div class="row sortie_bouton">
 	                	<a href="{% url 'bar' %}" id="page_bar" class="btn btn-lg btn_dark col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-2 en_cours">
 	                		<span class="glyphicon glyphicon-glass"></span><span class="hidden-xs hidden-sm">Bar</span>
@@ -32,6 +31,7 @@
 		            <div class="text-center">
 	                    <h1 class="titre_zone20">Choisissez une localisation pour votre recherche..</h1>
 	                </div>
+	                <!-- formulaire pour le changement de localisation, affichage en fonction -->
 	                <div class="row">
 	                    <form method="post" action="changementloc">
                        		{% csrf_token %}
@@ -54,11 +54,6 @@
 	<!-- contenu de la page en plus du menu du dessus -->
 	{% endblock menu_main %}
 
-	<script>
-	    // Permet de mettre en actif le bouton de la navbar du header
-	    $(document).ready(function () {
-	      $(".nav li").removeClass("active");
-	      $('#page_sortie').addClass('active');
-	    });
-	</script>
+	<!-- chargement du script pour bouton navbar actif/changer localisation -->
+	<script src="{% static 'js/menusortie.js' %}"></script>
 {% endblock content %}

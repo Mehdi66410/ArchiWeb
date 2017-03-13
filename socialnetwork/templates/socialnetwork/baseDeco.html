@@ -12,6 +12,7 @@
 {% block header %}
     <header>
         <div class="container_header">
+        <!-- container contenant la navbar en mode déconnecté -->
             <nav class="navbar navbar-inverse navbar-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -21,10 +22,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <!-- titre du site -->
                         <a class="navbar-brand" href="{% url 'index' %}">Vis Ton Meeting</a>
                     </div>
                     <div id="navbarHeader" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
+                            <!-- bouton connexion avec menu deroulant pour se connecter au site -->
                             <li>
                                 <span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Avez vous déjà un compte?</span>
                             </li>
@@ -34,13 +37,15 @@
                                     <li>
                                         <div class="row">
                                             <div class="col-xs-12">
+                                                <!-- formulaire de connexion pseudo/mdp -->
                                                 <form class="form" role="form" method="post" action="connexion" accept-charset="UTF-8" id="login-nav">
-                                            {% csrf_token %}
+                                                    {% csrf_token %}
                                                     <div class="form-group">
                                                         {% bootstrap_field formLogin.username placeholder='Pseudo' addon_before='<span class="glyphicon glyphicon-user"></span>' addon_before_class='input-group-addon success' show_label=False %}
                                                     </div>
                                                     <div class="form-group">
                                                         {% bootstrap_field formLogin.password placeholder='Mot de passe' addon_before='<span class="glyphicon glyphicon-lock"></span>' addon_before_class='input-group-addon success'                      show_label=False%}
+                                                        <!-- mot de passe oublié avec redirection vers modal -->
                                                         <div class="help-block text-right">
                                                             <a class="pointeur_mdp" data-toggle="modal" data-target="#mdp_oublie">Mot de passe oublié ?</a>
                                                         </div>
@@ -71,6 +76,7 @@
                         <h4 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Besoin de réinitialiser votre mot de passe?</h4>
                         <h5>Nous vous enverrons un mail pour connaître votre nouveau mot de passe..</h5>
                     </div>
+                    <!-- formulaire du mot de passe oublié pseudo adresse email pour envoie par mail du nouveau mdp -->
                     <form class="form" role="form" method="post" action="mdp_oublie" accept-charset="UTF-8" id="login-nav">
                         {% csrf_token %}
                         <div class="modal_body">

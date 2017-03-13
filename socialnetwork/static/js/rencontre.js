@@ -1,5 +1,4 @@
 function like(id_perso){
-
     $.post('http://localhost:8000/index/jaime',
     {
         id_perso : id_perso
@@ -8,7 +7,6 @@ function like(id_perso){
             $("#okok").text(data);
         }
         else{
-
             var obj = JSON.parse(data);
             $("#nom-"+ id_perso).html(obj.nom);
             $("#genre-"+ id_perso).html(obj.genre);
@@ -30,7 +28,6 @@ function dislike(id_perso){
             $("#okok").text(data);
         }
         else{
-
             var obj = JSON.parse(data);
             $("#nom-"+ id_perso).html(obj.nom);
             $("#genre-"+ id_perso).html(obj.genre);
@@ -42,3 +39,9 @@ function dislike(id_perso){
         }
     });
 }
+
+// Permet de mettre en actif le bouton de la navbar du header
+$(document).ready(function () {
+  $(".nav li").removeClass("active");
+  $('#page_rencontre').addClass('active');
+});

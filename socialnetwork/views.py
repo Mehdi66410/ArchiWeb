@@ -205,7 +205,7 @@ def affinite_suppr(request):
 
 @login_required
 def chat(request):
-	if "chat_open" in request.POST:
+	if "chat_open" in request.POST or "refresh" in request.POST:
 		affinite_chat=Affinite.objects.get(pk=request.POST['id_affinite'])
 		chat_message = Chat.objects.filter(Q(emetteur=affinite_chat.ajouteur, recepteur=affinite_chat.ajoute) | Q(emetteur=affinite_chat.ajoute,recepteur=affinite_chat.ajouteur)).order_by('pk')
 		utilisateur = User.objects.get(pk=request.user.id)
@@ -213,7 +213,7 @@ def chat(request):
 		if affiniteInformation == utilisateur:
 			affiniteInformation = User.objects.get(pk=affinite_chat.ajoute.id)
 		return render(request, "socialnetwork/chat.html", {'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
-	return HttpResponse("")
+	return HttpResponse("Doit passer par le menu affinité pour accéder à ce chat")
 
 @login_required
 def chat_post(request):
@@ -228,8 +228,8 @@ def chat_post(request):
 		if msg != '':
 			c = Chat(emetteur=utilisateur,recepteur=affiniteInformation, message=msg)
 			c.save()
-	return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
-
+		return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
+	return HttpResponse("Doit passer par le menu affinité pour accéder à ce chat")
 @login_required
 def rencontre(request):
 	swap = True

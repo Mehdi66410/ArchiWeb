@@ -7,6 +7,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponseRedirect
 # Importation des modèles
 from django.contrib.auth.models import User
+import json
 
 from django.db.models import Q
 from django.db.models import Count, F,FloatField, Sum
@@ -230,6 +231,156 @@ def chat_post(request):
 			c.save()
 		return render(request, "socialnetwork/chat.html",{'affinite_chat':affinite_chat,'chat_message': chat_message,'affiniteInformation': affiniteInformation})
 	return HttpResponse("Doit passer par le menu affinité pour accéder à ce chat")
+
+actual_user_renc = None
+@csrf_exempt
+def jaimepas(request):
+	global actual_user_renc
+	utilisateur_co = User.objects.get(pk=request.user.id)
+	if(actual_user_renc == None):
+		actual_user_renc = User.objects.get(pk=request.POST['id_perso'])
+	nb_affinite_user = Affinite.objects.filter(ajouteur=utilisateur_co,ajoute=actual_user_renc,ajouteurConfirm=False,ajouteConfirm=False).count()
+	if(nb_affinite_user==0):
+		affiniteee = Affinite(ajouteur=utilisateur_co, ajoute=actual_user_renc, ajouteurConfirm=False, ajouteConfirm=False)
+		affiniteee.save()
+
+	informationUser = InformationUser.objects.get(user=utilisateur_co)
+	genreUser = informationUser.genre
+	searchInformationUser = SearchInformationUser.objects.get(user=utilisateur_co)
+	listeUserAffinite = []
+	
+	affinites = Affinite.objects.filter(ajouteur=utilisateur_co).all()
+	for affinite in affinites:
+		if affinite.ajouteur == utilisateur_co:
+			listeUserAffinite.append(affinite.ajoute)
+		elif affinite.ajoute == utilisateur_co:
+			listeUserAffinite.append(affinite.ajouteur)
+
+	if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).all()
+	elif searchInformationUser.genreF == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='F').all()
+	elif searchInformationUser.genreM == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='H').all()
+	else:
+		listeUserSelect = False
+# On exclue les utilisateurs ayant déja eu une affinité avec
+	if len(listeUserAffinite) > 0:
+
+		for affinite in listeUserAffinite:
+			listeUserSelect = listeUserSelect.exclude(user=affinite)
+
+		# On récupère la première affinité renvoyée
+		userSelect = listeUserSelect.first()
+		if(userSelect!=None):
+			actual_user_renc = User.objects.get(pk=userSelect.user.id)
+		else :
+			actual_user_renc=None
+	else:
+		userSelect = False
+	if(userSelect!=None):
+		genre_ = userSelect.genre
+		local_ = userSelect.localisation
+		try:
+			userPicture = PictureUser.objects.get(user=userSelect.user.id)
+			photo = userPicture.picture
+			photo = "/media/" + str(photo)
+		except PictureUser.DoesNotExist:
+			userPicture = False
+			photo = "/media/upload/profilePictureOriginal.jpg"
+		if(genre_=="F"):
+			genre_="Femme"
+		else:
+			genre_="Homme"
+		if(local_==72):
+			local_="Sarthe"
+		elif(local_==53):
+			local_="Mayenne"
+		elif(local_==49):
+			local_="Maine et Loire"
+		elif(local_==85):
+			local_="Vendée"
+		else :
+			local_="Loire Atlantique"
+
+		information_new = {'nom' : str(userSelect.user),'genre' : genre_, 'age' : str(userSelect.age) + " ans", 'loc' : local_ , 'pro' : str(userSelect.profession), 'pic':photo,'des':str(userSelect.description)} 
+		return HttpResponse(json.dumps(information_new))
+	return HttpResponse("Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard.")
+
+@csrf_exempt
+def jaime(request):
+	global actual_user_renc
+	utilisateur_co = User.objects.get(pk=request.user.id)
+	if(actual_user_renc == None):
+		actual_user_renc = User.objects.get(pk=request.POST['id_perso'])
+	nb_affinite_user = Affinite.objects.filter(ajouteur=utilisateur_co,ajoute=actual_user_renc,ajouteurConfirm=True,ajouteConfirm=False).count()
+	if(nb_affinite_user==0):
+		affiniteee = Affinite(ajouteur=utilisateur_co, ajoute=actual_user_renc, ajouteurConfirm=True, ajouteConfirm=False)
+		affiniteee.save()
+
+	informationUser = InformationUser.objects.get(user=utilisateur_co)
+	genreUser = informationUser.genre
+	searchInformationUser = SearchInformationUser.objects.get(user=utilisateur_co)
+	listeUserAffinite = []
+	
+	affinites = Affinite.objects.filter(ajouteur=utilisateur_co).all()
+	for affinite in affinites:
+		if affinite.ajouteur == utilisateur_co:
+			listeUserAffinite.append(affinite.ajoute)
+		elif affinite.ajoute == utilisateur_co:
+			listeUserAffinite.append(affinite.ajouteur)
+
+	if searchInformationUser.genreF == True and searchInformationUser.genreM == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).all()
+	elif searchInformationUser.genreF == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='F').all()
+	elif searchInformationUser.genreM == True:
+		listeUserSelect = InformationUser.objects.filter(age__range=(searchInformationUser.ageMin, searchInformationUser.ageMax)).filter(localisation=searchInformationUser.localisation).exclude(user=utilisateur_co).filter(genre='H').all()
+	else:
+		listeUserSelect = False
+# On exclue les utilisateurs ayant déja eu une affinité avec
+	if len(listeUserAffinite) > 0:
+
+		for affinite in listeUserAffinite:
+			listeUserSelect = listeUserSelect.exclude(user=affinite)
+
+		# On récupère la première affinité renvoyée
+		userSelect = listeUserSelect.first()
+		if(userSelect!=None):
+			actual_user_renc = User.objects.get(pk=userSelect.user.id)
+		else :
+			actual_user_renc=None
+	else:
+		userSelect = False
+	if(userSelect!=None):
+		genre_ = userSelect.genre
+		local_ = userSelect.localisation
+		try:
+			userPicture = PictureUser.objects.get(user=userSelect.user.id)
+			photo = userPicture.picture
+			photo = "/media/" + str(photo)
+		except PictureUser.DoesNotExist:
+			userPicture = False
+			photo = "/media/upload/profilePictureOriginal.jpg"
+		if(genre_=="F"):
+			genre_="Femme"
+		else:
+			genre_="Homme"
+		if(local_==72):
+			local_="Sarthe"
+		elif(local_==53):
+			local_="Mayenne"
+		elif(local_==49):
+			local_="Maine et Loire"
+		elif(local_==85):
+			local_="Vendée"
+		else :
+			local_="Loire Atlantique"
+
+		information_new = {'nom' : str(userSelect.user),'genre' : genre_, 'age' : str(userSelect.age) + " ans", 'loc' : local_ , 'pro' : str(userSelect.profession), 'pic':photo,'des':str(userSelect.description)} 
+		return HttpResponse(json.dumps(information_new))
+	return HttpResponse("Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard.")
+
 @login_required
 def rencontre(request):
 	swap = True

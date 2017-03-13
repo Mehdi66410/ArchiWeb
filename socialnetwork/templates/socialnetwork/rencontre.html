@@ -12,7 +12,7 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/rencontre.css' %}">
-
+    <script src="{% static 'js/rencontre.js' %}"></script>
 
     <div class="container_rencontre">
          <div class="col-md-4 col-sm-6">
@@ -102,7 +102,7 @@
         </div>
 
         <div class="col-md-8 col-sm-6">
-                <div class="contour_zone_swap">
+                <div class="contour_zone_swap"><span id="okok">
                     {% if userSelect == None or userSelect == False %}
                         <div class="text-center">
                             <h1 class="titre_zone15_NoUnderline"> Aucun profil n'a été trouvé, n'hésitez pas a réessayer plus tard. </h1>
@@ -112,15 +112,17 @@
                         <div class='col-md-6 col-xs-12'>
                             <div class="col-xs-offset-3 col-xs-6 col-sm-offset-1 col-sm-10 slide-row">
                                 {% if userPicture %}
-                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                    <img src="{{ MEDIA_URL }}{{ userPicture.picture.url }}" id="imageUser" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
                                 {% else %}
-                                    <img src="/media/upload/profilePictureOriginal.jpg" class="avatar img-circle img-thumbnail image250Pointeur" alt="avatar" data-toggle="modal" data-target="#modal_image_profil">
+                                    <div class="text-center"> 
+                                        <h1 class="titre_zone15_NoUnderline">Aucune image pour ce profil...</h1>
+                                    </div>
                                 {% endif %}
                             </div>                         
                         </div>
                         <div class="col-md-6 col-xs-12 text-center">
                             <div class="text-center">
-                                <h1 class="titre_zone20">
+                                <span class="titre_zone20" id ="nom-{{userSelect.user.pk}}">
                                     {% if userInformation.first_name or userInformation.last_name %}
                                         {% if userInformation.first_name %}
                                             {{ userInformation.first_name }} 
@@ -129,48 +131,58 @@
                                             {{ userInformation.last_name }} 
                                         {% endif %}
                                     {% else %}
+                                    
                                         {{userInformation.username }}
+                 
                                     {% endif %}
-                                </h1>
+                                </span>
                             </div>
-                            <div class="informationBase">
-                                <p><span class="glyphicon glyphicon-user {% if userSelect.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}"></span> {{ userSelect.get_genre_display }} </p>
-                                <p><span class="glyphicon glyphicon-gift"></span>{{ userSelect.age }} ans </p>
-                                <p><span class="glyphicon glyphicon-map-marker"></span> {{ userSelect.get_localisation_display }} </p>
+                             <div class="informationBase">
+                                <p><span  class="glyphicon glyphicon-user {% if userSelect.genre == 'H' %} sexeHomme {% else %} sexeFemme {% endif %}" ></span>
+                                    <span id="genre-{{userSelect.user.pk}}">{{ userSelect.get_genre_display }}</span>
+                                </p>
+
+                                <p><span class="glyphicon glyphicon-gift" >
+                                </span>
+                                    <span id="age-{{userSelect.user.pk}}"> {{ userSelect.age }} ans</span>
+                                </p>
+
+                                <p><span class="glyphicon glyphicon-map-marker"></span><span id="loc-{{userSelect.user.pk}}"> {{ userSelect.get_localisation_display }} </span></p>
                                 <p>
-                                    <span class="glyphicon glyphicon-briefcase"></span> 
+                                    <span class="glyphicon glyphicon-briefcase"></span><span  id="pro-{{userSelect.user.pk}}">
                                     {% if userSelect.profession %}
                                         {{ userSelect.profession }}
                                     {% else %}
                                         Pas de profession renseigné
                                     {% endif %}
+                                    </span>
                                 </p>
                                 <p class="description_comment">
-                                    <span class="glyphicon glyphicon-comment"></span> 
+                                    <span class="glyphicon glyphicon-comment" "></span><span id="desc-{{userInformation.id}}">
                                     {% if userSelect.profession %}
                                         {{ userSelect.description }}
                                     {% else %}
                                         Pas de description
                                     {% endif %}
+                                    </span>
                                 </p>
                             </div>
                             <div>
-                                 <form action="rencontre" class="form-horizontal" role="form" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="ajoute" value="{{userSelect.user.pk}}"/>
-                                    {% bootstrap_button "Ne me plait pas" button_type="submit" button_class="btn btn_red col-md-5 col-xs-offset-1 col-xs-10" name='plaitPas' icon='glyphicon glyphicon-remove-sign' %}
+                                    <button class="btn btn_red col-md-5 col-xs-offset-1 col-xs-10" onclick="dislike({{userInformation.id}})"><span class="glyphicon glyphicon-glyphicon glyphicon-remove-sign"></span> Ne me plait pas</button>
 
-                                    {% bootstrap_button "Me plait beaucoup" button_type="submit" button_class="btn btn_green col-md-5 col-xs-offset-1 col-xs-10" name='plait' icon='glyphicon glyphicon-heart' %}
-                                </form>
+                                    <button class="btn btn_green col-md-5 col-xs-offset-1 col-xs-10" onclick="like({{userInformation.id}})">
+                                        <span class="glyphicon glyphicon-glyphicon glyphicon-heart"></span> Me plait beaucoup
+
+                                    </button>
                             </div>
                         </div>
                     </div>
                     {% else %}
                         <div class="text-center">
-                            <h1 class="titre_zone15_NoUnderline">Il faut compléter toutes les informatiosn pour accéder au swap. </h1>
+                            <h1 class="titre_zone15_NoUnderline">Il faut compléter toutes les informations pour accéder au swap. </h1>
                         </div>
                     {% endif %}
-                </div>
+                </div></span>
             </div>
         </div>
     </div>

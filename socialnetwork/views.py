@@ -60,11 +60,10 @@ def affinite_suppr(request):
 @login_required
 def bar(request):
 	Bars = Bar.objects.filter(localisation=localisation_)
-	Bar_like = LikeBar.objects.all()
 	present = presentBar.objects.all()
 	userPresent=presentBar.objects.filter(id_person=request.user.id)
 	sortieForme = sortieForm(request.POST)
-	return render(request, 'socialnetwork/bar.html',{'Bars': Bars, 'Bar_like': Bar_like, 'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
+	return render(request, 'socialnetwork/bar.html',{'Bars': Bars,'sortieForme': sortieForme, 'present': present,'userPresent':userPresent})
 
 #Fonction qui modifie la localisation et qui renvoit sur la page précédente
 @csrf_exempt

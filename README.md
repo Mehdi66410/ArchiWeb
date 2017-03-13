@@ -16,7 +16,7 @@ Vérifiez que l'environnement a bien été créé :
 
     ls -al env_archi/
 
-Pour pouvoir l'utiliser, vous allez devoir l'activer à chaque fois que vous vous connecterez sur `mordor` comme ceci :
+Pour pouvoir l'utiliser, vous allez devoir l'activer à chaque fois que vous vous connecterez sur 'env_archi' :
 
     source env_archi/bin/activate
 

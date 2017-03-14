@@ -39,13 +39,13 @@ Site fonctionnel.
 ### Quelques remarques
 
 * Base de données
-..* Une vingtaine de comptes ont été créé afin que le site soit testable malgré cette petite base de données.
-..* Notre base de données est ciblée sur les Pays de la Loire mais susceptible de contenir des informations de la France entière. 
+ * Une vingtaine de comptes ont été créé afin que le site soit testable malgré cette petite base de données.
+ * Notre base de données est ciblée sur les Pays de la Loire mais susceptible de contenir des informations de la France entière. 
 
 * Mot de passe oublié
-..* L'envoi du mail indiquant le nouveau mot de passe en cas d'oublie est généré dans le terminal afin d'empêcher l'envoi de réel mail.
+ * L'envoi du mail indiquant le nouveau mot de passe en cas d'oublie est généré dans le terminal afin d'empêcher l'envoi de réel mail.
 
 * Chat entre affinités
-..* Le chat entre deux affinités doit être actualisé via le bouton "Acutaliser". Les messages ne sont pas rechargés automatiquement à interval de temps régulier.
+ * Le chat entre deux affinités doit être actualisé via le bouton "Acutaliser". Les messages ne sont pas rechargés automatiquement à interval de temps régulier.
 
 

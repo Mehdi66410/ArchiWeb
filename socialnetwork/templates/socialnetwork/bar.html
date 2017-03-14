@@ -28,7 +28,7 @@
 								<h5><span class="glyphicon glyphicon-euro"></span> Prix moyen : {{bar.prix}} €</h5>
 								<!-- notation du bar avec systeme d'étoile -->
 								<div class="score_star">
-									<div id="stars-existing" class="starrr" data-rating='{{bar.notes}}' data-id='{{bar.id}}'></div>
+									<div id="stars-existing" class="starrr" data-rating='{{bar.notes}}' data-id='{{bar.id}}' data-place='bar'></div>
 									{%if bar.notes %}
 										<h1 class="titre_zone15_NoUnderline">Note moyenne : <span id="count-existing-{{bar.id}}" >{{bar.notes}}</span>/5</h1>
 									{% else %}
@@ -55,15 +55,15 @@
 									{% endif %}
 								{% endfor %}
 								<!-- affichage des boutons j'y vais ou je n'y vais plus en fonction du choix du user -->
-								<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ bar.id }}" onclick="toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }})">
+								<button class="btn btn_blue_dark col-xs-5" style="display:"";" id="JV{{ bar.id }}" onclick="toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }},'bar')">
 									<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Aujourd'hui j'y vais !</span>
 								</button>
-								<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ bar.id }}" onclick=";toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }})">
+								<button class="btn btn_red col-xs-5" style="display:none;" id="JVP{{ bar.id }}" onclick=";toggle('JV{{ bar.id }}');toggle('JVP{{ bar.id }}');present( {{ bar.id }},'bar')">
 									<span class="glyphicon glyphicon-road"></span><span class="hidden-xs hidden-sm">Je n'y vais plus?</span>
 								</button>
 								
 								<!-- bouton personnes présentes au bar avec redirection modal -->
-		                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{bar.id}}" data-id="{{bar.id}}" onclick="present_person({{bar.id}})">
+		                       	<button class="btn btn_green col-xs-offset-2 col-xs-5"  data-toggle="modal" data-target="#person_go{{bar.id}}" data-id="{{bar.id}}" onclick="present_person({{bar.id}},'bar')">
 									<span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-xs"> Personnes présentes </span>
 		                       	</button>
 		                    </div>
@@ -97,5 +97,5 @@
 	</div>
 
 	<!-- chargement script bouton navbar actif/div visible ou cachée/personne present dans le bar/notation du bar -->
-	<script src="{% static 'js/bar.js' %}"></script>
+	<script src="{% static 'js/sortie.js' %}"></script>
 {% endblock menu_main %}

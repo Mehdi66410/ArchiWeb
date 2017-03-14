@@ -439,7 +439,7 @@ def page_not_found(request):
 @csrf_exempt
 @login_required
 def personne_present_bar(request):
-	present = presentBar.objects.values_list('id_person_id',flat=True).filter(id_bar=request.POST['id_bar']) #present[0] contient id première personne qui y va 
+	present = presentBar.objects.values_list('id_person_id',flat=True).filter(id_bar=request.POST['id_place']) #present[0] contient id première personne qui y va 
 	liste = []
 	for id_pers in present:
 		pers = User.objects.values_list('username',flat=True).filter(pk=id_pers)
@@ -469,7 +469,7 @@ def personne_present_disco(request):
 @csrf_exempt
 @login_required
 def personne_present_restau(request):
-	present = presentRestau.objects.values_list('id_person_id',flat=True).filter(id_restau=request.POST['id_restau']) #present[0] contient id première personne qui y va 
+	present = presentRestau.objects.values_list('id_person_id',flat=True).filter(id_restau=request.POST['id_place']) #present[0] contient id première personne qui y va 
 	liste = []
 	for id_pers in present:
 		pers = User.objects.values_list('username',flat=True).filter(pk=id_pers)
@@ -484,7 +484,7 @@ def personne_present_restau(request):
 @csrf_exempt
 def present(request):
 	if request.method == 'POST':
-		bar_present = Bar.objects.get(pk=request.POST['id_bar'])
+		bar_present = Bar.objects.get(pk=request.POST['id_place'])
 		person_present = User.objects.get(pk=request.user.id)
 		present_personne = presentBar(id_person=person_present, id_bar=bar_present)
 		present_count_bar_person = presentBar.objects.filter(id_bar=bar_present,id_person=person_present).count()
@@ -516,7 +516,7 @@ def presentdisco(request):
 @csrf_exempt
 def presentrestau(request):
 	if request.method == 'POST':
-		restau_present = Restaurant.objects.get(pk=request.POST['id_restau'])
+		restau_present = Restaurant.objects.get(pk=request.POST['id_place'])
 		person_present = User.objects.get(pk=request.user.id)
 		present_personne = presentRestau(id_person=person_present, id_restau=restau_present)
 		present_count_restau_person = presentRestau.objects.filter(id_restau=restau_present,id_person=person_present).count()
@@ -700,7 +700,7 @@ def restaurant(request):
 @login_required
 def stars(request):
 	valueStar = request.POST['value']
-	id_barr = Bar.objects.get(pk=request.POST['id_barr'])
+	id_barr = Bar.objects.get(pk=request.POST['id_place'])
 	utilisateur = User.objects.get(pk=request.user.id)
 	try:
 		if request.POST['value']:
@@ -715,7 +715,7 @@ def stars(request):
 	s=starBar.objects.filter(id_bar=id_barr).aggregate(somme_note_bar=Sum('notes'))
 	total_note = float(s['somme_note_bar'])
 	moy=float(total_note/nb_bar)
-	bar = Bar.objects.get(pk=request.POST['id_barr'])
+	bar = Bar.objects.get(pk=request.POST['id_place'])
 	bar.notes=moy
 	bar.save()
 	return HttpResponse(moy)
@@ -725,7 +725,7 @@ def stars(request):
 @login_required
 def starsDisco(request):
 	valueStar = request.POST['value']
-	id_disco = Discotheque.objects.get(pk=request.POST['id_disco'])
+	id_disco = Discotheque.objects.get(pk=request.POST['id_place'])
 	utilisateur = User.objects.get(pk=request.user.id)
 	try:
 		if request.POST['value']:
@@ -740,7 +740,7 @@ def starsDisco(request):
 	s=starDiscotheque.objects.filter(id_disco=id_disco).aggregate(somme_note_disco=Sum('notes'))
 	total_note = float(s['somme_note_disco'])
 	moy=float(total_note/nb_disco)
-	discotheque = Discotheque.objects.get(pk=request.POST['id_disco'])
+	discotheque = Discotheque.objects.get(pk=request.POST['id_place'])
 	discotheque.notes=moy
 	discotheque.save()
 	return HttpResponse(moy)
@@ -750,7 +750,7 @@ def starsDisco(request):
 @login_required
 def starsRestau(request):
 	valueStar = request.POST['value']
-	id_resta = Restaurant.objects.get(pk=request.POST['id_restau'])
+	id_resta = Restaurant.objects.get(pk=request.POST['id_place'])
 	utilisateur = User.objects.get(pk=request.user.id)
 	try:
 		if request.POST['value']:
@@ -765,7 +765,7 @@ def starsRestau(request):
 	s=starRestaurant.objects.filter(id_restau=id_resta).aggregate(somme_note_restau=Sum('notes'))
 	total_note = float(s['somme_note_restau'])
 	moy=float(total_note/nb_restau)
-	restaurant = Restaurant.objects.get(pk=request.POST['id_restau'])
+	restaurant = Restaurant.objects.get(pk=request.POST['id_place'])
 	restaurant.notes=moy
 	restaurant.save()
 	return HttpResponse(moy)

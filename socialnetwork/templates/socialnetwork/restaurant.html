@@ -97,7 +97,12 @@
         </div>
 	{% endfor %}
 	</div>
-	
-	<!-- chargement script bouton navbar actif/div visible ou cachée/personne present dans le restaurant/notation du restaurant -->
-	<script src="{% static 'js/sortie.js' %}"></script>
+
+	<script>
+		// Permet de mettre en actif le bouton restaurant
+		$(document).ready(function () {
+		  $(".sortie_bouton a").removeClass("en_cours");
+		    $('#page_restaurant').addClass('en_cours');
+		});
+	</script>
 {% endblock menu_main %}

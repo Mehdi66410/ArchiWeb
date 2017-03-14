@@ -12,13 +12,16 @@ Pour utiliser le site vous devez installer les packages requis :
 
 Il est nécessaire de créer la base de données :
 
-    python manage.py flush
+    python manage.py makemigrations socialnetwork
+    
+    python manage.py sqlmigrate socialnetwork 00xx
+    
+    python manage.py migrate
     
 Mettre yes
 
 ### Importer les fixtures
 
-    python manage.py migrate
 
     python manage.py loaddata projet/fixtures/baseComplete.yaml 
     

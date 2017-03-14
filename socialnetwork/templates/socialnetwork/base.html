@@ -20,7 +20,7 @@
             <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
             <!-- css -->
-            <link rel="stylesheet" href="{% static 'css/global.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/global.css' %}">
             
             <!-- js internet -->
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -34,9 +34,6 @@
         {% bootstrap_messages %}
 
         <div class="container_principal">
-            <div id="loader">
-                <span class="loader loader-quart"></span>
-            </div>
             {% block content %}
                 <!-- contenu de la page en fonction de la page -->
             {% endblock content %}
@@ -61,7 +58,7 @@
     </body>
     <script type="text/javascript">
         $(document).ready(function(){
-           $("#loader").fadeOut(500);
+           $("#loader").fadeOut(1000);
         })
     </script>
 </html>

@@ -4,9 +4,9 @@ Il est tout d'abord au préalable nécessaire d'avoir créé un environnement vi
 
 ### Installation des packages nécéssaire
 
-Pour utiliser le site vous devez installer les packages requis :
+Pour utiliser le site vous devez installer les packages requis dans le dossier de l'environnement virtuel:
 
-    pip install -r requirement.txt
+    pip install -r requirements.txt
 
 ### Créer la base de données
 
@@ -14,7 +14,7 @@ Il est nécessaire de créer la base de données :
 
     python manage.py makemigrations socialnetwork
     
-    python manage.py sqlmigrate socialnetwork 00xx
+    python manage.py sqlmigrate socialnetwork 0001
     
     python manage.py migrate
     

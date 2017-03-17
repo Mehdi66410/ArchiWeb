@@ -18,7 +18,6 @@ Il est nécessaire de créer la base de données :
     
     python manage.py migrate
     
-Mettre yes
 
 ### Importer les fixtures
 
